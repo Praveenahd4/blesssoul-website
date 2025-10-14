@@ -821,6 +821,7 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     gap: var(--spacing-md);
     margin-top: var(--spacing-md);
+    flex-wrap: wrap;
 }
 
 .social-link {
@@ -829,11 +830,14 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: center;
     width: 44px;
     height: 44px;
+    min-width: 44px;
+    min-height: 44px;
     background: rgba(255, 255, 255, 0.1);
     border-radius: 50%;
     color: var(--gray-400);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     text-decoration: none;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .social-link:hover {
@@ -843,9 +847,19 @@ h1, h2, h3, h4, h5, h6 {
     box-shadow: 0 8px 20px rgba(255, 122, 61, 0.4);
 }
 
+.social-link:active {
+    transform: translateY(-2px) scale(1.05);
+}
+
 .social-link svg {
     width: 20px;
     height: 20px;
+    display: block;
+    fill: currentColor;
+}
+
+.social-link svg path {
+    fill: currentColor;
 }
 
 .footer-links {

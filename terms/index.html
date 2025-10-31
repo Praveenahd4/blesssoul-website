@@ -11,9 +11,20 @@
     <link rel="stylesheet" href="../styles.css">
     <style>
         .legal-page {
-            padding: calc(80px + 3rem) 0 3rem;
+            padding: calc(80px + 3rem) 1.5rem 3rem;
             max-width: 900px;
             margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .legal-page {
+                padding: calc(80px + 2rem) 1.25rem 2rem;
+            }
+            .legal-page h1 {
+                font-size: 2rem;
+            }
+            .legal-page h2 {
+                font-size: 1.5rem;
+            }
         }
         .legal-page h1 {
             font-family: 'Playfair Display', serif;
@@ -125,830 +136,1153 @@
 
     <main class="legal-page container">
         <h1>Terms of Service for BlessSoul</h1>
-        <p class="updated">Effective Date: January 1, 2025 | Last Updated: October 31, 2025</p>
-
-        <div class="notice-box">
-            <p><strong>IMPORTANT NOTICE:</strong> This is a solo developer operation with limited resources. By using BlessSoul, you acknowledge and agree to the limitations described herein.</p>
-        </div>
-
-        <div class="toc-container">
-            <h2>Table of Contents</h2>
-            <ol>
-                <li><a href="#agreement">Agreement to Terms</a></li>
-                <li><a href="#solo-developer">Solo Developer Disclosure and Limitations</a></li>
-                <li><a href="#eligibility">Eligibility</a></li>
-                <li><a href="#subscription">Subscription and Payment</a></li>
-                <li><a href="#account-access">Account Access and Data Retention</a></li>
-                <li><a href="#user-account">User Account and Management</a></li>
-                <li><a href="#ai-content-disclosure">AI-Generated Content Disclosure</a></li>
-                <li><a href="#acceptable-use">Acceptable Use</a></li>
-                <li><a href="#intellectual-property">Intellectual Property</a></li>
-                <li><a href="#data-privacy">Data and Privacy</a></li>
-                <li><a href="#third-party">Third-Party Services</a></li>
-                <li><a href="#health-disclaimer">Health & Wellness Disclaimer</a></li>
-                <li><a href="#financial-disclaimer">Financial Information Disclaimer</a></li>
-                <li><a href="#manifestation-disclaimer">Manifestation & Spiritual Practices Disclaimer</a></li>
-                <li><a href="#ai-templates">AI-Generated Content & Templates</a></li>
-                <li><a href="#ios-permissions">iOS Permissions</a></li>
-                <li><a href="#notification-disclaimer">Notification Disclaimer</a></li>
-                <li><a href="#mental-health-crisis">Mental Health Crisis Resources</a></li>
-                <li><a href="#disclaimers">Disclaimers and Limitations of Liability</a></li>
-                <li><a href="#indemnification">Indemnification</a></li>
-                <li><a href="#service-availability">Service Availability and Modifications</a></li>
-                <li><a href="#governing-law">Governing Law and Dispute Resolution</a></li>
-                <li><a href="#general">General Provisions</a></li>
-                <li><a href="#contact">Contact Information</a></li>
-                <li><a href="#changes">Changes to Terms</a></li>
-                <li><a href="#acknowledgment">Acknowledgment and Acceptance</a></li>
-                <li><a href="#apple-requirements">Apple-Specific Requirements</a></li>
-                <li><a href="#quick-reference">Quick Reference Guide</a></li>
-            </ol>
-        </div>
-
-        <h2 id="agreement">Agreement to Terms</h2>
-
-        <p>These Terms of Service ("Terms") govern your access to and use of the BlessSoul mobile application ("App," "Service," or "BlessSoul"), developed and operated by <strong>Praveena Hosuru Dinesh Bhat</strong>, a sole proprietor and individual developer based in Shivamogga, Karnataka, India ("we," "our," or "us").</p>
-
-        <p><strong>BY CREATING AN ACCOUNT OR USING BLESSSOUL, YOU AGREE TO BE BOUND BY THESE TERMS.</strong> If you do not agree to these Terms, do not use the App.</p>
-
-        <h2 id="solo-developer">1. Solo Developer Disclosure and Limitations</h2>
-
-        <h3>1.1 One-Person Operation</h3>
-
-        <p><strong>IMPORTANT DISCLOSURE:</strong> BlessSoul is developed, operated, and maintained by <strong>one individual developer</strong>. This means:</p>
-
-        <ul>
-            <li><strong>Limited availability:</strong> Support is provided on a best-effort basis during business hours (Monday-Friday, 9 AM - 5 PM India Standard Time)</li>
-            <li><strong>Not 24/7 service:</strong> Responses to support requests may take 2-5 business days</li>
-            <li><strong>Service interruptions possible:</strong> Maintenance, updates, or unforeseen circumstances may cause temporary outages</li>
-            <li><strong>Limited resources:</strong> As a solo operation, resources for development, support, and infrastructure are constrained</li>
-            <li><strong>Personal circumstances:</strong> Service may be affected by illness, emergencies, or other personal circumstances beyond developer's control</li>
-        </ul>
-
-        <h3>1.2 Best-Effort Service</h3>
-
-        <p>The Service is provided on a <strong>best-effort basis</strong>. While we strive for reliability and quality:</p>
-
-        <ul>
-            <li>We cannot guarantee 100% uptime or availability</li>
-            <li>Features may take time to develop or implement</li>
-            <li>Bug fixes and updates follow a reasonable timeline given resource constraints</li>
-            <li>Support requests are handled in order received, subject to developer availability</li>
-        </ul>
-
-        <h3>1.3 No Enterprise-Level Commitments</h3>
-
-        <p>BlessSoul is <strong>NOT an enterprise-level service</strong>. We do not provide:</p>
-
-        <ul>
-            <li>Service Level Agreements (SLAs)</li>
-            <li>Guaranteed uptime percentages</li>
-            <li>Dedicated support representatives</li>
-            <li>Priority support tiers</li>
-            <li>Real-time support or instant responses</li>
-        </ul>
-
-        <h2 id="eligibility">2. Eligibility</h2>
-
-        <h3>2.1 Age Requirement</h3>
-        <p>You must be at least <strong>13 years of age</strong> to use BlessSoul. By using the App, you represent and warrant that you meet this age requirement.</p>
-
-        <h3>2.2 Account Responsibility</h3>
-        <ul>
-            <li>You are responsible for maintaining the confidentiality of your account credentials</li>
-            <li>You agree to notify us immediately of any unauthorized access to your account</li>
-            <li>You are responsible for all activities that occur under your account</li>
-        </ul>
-
-        <h2 id="subscription">3. Subscription and Payment</h2>
-
-        <h3>3.1 Subscription Requirement</h3>
-        <p>BlessSoul is a <strong>subscription-based service</strong>. Access to the App's features requires an active paid subscription after the free trial period ends.</p>
-
-        <h3>3.2 Free Trial</h3>
-        <ul>
-            <li><strong>New users</strong> receive a <strong>7-day free trial</strong> with full access to all features</li>
-            <li>No payment is required during the trial period</li>
-            <li>You can cancel anytime during the trial without being charged</li>
-            <li>If you do not cancel before the trial ends, your subscription will automatically begin and you will be charged</li>
-            <li>Only one free trial per user (based on Apple ID)</li>
-        </ul>
-
-        <h3>3.3 Subscription Plans</h3>
-
-        <p>We offer the following subscription options (pricing in USD; may vary by region):</p>
-
-        <ul>
-            <li><strong>Monthly:</strong> $12.99/month (billed every month, 7-day free trial for new users)</li>
-            <li><strong>Quarterly:</strong> $29.99 every 3 months (save ~23%, 7-day free trial for new users) - <strong>Most Popular</strong></li>
-            <li><strong>Yearly:</strong> $99.99/year (save ~36%, 7-day free trial for new users) - <strong>Best Value</strong></li>
-        </ul>
-
-        <p><strong>IMPORTANT:</strong> All prices are displayed in the App and may vary based on your region and local currency.</p>
-
-        <h3>3.4 Payment Processing</h3>
-        <ul>
-            <li>All payments are processed through <strong>Apple's App Store</strong></li>
-            <li>We do <strong>NOT</strong> receive, store, or have access to your payment card details</li>
-            <li>Subscriptions automatically renew unless canceled at least 24 hours before the end of the current period</li>
-            <li>Payment is charged to your Apple ID account at confirmation of purchase</li>
-        </ul>
-
-        <h3>3.5 Subscription Management</h3>
-        <ul>
-            <li>You can manage or cancel your subscription through your Apple ID account settings</li>
-            <li>To cancel: Settings → Apple ID → Subscriptions → BlessSoul → Cancel Subscription</li>
-            <li>Cancellation takes effect at the end of the current billing period</li>
-            <li><strong>No refunds are provided for partial subscription periods</strong></li>
-        </ul>
-
-        <h3>3.6 Refund Policy</h3>
-
-        <div class="warning-box">
-            <p><strong>ALL SALES ARE FINAL.</strong></p>
-            <ul>
-                <li>Refunds are subject <strong>exclusively to Apple's App Store refund policy</strong></li>
-                <li>To request a refund, contact <strong>Apple Support directly</strong> (NOT us)</li>
-                <li>We do <strong>NOT</strong> process refunds outside of Apple's system</li>
-                <li>We have <strong>NO ABILITY</strong> to issue refunds for App Store purchases</li>
-                <li>Apple may grant refunds at their discretion within 90 days of purchase</li>
-            </ul>
-        </div>
-
-        <h2 id="account-access">4. Account Access and Data Retention</h2>
-
-        <h3>4.1 Active Subscription</h3>
-        <p>With an active subscription, you have full read and write access to all features. Your data is stored securely and synced across your devices (if iCloud is enabled).</p>
-
-        <h3>4.2 Subscription Expiration - Grace Period</h3>
-
-        <p>If your subscription expires and is not renewed:</p>
-
-        <p><strong>Day 0-29 (Grace Period):</strong></p>
-        <ul>
-            <li>Your account enters <strong>Read-Only Mode</strong></li>
-            <li>You can <strong>view all your existing data</strong> but cannot create or edit content</li>
-            <li>You'll see prompts encouraging you to resubscribe</li>
-            <li>Your data remains secure and accessible</li>
-        </ul>
-
-        <p><strong>Day 30 (Final Day - Account Deletion):</strong></p>
-        <ul>
-            <li>Your account will be <strong>automatically and permanently deleted</strong></li>
-            <li>All data is <strong>irreversibly removed</strong> (cannot be recovered)</li>
-            <li>This includes: goals, diary entries, schedules, manifestations, reminders, and all user-generated content</li>
-        </ul>
-
-        <p><strong>Important:</strong> You will receive email notifications warning you of expiration and upcoming deletion. Resubscribing at any time before day 30 restores full access immediately.</p>
-
-        <h2 id="user-account">5. User Account and Management</h2>
-
-        <h3>5.1 Account Creation</h3>
-        <ul>
-            <li>You must provide accurate and complete information when creating an account</li>
-            <li>You must use a valid email address that you can access</li>
-            <li>You agree to keep your account information up to date</li>
-        </ul>
-
-        <h3>5.2 Account Security</h3>
-        <ul>
-            <li>You are responsible for choosing a strong password</li>
-            <li>Do not share your account credentials with others</li>
-            <li>We are not liable for any loss resulting from unauthorized account access due to your actions or negligence</li>
-        </ul>
-
-        <h3>5.3 Account Deletion</h3>
-
-        <p><strong>By You (Manual Deletion):</strong></p>
-        <ul>
-            <li>You may delete your account at any time through Settings → Data Management → Delete Account</li>
-            <li><strong>Important:</strong> You <strong>cannot</strong> delete your account while a subscription is active - you must cancel your subscription first through Apple</li>
-            <li>If you have an expired subscription in the grace period, you <strong>CAN</strong> delete your account</li>
-            <li>Account deletion is <strong>immediate and permanent</strong></li>
-            <li>All your data will be <strong>irreversibly deleted</strong> across all platforms</li>
-            <li><strong>This action cannot be undone</strong> - data cannot be recovered</li>
-            <li>Deleting your account does <strong>NOT</strong> automatically cancel your Apple subscription - you must cancel separately</li>
-        </ul>
-
-        <p><strong>Automatic Deletion:</strong></p>
-        <ul>
-            <li>Accounts are automatically deleted <strong>30 days</strong> after subscription expiration without renewal</li>
-            <li>You will receive multiple email warnings before automatic deletion</li>
-            <li>Automatic deletion can be prevented by resubscribing before day 30</li>
-        </ul>
-
-        <h2 id="ai-content-disclosure">6. AI-Generated Content Disclosure and Disclaimers</h2>
-
-        <h3>6.1 AI Content Generation</h3>
-
-        <div class="warning-box">
-            <p><strong>CRITICAL DISCLOSURE:</strong> Daily quotes and inspirational content in BlessSoul are <strong>generated by Claude AI</strong>, an artificial intelligence system developed by Anthropic, Inc.</p>
-
-            <p><strong>YOU ACKNOWLEDGE AND AGREE THAT:</strong></p>
-            <ul>
-                <li>Quotes are <strong>AI-generated</strong>, not curated from verified human sources</li>
-                <li>Content is created by an algorithm without human oversight or editorial review</li>
-                <li>We make <strong>NO WARRANTY</strong> regarding the accuracy, originality, or attribution of quotes</li>
-                <li>Quotes may be similar to or identical to existing copyrighted works</li>
-                <li>We do <strong>NOT</strong> claim ownership or creation of quote content</li>
-                <li>We do <strong>NOT</strong> guarantee quotes are original, unique, or properly attributed</li>
-            </ul>
-        </div>
-
-        <h3>6.2 No Copyright Warranty</h3>
-
-        <p><strong>WE PROVIDE NO WARRANTIES REGARDING:</strong></p>
-        <ul>
-            <li>Copyright status of AI-generated quotes</li>
-            <li>Originality or uniqueness of content</li>
-            <li>Proper attribution to original authors</li>
-            <li>Freedom from intellectual property claims</li>
-            <li>Accuracy of any attributed quotes</li>
-            <li>Verification of quote sources</li>
-        </ul>
-
-        <p><strong>AI-GENERATED CONTENT IS PROVIDED "AS IS" WITHOUT ANY WARRANTY OF ORIGINALITY, ACCURACY, OR NON-INFRINGEMENT.</strong></p>
-
-        <h3>6.3 Quote Sharing and User Responsibility</h3>
-
-        <p>If you choose to share, save, or distribute quotes from BlessSoul:</p>
-
-        <p><strong>YOU ASSUME ALL RISK AND RESPONSIBILITY FOR:</strong></p>
-        <ul>
-            <li>Verifying copyright status before sharing</li>
-            <li>Obtaining necessary permissions for use</li>
-            <li>Proper attribution to original sources</li>
-            <li>Compliance with copyright and intellectual property laws</li>
-            <li>Any claims arising from your sharing or use of quotes</li>
-        </ul>
-
-        <p><strong>WE STRONGLY RECOMMEND:</strong></p>
-        <ul>
-            <li>Do NOT use quotes for commercial purposes without verification</li>
-            <li>Research quote origins before widespread distribution</li>
-            <li>Assume quotes may be subject to copyright protection</li>
-            <li>Use quotes for personal inspiration only</li>
-        </ul>
-
-        <h3>6.4 DMCA Safe Harbor and Takedown Procedure</h3>
-
-        <p>We comply with the Digital Millennium Copyright Act (DMCA) and maintain safe harbor protections.</p>
-
-        <p><strong>If you believe content in BlessSoul infringes your copyright:</strong></p>
-
-        <ol>
-            <li>Send a DMCA notice to: <strong>support@blesssoul.com</strong></li>
-            <li>Include:
-                <ul>
-                    <li>Description of the copyrighted work claimed to be infringed</li>
-                    <li>Location of the infringing material in the App</li>
-                    <li>Your contact information</li>
-                    <li>Statement of good faith belief</li>
-                    <li>Your physical or electronic signature</li>
-                </ul>
-            </li>
-        </ol>
-
-        <p><strong>We will:</strong></p>
-        <ul>
-            <li>Investigate claims promptly (within 5-10 business days)</li>
-            <li>Remove infringing content if claim is valid</li>
-            <li>Maintain records of takedown requests</li>
-        </ul>
-
-        <h2 id="acceptable-use">7. Acceptable Use</h2>
-
-        <h3>7.1 You Agree NOT To:</h3>
-        <ul>
-            <li>Violate any applicable laws or regulations</li>
-            <li>Infringe upon intellectual property rights</li>
-            <li>Upload malicious code, viruses, or harmful content</li>
-            <li>Attempt to gain unauthorized access to the App or our systems</li>
-            <li>Reverse engineer, decompile, or disassemble the App</li>
-            <li>Use automated tools (bots, scripts) to access the App</li>
-            <li>Share your account with others</li>
-            <li>Create multiple accounts to abuse the free trial</li>
-            <li>Use the App to harass, abuse, or harm others</li>
-        </ul>
-
-        <h3>7.2 User-Generated Content</h3>
-        <ul>
-            <li>You retain <strong>full ownership</strong> of all content you create</li>
-            <li>You grant us a limited, non-exclusive license to store and process your content solely to provide the Service</li>
-            <li>You are solely responsible for the content you create</li>
-            <li><strong>Your content is private</strong> and not shared with other users or third parties (except as required by law)</li>
-        </ul>
-
-        <h2 id="intellectual-property">8. Intellectual Property</h2>
-
-        <h3>8.1 Our Rights</h3>
-        <ul>
-            <li>BlessSoul, its logo, name, design, and original content are owned by Praveena Hosuru Dinesh Bhat</li>
-            <li>All rights, title, and interest in the App remain with us</li>
-            <li>BlessSoul™ is a trademark of Praveena Hosuru Dinesh Bhat</li>
-            <li>You may not use our trademarks or copyrighted materials without written permission</li>
-        </ul>
-
-        <h3>8.2 Your Rights</h3>
-        <ul>
-            <li>You retain <strong>full ownership</strong> of your user-generated content</li>
-            <li>You can export your data at any time in JSON format</li>
-            <li>We do not claim ownership of your goals, diary entries, or personal content</li>
-        </ul>
-
-        <h2 id="data-privacy">9. Data and Privacy</h2>
-
-        <h3>9.1 Privacy Policy</h3>
-
-        <p>Your use of BlessSoul is also governed by our Privacy Policy. <strong>Please review our <a href="privacy.html">Privacy Policy</a></strong> to understand our data practices.</p>
-
-        <h3>9.2 Data Storage</h3>
-
-        <ul>
-            <li>Your data is stored on <strong>Supabase servers</strong> (United States) and <strong>Apple iCloud</strong> (if enabled)</li>
-            <li>Diary entries are encrypted with <strong>AES-256-GCM encryption</strong></li>
-            <li>Encryption keys are stored in your device's iOS Keychain</li>
-            <li>Connection to servers uses HTTPS/TLS encryption</li>
-        </ul>
-
-        <h3>9.3 Data Export and Deletion</h3>
-
-        <ul>
-            <li>You can <strong>export your data</strong> at any time in JSON format (Settings → Data Management)</li>
-            <li>Account deletion <strong>permanently and irreversibly deletes all your data</strong></li>
-            <li>Data <strong>cannot be recovered</strong> after account deletion</li>
-            <li>We recommend exporting your data before account deletion</li>
-        </ul>
-
-        <h2 id="third-party">10. Third-Party Services</h2>
-
-        <p>The App uses the following third-party services:</p>
-
-        <ol>
-            <li><strong>Supabase:</strong> Backend database, authentication, storage</li>
-            <li><strong>Firebase (Google):</strong> Analytics and crash reporting (production builds only)</li>
-            <li><strong>Google Sign-In:</strong> Optional authentication method</li>
-            <li><strong>RevenueCat:</strong> Subscription management</li>
-            <li><strong>Apple iCloud (CloudKit):</strong> Backup and sync (optional)</li>
-            <li><strong>Resend:</strong> Email delivery</li>
-            <li><strong>Apple App Store:</strong> Payment processing</li>
-            <li><strong>Claude AI (Anthropic):</strong> AI-generated quotes</li>
-        </ol>
-
-        <p>Your use of these services is subject to their respective terms and privacy policies.</p>
-
-        <h2 id="health-disclaimer">11. Health & Wellness Disclaimer</h2>
-
-        <div class="warning-box">
-            <p><strong>NOT MEDICAL ADVICE</strong></p>
-
-            <p><strong>CRITICAL DISCLAIMER:</strong> Goal templates and health recommendations in BlessSoul are for informational and motivational purposes ONLY. They are NOT medical advice and should NOT replace consultation with qualified healthcare professionals.</p>
-
-            <p><strong>ALWAYS consult your doctor before:</strong></p>
-            <ul>
-                <li>Starting any new exercise program</li>
-                <li>Changing your diet or nutrition habits</li>
-                <li>Beginning new wellness practices</li>
-                <li>Making any health-related decisions based on app content</li>
-            </ul>
-
-            <p><strong>NO LIABILITY:</strong> We are NOT responsible or liable for any health issues, injuries, medical conditions, or adverse outcomes arising from following app content.</p>
-        </div>
-
-        <h2 id="financial-disclaimer">12. Financial Information Disclaimer</h2>
-
-        <div class="warning-box">
-            <p><strong>NOT FINANCIAL ADVICE</strong></p>
-
-            <p><strong>CRITICAL DISCLAIMER:</strong> Financial goal templates and information in BlessSoul are for educational and motivational purposes ONLY. They do NOT constitute financial, investment, tax, or legal advice.</p>
-
-            <p><strong>We are NOT:</strong></p>
-            <ul>
-                <li>Licensed financial advisors or certified financial planners</li>
-                <li>Investment professionals or wealth managers</li>
-                <li>Tax consultants or accountants</li>
-            </ul>
-
-            <p><strong>NO LIABILITY:</strong> We are NOT responsible for any financial losses, missed opportunities, poor financial decisions, or financial harm arising from using this app.</p>
-        </div>
-
-        <h2 id="manifestation-disclaimer">13. Manifestation & Spiritual Practices Disclaimer</h2>
-
-        <div class="warning-box">
-            <p><strong>NOT SCIENTIFICALLY PROVEN</strong></p>
-
-            <p><strong>CRITICAL DISCLAIMER:</strong> Manifestation methods in BlessSoul (369 Method, 5x55, Scripting, etc.) are based on spiritual concepts including the Law of Attraction.</p>
-
-            <p><strong>These methods are NOT scientifically proven and are considered alternative or spiritual practices.</strong></p>
-
-            <p><strong>NO GUARANTEES:</strong> BlessSoul makes NO GUARANTEES that these manifestation methods will:</p>
-            <ul>
-                <li>Produce specific results</li>
-                <li>Manifest your desires or goals</li>
-                <li>Change your circumstances</li>
-                <li>Create any measurable effects</li>
-            </ul>
-
-            <p><strong>NO LIABILITY:</strong> We are NOT responsible for any outcomes, disappointments, or consequences related to using manifestation methods. Your success depends on YOUR actions and effort—not on spiritual practices.</p>
-        </div>
-
-        <h2 id="ai-templates">14. AI-Generated Content & Templates</h2>
-
-        <h3>14.1 ALL CONTENT AI-ASSISTED OR AI-GENERATED</h3>
-
-        <p><strong>CRITICAL DISCLOSURE:</strong> Substantial content in BlessSoul is created with AI assistance:</p>
-
-        <ul>
-            <li><strong>11,276 daily quotes:</strong> Generated by Claude AI</li>
-            <li><strong>Goal templates:</strong> Created with AI assistance (26 templates)</li>
-            <li><strong>Schedule templates:</strong> Created with AI assistance (6 templates)</li>
-            <li><strong>Manifestation descriptions:</strong> Created with AI assistance (8 methods)</li>
-        </ul>
-
-        <p><strong>IMPORTANT: This content is NOT reviewed by humans before display.</strong></p>
-
-        <h3>14.2 NO WARRANTIES FOR AI CONTENT</h3>
-
-        <p><strong>We provide NO WARRANTIES regarding:</strong></p>
-        <ul>
-            <li><strong>Originality:</strong> AI content may resemble existing copyrighted works</li>
-            <li><strong>Copyright status:</strong> We do NOT guarantee content is copyright-free</li>
-            <li><strong>Accuracy:</strong> AI content may contain errors</li>
-            <li><strong>Attribution:</strong> Quotes may lack proper source attribution</li>
-        </ul>
-
-        <h2 id="ios-permissions">15. iOS Permissions</h2>
-
-        <h3>15.1 PERMISSIONS WE REQUEST</h3>
-
-        <p><strong>1. Photo Library (Add Photos Only):</strong></p>
-        <ul>
-            <li><strong>Purpose:</strong> Save quote images you create to your Photos app</li>
-            <li><strong>What we access:</strong> NOTHING - this is write-only permission</li>
-        </ul>
-
-        <p><strong>2. Photo Library (Read Photos - Limited):</strong></p>
-        <ul>
-            <li><strong>Purpose:</strong> Select a single photo for your profile picture</li>
-            <li><strong>What we access:</strong> ONLY the single photo you explicitly select</li>
-            <li><strong>We do NOT:</strong> Scan, browse, or upload your full photo library</li>
-        </ul>
-
-        <p><strong>3. Push Notifications:</strong></p>
-        <ul>
-            <li><strong>Purpose:</strong> Send reminders, goal alerts, schedule notifications</li>
-            <li><strong>You control:</strong> Settings → Notifications → BlessSoul</li>
-        </ul>
-
-        <h3>15.2 WHAT WE DO NOT ACCESS</h3>
-
-        <ul>
-            <li>✗ Full photo library</li>
-            <li>✗ Camera</li>
-            <li>✗ Microphone</li>
-            <li>✗ Location</li>
-            <li>✗ Contacts</li>
-            <li>✗ Calendar (beyond our schedule data)</li>
-            <li>✗ Health data (HealthKit)</li>
-            <li>✗ Motion & Fitness</li>
-        </ul>
-
-        <h2 id="notification-disclaimer">16. Notification Disclaimer</h2>
-
-        <div class="warning-box">
-            <p><strong>NOT GUARANTEED DELIVERY</strong></p>
-
-            <p><strong>CRITICAL DISCLAIMER:</strong> Reminders and notifications in BlessSoul are provided as a convenience feature ONLY. We do NOT guarantee:</p>
-
-            <ul>
-                <li>On-time delivery of notifications</li>
-                <li>Delivery of notifications at all</li>
-                <li>Reliability for critical events</li>
-            </ul>
-
-            <p><strong>DO NOT RELY ON BLESSSOUL NOTIFICATIONS FOR:</strong></p>
-            <ul>
-                <li>Medical reminders (medication, doctor appointments)</li>
-                <li>Critical business deadlines</li>
-                <li>Time-sensitive financial commitments</li>
-                <li>Emergency situations</li>
-            </ul>
-
-            <p><strong>NO LIABILITY:</strong> We are NOT liable for missed notifications, late notifications, or ANY consequences resulting from notification issues.</p>
-        </div>
-
-        <h2 id="mental-health-crisis">17. Mental Health Crisis Resources</h2>
-
-        <div class="warning-box">
-            <p><strong>NOT A MENTAL HEALTH TOOL</strong></p>
-
-            <p><strong>CRITICAL DISCLAIMER:</strong> BlessSoul's mood tracking and journaling features are for personal self-reflection ONLY. They are NOT mental health diagnostic tools or substitutes for therapy.</p>
-
-            <p><strong>If you are experiencing a mental health crisis, severe distress, or emotional difficulties, this app cannot help you. Seek professional help immediately.</strong></p>
-        </div>
-
-        <h3>17.1 GLOBAL CRISIS RESOURCES</h3>
-
-        <p><strong>INDIA:</strong></p>
-        <ul>
-            <li><strong>Emergency Services:</strong> 112</li>
-            <li><strong>NIMHANS Mental Health Helpline:</strong> 080-46110007</li>
-            <li><strong>National Mental Health Helpline:</strong> 1800-599-0019 (Toll-free)</li>
-            <li><strong>Vandrevala Foundation:</strong> 1860-2662-345 / 1800-2333-330 (24/7)</li>
-            <li><strong>AASRA Suicide Prevention:</strong> +91-9820466726 (24/7)</li>
-        </ul>
-
-        <p><strong>UNITED STATES:</strong></p>
-        <ul>
-            <li><strong>988 Suicide & Crisis Lifeline:</strong> Call or text 988</li>
-            <li><strong>Crisis Text Line:</strong> Text HOME to 741741</li>
-        </ul>
-
-        <p><strong>UNITED KINGDOM:</strong></p>
-        <ul>
-            <li><strong>Samaritans:</strong> 116 123 (free 24/7)</li>
-            <li><strong>Emergency Services:</strong> 999 or 112</li>
-        </ul>
-
-        <p><strong>GLOBAL:</strong></p>
-        <ul>
-            <li><strong>Find Crisis Helplines:</strong> <a href="https://findahelpline.com" target="_blank">https://findahelpline.com</a></li>
-            <li><strong>International Crisis Resources:</strong> <a href="https://www.iasp.info/resources/Crisis_Centres/" target="_blank">https://www.iasp.info/resources/Crisis_Centres/</a></li>
-        </ul>
-
-        <h2 id="disclaimers">18. Disclaimers and Limitations of Liability</h2>
-
-        <h3>18.1 "As Is" Service</h3>
-
-        <p>BLESSSOUL IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, including but not limited to:</p>
-
-        <ul>
-            <li>Warranties of merchantability or fitness for a particular purpose</li>
-            <li>Warranties that the Service will be uninterrupted, secure, or error-free</li>
-            <li>Warranties regarding accuracy of AI-generated content</li>
-            <li>Warranties regarding health, financial, or manifestation advice</li>
-        </ul>
-
-        <p><strong>YOU USE THE SERVICE AT YOUR OWN RISK.</strong></p>
-
-        <h3>18.2 Maximum Liability Cap</h3>
-
-        <div class="warning-box">
-            <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW, OUR TOTAL LIABILITY IS STRICTLY LIMITED:</strong></p>
-
-            <p><strong>Per-User Liability Cap:</strong></p>
-            <ul>
-                <li>For <strong>paid subscribers:</strong> Our total liability shall NOT exceed the <strong>amount you actually paid</strong> for your current subscription period
-                    <ul>
-                        <li>Monthly: Maximum ₹1,000 (~$12.99 USD)</li>
-                        <li>Quarterly: Maximum ₹2,500 (~$29.99 USD)</li>
-                        <li>Yearly: Maximum ₹8,000 (~$99.99 USD)</li>
-                    </ul>
-                </li>
-                <li>For <strong>free trial users:</strong> Our total liability is <strong>₹0 (ZERO)</strong> - no liability whatsoever</li>
-            </ul>
-
-            <p><strong>Aggregate Liability Cap (All Users Combined):</strong></p>
-            <ul>
-                <li>Our <strong>total aggregate liability</strong> to ALL users combined shall NOT exceed <strong>₹1,00,000 INR (One Lakh)</strong> per calendar year</li>
-            </ul>
-
-            <p><strong>Excluded Damages:</strong></p>
-            <ul>
-                <li>We are NOT liable for any indirect, incidental, special, consequential, or punitive damages</li>
-                <li>We are NOT liable for loss of data, profits, revenue, or business opportunities</li>
-                <li>We are NOT liable for AI-generated content issues</li>
-            </ul>
-        </div>
-
-        <h2 id="indemnification">19. Indemnification</h2>
-
-        <p>You agree to <strong>indemnify, defend, and hold harmless</strong> Praveena Hosuru Dinesh Bhat from any claims, damages, losses, and expenses (including legal fees) arising from:</p>
-
-        <ul>
-            <li>Your violation of these Terms</li>
-            <li>Your use or misuse of the App</li>
-            <li>Your violation of any rights of another party</li>
-            <li><strong>Your sharing, distribution, or use of AI-generated quotes from BlessSoul</strong></li>
-            <li><strong>Copyright infringement claims related to quotes you shared</strong></li>
-            <li><strong>Your reliance on health, financial, or manifestation advice</strong></li>
-        </ul>
-
-        <h2 id="service-availability">20. Service Availability and Modifications</h2>
-
-        <ul>
-            <li>We reserve the right to modify, suspend, or discontinue any feature at any time</li>
-            <li>We may perform maintenance that temporarily interrupts service</li>
-            <li>We may release updates to improve the App</li>
-            <li>We reserve the right to discontinue BlessSoul entirely with 30 days' notice</li>
-        </ul>
-
-        <h2 id="governing-law">21. Governing Law and Dispute Resolution</h2>
-
-        <h3>21.1 Governing Law</h3>
-
-        <p>These Terms are governed by the <strong>laws of India</strong>, specifically the State of Karnataka, India.</p>
-
-        <p><strong>NO US LAW:</strong> These Terms are NOT governed by California law or United States law. Indian law exclusively applies.</p>
-
-        <h3>21.2 Exclusive Jurisdiction</h3>
-
-        <div class="warning-box">
-            <p><strong>CRITICAL - EXCLUSIVE INDIAN JURISDICTION:</strong></p>
-
-            <ul>
-                <li><strong>All disputes</strong> shall be subject to the <strong>exclusive jurisdiction of the courts of Shivamogga, Karnataka, India</strong></li>
-                <li>You hereby <strong>irrevocably consent</strong> to the exclusive jurisdiction of these courts</li>
-                <li>You hereby <strong>waive any objection</strong> to venue in Shivamogga, Karnataka, India</li>
-                <li>You hereby <strong>waive any right</strong> to bring suit in any other jurisdiction, including United States courts</li>
-                <li><strong>NO INTERNATIONAL ARBITRATION:</strong> Disputes shall NOT be resolved through international arbitration</li>
-            </ul>
-        </div>
-
-        <h3>21.3 Mandatory Mediation Before Litigation</h3>
-
-        <p><strong>BEFORE filing any lawsuit, YOU MUST:</strong></p>
-
-        <ol>
-            <li><strong>Contact us for informal resolution:</strong>
-                <ul>
-                    <li>Email: support@blesssoul.com</li>
-                    <li>Allow <strong>60 days</strong> for good-faith resolution attempts</li>
-                </ul>
-            </li>
-            <li><strong>If informal resolution fails, MANDATORY MEDIATION:</strong>
-                <ul>
-                    <li>Mediation in <strong>Shivamogga, Karnataka, India</strong></li>
-                    <li>Minimum 60-day mediation period required</li>
-                </ul>
-            </li>
-            <li><strong>Only after mediation fails may litigation proceed</strong></li>
-        </ol>
-
-        <h3>21.4 Fee Shifting - Loser Pays</h3>
-
-        <p><strong>IMPORTANT:</strong> In any litigation, the <strong>losing party shall pay the winning party's reasonable legal fees and costs</strong>.</p>
-
-        <h3>21.5 No Class Actions</h3>
-
-        <p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW, YOU AGREE THAT DISPUTES WILL BE RESOLVED ON AN INDIVIDUAL BASIS ONLY</strong> and NOT as part of a class action, class arbitration, or representative action.</p>
-
-        <h3>21.6 Limitation Period</h3>
-
-        <p>Any claim must be filed within <strong>ONE (1) YEAR</strong> from the date the claim arose. Claims filed after one year are <strong>permanently barred</strong>.</p>
-
-        <h2 id="general">22. General Provisions</h2>
-
-        <h3>22.1 Entire Agreement</h3>
-        <p>These Terms, together with our Privacy Policy, constitute the entire agreement between you and Praveena Hosuru Dinesh Bhat regarding BlessSoul.</p>
-
-        <h3>22.2 Severability</h3>
-        <p>If any provision is found invalid, the remaining provisions remain in full force and effect.</p>
-
-        <h3>22.3 No Waiver</h3>
-        <p>Our failure to enforce any right does not constitute a waiver.</p>
-
-        <h3>22.4 Assignment</h3>
-        <p>You may NOT assign these Terms without our consent. We may assign without restriction.</p>
-
-        <h2 id="contact">23. Contact Information</h2>
-
-        <p>For questions or support regarding these Terms:</p>
-
-        <p>
-            <strong>Email:</strong> <a href="mailto:support@blesssoul.com">support@blesssoul.com</a><br>
-            <strong>Developer:</strong> Praveena Hosuru Dinesh Bhat<br>
-            <strong>Location:</strong> Shivamogga, Karnataka, India<br>
-            <strong>Website:</strong> <a href="https://www.blesssoul.com" target="_blank">https://www.blesssoul.com</a><br>
-            <strong>Support Hours:</strong> Monday - Friday, 9 AM - 5 PM IST<br>
-            <strong>Response Time:</strong> 2-5 business days
-        </p>
-
-        <h2 id="changes">24. Changes to Terms</h2>
-
-        <p>We may update these Terms from time to time.</p>
-
-        <p><strong>We will notify you by:</strong></p>
-        <ul>
-            <li>Updating "Last Updated" date</li>
-            <li>Displaying in-app notice</li>
-            <li>Sending email</li>
-            <li>At least 30 days' advance notice for material changes</li>
-        </ul>
-
-        <p>Continued use after changes constitutes acceptance of the updated Terms.</p>
-
-        <h2 id="acknowledgment">25. Acknowledgment and Acceptance</h2>
-
-        <div class="notice-box">
-            <p><strong>BY CREATING AN ACCOUNT OR USING BLESSSOUL, YOU ACKNOWLEDGE AND AGREE THAT:</strong></p>
-
-            <ul>
-                <li>✓ You have read, understood, and agree to be bound by these Terms</li>
-                <li>✓ You have read and agree to our Privacy Policy</li>
-                <li>✓ You are at least <strong>13 years of age</strong></li>
-                <li>✓ You understand BlessSoul is a <strong>paid subscription service</strong></li>
-                <li>✓ You understand your subscription will <strong>auto-renew</strong></li>
-                <li>✓ You agree to <strong>exclusive jurisdiction in Shivamogga, Karnataka, India</strong></li>
-                <li>✓ You agree to <strong>mandatory mediation</strong> before litigation</li>
-                <li>✓ You agree to <strong>fee shifting</strong> (loser pays winner's legal costs)</li>
-                <li>✓ You agree to the <strong>liability caps</strong></li>
-                <li>✓ You agree to the <strong>class action waiver</strong></li>
-                <li>✓ You understand this is a <strong>solo developer operation</strong></li>
-                <li>✓ You understand account deletion is <strong>permanent and irreversible</strong></li>
-                <li>✓ You understand quotes are <strong>AI-generated</strong> without copyright warranty</li>
-                <li>✓ You <strong>indemnify the developer</strong> for claims arising from your use of AI quotes</li>
-                <li>✓ You agree that <strong>all sales are final</strong></li>
-            </ul>
-
-            <p><strong>If you do not agree to these Terms, do not create an account or use the App.</strong></p>
-        </div>
-
-        <h2 id="apple-requirements">26. Apple-Specific Requirements</h2>
-
-        <h3>26.1 Acknowledgment</h3>
-
-        <p>You acknowledge that:</p>
-        <ul>
-            <li>These Terms are between you and Praveena Hosuru Dinesh Bhat, <strong>not Apple</strong></li>
-            <li>Apple is not responsible for BlessSoul or its content</li>
-            <li>Apple has no obligation to provide maintenance or support</li>
-            <li>Apple is not responsible for product liability claims</li>
-        </ul>
-
-        <h3>26.2 Apple as Third-Party Beneficiary</h3>
-
-        <p>Apple and its subsidiaries are third-party beneficiaries of these Terms and have the right to enforce them against you.</p>
-
-        <h2 id="quick-reference">27. Quick Reference Guide</h2>
-
-        <div class="toc-container">
-            <h2>Essential Information At a Glance</h2>
-
-            <p><strong>Service Details:</strong></p>
-            <ul>
-                <li><strong>Type:</strong> Solo developer subscription app</li>
-                <li><strong>Minimum Age:</strong> 13 years</li>
-                <li><strong>Free Trial:</strong> 7 days for new users</li>
-                <li><strong>Grace Period:</strong> 30 days read-only after expiration</li>
-                <li><strong>Auto-Deletion:</strong> Day 30 after subscription expires</li>
-            </ul>
-
-            <p><strong>Pricing:</strong></p>
-            <ul>
-                <li>Monthly: $12.99/month</li>
-                <li>Quarterly: $29.99/3 months (save 23%)</li>
-                <li>Yearly: $99.99/year (save 36%)</li>
-            </ul>
-
-            <p><strong>Payment & Refunds:</strong></p>
-            <ul>
-                <li><strong>Payment:</strong> Apple App Store only</li>
-                <li><strong>Cancellation:</strong> Through Apple ID settings</li>
-                <li><strong>Refunds:</strong> Apple's policy only - contact Apple Support</li>
-                <li><strong>All sales final</strong></li>
-            </ul>
-
-            <p><strong>Legal Protections:</strong></p>
-            <ul>
-                <li><strong>Jurisdiction:</strong> Shivamogga, Karnataka, India ONLY</li>
-                <li><strong>Mediation:</strong> Mandatory (60 days) before litigation</li>
-                <li><strong>Fee Shifting:</strong> Loser pays winner's legal costs</li>
-                <li><strong>Liability Cap:</strong> Amount paid (max ₹1,00,000/year aggregate)</li>
-                <li><strong>No Class Actions</strong></li>
-            </ul>
-
-            <p><strong>Content:</strong></p>
-            <ul>
-                <li><strong>Quotes:</strong> AI-generated by Claude (Anthropic)</li>
-                <li><strong>No warranty:</strong> Copyright, originality, or accuracy</li>
-                <li><strong>Your risk:</strong> Sharing or using quotes</li>
-            </ul>
-
-            <p><strong>Support:</strong></p>
-            <ul>
-                <li><strong>Email:</strong> support@blesssoul.com</li>
-                <li><strong>Response:</strong> 2-5 business days</li>
-                <li><strong>Hours:</strong> Mon-Fri, 9 AM - 5 PM IST</li>
-            </ul>
-        </div>
-
-        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--gray-300);">
-
-        <p style="text-align: center; color: var(--gray-600); font-size: 0.9rem;">
-            <strong>These Terms of Service are effective as of January 1, 2025.</strong><br>
-            <strong>Last Updated: October 31, 2025</strong><br><br>
-            <strong>© 2025 Praveena Hosuru Dinesh Bhat. All rights reserved.</strong>
-        </p>
+        <p class="updated">Effective Date: January 1, 2025 | Last Updated: November 1, 2025</p>
+
+<h2>Agreement to Terms</h2>
+<p>These Terms of Service ("Terms") govern your access to and use of the BlessSoul mobile application ("App," "Service," or "BlessSoul"), developed and operated by <strong>Praveena Hosuru Dinesh Bhat</strong>, a sole proprietor and individual developer based in Shivamogga, Karnataka, India ("we," "our," or "us").</p>
+<p><strong>BY CREATING AN ACCOUNT OR USING BLESSSOUL, YOU AGREE TO BE BOUND BY THESE TERMS.</strong> If you do not agree to these Terms, do not use the App.</p>
+<hr />
+<h2>1. Solo Developer Disclosure and Limitations</h2>
+<h3>1.1 One-Person Operation</h3>
+<p><strong>IMPORTANT DISCLOSURE:</strong> BlessSoul is developed, operated, and maintained by <strong>one individual developer</strong>. This means:</p>
+<ul>
+<li><strong>Limited availability:</strong> Support is provided on a best-effort basis during business hours (Monday-Friday, 9 AM - 5 PM India Standard Time)</li>
+<li><strong>Not 24/7 service:</strong> Responses to support requests may take 2-5 business days</li>
+<li><strong>Service interruptions possible:</strong> Maintenance, updates, or unforeseen circumstances may cause temporary outages</li>
+<li><strong>Limited resources:</strong> As a solo operation, resources for development, support, and infrastructure are constrained</li>
+<li><strong>Personal circumstances:</strong> Service may be affected by illness, emergencies, or other personal circumstances beyond developer's control</li>
+</ul>
+<h3>1.2 Best-Effort Service</h3>
+<p>The Service is provided on a <strong>best-effort basis</strong>. While we strive for reliability and quality:</p>
+<ul>
+<li>We cannot guarantee 100% uptime or availability</li>
+<li>Features may take time to develop or implement</li>
+<li>Bug fixes and updates follow a reasonable timeline given resource constraints</li>
+<li>Support requests are handled in order received, subject to developer availability</li>
+<li>Complex issues may require additional time to resolve</li>
+</ul>
+<h3>1.3 No Enterprise-Level Commitments</h3>
+<p>BlessSoul is <strong>NOT an enterprise-level service</strong>. We do not provide:</p>
+<ul>
+<li>Service Level Agreements (SLAs)</li>
+<li>Guaranteed uptime percentages</li>
+<li>Dedicated support representatives</li>
+<li>Priority support tiers</li>
+<li>Custom development or customization</li>
+<li>Real-time support or instant responses</li>
+<li>Guaranteed response times (though we aim for 2-5 business days)</li>
+</ul>
+<h3>1.4 User Acknowledgment</h3>
+<p><strong>BY USING BLESSSOUL, YOU ACKNOWLEDGE AND ACCEPT:</strong></p>
+<ul>
+<li>This is a solo developer operation with inherent limitations</li>
+<li>Service quality reflects available resources and time</li>
+<li>Expectations should align with a one-person development team</li>
+<li>Patience and understanding are appreciated</li>
+<li>The developer is doing their best to provide value within their capabilities</li>
+</ul>
+<hr />
+<h2>2. Eligibility</h2>
+<h3>2.1 Age Requirement</h3>
+<p>You must be at least <strong>13 years of age</strong> to use BlessSoul. By using the App, you represent and warrant that you meet this age requirement.</p>
+<h3>2.2 Account Responsibility</h3>
+<ul>
+<li>You are responsible for maintaining the confidentiality of your account credentials</li>
+<li>You agree to notify us immediately of any unauthorized access to your account</li>
+<li>You are responsible for all activities that occur under your account</li>
+<li>We reserve the right to terminate accounts that violate these Terms</li>
+</ul>
+<hr />
+<h2>3. Subscription and Payment</h2>
+<h3>3.1 Subscription Requirement</h3>
+<p>BlessSoul is a <strong>subscription-based service</strong>. Access to the App's features requires an active paid subscription after the free trial period ends.</p>
+<h3>3.2 Free Trial</h3>
+<ul>
+<li><strong>New users</strong> receive a <strong>7-day free trial</strong> with full access to all features</li>
+<li>No payment is required during the trial period</li>
+<li>You can cancel anytime during the trial without being charged</li>
+<li>If you do not cancel before the trial ends, your subscription will automatically begin and you will be charged</li>
+<li>Only one free trial per user (based on Apple ID)</li>
+</ul>
+<h3>3.3 Subscription Plans</h3>
+<p>We offer the following subscription options (pricing in USD; may vary by region):</p>
+<ul>
+<li><strong>Monthly:</strong> $12.99/month (billed every month, 7-day free trial for new users)</li>
+<li><strong>Quarterly:</strong> $29.99 every 3 months (save ~23%, 7-day free trial for new users) - <strong>Most Popular</strong></li>
+<li><strong>Yearly:</strong> $99.99/year (save ~36%, 7-day free trial for new users) - <strong>Best Value</strong></li>
+</ul>
+<p><strong>IMPORTANT:</strong> All prices are displayed in the App and may vary based on your region and local currency. Actual charges will be shown before purchase confirmation.</p>
+<h3>3.4 Payment Processing</h3>
+<ul>
+<li>All payments are processed through <strong>Apple's App Store</strong></li>
+<li>We do <strong>NOT</strong> receive, store, or have access to your payment card details</li>
+<li>Subscriptions automatically renew unless canceled at least 24 hours before the end of the current period</li>
+<li>Payment is charged to your Apple ID account at confirmation of purchase (after free trial ends for new users)</li>
+<li>Your account will be charged for renewal within 24 hours prior to the end of the current period</li>
+<li>You will be charged the same price unless we notify you of a price change</li>
+</ul>
+<h3>3.5 Subscription Management</h3>
+<ul>
+<li>You can manage or cancel your subscription through your Apple ID account settings</li>
+<li>To cancel: Settings → Apple ID → Subscriptions → BlessSoul → Cancel Subscription</li>
+<li>Cancellation takes effect at the end of the current billing period</li>
+<li><strong>No refunds are provided for partial subscription periods</strong></li>
+<li>Access continues until the end of your paid period, even after cancellation</li>
+</ul>
+<h3>3.6 Price Changes</h3>
+<ul>
+<li>We reserve the right to change subscription prices at any time</li>
+<li>Price changes will be communicated at least <strong>30 days in advance</strong> via email and in-app notice</li>
+<li>Continued use after a price change constitutes acceptance of the new price</li>
+<li>Existing subscribers will be grandfathered at their current price for at least one billing cycle</li>
+<li>You may cancel before the price change takes effect</li>
+</ul>
+<h3>3.7 Refund Policy</h3>
+<p><strong>ALL SALES ARE FINAL.</strong></p>
+<ul>
+<li>Refunds are subject <strong>exclusively to Apple's App Store refund policy</strong></li>
+<li>To request a refund, contact <strong>Apple Support directly</strong> (NOT us)</li>
+<li>We do <strong>NOT</strong> process refunds outside of Apple's system</li>
+<li>We have <strong>NO ABILITY</strong> to issue refunds for App Store purchases</li>
+<li>Apple may grant refunds at their discretion within 90 days of purchase</li>
+<li>Refund decisions are made solely by Apple, not by BlessSoul</li>
+</ul>
+<p><strong>DISCLAIMER:</strong> By purchasing a subscription, you acknowledge that all sales are final and that refunds are solely at Apple's discretion.</p>
+<h3>3.8 Restore Purchases</h3>
+<ul>
+<li>You can restore your subscription on a new device through Settings → Restore Purchases</li>
+<li>This transfers your active subscription to your current device</li>
+<li>Requires the same Apple ID used for the original purchase</li>
+</ul>
+<hr />
+<h2>4. Account Access and Data Retention</h2>
+<h3>4.1 Active Subscription</h3>
+<ul>
+<li>With an active subscription, you have full read and write access to all features</li>
+<li>Your data is stored securely and synced across your devices (if iCloud is enabled)</li>
+</ul>
+<h3>4.2 Subscription Expiration - Grace Period</h3>
+<p>If your subscription expires and is not renewed:</p>
+<p><strong>Day 0-29 (Grace Period):</strong><br />
+- Your account enters <strong>Read-Only Mode</strong><br />
+- You can <strong>view all your existing data</strong> but cannot create or edit content<br />
+- You'll see prompts encouraging you to resubscribe<br />
+- Your data remains secure and accessible</p>
+<p><strong>Day 30 (Final Day - Account Deletion):</strong><br />
+- Your account will be <strong>automatically and permanently deleted</strong><br />
+- All data is <strong>irreversibly removed</strong> (cannot be recovered)<br />
+- This includes: goals, diary entries, schedules, manifestations, reminders, and all user-generated content</p>
+<p><strong>Important:</strong> You will receive email notifications warning you of expiration and upcoming deletion. Resubscribing at any time before day 30 restores full access immediately.</p>
+<h3>4.3 Trial Cancellation</h3>
+<ul>
+<li>If you cancel during your free trial, access continues until the trial end date</li>
+<li>After the trial ends, your account enters the grace period described above</li>
+<li>You can resubscribe at any time to restore full access</li>
+</ul>
+<hr />
+<h2>5. User Account and Management</h2>
+<h3>5.1 Account Creation</h3>
+<ul>
+<li>You must provide accurate and complete information when creating an account</li>
+<li>You must use a valid email address that you can access</li>
+<li>You agree to keep your account information up to date</li>
+<li>False information may result in account termination</li>
+</ul>
+<h3>5.2 Account Security</h3>
+<ul>
+<li>You are responsible for choosing a strong password</li>
+<li>Do not share your account credentials with others</li>
+<li>Enable two-factor authentication if available</li>
+<li>We are not liable for any loss resulting from unauthorized account access due to your actions or negligence</li>
+</ul>
+<h3>5.3 Account Deletion</h3>
+<p><strong>By You (Manual Deletion):</strong><br />
+- You may delete your account at any time through Settings → Data Management → Delete Account<br />
+- <strong>Important:</strong> You <strong>cannot</strong> delete your account while a subscription is active - you must cancel your subscription first through Apple<br />
+- If you have an expired subscription in the grace period, you <strong>CAN</strong> delete your account<br />
+- Account deletion is <strong>immediate and permanent</strong><br />
+- All your data will be <strong>irreversibly deleted</strong> across all platforms:<br />
+  - Supabase database<br />
+  - Apple iCloud/CloudKit<br />
+  - Local device storage<br />
+  - Encryption keys (Keychain)<br />
+- Backups are purged within 30 days<br />
+- <strong>This action cannot be undone</strong> - data cannot be recovered<br />
+- A confirmation email will be sent to your registered email address<br />
+- Deleting your account does <strong>NOT</strong> automatically cancel your Apple subscription - you must cancel separately through Apple ID settings</p>
+<p><strong>By Us (Termination):</strong><br />
+- We reserve the right to suspend or terminate your account if you violate these Terms<br />
+- We may terminate accounts that violate acceptable use policies<br />
+- We will provide notice before termination unless prohibited by law or if immediate action is required for security<br />
+- Terminated accounts may be prohibited from creating new accounts</p>
+<p><strong>Automatic Deletion:</strong><br />
+- Accounts are automatically deleted <strong>30 days</strong> after subscription expiration without renewal<br />
+- You will receive multiple email warnings before automatic deletion<br />
+- Automatic deletion can be prevented by resubscribing before day 30</p>
+<hr />
+<h2>6. AI-Generated Content Disclosure and Disclaimers</h2>
+<h3>6.1 AI Content Generation</h3>
+<p><strong>CRITICAL DISCLOSURE:</strong> Daily quotes and inspirational content in BlessSoul are <strong>generated by Claude AI</strong>, an artificial intelligence system developed by Anthropic, Inc.</p>
+<p><strong>YOU ACKNOWLEDGE AND AGREE THAT:</strong></p>
+<ul>
+<li>Quotes are <strong>AI-generated</strong>, not curated from verified human sources</li>
+<li>Content is created by an algorithm without human oversight or editorial review</li>
+<li>We make <strong>NO WARRANTY</strong> regarding the accuracy, originality, or attribution of quotes</li>
+<li>Quotes may be similar to or identical to existing copyrighted works</li>
+<li>We do <strong>NOT</strong> claim ownership or creation of quote content</li>
+<li>We do <strong>NOT</strong> guarantee quotes are original, unique, or properly attributed</li>
+</ul>
+<h3>6.2 No Copyright Warranty</h3>
+<p><strong>WE PROVIDE NO WARRANTIES REGARDING:</strong></p>
+<ul>
+<li>Copyright status of AI-generated quotes</li>
+<li>Originality or uniqueness of content</li>
+<li>Proper attribution to original authors</li>
+<li>Freedom from intellectual property claims</li>
+<li>Accuracy of any attributed quotes</li>
+<li>Verification of quote sources</li>
+</ul>
+<p><strong>AI-GENERATED CONTENT IS PROVIDED "AS IS" WITHOUT ANY WARRANTY OF ORIGINALITY, ACCURACY, OR NON-INFRINGEMENT.</strong></p>
+<h3>6.3 Quote Sharing and User Responsibility</h3>
+<p>If you choose to share, save, or distribute quotes from BlessSoul:</p>
+<p><strong>YOU ASSUME ALL RISK AND RESPONSIBILITY FOR:</strong></p>
+<ul>
+<li>Verifying copyright status before sharing</li>
+<li>Obtaining necessary permissions for use</li>
+<li>Proper attribution to original sources</li>
+<li>Compliance with copyright and intellectual property laws</li>
+<li>Any claims arising from your sharing or use of quotes</li>
+</ul>
+<p><strong>WE STRONGLY RECOMMEND:</strong></p>
+<ul>
+<li>Do NOT use quotes for commercial purposes without verification</li>
+<li>Research quote origins before widespread distribution</li>
+<li>Assume quotes may be subject to copyright protection</li>
+<li>Use quotes for personal inspiration only</li>
+<li>Do NOT rely on BlessSoul for verified, attributed quotes</li>
+</ul>
+<h3>6.4 User Indemnification for Quote Sharing</h3>
+<p><strong>BY SHARING QUOTES FROM BLESSSOUL, YOU AGREE TO INDEMNIFY, DEFEND, AND HOLD HARMLESS</strong> Praveena Hosuru Dinesh Bhat from any and all claims, damages, losses, liabilities, and expenses (including legal fees) arising from:</p>
+<ul>
+<li>Your sharing, distribution, or use of AI-generated quotes</li>
+<li>Copyright infringement claims related to quotes you shared</li>
+<li>Intellectual property disputes arising from quote content</li>
+<li>Any commercial use of quotes from the App</li>
+<li>Failure to verify or properly attribute quotes</li>
+<li>Reliance on quote content for any purpose</li>
+</ul>
+<h3>6.5 DMCA Safe Harbor and Takedown Procedure</h3>
+<p>We comply with the Digital Millennium Copyright Act (DMCA) and maintain safe harbor protections.</p>
+<p><strong>If you believe content in BlessSoul infringes your copyright:</strong></p>
+<ol>
+<li>Send a DMCA notice to: <strong>support@blesssoul.com</strong></li>
+<li>Include:</li>
+<li>Description of the copyrighted work claimed to be infringed</li>
+<li>Location of the infringing material in the App (specific quote text)</li>
+<li>Your contact information (name, address, phone, email)</li>
+<li>Statement of good faith belief that use is not authorized</li>
+<li>Statement under penalty of perjury that the information is accurate</li>
+<li>Your physical or electronic signature</li>
+</ol>
+<p><strong>We will:</strong><br />
+- Investigate claims promptly (within 5-10 business days, subject to solo developer resources)<br />
+- Remove infringing content if claim is valid<br />
+- Notify users if their shared content is removed<br />
+- Maintain records of takedown requests</p>
+<p><strong>LIMITATIONS:</strong><br />
+- As a solo developer, response may take up to 10 business days<br />
+- We cannot pre-screen all AI-generated content<br />
+- Removal applies to future generation; we cannot recall quotes already saved by users to their devices</p>
+<h3>6.6 Fair Use Defense</h3>
+<p>To the extent permitted by law, we assert fair use defenses including:</p>
+<ul>
+<li>Transformative use of content</li>
+<li>Non-commercial, educational, and inspirational purpose</li>
+<li>Limited excerpts (quotes are brief)</li>
+<li>No market harm to original works</li>
+</ul>
+<p><strong>HOWEVER:</strong> We make no representation that fair use applies to your use of quotes or shields you from liability.</p>
+<h3>6.7 No Human Review or Verification</h3>
+<p><strong>IMPORTANT:</strong> Due to the volume of AI-generated content and solo developer resource constraints:</p>
+<ul>
+<li>We do <strong>NOT</strong> manually review or verify each quote before display</li>
+<li>We do <strong>NOT</strong> fact-check quotes for accuracy</li>
+<li>We do <strong>NOT</strong> verify proper attribution</li>
+<li>We rely on AI generation without human editorial oversight</li>
+<li>Content moderation is reactive, not proactive</li>
+</ul>
+<p><strong>By using BlessSoul, you accept this limitation and agree not to rely on quotes as verified or authoritative.</strong></p>
+<hr />
+<h2>7. Acceptable Use</h2>
+<h3>7.1 You Agree NOT To:</h3>
+<ul>
+<li>Violate any applicable laws or regulations</li>
+<li>Infringe upon intellectual property rights</li>
+<li>Upload malicious code, viruses, or harmful content</li>
+<li>Attempt to gain unauthorized access to the App or our systems</li>
+<li>Reverse engineer, decompile, or disassemble the App</li>
+<li>Use automated tools (bots, scripts) to access the App</li>
+<li>Use the App for any commercial purpose without explicit permission</li>
+<li>Share your account with others or allow others to use your credentials</li>
+<li>Scrape, harvest, or collect data from the App or other users</li>
+<li>Interfere with or disrupt the App's functionality or servers</li>
+<li>Impersonate another person or entity</li>
+<li>Create multiple accounts to abuse the free trial</li>
+<li>Attempt to circumvent subscription requirements</li>
+<li>Use the App to harass, abuse, or harm others</li>
+<li>Share inappropriate, offensive, or illegal content</li>
+</ul>
+<h3>7.2 User-Generated Content</h3>
+<ul>
+<li>You retain <strong>full ownership</strong> of all content you create (goals, diary entries, manifestations, schedules, etc.)</li>
+<li>You grant us a limited, non-exclusive license to store, display, and process your content solely to provide the Service</li>
+<li>You are solely responsible for the content you create</li>
+<li>We reserve the right to remove content that violates these Terms or applicable laws</li>
+<li><strong>Your content is private</strong> and not shared with other users or third parties (except as required by law)</li>
+<li>We do not monitor or review your private content unless required by law or to investigate Terms violations</li>
+</ul>
+<h3>7.3 Consequences of Violation</h3>
+<p>Violation of these acceptable use policies may result in:<br />
+- Warning notice<br />
+- Temporary account suspension<br />
+- Permanent account termination<br />
+- Legal action if applicable<br />
+- Reporting to law enforcement if illegal activity is suspected</p>
+<hr />
+<h2>8. Intellectual Property</h2>
+<h3>8.1 Our Rights</h3>
+<ul>
+<li>BlessSoul, its logo, name, design, user interface, and original content are owned by Praveena Hosuru Dinesh Bhat</li>
+<li>All rights, title, and interest in the App and its code remain with us</li>
+<li>BlessSoul™ is a trademark of Praveena Hosuru Dinesh Bhat</li>
+<li>You may not use our trademarks, branding, or copyrighted materials without written permission</li>
+<li>You may not copy, modify, distribute, sell, or lease any part of the App</li>
+<li>Unauthorized use may result in legal action</li>
+</ul>
+<h3>8.2 Your Rights</h3>
+<ul>
+<li>You retain <strong>full ownership</strong> of your user-generated content</li>
+<li>You can export your data at any time in JSON format (Settings → Data Management → Export Data)</li>
+<li>You may use your exported data as you wish</li>
+<li>We do not claim ownership of your goals, diary entries, manifestations, schedules, or other personal content</li>
+<li>Upon account deletion, we permanently delete all your content and relinquish any license to it</li>
+</ul>
+<h3>8.3 License to Use the App</h3>
+<p>We grant you a <strong>limited, non-exclusive, non-transferable, revocable license</strong> to use BlessSoul for your personal, non-commercial use, subject to these Terms and your active subscription.</p>
+<p>This license:<br />
+- Is personal to you and cannot be transferred<br />
+- Terminates automatically if you violate these Terms<br />
+- Terminates when your subscription ends (subject to grace period)<br />
+- Does not grant you ownership of any part of the App</p>
+<h3>8.4 AI-Generated Content Intellectual Property</h3>
+<p>Regarding AI-generated quotes:<br />
+- We do <strong>NOT</strong> claim copyright ownership of AI-generated quotes<br />
+- We do <strong>NOT</strong> grant you any intellectual property rights to quotes<br />
+- Quotes may be subject to third-party intellectual property rights<br />
+- You use quotes at your own risk (see Section 6)</p>
+<hr />
+<h2>9. Data and Privacy</h2>
+<h3>9.1 Privacy Policy</h3>
+<p>Your use of BlessSoul is also governed by our Privacy Policy, which is incorporated into these Terms by reference. <strong>Please review our Privacy Policy</strong> to understand our data collection, use, storage, and protection practices.</p>
+<h3>9.2 Data Storage</h3>
+<ul>
+<li>Your data is stored on <strong>Supabase servers</strong> (United States) and <strong>Apple iCloud CloudKit</strong> (if you have iCloud enabled)</li>
+<li>Diary entries are encrypted with <strong>AES-256-GCM encryption</strong> before storage</li>
+<li>Encryption keys are stored in your device's iOS Keychain and never leave your device</li>
+<li>We implement industry-standard security measures to protect your data</li>
+<li>Connection to our servers uses HTTPS/TLS encryption</li>
+</ul>
+<h3>9.3 Data Backup</h3>
+<ul>
+<li>iCloud sync provides automatic backup across your Apple devices</li>
+<li>Backup is optional and controlled by your iCloud settings</li>
+<li>You are responsible for maintaining your own backups (use Export Data feature)</li>
+<li><strong>We are NOT liable for data loss</strong> due to device failure, account deletion, or other causes</li>
+<li>Regular exports are recommended to safeguard your data</li>
+</ul>
+<h3>9.4 Data Export and Deletion</h3>
+<ul>
+<li>You can <strong>export your data</strong> at any time in JSON format (Settings → Data Management → Export Data)</li>
+<li>Export includes: goals, diary entries, manifestations, schedules, reminders, gratitude entries, profile info</li>
+<li>Exported data is saved to your device</li>
+<li>Account deletion <strong>permanently and irreversibly deletes all your data</strong> from all storage locations</li>
+<li>Data <strong>cannot be recovered</strong> after account deletion</li>
+<li>We recommend exporting your data before account deletion</li>
+</ul>
+<h3>9.5 Data Retention After Deletion</h3>
+<ul>
+<li>Upon account deletion, all data is immediately removed from active systems</li>
+<li>Backups containing your data are purged within <strong>30 days</strong></li>
+<li>We may retain minimal information as required by law (e.g., for tax or fraud prevention)</li>
+<li>Anonymous analytics data (not linked to you) may be retained for app improvement</li>
+</ul>
+<hr />
+<h2>10. Third-Party Services</h2>
+<h3>10.1 App Store</h3>
+<p>BlessSoul is distributed exclusively through Apple's App Store. Your download, purchase, and use are subject to Apple's App Store Terms of Service and Apple Media Services Terms and Conditions.</p>
+<h3>10.2 Third-Party Integrations</h3>
+<p>The App uses the following third-party services to provide functionality:</p>
+<ol>
+<li><strong>Supabase:</strong> Backend database, authentication, storage</li>
+<li><strong>Firebase (Google):</strong> Analytics and crash reporting (production builds only)</li>
+<li><strong>Google Sign-In:</strong> Optional authentication method</li>
+<li><strong>RevenueCat:</strong> Subscription management</li>
+<li><strong>Apple iCloud (CloudKit):</strong> Backup and sync across devices (optional)</li>
+<li><strong>Resend:</strong> Email delivery for account-related emails</li>
+<li><strong>Apple App Store:</strong> Payment processing</li>
+<li><strong>Claude AI (Anthropic):</strong> AI-generated quotes and inspirational content</li>
+</ol>
+<p>Your use of these services is subject to their respective terms and privacy policies (links provided in our Privacy Policy).</p>
+<h3>10.3 External Links</h3>
+<p>The App may contain links to third-party websites or resources. We are not responsible for:<br />
+- The content of external sites<br />
+- Privacy practices of external sites<br />
+- Products or services offered by third parties</p>
+<p>Access to third-party sites is at your own risk.</p>
+<hr />
+<h2>11. Health &amp; Wellness Disclaimer</h2>
+<h3>11.1 NOT MEDICAL ADVICE</h3>
+<p><strong>CRITICAL DISCLAIMER:</strong> Goal templates and health recommendations in BlessSoul are for informational and motivational purposes ONLY. They are NOT medical advice and should NOT replace consultation with qualified healthcare professionals.</p>
+<p><strong>Health Content Includes:</strong><br />
+- Exercise recommendations (running, fitness, workouts)<br />
+- Nutrition suggestions (hydration, protein, meal planning)<br />
+- Sleep optimization advice (8-hour sleep, bedtime routines)<br />
+- Wellness practices (meditation, mindfulness)<br />
+- Health goal templates</p>
+<p><strong>ALWAYS consult your doctor before:</strong><br />
+- Starting any new exercise program<br />
+- Changing your diet or nutrition habits<br />
+- Beginning new wellness practices<br />
+- Making any health-related decisions based on app content</p>
+<p><strong>Important Acknowledgments:</strong><br />
+- Individual health needs vary greatly<br />
+- What works for one person may not be suitable for another<br />
+- We are NOT doctors, nurses, or licensed healthcare providers<br />
+- We do NOT provide personalized medical assessments<br />
+- Health templates are general suggestions, not prescriptions</p>
+<p><strong>NO LIABILITY:</strong> We are NOT responsible or liable for any health issues, injuries, medical conditions, or adverse outcomes arising from following app content, including but not limited to: exercise injuries, dietary issues, sleep problems, or any health complications.</p>
+<p><strong>If you have a medical condition or health concern, consult your healthcare provider before using health features in this app.</strong></p>
+<hr />
+<h2>12. Financial Information Disclaimer</h2>
+<h3>12.1 NOT FINANCIAL ADVICE</h3>
+<p><strong>CRITICAL DISCLAIMER:</strong> Financial goal templates, calculators, and information in BlessSoul are for educational and motivational purposes ONLY. They do NOT constitute financial, investment, tax, or legal advice.</p>
+<p><strong>Financial Content Includes:</strong><br />
+- Budget templates and spending advice<br />
+- Emergency fund recommendations<br />
+- Debt payoff strategies<br />
+- Investment learning content<br />
+- Savings goal templates<br />
+- Financial planning suggestions</p>
+<p><strong>We are NOT:</strong><br />
+- Licensed financial advisors or certified financial planners<br />
+- Investment professionals or wealth managers<br />
+- Tax consultants or accountants<br />
+- Legal advisors</p>
+<p><strong>ALWAYS consult qualified professionals before:</strong><br />
+- Making investment decisions<br />
+- Taking on or paying off significant debt<br />
+- Creating financial plans<br />
+- Making major financial commitments<br />
+- Filing taxes or making tax-related decisions</p>
+<p><strong>Important Acknowledgments:</strong><br />
+- Individual financial situations vary greatly<br />
+- Past performance does not guarantee future results<br />
+- Financial markets involve risk and uncertainty<br />
+- We do NOT provide personalized financial planning services</p>
+<p><strong>NO LIABILITY:</strong> We are NOT responsible or liable for any financial losses, missed investment opportunities, poor financial decisions, tax penalties, debt issues, or any financial harm arising from using this app or following financial templates.</p>
+<p><strong>For serious financial matters, always seek advice from certified financial professionals.</strong></p>
+<hr />
+<h2>13. Manifestation &amp; Spiritual Practices Disclaimer</h2>
+<h3>13.1 NOT SCIENTIFICALLY PROVEN</h3>
+<p><strong>CRITICAL DISCLAIMER:</strong> Manifestation methods and spiritual practices in BlessSoul (including 369 Method, 5x55 Method, Scripting, Gratitude Method, Pillow Method, Two Cup Method, Water Method, and Mirror Work) are based on spiritual and philosophical concepts including the Law of Attraction.</p>
+<p><strong>These methods are NOT scientifically proven and are considered alternative or spiritual practices.</strong></p>
+<p><strong>NO GUARANTEES:</strong> BlessSoul makes NO GUARANTEES, PROMISES, OR WARRANTIES that these manifestation methods will:<br />
+- Produce specific results<br />
+- Manifest your desires or goals<br />
+- Change your circumstances<br />
+- Improve your life outcomes<br />
+- Attract opportunities or success<br />
+- Create any measurable effects</p>
+<p><strong>These practices are provided for:</strong><br />
+- Personal exploration and self-reflection<br />
+- Motivational purposes<br />
+- Spiritual or philosophical interest<br />
+- Goal-setting inspiration</p>
+<p><strong>These practices should NOT replace:</strong><br />
+- Practical action toward your goals<br />
+- Professional medical or mental health treatment<br />
+- Financial planning or career counseling<br />
+- Evidence-based approaches to problem-solving<br />
+- Real-world effort and work</p>
+<p><strong>Important Acknowledgments:</strong><br />
+- Results, if any, vary widely by individual<br />
+- Success requires practical action, not spiritual practices alone<br />
+- Manifestation beliefs are philosophical, not scientific<br />
+- No credible scientific evidence supports manifestation methods<br />
+- The "Law of Attraction" is a belief system, not a proven law of physics</p>
+<p><strong>NO LIABILITY:</strong> We are NOT responsible or liable for any outcomes, disappointments, decisions, time spent, or consequences related to using manifestation methods. Your success depends on YOUR actions, circumstances, skills, and effort—not on spiritual practices or manifestation techniques.</p>
+<p><strong>Use these tools at your own discretion as motivational aids, not as guaranteed pathways to success.</strong></p>
+<hr />
+<h2>14. AI-Generated Content &amp; Templates</h2>
+<h3>14.1 ALL CONTENT AI-ASSISTED OR AI-GENERATED</h3>
+<p><strong>CRITICAL DISCLOSURE:</strong> Substantial content in BlessSoul is created with artificial intelligence assistance or is fully AI-generated:</p>
+<p><strong>AI-Generated Content:</strong><br />
+- <strong>11,276 daily quotes:</strong> Generated by Claude AI (developed by Anthropic, Inc.)<br />
+- <strong>Goal templates:</strong> Created with AI assistance (26 templates)<br />
+- <strong>Schedule templates:</strong> Created with AI assistance (6 templates)<br />
+- <strong>Manifestation method descriptions:</strong> Created with AI assistance (8 methods)</p>
+<p><strong>IMPORTANT: This content is NOT reviewed by humans before display or use.</strong></p>
+<h3>21.2 NO WARRANTIES FOR AI CONTENT</h3>
+<p><strong>We provide NO WARRANTIES regarding:</strong><br />
+- <strong>Originality:</strong> AI-generated content may be similar to or identical to existing copyrighted works<br />
+- <strong>Copyright status:</strong> We do NOT guarantee content is copyright-free or properly attributed<br />
+- <strong>Accuracy:</strong> AI content may contain factual errors or inaccuracies<br />
+- <strong>Appropriateness:</strong> Content may not be suitable for all users or contexts<br />
+- <strong>Attribution:</strong> Quotes may lack proper source attribution</p>
+<p><strong>Potential Issues with AI Content:</strong><br />
+- May unintentionally resemble copyrighted works<br />
+- May contain inaccuracies or misleading information<br />
+- May lack proper attribution to original authors<br />
+- May be inappropriate or offensive to some users<br />
+- May require permissions we have not obtained</p>
+<h3>21.3 FAIR USE CLAIM</h3>
+<p><strong>To the extent permitted by law, we assert fair use defenses for AI-generated content:</strong><br />
+- Transformative use (inspirational and educational context)<br />
+- Non-commercial personal use purpose<br />
+- Limited excerpts (quotes are brief)<br />
+- No substantial market harm to original works</p>
+<p><strong>HOWEVER:</strong> This fair use claim does NOT extend to your use or sharing of quotes. You assume all risk when sharing content from BlessSoul.</p>
+<h3>21.4 USER RESPONSIBILITY FOR SHARING</h3>
+<p><strong>IF YOU SHARE, SAVE, OR DISTRIBUTE QUOTES FROM BLESSSOUL:</strong></p>
+<p><strong>YOU ASSUME ALL RISK AND RESPONSIBILITY FOR:</strong><br />
+- Verifying copyright status before sharing publicly<br />
+- Obtaining necessary permissions for commercial use<br />
+- Proper attribution to original sources (if known)<br />
+- Compliance with copyright and intellectual property laws<br />
+- Any claims arising from your sharing, use, or distribution</p>
+<p><strong>YOU AGREE TO INDEMNIFY US:</strong> By sharing quotes from BlessSoul, you agree to indemnify, defend, and hold harmless Praveena Hosuru Dinesh Bhat from ANY and ALL claims, damages, losses, liabilities, and expenses (including legal fees) arising from:<br />
+- Your sharing, distribution, or use of AI-generated quotes<br />
+- Copyright infringement claims related to quotes you shared<br />
+- Intellectual property disputes arising from content you distributed<br />
+- Any commercial use of quotes from the App<br />
+- Your failure to verify or properly attribute quotes</p>
+<p><strong>STRONG RECOMMENDATION:</strong> Use quotes for personal inspiration only. Do NOT use for commercial purposes without independent verification and proper permissions.</p>
+<h3>21.5 NO LIABILITY FOR AI CONTENT ISSUES</h3>
+<p><strong>We are NOT liable for:</strong><br />
+- Copyright infringement claims arising from AI-generated content<br />
+- Inaccuracies or errors in quotes, templates, or descriptions<br />
+- Inappropriate or offensive AI-generated content<br />
+- Reliance on AI content for any important decisions<br />
+- Your use or sharing of AI content<br />
+- Third-party claims related to AI-generated quotes</p>
+<p><strong>BY USING BLESSSOUL, YOU ACCEPT ALL RISKS ASSOCIATED WITH AI-GENERATED CONTENT.</strong></p>
+<hr />
+<h2>15. iOS Permissions</h2>
+<h3>15.1 PERMISSIONS WE REQUEST</h3>
+<p>BlessSoul requests the following iOS permissions to function properly:</p>
+<p><strong>1. Photo Library (Add Photos Only):</strong><br />
+- <strong>Purpose:</strong> Save quote images you create to your Photos app<br />
+- <strong>Required for:</strong> Quote sharing and saving features<br />
+- <strong>What we access:</strong> NOTHING - this is write-only permission<br />
+- <strong>What we do:</strong> Save images you explicitly choose to save<br />
+- <strong>You control this:</strong> Settings → Privacy &amp; Security → Photos → BlessSoul</p>
+<p><strong>2. Photo Library (Read Photos - Limited):</strong><br />
+- <strong>Purpose:</strong> Select a single photo for your profile picture<br />
+- <strong>Required for:</strong> Profile customization feature<br />
+- <strong>What we access:</strong> ONLY the single photo you explicitly select<br />
+- <strong>What we do:</strong> Upload your chosen photo to set as profile picture<br />
+- <strong>We do NOT:</strong> Scan, browse, or upload your full photo library<br />
+- <strong>You control this:</strong> Settings → Privacy &amp; Security → Photos → BlessSoul</p>
+<p><strong>3. Push Notifications:</strong><br />
+- <strong>Purpose:</strong> Send reminders, goal alerts, schedule notifications, and inspirational quotes<br />
+- <strong>Required for:</strong> Reminder functionality and daily quote delivery<br />
+- <strong>What we send:</strong> Notifications you configure (reminders, schedule alerts, daily quotes)<br />
+- <strong>You control this:</strong> Settings → Notifications → BlessSoul</p>
+<h3>15.2 WHAT WE DO NOT ACCESS</h3>
+<p><strong>BlessSoul does NOT request or access:</strong><br />
+- ✗ Full photo library (only single photo you select for profile)<br />
+- ✗ Camera (no photo/video capture)<br />
+- ✗ Microphone (no audio recording)<br />
+- ✗ Location (GPS or network location)<br />
+- ✗ Contacts (address book)<br />
+- ✗ Calendar (beyond our own schedule data)<br />
+- ✗ Health data (HealthKit)<br />
+- ✗ Motion &amp; Fitness activity<br />
+- ✗ Bluetooth<br />
+- ✗ Home data<br />
+- ✗ Media Library</p>
+<p><strong>Your privacy is important to us. We request only the minimum permissions necessary for core functionality.</strong></p>
+<hr />
+<h2>16. Notification Disclaimer</h2>
+<h3>16.1 NOT GUARANTEED DELIVERY</h3>
+<p><strong>CRITICAL DISCLAIMER:</strong> Reminders and notifications in BlessSoul are provided as a convenience feature ONLY. We do NOT guarantee:</p>
+<p><strong>NO GUARANTEE OF:</strong><br />
+- On-time delivery of notifications<br />
+- Delivery of notifications at all<br />
+- Reliability for critical events<br />
+- Accuracy of notification timing<br />
+- Availability during device issues</p>
+<p><strong>DO NOT RELY ON BLESSSOUL NOTIFICATIONS FOR:</strong><br />
+- Medical reminders (medication schedules, doctor appointments)<br />
+- Critical business deadlines or meetings<br />
+- Time-sensitive financial commitments<br />
+- Emergency situations or urgent matters<br />
+- Any situation where missed notification could cause harm</p>
+<h3>16.2 NOTIFICATION DEPENDENCIES</h3>
+<p><strong>Notification delivery depends on factors outside our control:</strong><br />
+- iOS system reliability and functionality<br />
+- Device settings (Do Not Disturb, Focus modes)<br />
+- Network connectivity (Wi-Fi or cellular)<br />
+- Device battery status<br />
+- iOS notification permissions<br />
+- Device storage space<br />
+- Background app refresh settings<br />
+- iOS system updates or changes</p>
+<p><strong>Any of these factors may prevent or delay notification delivery.</strong></p>
+<h3>16.3 YOUR RESPONSIBILITY</h3>
+<p><strong>For important events, you should:</strong><br />
+- Use multiple reminder systems (calendar, alarms, other apps)<br />
+- Set backup reminders through iOS Clock app<br />
+- Do NOT depend solely on BlessSoul for critical reminders<br />
+- Use device alarms for time-sensitive events</p>
+<p><strong>NO LIABILITY:</strong> We are NOT liable for missed notifications, late notifications, failed delivery, or ANY consequences resulting from notification issues, including but not limited to: missed appointments, late medications, missed deadlines, lost opportunities, or any other damages.</p>
+<p><strong>Use notifications at your own risk. This is a convenience feature, not a guaranteed service.</strong></p>
+<hr />
+<h2>17. Mental Health Crisis Resources</h2>
+<h3>17.1 NOT A MENTAL HEALTH TOOL</h3>
+<p><strong>CRITICAL DISCLAIMER:</strong> BlessSoul's mood tracking and journaling features are for personal self-reflection and self-awareness ONLY. They are NOT:<br />
+- Mental health diagnostic tools<br />
+- Substitutes for therapy or counseling<br />
+- Treatments for depression, anxiety, or mental illness<br />
+- Professional mental health services</p>
+<p><strong>If you are experiencing a mental health crisis, severe distress, or emotional difficulties, this app cannot help you. Seek professional help immediately.</strong></p>
+<h3>17.2 WHEN TO SEEK PROFESSIONAL HELP</h3>
+<p><strong>SEEK IMMEDIATE PROFESSIONAL HELP IF YOU ARE EXPERIENCING:</strong><br />
+- Suicidal thoughts or self-harm urges<br />
+- Severe depression or overwhelming sadness<br />
+- Debilitating anxiety or panic attacks<br />
+- Mental health crisis or emotional breakdown<br />
+- Thoughts of harming yourself or others<br />
+- Inability to function in daily life</p>
+<p><strong>CLOSE THE APP AND GET HELP IMMEDIATELY.</strong></p>
+<h3>17.3 GLOBAL CRISIS RESOURCES</h3>
+<p><strong>INDIA:</strong><br />
+- <strong>Emergency Services:</strong> 112 (Police/Medical/Fire)<br />
+- <strong>NIMHANS Mental Health Helpline:</strong> Call 080-46110007<br />
+- <strong>National Mental Health Helpline:</strong> 1800-599-0019 (Toll-free)<br />
+- <strong>Vandrevala Foundation:</strong> 1860-2662-345 / 1800-2333-330 (24/7)<br />
+- <strong>iCall (TISS):</strong> +91-9152987821 (Mon-Sat, 8 AM - 10 PM)<br />
+- <strong>AASRA Suicide Prevention:</strong> +91-9820466726 (24/7)<br />
+- <strong>Fortis Stress Helpline:</strong> +91-8376804102<br />
+- <strong>Mental Health Directory:</strong> https://www.nimhans.ac.in/</p>
+<p><strong>UNITED STATES:</strong><br />
+- <strong>988 Suicide &amp; Crisis Lifeline:</strong> Call or text 988<br />
+- <strong>Crisis Text Line:</strong> Text HOME to 741741<br />
+- <strong>National Suicide Prevention Lifeline:</strong> 1-800-273-8255</p>
+<p><strong>UNITED KINGDOM:</strong><br />
+- <strong>Samaritans:</strong> 116 123 (free 24/7)<br />
+- <strong>Emergency Services:</strong> 999 or 112</p>
+<p><strong>GLOBAL RESOURCES:</strong><br />
+- <strong>Find Crisis Helplines Worldwide:</strong> https://findahelpline.com<br />
+- <strong>International Association for Suicide Prevention:</strong> https://www.iasp.info/resources/Crisis_Centres/<br />
+- <strong>Local emergency services:</strong> 911 (US), 112 (India/EU), 999 (UK)</p>
+<h3>17.4 NO LIABILITY</h3>
+<p><strong>We are NOT responsible or liable for:</strong><br />
+- Any mental health outcomes from using this app<br />
+- Reliance on mood tracking instead of professional care<br />
+- Delays in seeking professional help<br />
+- Any harm resulting from mental health issues<br />
+- The availability or quality of crisis services</p>
+<p><strong>YOUR MENTAL HEALTH IS YOUR RESPONSIBILITY. This app is NOT a mental health service.</strong></p>
+<hr />
+<h2>18. Disclaimers and Limitations of Liability</h2>
+<h3>18.1 "As Is" Service</h3>
+<p>BLESSSOUL IS PROVIDED "AS IS" AND "AS AVAILABLE" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO:</p>
+<ul>
+<li>Warranties of merchantability or fitness for a particular purpose</li>
+<li>Warranties that the Service will be uninterrupted, secure, or error-free</li>
+<li>Warranties that the Service will meet your requirements</li>
+<li>Warranties regarding the accuracy, reliability, or completeness of content (including AI-generated quotes)</li>
+<li>Warranties that defects will be corrected</li>
+<li>Warranties regarding the originality or copyright status of AI-generated content</li>
+<li>Warranties regarding health, financial, or manifestation advice</li>
+<li>Warranties regarding notification delivery or reliability</li>
+</ul>
+<p><strong>YOU USE THE SERVICE AT YOUR OWN RISK.</strong></p>
+<h3>18.2 No Professional Advice</h3>
+<ul>
+<li>BlessSoul is a <strong>personal productivity, goal tracking, and wellness tool</strong></li>
+<li>It does <strong>NOT</strong> provide medical, psychological, therapeutic, legal, financial, or professional advice of any kind</li>
+<li>It is NOT a substitute for professional services (medical, mental health, financial, legal, etc.)</li>
+<li>Content in the App (quotes, affirmations, templates, etc.) is for <strong>inspirational and motivational purposes only</strong></li>
+<li>AI-generated quotes are <strong>NOT</strong> verified, fact-checked, or reviewed by humans</li>
+<li>If you are experiencing mental health issues, suicidal thoughts, or emotional distress, <strong>seek help from a qualified professional immediately</strong> (see Section 17)</li>
+</ul>
+<p><strong>This app is NOT a replacement for professional services. Always consult qualified professionals for medical, mental health, financial, or legal matters.</strong></p>
+<h3>18.3 Maximum Liability Cap - ULTRA-PROTECTIVE</h3>
+<p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW, OUR TOTAL LIABILITY IS STRICTLY LIMITED AS FOLLOWS:</strong></p>
+<p><strong>Per-User Liability Cap:</strong><br />
+- For <strong>paid subscribers:</strong> Our total liability shall NOT exceed the <strong>amount you actually paid</strong> for your current subscription period<br />
+  - Monthly subscribers: Maximum ₹1,000 (approximately $12.99 USD equivalent)<br />
+  - Quarterly subscribers: Maximum ₹2,500 (approximately $29.99 USD equivalent)<br />
+  - Yearly subscribers: Maximum ₹8,000 (approximately $99.99 USD equivalent)<br />
+- For <strong>free trial users:</strong> Our total liability is <strong>₹0 (ZERO)</strong> - no liability whatsoever</p>
+<p><strong>Aggregate Liability Cap (All Users Combined):</strong><br />
+- Our <strong>total aggregate liability</strong> to ALL users combined shall NOT exceed <strong>₹1,00,000 INR (One Lakh Indian Rupees)</strong> per calendar year<br />
+- This cap applies regardless of the number of claims, users, or circumstances</p>
+<p><strong>Excluded Damages:</strong><br />
+- We are NOT liable for any <strong>indirect, incidental, special, consequential, exemplary, or punitive damages</strong> of any kind<br />
+- We are NOT liable for loss of data, profits, revenue, business opportunities, goodwill, reputation, or use<br />
+- We are NOT liable for service interruptions, errors, security breaches, or data loss<br />
+- We are NOT liable for third-party actions, content, or services (including AI-generated content issues)<br />
+- We are NOT liable for copyright infringement claims arising from AI-generated quotes you share or use<br />
+- We are NOT liable for emotional distress, personal injury, or any harm arising from app use</p>
+<p><strong>Application of Caps:</strong><br />
+- These liability caps apply <strong>even if we have been advised of the possibility of damages</strong><br />
+- These caps apply <strong>even if we are found negligent, grossly negligent, or at fault</strong><br />
+- These caps apply <strong>regardless of the legal theory</strong> (contract, tort, strict liability, etc.)<br />
+- These caps apply to <strong>all claims arising from or related to your use of BlessSoul</strong><br />
+- These caps apply to claims arising from health advice, financial advice, manifestation methods, AI content, notification failures, mental health features, and any other app features</p>
+<p><strong>Solo Developer Protection:</strong><br />
+- Given this is a <strong>one-person operation</strong> with limited resources and income, these caps are essential and reasonable<br />
+- A single large judgment could <strong>bankrupt the developer</strong> and end the service for all users<br />
+- By using BlessSoul, you accept these limitations as fair and appropriate for a solo developer app</p>
+<p><strong>Jurisdictional Variations:</strong><br />
+- Some jurisdictions do not allow limitations on implied warranties or exclusions of liability<br />
+- To the extent prohibited by applicable law in your jurisdiction, the above limitations may not apply<br />
+- <strong>However, to the fullest extent permitted by law, the liability caps remain in effect</strong></p>
+<h3>18.4 Your Responsibility</h3>
+<ul>
+<li>You use BlessSoul at your own risk</li>
+<li>You are responsible for backing up your data regularly</li>
+<li>You are responsible for your own mental and emotional well-being</li>
+<li>You are responsible for maintaining your device and internet connection</li>
+<li>You are responsible for complying with applicable laws when using the App</li>
+<li>You are responsible for verifying AI-generated quotes before sharing or commercial use</li>
+<li>You assume all risk for reliance on AI-generated content</li>
+<li>You are responsible for seeking professional help for medical, mental health, financial, or legal matters</li>
+<li>You are responsible for not relying on app features (health advice, financial advice, manifestation, notifications) for critical decisions</li>
+</ul>
+<h3>18.5 Force Majeure</h3>
+<p>We are not liable for delays, failures, or inability to perform due to circumstances beyond our reasonable control, including but not limited to:</p>
+<ul>
+<li>Natural disasters, pandemics, epidemics, or acts of God</li>
+<li>War, terrorism, riots, or civil unrest</li>
+<li>Government actions, regulations, or restrictions</li>
+<li>Internet service provider failures or network outages</li>
+<li>Third-party service outages (Supabase, Apple, Firebase, Claude AI, etc.)</li>
+<li>Cyberattacks or security breaches affecting third parties</li>
+<li><strong>Developer illness, injury, or personal emergencies</strong></li>
+<li><strong>Power outages, equipment failures, or infrastructure issues</strong></li>
+<li><strong>Any circumstance beyond the reasonable control of a solo individual developer</strong></li>
+</ul>
+<p><strong>Solo Developer Force Majeure:</strong><br />
+Given this is a one-person operation:<br />
+- Service may be unavailable during developer illness or personal emergencies<br />
+- Updates and support may be delayed during unforeseen circumstances<br />
+- Users accept these risks inherent to a solo developer service<br />
+- We will communicate outages when possible, but cannot guarantee notice</p>
+<hr />
+<h2>19. Indemnification</h2>
+<h3>19.1 User Indemnification</h3>
+<p>You agree to <strong>indemnify, defend, and hold harmless</strong> Praveena Hosuru Dinesh Bhat, and any affiliates, contractors, or service providers from and against <strong>any and all</strong> claims, liabilities, damages, losses, costs, and expenses (including <strong>reasonable legal fees and costs</strong>) arising from or related to:</p>
+<ul>
+<li>Your violation of these Terms</li>
+<li>Your use or misuse of the App</li>
+<li>Your violation of any rights of another party (intellectual property, privacy, etc.)</li>
+<li>Your violation of applicable laws or regulations</li>
+<li>Your user-generated content</li>
+<li>Unauthorized use of your account due to your failure to safeguard credentials</li>
+<li><strong>Your sharing, distribution, or use of AI-generated quotes from BlessSoul</strong></li>
+<li><strong>Copyright infringement claims related to quotes you shared or used</strong></li>
+<li><strong>Any commercial use of content from the App</strong></li>
+<li><strong>Your reliance on AI-generated content for any purpose</strong></li>
+<li><strong>Your reliance on health, financial, or manifestation advice from the app</strong></li>
+<li><strong>Claims arising from your use of notification features for critical events</strong></li>
+<li><strong>Any harm arising from your use of mood tracking or mental health features</strong></li>
+</ul>
+<h3>19.2 Defense and Control</h3>
+<p>We reserve the right to assume exclusive defense and control of any matter subject to indemnification, in which case you will cooperate with us in asserting any available defenses.</p>
+<p>You may not settle any claim without our prior written consent.</p>
+<h3>19.3 Solo Developer Protection</h3>
+<p>This indemnification is <strong>critical</strong> to protect a solo developer from:<br />
+- Frivolous or unfounded lawsuits<br />
+- Claims arising from user misuse of the service<br />
+- Third-party claims related to user actions<br />
+- Financial ruin from legal costs</p>
+<p>By using BlessSoul, you agree these protections are reasonable and necessary.</p>
+<hr />
+<h2>20. Service Availability and Modifications</h2>
+<h3>20.1 Service Changes</h3>
+<ul>
+<li>We reserve the right to modify, enhance, suspend, or discontinue any feature or functionality at any time with or without notice</li>
+<li>We may perform scheduled or emergency maintenance that temporarily interrupts service</li>
+<li>We will provide advance notice of significant changes when reasonably possible (subject to solo developer constraints)</li>
+<li>We may introduce new features, which may be included in your subscription or offered separately</li>
+</ul>
+<h3>20.2 Updates</h3>
+<ul>
+<li>We may release updates and new versions to improve the App, fix bugs, or enhance security</li>
+<li>Some updates may be required to continue using the Service</li>
+<li>You are responsible for keeping the App updated to the latest version</li>
+<li>Outdated versions may lose functionality or access</li>
+</ul>
+<h3>20.3 Service Termination</h3>
+<ul>
+<li>We reserve the right to discontinue BlessSoul entirely at any time</li>
+<li>If we discontinue the Service, we will provide at least <strong>30 days' advance notice</strong> via email and in-app notification (subject to circumstances)</li>
+<li>You will receive a <strong>pro-rated refund</strong> for any unused subscription time (processed through Apple)</li>
+<li>You will have the opportunity to export your data before service termination</li>
+</ul>
+<h3>20.4 Beta Features</h3>
+<ul>
+<li>We may offer beta or experimental features marked as such</li>
+<li>Beta features are provided "as is" with no guarantees of stability or continued availability</li>
+<li>We may discontinue beta features at any time without notice</li>
+</ul>
+<hr />
+<h2>21. Governing Law and Dispute Resolution</h2>
+<h3>21.1 Governing Law</h3>
+<p>These Terms are governed by and construed in accordance with the <strong>laws of India</strong>, without regard to conflict of law principles.</p>
+<p><strong>Specific Jurisdiction:</strong> The laws of the State of Karnataka, India shall apply.</p>
+<p><strong>NO US LAW:</strong> These Terms are NOT governed by California law, United States law, or any other foreign jurisdiction law. Indian law exclusively applies.</p>
+<h3>21.2 Exclusive Jurisdiction</h3>
+<p><strong>CRITICAL - INDIAN JURISDICTION WITH MANDATORY CONSUMER RIGHTS EXCEPTIONS:</strong></p>
+<p><strong>General Rule (Non-Consumer Users):</strong><br />
+- <strong>All disputes</strong> arising from or relating to these Terms or the Service shall be subject to the <strong>exclusive jurisdiction of the courts of Shivamogga, Karnataka, India</strong><br />
+- You hereby <strong>irrevocably consent</strong> to the exclusive jurisdiction of these courts<br />
+- You hereby <strong>waive any objection</strong> to venue or jurisdiction in Shivamogga, Karnataka, India<br />
+- <strong>NO INTERNATIONAL ARBITRATION:</strong> Disputes shall NOT be resolved through international arbitration</p>
+<p><strong>EXCEPTION for EU/UK/Swiss Consumers:</strong></p>
+<p>Nothing in this section removes your right as a consumer in the European Economic Area, United Kingdom, or Switzerland to bring proceedings in the courts of your country of residence, as required by:<br />
+- EU Regulation 1215/2012 (Brussels I Regulation - Recast)<br />
+- Equivalent UK and Swiss law</p>
+<p>For EU/UK/Swiss consumer disputes:<br />
+- You may bring claims in either (a) courts of Shivamogga, Karnataka, India, OR (b) courts of your country of residence<br />
+- We may only bring claims against you in courts of your country of residence<br />
+- This does not waive our other protections (mediation, fee shifting within your jurisdiction, liability caps)</p>
+<p><strong>EXCEPTION for California Consumers:</strong></p>
+<p>Nothing in this section waives rights provided by the California Consumer Legal Remedies Act or other mandatory California consumer protection laws that cannot be waived by contract.</p>
+<p><strong>For All Other Users:</strong><br />
+- Exclusive jurisdiction remains in Shivamogga, Karnataka, India<br />
+- No exceptions apply<br />
+- All mandatory procedures (mediation, etc.) apply</p>
+<p><strong>Why Shivamogga, Karnataka?</strong><br />
+- This is the developer's home location<br />
+- Ensures affordable access to legal system for solo developer<br />
+- Prevents financial burden of defending claims in foreign jurisdictions<br />
+- Protects developer from frivolous lawsuits filed in expensive foreign courts<br />
+- Exceptions above preserve mandatory consumer rights while protecting solo developer</p>
+<h3>21.3 Mandatory Mediation Before Litigation</h3>
+<p><strong>BEFORE filing any lawsuit, YOU MUST:</strong></p>
+<ol>
+<li><strong>Contact us for informal resolution:</strong></li>
+<li>Email: support@blesssoul.com</li>
+<li>Provide detailed description of the dispute</li>
+<li>Allow <strong>60 days</strong> for good-faith informal resolution attempts</li>
+<li>
+<p>Most disputes can be resolved quickly and amicably through communication</p>
+</li>
+<li>
+<p><strong>If informal resolution fails, MANDATORY MEDIATION:</strong></p>
+</li>
+<li>Disputes must proceed to <strong>mediation</strong> before litigation</li>
+<li>Mediation shall be conducted in <strong>Shivamogga, Karnataka, India</strong></li>
+<li>Mediation shall be conducted in <strong>English or Kannada</strong></li>
+<li>Each party bears their own mediation costs</li>
+<li>Mediation must occur before any court filing</li>
+<li>
+<p><strong>Minimum 60-day mediation period required</strong></p>
+</li>
+<li>
+<p><strong>Only after mediation fails may litigation proceed:</strong></p>
+</li>
+<li>Litigation only in courts of Shivamogga, Karnataka, India</li>
+<li>No litigation in any other jurisdiction</li>
+</ol>
+<p><strong>Consequence of Non-Compliance:</strong><br />
+- Failure to attempt informal resolution and mediation before litigation may result in dismissal of your claim<br />
+- You may be responsible for our legal costs incurred defending improperly filed claims</p>
+<h3>21.4 Fee Shifting - Loser Pays</h3>
+<p><strong>IMPORTANT COST CONSEQUENCE:</strong></p>
+<ul>
+<li>In any litigation or dispute resolution proceeding, the <strong>losing party shall pay the winning party's reasonable legal fees and costs</strong></li>
+<li>This includes attorney fees, court costs, expert witness fees, and other litigation expenses</li>
+<li>This applies whether you are the plaintiff or defendant</li>
+<li><strong>Purpose:</strong> Discourages frivolous lawsuits and incentivizes good-faith dispute resolution</li>
+</ul>
+<p><strong>What this means for you:</strong><br />
+- If you sue and lose, you pay our legal costs (in addition to your own)<br />
+- If you sue and win, we pay your legal costs<br />
+- If we sue you and lose, we pay your legal costs<br />
+- If we sue you and win, you pay our legal costs</p>
+<p><strong>Solo Developer Protection:</strong><br />
+- This clause protects a solo developer from being bankrupted by defending against frivolous claims<br />
+- Even if we win a frivolous lawsuit, legal costs could be devastating without fee recovery<br />
+- By using BlessSoul, you agree this protection is fair and reasonable</p>
+<h3>21.5 Frivolous Lawsuit Penalty</h3>
+<p><strong>PENALTY FOR BAD-FAITH LITIGATION:</strong></p>
+<p>If any court determines that you filed a lawsuit that is:<br />
+- Frivolous (lacking legal merit)<br />
+- Brought in bad faith<br />
+- Intended to harass or burden the developer<br />
+- Filed in violation of these Terms (e.g., wrong jurisdiction, no mediation)</p>
+<p><strong>YOU AGREE TO PAY A PENALTY OF ₹50,000 INR (Fifty Thousand Indian Rupees)</strong> to the developer, in addition to:<br />
+- All legal fees and costs (per Section 21.4)<br />
+- Any damages awarded<br />
+- Any other remedies available to the developer</p>
+<p><strong>Purpose:</strong> Protects solo developer from malicious or harassing litigation that could destroy a one-person business.</p>
+<h3>21.6 No Class Actions</h3>
+<p><strong>CLASS ACTION WAIVER:</strong></p>
+<p><strong>TO THE MAXIMUM EXTENT PERMITTED BY LAW, YOU AGREE THAT DISPUTES WILL BE RESOLVED ON AN INDIVIDUAL BASIS ONLY</strong> and NOT as part of a:<br />
+- Class action lawsuit<br />
+- Class arbitration<br />
+- Representative action<br />
+- Collective action<br />
+- Mass action</p>
+<p><strong>You waive any right to:</strong><br />
+- Participate in a class action against BlessSoul<br />
+- Act as a class representative<br />
+- Act as a private attorney general<br />
+- Consolidate your claim with other users' claims</p>
+<p><strong>Each user may only bring claims individually.</strong></p>
+<p>If this class action waiver is found to be invalid or unenforceable, the entire dispute resolution provision (Section 21) shall be null and void, but the rest of these Terms remain in effect.</p>
+<p><strong>Purpose:</strong> Protects solo developer from existential threat of class action lawsuits, which could bankrupt a one-person operation even if meritless.</p>
+<h3>21.7 Waiver of Foreign Jurisdiction</h3>
+<p><strong>EXPLICIT WAIVER:</strong></p>
+<p>By using BlessSoul, you <strong>explicitly and irrevocably waive</strong> any right to:<br />
+- Sue in United States courts (federal or state)<br />
+- Sue in California courts<br />
+- Sue in courts outside India<br />
+- Invoke jurisdiction based on your location<br />
+- Claim inconvenience of Indian jurisdiction<br />
+- Seek removal to foreign courts</p>
+<p><strong>You acknowledge:</strong><br />
+- You are entering into a contract with an Indian developer<br />
+- Indian jurisdiction is appropriate and expected<br />
+- You accept the inconvenience (if any) of Indian jurisdiction as a condition of using the Service<br />
+- This waiver is knowing, voluntary, and informed</p>
+<h3>21.8 Small Claims Exception - REMOVED</h3>
+<p><strong>THERE IS NO SMALL CLAIMS COURT EXCEPTION.</strong></p>
+<ul>
+<li><strong>ALL claims</strong>, regardless of amount, must follow the procedures in Section 21</li>
+<li>Informal resolution → Mediation → Shivamogga courts only</li>
+<li>No small claims court in any jurisdiction</li>
+<li>No exceptions for low-value claims</li>
+</ul>
+<h3>21.9 Limitation Period</h3>
+<p><strong>TIME LIMIT TO BRING CLAIMS:</strong></p>
+<ul>
+<li>Any claim arising from these Terms or the Service must be filed within <strong>ONE (1) YEAR</strong> from the date the claim arose</li>
+<li>Claims filed after one year are <strong>permanently barred</strong></li>
+<li>This limitation applies regardless of any statute of limitations in your jurisdiction</li>
+<li><strong>Purpose:</strong> Provides finality and prevents old claims from arising years later</li>
+</ul>
+<h3>21.10 Severability of Dispute Resolution</h3>
+<p>If any court finds any provision of Section 21 (Dispute Resolution) to be invalid or unenforceable:<br />
+- The invalid provision shall be severed<br />
+- The remaining provisions of Section 21 remain in full force and effect<br />
+- The invalid provision shall be replaced with a valid provision that most closely matches the intent</p>
+<h3>21.11 Mandatory Consumer Protection Rights</h3>
+<p><strong>Preservation of Statutory Consumer Rights:</strong></p>
+<p>Nothing in these Terms limits, excludes, or restricts your statutory rights as a consumer under applicable mandatory consumer protection laws that cannot be waived by contract.</p>
+<p><strong>Applicable Consumer Protection Laws:</strong></p>
+<p>If you are a consumer in a jurisdiction with mandatory consumer rights, those rights apply <strong>in addition to</strong> these Terms, including but not limited to:</p>
+<p>• <strong>India:</strong> Consumer Protection Act, 2019 - Right to redressal, right to be heard, right to seek compensation, right to be informed, right to choose, right to consumer education</p>
+<p>• <strong>European Union:</strong> Consumer Rights Directive (2011/83/EU) - Right to withdraw from distance contracts (14 days), right to clear information, right to remedies for defective digital content</p>
+<p>• <strong>United Kingdom:</strong> Consumer Rights Act 2015 - Rights regarding digital content quality, unfair terms protection, right to repair/replacement/refund</p>
+<p>• <strong>Other Jurisdictions:</strong> Mandatory consumer protection laws in your country that cannot be contractually waived</p>
+<p><strong>In Case of Conflict:</strong></p>
+<p>If any provision of these Terms conflicts with mandatory consumer protection laws in your jurisdiction, the mandatory consumer protection laws shall prevail <strong>to the extent of the conflict</strong>. All other provisions of these Terms remain in full force and effect.</p>
+<p><strong>Examples of Protected Consumer Rights:</strong></p>
+<ul>
+<li>Right to accurate product descriptions (we comply)</li>
+<li>Right to fair contract terms (we provide transparency)</li>
+<li>Right to refunds under statutory requirements (subject to Apple's policies for digital content)</li>
+<li>Right to data protection (covered in our Privacy Policy)</li>
+<li>Right to complain to consumer protection authorities</li>
+<li>Right to judicial remedies in your own country (subject to Section 21.2 jurisdiction clauses)</li>
+</ul>
+<p><strong>Acknowledgment:</strong></p>
+<p>These consumer protection rights apply regardless of the jurisdiction and choice of law provisions in Sections 21.1-21.10 above. Nothing in our choice of Indian law and Shivamogga jurisdiction limits your <strong>statutory consumer rights</strong> under the laws of your country of residence, to the extent those rights:<br />
+- Are classified as mandatory under your local law<br />
+- Cannot be waived by contract<br />
+- Apply to digital services provided internationally</p>
+<p><strong>Consumer Protection Authorities:</strong></p>
+<p>If you believe your consumer rights have been violated, you may file a complaint with:<br />
+- <strong>India:</strong> National Consumer Helpline: 1800-11-4000 or https://consumerhelpline.gov.in<br />
+- <strong>EU:</strong> Your national consumer protection authority<br />
+- <strong>UK:</strong> Citizens Advice or Competition and Markets Authority<br />
+- <strong>Other:</strong> Your local consumer protection agency</p>
+<p><strong>Our Commitment:</strong></p>
+<p>We respect consumer protection laws and will work in good faith to resolve complaints and honor statutory consumer rights while maintaining the protections afforded to us as a small sole developer operation.</p>
+<hr />
+<h2>22. General Provisions</h2>
+<h3>22.1 Entire Agreement</h3>
+<p>These Terms, together with our Privacy Policy and any additional terms you agree to when using specific features, constitute the entire agreement between you and Praveena Hosuru Dinesh Bhat regarding BlessSoul and supersede all prior agreements, communications, and understandings.</p>
+<h3>22.2 Severability</h3>
+<p>If any provision of these Terms is found to be invalid, illegal, or unenforceable by a court of competent jurisdiction, the remaining provisions will remain in full force and effect. The invalid provision will be modified to the minimum extent necessary to make it valid and enforceable.</p>
+<p><strong>Protection of Core Terms:</strong><br />
+If any of the following core protections are found invalid, the developer reserves the right to terminate the Service rather than operate without these protections:<br />
+- Liability caps (Section 18.3)<br />
+- Exclusive Indian jurisdiction (Section 21.2)<br />
+- Fee shifting (Section 21.4)<br />
+- No class actions (Section 21.6)</p>
+<h3>22.3 No Waiver</h3>
+<p>Our failure to enforce any right or provision of these Terms does not constitute a waiver of that right or provision. Any waiver must be in writing and signed by us.</p>
+<h3>22.4 Assignment</h3>
+<ul>
+<li>You may <strong>NOT</strong> assign, transfer, or sublicense these Terms or your rights under these Terms without our prior written consent</li>
+<li>We may assign or transfer these Terms, in whole or in part, without restriction, including in connection with a merger, acquisition, reorganization, or sale of assets</li>
+<li>Any attempted assignment in violation of this section is null and void</li>
+</ul>
+<h3>22.5 Force Majeure</h3>
+<p>We are not liable for any delays, failures, or inability to perform our obligations due to circumstances beyond our reasonable control (as described in Section 18.5), including solo developer personal emergencies.</p>
+<h3>22.6 Survival</h3>
+<p>The following sections survive termination of these Terms:<br />
+- Section 7.2 (User-Generated Content - license)<br />
+- Section 14 (AI-Generated Content - all subsections)<br />
+- Section 8 (Intellectual Property)<br />
+- Section 9.4-9.5 (Data Export and Retention)<br />
+- Section 18 (Disclaimers and Limitations of Liability)<br />
+- Section 19 (Indemnification)<br />
+- Section 21 (Governing Law and Dispute Resolution)<br />
+- Section 22 (General Provisions)</p>
+<h3>22.7 Language</h3>
+<p>These Terms are written in English. Any translations are provided for convenience only. In the event of any conflict between the English version and a translation, the <strong>English version shall prevail</strong>.</p>
+<h3>22.8 Electronic Communications</h3>
+<p>By using BlessSoul, you consent to receive communications from us electronically, including via email or in-app notifications. You agree that all agreements, notices, disclosures, and other communications that we provide electronically satisfy any legal requirement that such communications be in writing.</p>
+<h3>22.9 Relationship</h3>
+<p>These Terms do not create any agency, partnership, joint venture, employment, or franchisee relationship between you and us.</p>
+<h3>22.10 Third-Party Beneficiaries</h3>
+<p><strong>NO THIRD-PARTY BENEFICIARIES:</strong></p>
+<p>Except for Apple (as required by Apple's App Store terms), there are no third-party beneficiaries to these Terms. No third party may enforce any provision of these Terms.</p>
+<hr />
+<h2>23. Contact Information</h2>
+<p>For questions, concerns, support, or requests regarding these Terms or the Service:</p>
+<p><strong>Email:</strong> support@blesssoul.com<br />
+<strong>Developer:</strong> Praveena Hosuru Dinesh Bhat<br />
+<strong>Location:</strong> Shivamogga, Karnataka, India<br />
+<strong>Support Hours:</strong> Monday - Friday, 9 AM - 5 PM India Standard Time (IST)<br />
+<strong>Response Time:</strong> We aim to respond to all inquiries within <strong>2-5 business days</strong> (subject to solo developer availability)</p>
+<p><strong>For billing questions related to Apple subscriptions, contact Apple Support directly.</strong></p>
+<p><strong>Legal Notice Address:</strong><br />
+Praveena Hosuru Dinesh Bhat<br />
+Shivamogga, Karnataka, India<br />
+(Email: support@blesssoul.com)</p>
+<hr />
+<h2>24. Changes to Terms</h2>
+<p>We may update these Terms from time to time to reflect changes in our practices, features, or legal requirements.</p>
+<p><strong>We will notify you of material changes by:</strong><br />
+- Updating the "Last Updated" date at the top<br />
+- Displaying a prominent notice in the App<br />
+- Sending an email to your registered email address</p>
+<p><strong>Notification Timeline:</strong><br />
+- Minor changes: Notice at time of change<br />
+- Material changes: At least <strong>30 days' advance notice</strong> (when reasonably possible)</p>
+<p><strong>Your Acceptance:</strong><br />
+- Continued use of BlessSoul after changes become effective constitutes acceptance of the updated Terms<br />
+- If you do not agree to the changes, you must stop using the App and cancel your subscription before the changes take effect<br />
+- You can review the previous version by contacting us at support@blesssoul.com</p>
+<p><strong>Version History:</strong><br />
+We maintain a version history of Terms changes. Request previous versions by emailing support@blesssoul.com.</p>
+<hr />
+<h2>25. Acknowledgment and Acceptance</h2>
+<p><strong>BY CREATING AN ACCOUNT, STARTING A FREE TRIAL, OR USING BLESSSOUL, YOU ACKNOWLEDGE AND AGREE THAT:</strong></p>
+<ul>
+<li>✓ You have read, understood, and agree to be bound by these Terms</li>
+<li>✓ You have read and agree to our Privacy Policy</li>
+<li>✓ You are at least <strong>13 years of age</strong></li>
+<li>✓ You understand BlessSoul is a <strong>paid subscription service</strong> with a 7-day free trial</li>
+<li>✓ You understand your subscription will <strong>auto-renew</strong> unless canceled</li>
+<li>✓ You consent to the collection and use of your data as described in the Privacy Policy</li>
+<li>✓ You agree to <strong>exclusive jurisdiction in Shivamogga, Karnataka, India</strong> for all disputes</li>
+<li>✓ You agree to <strong>mandatory mediation</strong> before litigation</li>
+<li>✓ You agree to <strong>fee shifting</strong> (loser pays winner's legal costs)</li>
+<li>✓ You agree to the <strong>liability caps</strong> (amount paid, max ₹1,00,000 aggregate per year)</li>
+<li>✓ You agree to the <strong>class action waiver</strong></li>
+<li>✓ You understand this is a <strong>solo developer operation</strong> with inherent limitations</li>
+<li>✓ You understand account deletion is <strong>permanent and irreversible</strong></li>
+<li>✓ You are responsible for <strong>backing up your data</strong></li>
+<li>✓ You understand quotes are <strong>AI-generated</strong> without copyright warranty</li>
+<li>✓ You <strong>indemnify the developer</strong> for any claims arising from your sharing or use of AI-generated quotes</li>
+<li>✓ You accept <strong>all risks</strong> associated with using AI-generated content</li>
+<li>✓ You agree that <strong>all sales are final</strong> and refunds are subject to Apple's policy only</li>
+<li>✓ You waive any right to sue in foreign jurisdictions</li>
+</ul>
+<p><strong>If you do not agree to these Terms, do not create an account or use the App.</strong></p>
+<hr />
+<h2>26. Apple-Specific Requirements</h2>
+<h3>26.1 Acknowledgment</h3>
+<p>You acknowledge that:<br />
+- These Terms are between you and Praveena Hosuru Dinesh Bhat, <strong>not Apple</strong><br />
+- Apple is not responsible for BlessSoul or its content<br />
+- Apple has no obligation to provide maintenance or support for BlessSoul<br />
+- Apple is not responsible for addressing any claims relating to BlessSoul, including:<br />
+  - Product liability claims<br />
+  - Claims that BlessSoul fails to conform to legal or regulatory requirements<br />
+  - Claims arising under consumer protection or similar legislation</p>
+<h3>26.2 Intellectual Property Claims</h3>
+<p>In the event of a third-party claim that BlessSoul infringes intellectual property rights:<br />
+- Praveena Hosuru Dinesh Bhat (not Apple) is responsible for investigation, defense, settlement, and discharge of the claim</p>
+<h3>26.3 Apple as Third-Party Beneficiary</h3>
+<p>Apple and its subsidiaries are third-party beneficiaries of these Terms. Upon your acceptance of these Terms, Apple has the right (and is deemed to have accepted the right) to enforce these Terms against you as a third-party beneficiary.</p>
+<h3>26.4 License Scope</h3>
+<p>The license granted in Section 8.3 is limited to a non-transferable license to use BlessSoul on Apple-branded products that you own or control, as permitted by the Apple App Store Usage Rules.</p>
+<hr />
+<h2>27. Quick Reference Guide</h2>
+<p><strong>Essential Information At a Glance:</strong></p>
+<p><strong>Service Details:</strong><br />
+- <strong>Type:</strong> Solo developer subscription app<br />
+- <strong>Minimum Age:</strong> 13 years<br />
+- <strong>Free Trial:</strong> 7 days for new users<br />
+- <strong>Grace Period:</strong> 30 days read-only after expiration<br />
+- <strong>Auto-Deletion:</strong> Day 30 after subscription expires</p>
+<p><strong>Pricing:</strong><br />
+- Monthly: $12.99/month<br />
+- Quarterly: $29.99/3 months (save 23%)<br />
+- Yearly: $99.99/year (save 36%)</p>
+<p><strong>Payment &amp; Refunds:</strong><br />
+- <strong>Payment:</strong> Apple App Store only<br />
+- <strong>Auto-Renewal:</strong> Yes (disable in Apple settings)<br />
+- <strong>Cancellation:</strong> Through Apple ID settings (not in-app)<br />
+- <strong>Refunds:</strong> Apple's policy only - contact Apple Support<br />
+- <strong>All sales final</strong></p>
+<p><strong>Data:</strong><br />
+- <strong>Export:</strong> Available anytime (JSON format)<br />
+- <strong>Deletion:</strong> Immediate and permanent<br />
+- <strong>Recovery:</strong> Not possible after deletion<br />
+- <strong>Encryption:</strong> AES-256-GCM (diary entries)</p>
+<p><strong>Legal Protections:</strong><br />
+- <strong>Jurisdiction:</strong> Shivamogga, Karnataka, India ONLY<br />
+- <strong>Mediation:</strong> Mandatory (60 days) before litigation<br />
+- <strong>Fee Shifting:</strong> Loser pays winner's legal costs<br />
+- <strong>Liability Cap:</strong> Amount paid (max ₹1,00,000/year aggregate)<br />
+- <strong>No Class Actions:</strong> Individual claims only<br />
+- <strong>Frivolous Lawsuit Penalty:</strong> ₹50,000</p>
+<p><strong>Content:</strong><br />
+- <strong>Quotes:</strong> AI-generated by Claude (Anthropic)<br />
+- <strong>No warranty:</strong> Copyright, originality, or accuracy<br />
+- <strong>Your risk:</strong> Sharing or using quotes</p>
+<p><strong>Support:</strong><br />
+- <strong>Email:</strong> support@blesssoul.com<br />
+- <strong>Response:</strong> 2-5 business days (best effort)<br />
+- <strong>Hours:</strong> Mon-Fri, 9 AM - 5 PM IST</p>
+<hr />
+<p><strong>These Terms of Service are effective as of January 1, 2025.</strong><br />
+<strong>Last Updated: November 1, 2025</strong></p>
+<p><strong>© 2025 Praveena Hosuru Dinesh Bhat. All rights reserved.</strong></p>
+<hr />
+<p><strong>END OF TERMS OF SERVICE</strong></p>
     </main>
 
-    <footer class="footer">
+<footer class="footer">
         <div class="container">
             <div class="footer-bottom">
                 <p>&copy; 2025 BlessSoul. All rights reserved.</p>
                 <p>
-                    <a href="privacy.html">Privacy Policy</a> |
-                    <a href="terms.html">Terms of Service</a> |
+                    <a href="../privacy/">Privacy Policy</a> |
+                    <a href="../terms/">Terms of Service</a> |
                     <a href="mailto:support@blesssoul.com">Contact</a>
                 </p>
             </div>

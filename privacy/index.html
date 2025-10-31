@@ -11,9 +11,20 @@
     <link rel="stylesheet" href="../styles.css">
     <style>
         .legal-page {
-            padding: calc(80px + 3rem) 0 3rem;
+            padding: calc(80px + 3rem) 1.5rem 3rem;
             max-width: 900px;
             margin: 0 auto;
+        }
+        @media (max-width: 768px) {
+            .legal-page {
+                padding: calc(80px + 2rem) 1.25rem 2rem;
+            }
+            .legal-page h1 {
+                font-size: 2rem;
+            }
+            .legal-page h2 {
+                font-size: 1.5rem;
+            }
         }
         .legal-page h1 {
             font-family: 'Playfair Display', serif;
@@ -118,527 +129,993 @@
 
     <main class="legal-page container">
         <h1>Privacy Policy for BlessSoul</h1>
-        <p class="updated">Effective Date: January 1, 2025 | Last Updated: October 31, 2025</p>
-
-        <div class="notice-box">
-            <p><strong>IMPORTANT NOTICE:</strong> This is a solo developer operation with limited resources. GDPR/CCPA compliance is provided on a best-effort basis.</p>
-        </div>
-
-        <div class="toc-container">
-            <h2>Table of Contents</h2>
-            <ol>
-                <li><a href="#introduction">Introduction</a></li>
-                <li><a href="#information-collect">Information We Collect</a></li>
-                <li><a href="#how-we-use">How We Use Your Information</a></li>
-                <li><a href="#storage">How We Store Your Information</a></li>
-                <li><a href="#third-party">Third-Party Services</a></li>
-                <li><a href="#data-sharing">Data Sharing and Disclosure</a></li>
-                <li><a href="#your-rights">Your Privacy Rights</a></li>
-                <li><a href="#retention">Data Retention and Deletion</a></li>
-                <li><a href="#children">Children's Privacy</a></li>
-                <li><a href="#diary-analysis">Diary Content Analysis</a></li>
-                <li><a href="#ai-content">AI-Generated Content</a></li>
-                <li><a href="#mental-health">Mental Health Crisis Resources</a></li>
-                <li><a href="#international">International Data Transfers</a></li>
-                <li><a href="#cookies">Cookies and Tracking Technologies</a></li>
-                <li><a href="#security-incident">Security Incident Response</a></li>
-                <li><a href="#changes">Changes to This Privacy Policy</a></li>
-                <li><a href="#contact">Contact Us</a></li>
-                <li><a href="#dispute">Dispute Resolution</a></li>
-                <li><a href="#consent">Your Consent and Acknowledgment</a></li>
-            </ol>
-        </div>
-
-        <h2 id="introduction">Introduction</h2>
-
-        <p>BlessSoul ("we," "our," or "us") is developed and operated by <strong>Praveena Hosuru Dinesh Bhat</strong>, a sole proprietor and individual developer based in <strong>Shivamogga, Karnataka, India</strong>. We are committed to protecting your privacy and ensuring the security of your personal information within the constraints of a one-person operation. This Privacy Policy explains how we collect, use, store, protect, and share your data when you use the BlessSoul mobile application (the "App").</p>
-
-        <p><strong>By using BlessSoul, you agree to the collection and use of information in accordance with this Privacy Policy.</strong></p>
-
-        <h3>Solo Developer Context</h3>
-
-        <p><strong>CRITICAL DISCLOSURE:</strong> BlessSoul is operated by <strong>one individual developer</strong> with limited resources. This affects our privacy practices:</p>
-
-        <ul>
-            <li><strong>Best-effort compliance:</strong> We strive to comply with GDPR, CCPA, and other privacy regulations but have limited resources compared to large companies</li>
-            <li><strong>Reasonable accommodations:</strong> Privacy rights requests will be honored within reasonable timeframes (typically 30-45 days, may extend to 60 days for complex requests)</li>
-            <li><strong>No dedicated privacy team:</strong> Privacy inquiries are handled by the sole developer alongside development, support, and all other operations</li>
-            <li><strong>Limited infrastructure:</strong> Data protection measures reflect solo developer resources, not enterprise-level systems</li>
-            <li><strong>Good-faith efforts:</strong> We make good-faith efforts to protect your privacy and honor your rights within our capabilities</li>
-        </ul>
-
-        <p><strong>We take your privacy seriously, but please understand the limitations inherent in a one-person operation.</strong></p>
-
-        <h2 id="information-collect">1. Information We Collect</h2>
-
-        <h3>1.1 Information You Provide Directly</h3>
-
-        <p><strong>Account Information:</strong></p>
-        <ul>
-            <li><strong>Email address</strong> (required for account creation and authentication)</li>
-            <li><strong>Password</strong> (hashed using bcrypt and securely stored - we never store passwords in plain text)</li>
-            <li><strong>Display name</strong> (optional)</li>
-            <li><strong>Date of birth</strong> (optional, for personalization and age verification)</li>
-            <li><strong>Profile picture</strong> (optional, stored in Supabase Storage)</li>
-        </ul>
-
-        <p><strong>User-Generated Content:</strong></p>
-        <ul>
-            <li><strong>Goals and milestones:</strong> Title, description, category, progress, target dates, completion status</li>
-            <li><strong>Schedule and time blocks:</strong> Time, title, category, duration, notes</li>
-            <li><strong>Reminders:</strong> Title, due date, priority, recurrence, linked goals</li>
-            <li><strong>Diary entries:</strong> Text content, mood, photos, tags (encrypted with AES-256-GCM encryption)</li>
-            <li><strong>Manifestation practices:</strong> Intentions, methods, affirmations, progress, divine signs</li>
-            <li><strong>Gratitude entries:</strong> Daily gratitude lists and reflections</li>
-            <li><strong>Personal notes and reflections:</strong> Associated with goals, manifestations, or entries</li>
-            <li><strong>Favorites and preferences:</strong> Liked quotes, theme settings, notification preferences</li>
-        </ul>
-
-        <p><strong>Subscription Information:</strong></p>
-        <ul>
-            <li>Subscription plan (monthly, quarterly, yearly)</li>
-            <li>Subscription status (trial, active, expired, cancelled)</li>
-            <li>Subscription start and end dates</li>
-            <li>Anonymous RevenueCat customer ID (UUID, not personally identifiable)</li>
-            <li><strong>Note:</strong> Payment information is processed and stored securely by Apple's App Store - we do <strong>NOT</strong> receive or store your payment card details, billing address, or financial information</li>
-        </ul>
-
-        <h3>1.2 Automatically Collected Information</h3>
-
-        <p><strong>Usage Analytics (Firebase Analytics - Production Only):</strong></p>
-        <ul>
-            <li>App launch and session duration</li>
-            <li>Feature usage patterns (which screens viewed, features used)</li>
-            <li>Button clicks and interactions</li>
-            <li>Authentication events (sign up, login, logout)</li>
-            <li>Goal creation, diary entry creation, quote views (counts only, not content)</li>
-            <li>Settings changes (theme preference, etc.)</li>
-            <li>CloudKit sync success/failure events</li>
-            <li>App version and update adoption</li>
-            <li>Language preference</li>
-            <li>General geographic location (<strong>country/region level only</strong>, derived from App Store, NOT precise GPS location)</li>
-        </ul>
-
-        <p><strong>Technical Information:</strong></p>
-        <ul>
-            <li>Device model (e.g., iPhone 14 Pro)</li>
-            <li>Device unique identifier (anonymous, for analytics)</li>
-            <li>iOS version (e.g., iOS 17.0)</li>
-            <li>App version (e.g., 1.0.0)</li>
-            <li>Network connectivity status (Wi-Fi, cellular, offline)</li>
-            <li>App crashes, errors, and performance data (Firebase Crashlytics - production builds only)</li>
-            <li>Stack traces for debugging (containing no personal information)</li>
-        </ul>
-
-        <h3>1.3 Information We Do NOT Collect</h3>
-
-        <p>We value your privacy and <strong>do NOT collect</strong> the following:</p>
-
-        <ul>
-            <li>✗ <strong>Precise GPS location</strong> (we only know country/region from App Store)</li>
-            <li>✗ <strong>Contacts</strong> (we don't access your address book)</li>
-            <li>✗ <strong>Calendar</strong> (beyond BlessSoul's own schedule data)</li>
-            <li>✗ <strong>Photos</strong> (except profile picture you choose to upload)</li>
-            <li>✗ <strong>Microphone or camera</strong> (no recording)</li>
-            <li>✗ <strong>Data from other apps</strong></li>
-            <li>✗ <strong>Advertising identifiers</strong> (IDFA)</li>
-            <li>✗ <strong>Third-party ad trackers</strong></li>
-            <li>✗ <strong>Biometric data</strong> (Face ID/Touch ID is handled locally by iOS and never leaves your device)</li>
-            <li>✗ <strong>Health data</strong> (HealthKit)</li>
-            <li>✗ <strong>Social media activity</strong> (even if you sign in with Google)</li>
-            <li>✗ <strong>Browsing history</strong></li>
-            <li>✗ <strong>Search history</strong> (outside the app)</li>
-        </ul>
-
-        <h2 id="how-we-use">2. How We Use Your Information</h2>
-
-        <p>We use your information for the following purposes:</p>
-
-        <h3>2.1 Core App Functionality</h3>
-
-        <ul>
-            <li><strong>Authenticate your account</strong> and maintain secure login sessions</li>
-            <li><strong>Store and sync</strong> your goals, schedules, diary entries, manifestations, reminders, and other content</li>
-            <li><strong>Enable iCloud sync</strong> across your Apple devices (if you enable it)</li>
-            <li><strong>Provide personalized recommendations</strong> and insights based on your usage patterns</li>
-            <li><strong>Send notifications and reminders</strong> you've configured</li>
-            <li><strong>Display daily quotes</strong> (AI-generated by Claude AI)</li>
-            <li><strong>Generate progress reports</strong> and statistics</li>
-            <li><strong>Process subscription management</strong> (trial, active, expired status)</li>
-        </ul>
-
-        <h3>2.2 Service Improvement</h3>
-
-        <ul>
-            <li><strong>Analyze app usage</strong> to understand which features are most valuable and improve user experience</li>
-            <li><strong>Identify and fix bugs</strong> and technical issues</li>
-            <li><strong>Monitor app performance</strong> and stability</li>
-            <li><strong>Understand user needs</strong> to prioritize new features</li>
-            <li><strong>Test new features</strong> before wider release</li>
-            <li><strong>Optimize loading times</strong> and responsiveness</li>
-        </ul>
-
-        <h3>2.3 Communication</h3>
-
-        <ul>
-            <li><strong>Send important emails</strong> about your subscription status (trial ending, expiration, renewal)</li>
-            <li><strong>Respond to support requests</strong> and customer inquiries</li>
-            <li><strong>Notify you of significant app changes</strong>, new features, or critical updates</li>
-            <li><strong>Send password reset emails</strong> when requested</li>
-            <li><strong>Send account security notifications</strong> (e.g., login from new device)</li>
-            <li><strong>Send account deletion warnings</strong> during grace period</li>
-        </ul>
-
-        <h2 id="storage">3. How We Store Your Information</h2>
-
-        <h3>3.1 Data Storage Locations</h3>
-
-        <p><strong>Supabase (Primary Cloud Database):</strong></p>
-        <ul>
-            <li><strong>What's stored:</strong> Account information, goals, schedules, reminders, manifestations, subscription tracking</li>
-            <li><strong>Location:</strong> United States (Google Cloud Platform infrastructure)</li>
-            <li><strong>Security:</strong> Row-level security, PostgreSQL database, HTTPS/TLS encryption</li>
-            <li><strong>Privacy Policy:</strong> <a href="https://supabase.com/privacy" target="_blank">https://supabase.com/privacy</a></li>
-        </ul>
-
-        <p><strong>Apple iCloud (CloudKit) - Optional:</strong></p>
-        <ul>
-            <li><strong>What's stored:</strong> Synced copy of your goals, schedules, reminders, manifestations</li>
-            <li><strong>Control:</strong> You control whether iCloud sync is enabled</li>
-            <li><strong>Security:</strong> Encrypted in transit and at rest by Apple</li>
-        </ul>
-
-        <p><strong>Local Device Storage (CoreData):</strong></p>
-        <ul>
-            <li><strong>What's stored:</strong> Encrypted diary entries (AES-256-GCM encryption), cached data for offline access</li>
-            <li><strong>Security:</strong> iOS app sandbox, encrypted storage</li>
-        </ul>
-
-        <h3>3.2 Data Security Measures</h3>
-
-        <p>We implement industry-standard security measures:</p>
-
-        <ul>
-            <li><strong>Encryption in Transit:</strong> All data uses HTTPS/TLS 1.3 encryption</li>
-            <li><strong>Encryption at Rest:</strong> Diary entries use AES-256-GCM encryption (military-grade)</li>
-            <li><strong>Password Security:</strong> bcrypt hashing with salt (never stored in plain text)</li>
-            <li><strong>Access Controls:</strong> Row-level security, API authentication, rate limiting</li>
-            <li><strong>Biometric Protection:</strong> Optional Face ID/Touch ID for diary access (processed locally by iOS)</li>
-        </ul>
-
-        <h2 id="third-party">4. Third-Party Services</h2>
-
-        <p>BlessSoul uses the following third-party services:</p>
-
-        <h3>4.1 Supabase (Backend Infrastructure)</h3>
-        <ul>
-            <li><strong>Purpose:</strong> User authentication, data storage, real-time synchronization</li>
-            <li><strong>Location:</strong> United States</li>
-            <li><strong>Privacy Policy:</strong> <a href="https://supabase.com/privacy" target="_blank">https://supabase.com/privacy</a></li>
-        </ul>
-
-        <h3>4.2 Firebase (Google LLC)</h3>
-        <ul>
-            <li><strong>Purpose:</strong> Analytics and crash reporting (production builds only)</li>
-            <li><strong>Control:</strong> Can be disabled in Settings → Privacy → Analytics</li>
-            <li><strong>Privacy Policy:</strong> <a href="https://firebase.google.com/support/privacy" target="_blank">https://firebase.google.com/support/privacy</a></li>
-        </ul>
-
-        <h3>4.3 RevenueCat (Subscription Management)</h3>
-        <ul>
-            <li><strong>Purpose:</strong> Manage subscription status and payments</li>
-            <li><strong>Data Shared:</strong> Anonymous user ID, subscription status (no payment details)</li>
-            <li><strong>Privacy Policy:</strong> <a href="https://www.revenuecat.com/privacy" target="_blank">https://www.revenuecat.com/privacy</a></li>
-        </ul>
-
-        <h3>4.4 Claude AI by Anthropic (AI Content Generation)</h3>
-        <ul>
-            <li><strong>Purpose:</strong> Generate daily quotes and inspirational content</li>
-            <li><strong>Data Shared:</strong> NO personal data - only generic prompts</li>
-            <li><strong>Privacy Policy:</strong> <a href="https://www.anthropic.com/privacy" target="_blank">https://www.anthropic.com/privacy</a></li>
-        </ul>
-
-        <p><strong>Important:</strong> We do NOT share your data with advertising networks, data brokers, or marketing companies. We NEVER sell, rent, or trade your personal information.</p>
-
-        <h2 id="data-sharing">5. Data Sharing and Disclosure</h2>
-
-        <h3>5.1 We Do NOT Sell Your Data</h3>
-
-        <p>We <strong>never</strong> sell, rent, or trade your personal information to third parties for any purpose. Your data is not a commodity.</p>
-
-        <h3>5.2 When We May Share Information</h3>
-
-        <p>We only share your information in these <strong>limited circumstances</strong>:</p>
-
-        <ul>
-            <li><strong>With Your Explicit Consent:</strong> When you explicitly choose to share content</li>
-            <li><strong>Service Providers:</strong> With third-party services listed in Section 4, solely to provide app functionality</li>
-            <li><strong>Legal Requirements:</strong> If required by law, court order, or to protect rights and safety</li>
-            <li><strong>Business Transfers:</strong> In the event of merger, acquisition, or sale of assets (with notification)</li>
-            <li><strong>Aggregated Anonymous Data:</strong> Non-personally identifiable statistics</li>
-        </ul>
-
-        <h2 id="your-rights">6. Your Privacy Rights</h2>
-
-        <h3>6.1 Access and Control</h3>
-
-        <p>You have the following rights:</p>
-
-        <ul>
-            <li><strong>Access Your Data:</strong> View all your data in Settings → Data Management</li>
-            <li><strong>Export Your Data:</strong> Download complete copy in JSON format</li>
-            <li><strong>Delete Your Data:</strong> Permanently delete account and all data</li>
-            <li><strong>Correct Your Data:</strong> Update profile information anytime</li>
-            <li><strong>Opt-Out of Analytics:</strong> Disable in Settings → Privacy → Analytics</li>
-            <li><strong>Control iCloud Sync:</strong> Enable/disable in iOS Settings</li>
-        </ul>
-
-        <h3>6.2 GDPR Rights (European Economic Area Users)</h3>
-
-        <p>If you are located in the EEA, UK, or Switzerland, you have additional rights:</p>
-
-        <ul>
-            <li>Right to Access</li>
-            <li>Right to Rectification</li>
-            <li>Right to Erasure ("Right to be Forgotten")</li>
-            <li>Right to Restriction of Processing</li>
-            <li>Right to Data Portability</li>
-            <li>Right to Object</li>
-            <li>Right to Withdraw Consent</li>
-            <li>Right to Lodge a Complaint</li>
-        </ul>
-
-        <p><strong>How to Exercise:</strong> Email support@blesssoul.com with subject "GDPR Request"<br>
-        <strong>Response time:</strong> Within 30 days (may extend to 60 days for complex requests)</p>
-
-        <h3>6.3 CCPA Rights (California Residents)</h3>
-
-        <p>California residents have rights under CCPA:</p>
-
-        <ul>
-            <li>Right to Know what information we collect</li>
-            <li>Right to Delete personal information</li>
-            <li>Right to Opt-Out of Sale (we don't sell data)</li>
-            <li>Right to Non-Discrimination</li>
-        </ul>
-
-        <p><strong>How to Exercise:</strong> Email support@blesssoul.com with subject "CCPA Request"<br>
-        <strong>Response time:</strong> Within 45 days (may extend to 90 days for complex requests)</p>
-
-        <h2 id="retention">7. Data Retention and Deletion</h2>
-
-        <h3>7.1 Active Accounts</h3>
-
-        <p>We retain your data as long as your account is active:</p>
-
-        <ul>
-            <li><strong>During trial (7 days):</strong> Full data retention</li>
-            <li><strong>Active subscription:</strong> Full data retention and sync</li>
-            <li><strong>Grace period (30 days post-expiration):</strong> Read-only data retention</li>
-            <li><strong>Day 30 post-expiration:</strong> Automatic deletion</li>
-        </ul>
-
-        <h3>7.2 Manual Account Deletion</h3>
-
-        <p>When you manually delete your account:</p>
-
-        <ul>
-            <li><strong>Immediate:</strong> All user content deleted from database, authentication terminated</li>
-            <li><strong>Within 24-48 hours:</strong> CloudKit data fully removed</li>
-            <li><strong>Within 30 days:</strong> Backups purged, residual logs anonymized</li>
-        </ul>
-
-        <p><strong>Important:</strong> Deletion is permanent and irreversible. Data cannot be recovered.</p>
-
-        <h3>7.3 Automatic Account Deletion</h3>
-
-        <p>If subscription expires and is not renewed:</p>
-
-        <ul>
-            <li><strong>Days 0-29:</strong> Account in read-only mode, all data retained</li>
-            <li><strong>Day 30:</strong> Account automatically and permanently deleted</li>
-            <li><strong>Prevention:</strong> Resubscribe anytime before day 30 to restore full access</li>
-        </ul>
-
-        <h2 id="children">8. Children's Privacy</h2>
-
-        <h3>8.1 Age Requirement</h3>
-
-        <p>BlessSoul is intended for users aged <strong>13 and older</strong>. We do not knowingly collect personal information from children under 13.</p>
-
-        <h3>8.2 COPPA Compliance</h3>
-
-        <p>If you believe we have collected information from a child under 13:</p>
-
-        <ul>
-            <li><strong>Contact us immediately:</strong> support@blesssoul.com with subject "Child Privacy Concern"</li>
-            <li><strong>We will promptly:</strong> Delete the child's account and all data within 48-72 hours</li>
-        </ul>
-
-        <h2 id="diary-analysis">9. Diary Content Analysis</h2>
-
-        <h3>9.1 Local NLP Processing</h3>
-
-        <p><strong>IMPORTANT:</strong> BlessSoul uses LOCAL natural language processing to analyze keywords in diary entries for quote personalization.</p>
-
-        <p><strong>Privacy Protection:</strong></p>
-        <ul>
-            <li>✓ All NLP processing is LOCAL (on your device only)</li>
-            <li>✓ Diary content NEVER leaves your device</li>
-            <li>✓ No data sent to servers or third parties</li>
-            <li>✓ Keywords are NOT stored</li>
-            <li>✓ You can disable by not using Soul Spark feature</li>
-        </ul>
-
-        <h2 id="ai-content">10. AI-Generated Content and Privacy</h2>
-
-        <h3>10.1 Claude AI Integration</h3>
-
-        <p><strong>What is NOT Shared:</strong></p>
-        <ul>
-            <li>✗ Your personal information</li>
-            <li>✗ Your user-generated content (goals, diary, schedules)</li>
-            <li>✗ Your subscription information</li>
-            <li>✗ Any personally identifiable information</li>
-        </ul>
-
-        <p><strong>What IS Shared:</strong></p>
-        <ul>
-            <li>✓ Generic prompts only (e.g., "Generate inspirational quote")</li>
-            <li>✓ No user-specific data</li>
-        </ul>
-
-        <h2 id="mental-health">11. Mental Health Crisis Resources</h2>
-
-        <p><strong>CRITICAL:</strong> BlessSoul's mood tracking is for personal reflection ONLY, not mental health treatment.</p>
-
-        <p><strong>If experiencing mental health crisis:</strong></p>
-
-        <ul>
-            <li><strong>INDIA:</strong> Emergency 112, Mental Health Helpline 1800-599-0019</li>
-            <li><strong>UNITED STATES:</strong> 988 Suicide & Crisis Lifeline</li>
-            <li><strong>UNITED KINGDOM:</strong> Samaritans 116 123</li>
-            <li><strong>GLOBAL:</strong> <a href="https://findahelpline.com" target="_blank">https://findahelpline.com</a></li>
-        </ul>
-
-        <h2 id="international">12. International Data Transfers</h2>
-
-        <p>BlessSoul is available globally. Your data may be transferred to and stored in the <strong>United States</strong>.</p>
-
-        <p><strong>Developer Location:</strong> Shivamogga, Karnataka, India<br>
-        <strong>Server Location:</strong> United States (Supabase, Firebase)</p>
-
-        <p>By using BlessSoul, you consent to international data transfer and processing.</p>
-
-        <h2 id="cookies">13. Cookies and Tracking Technologies</h2>
-
-        <p>BlessSoul does <strong>NOT</strong> use cookies for advertising or behavioral targeting.</p>
-
-        <p><strong>We use minimal local storage for:</strong></p>
-        <ul>
-            <li>Session management (authentication tokens)</li>
-            <li>Caching (offline access)</li>
-            <li>Preferences (theme, settings)</li>
-            <li>Analytics (can be disabled)</li>
-        </ul>
-
-        <p>We do NOT use third-party advertising trackers or social media tracking pixels.</p>
-
-        <h2 id="security-incident">14. Security Incident Response</h2>
-
-        <h3>14.1 In the Event of a Data Breach</h3>
-
-        <p><strong>Our Response:</strong></p>
-        <ul>
-            <li>Immediate investigation and containment</li>
-            <li>Assessment of affected data and users</li>
-            <li>Notification within 72 hours (best effort)</li>
-            <li>Remediation and prevention measures</li>
-        </ul>
-
-        <p><strong>Your Role:</strong> If you suspect unauthorized access, change password immediately and contact support@blesssoul.com</p>
-
-        <h2 id="changes">15. Changes to This Privacy Policy</h2>
-
-        <p>We may update this Privacy Policy from time to time.</p>
-
-        <p><strong>We will notify you by:</strong></p>
-        <ul>
-            <li>Updating "Last Updated" date</li>
-            <li>In-app notice upon next login</li>
-            <li>Email to your registered address</li>
-            <li>30 days' advance notice for material changes</li>
-        </ul>
-
-        <p>Continued use after changes constitutes acceptance.</p>
-
-        <h2 id="contact">16. Contact Us</h2>
-
-        <p>For privacy questions or requests:</p>
-
-        <p>
-            <strong>Email:</strong> <a href="mailto:support@blesssoul.com">support@blesssoul.com</a><br>
-            <strong>Developer:</strong> Praveena Hosuru Dinesh Bhat<br>
-            <strong>Location:</strong> Shivamogga, Karnataka, India<br>
-            <strong>Website:</strong> <a href="https://www.blesssoul.com" target="_blank">https://www.blesssoul.com</a><br>
-            <strong>Support Hours:</strong> Monday - Friday, 9 AM - 5 PM IST<br>
-            <strong>Response Time:</strong> 2-5 business days
-        </p>
-
-        <p><strong>Subject Lines for Requests:</strong></p>
-        <ul>
-            <li>General questions: "Privacy Question"</li>
-            <li>GDPR requests: "GDPR Request"</li>
-            <li>CCPA requests: "CCPA Request"</li>
-            <li>Data deletion: "Delete My Data"</li>
-            <li>Data export: "Export My Data"</li>
-            <li>Security concerns: "Security Concern"</li>
-            <li>Child privacy: "Child Privacy Concern"</li>
-        </ul>
-
-        <h2 id="dispute">17. Dispute Resolution</h2>
-
-        <p>If you have a complaint about our privacy practices:</p>
-
-        <ol>
-            <li><strong>Contact us first:</strong> support@blesssoul.com (response within 2-5 business days)</li>
-            <li><strong>Regulatory authorities:</strong> You may file a complaint with your local data protection authority</li>
-            <li><strong>Arbitration:</strong> Disputes subject to Terms of Service provisions (exclusive jurisdiction in Shivamogga, Karnataka, India)</li>
-        </ol>
-
-        <h2 id="consent">18. Your Consent and Acknowledgment</h2>
-
-        <p><strong>By using BlessSoul, you consent to:</strong></p>
-
-        <ul>
-            <li>✓ Collection and use of information as described in this Privacy Policy</li>
-            <li>✓ Transfer of data to United States and other countries</li>
-            <li>✓ Use of third-party services (Supabase, Firebase, RevenueCat, Claude AI)</li>
-            <li>✓ Storage on Supabase servers (United States)</li>
-            <li>✓ Optional iCloud sync (if enabled)</li>
-            <li>✓ Receiving transactional emails</li>
-            <li>✓ Solo developer limitations on privacy practices</li>
-            <li>✓ Best-effort GDPR/CCPA compliance</li>
-        </ul>
-
-        <p><strong>If you do not agree:</strong> Do not create an account or use BlessSoul. Delete existing account via Settings.</p>
-
-        <hr style="margin: 3rem 0; border: none; border-top: 1px solid var(--gray-300);">
-
-        <p style="text-align: center; color: var(--gray-600); font-size: 0.9rem;">
-            <strong>This Privacy Policy is effective as of January 1, 2025.</strong><br>
-            <strong>Last Updated: October 31, 2025</strong><br><br>
-            <strong>© 2025 Praveena Hosuru Dinesh Bhat. All rights reserved.</strong>
-        </p>
+        <p class="updated">Effective Date: January 1, 2025 | Last Updated: November 1, 2025</p>
+
+<h2>Introduction</h2>
+<p>BlessSoul ("we," "our," or "us") is developed and operated by <strong>Praveena Hosuru Dinesh Bhat</strong>, a sole proprietor and individual developer based in <strong>Shivamogga, Karnataka, India</strong>. We are committed to protecting your privacy and ensuring the security of your personal information within the constraints of a one-person operation. This Privacy Policy explains how we collect, use, store, protect, and share your data when you use the BlessSoul mobile application (the "App").</p>
+<p><strong>By using BlessSoul, you agree to the collection and use of information in accordance with this Privacy Policy.</strong></p>
+<p><strong>Your use of BlessSoul is also governed by our Terms of Service.</strong> This Privacy Policy should be read in conjunction with our Terms of Service. Please review both documents before using the app.</p>
+<h3>Solo Developer Context</h3>
+<p><strong>CRITICAL DISCLOSURE:</strong> BlessSoul is operated by <strong>one individual developer</strong> with limited resources. This affects our privacy practices:</p>
+<ul>
+<li><strong>Compliance commitment:</strong> We comply with GDPR, CCPA, and other applicable privacy regulations within the requirements of the law</li>
+<li><strong>Response timeframes:</strong> Privacy rights requests will be handled within the maximum timeframes permitted by law (30 days for GDPR, can extend to 60 days for complex requests; 45 days for CCPA, can extend to 90 days for complex requests)</li>
+<li><strong>No dedicated privacy team:</strong> Privacy inquiries are handled by the sole developer alongside development, support, and all other operations</li>
+<li><strong>Limited infrastructure:</strong> Data protection measures reflect solo developer resources, not enterprise-level systems</li>
+<li><strong>Good-faith efforts:</strong> We make good-faith efforts to protect your privacy and honor your rights within our capabilities</li>
+</ul>
+<p><strong>We take your privacy seriously and comply with all applicable privacy laws, though response times may be at the maximum allowed by law due to the one-person operation.</strong></p>
+<hr />
+<h2>1. Information We Collect</h2>
+<h3>1.1 Information You Provide Directly</h3>
+<p><strong>Account Information:</strong><br />
+- <strong>Email address</strong> (required for account creation and authentication)<br />
+- <strong>Password</strong> (hashed using bcrypt and securely stored - we never store passwords in plain text)<br />
+- <strong>Display name</strong> (optional)<br />
+- <strong>Date of birth</strong> (optional, for personalization and age verification)<br />
+- <strong>Profile picture</strong> (optional, stored in Supabase Storage)</p>
+<p><strong>User-Generated Content:</strong><br />
+- <strong>Goals and milestones:</strong> Title, description, category, progress, target dates, completion status<br />
+- <strong>Schedule and time blocks:</strong> Time, title, category, duration, notes<br />
+- <strong>Reminders:</strong> Title, due date, priority, recurrence, linked goals<br />
+- <strong>Diary entries:</strong> Text content, mood, photos, tags (encrypted with AES-256-GCM encryption)<br />
+- <strong>Manifestation practices:</strong> Intentions, methods, affirmations, progress, divine signs<br />
+- <strong>Gratitude entries:</strong> Daily gratitude lists and reflections<br />
+- <strong>Personal notes and reflections:</strong> Associated with goals, manifestations, or entries<br />
+- <strong>Favorites and preferences:</strong> Liked quotes, theme settings, notification preferences</p>
+<p><strong>Subscription Information:</strong><br />
+- Subscription plan (monthly, quarterly, yearly)<br />
+- Subscription status (trial, active, expired, cancelled)<br />
+- Subscription start and end dates<br />
+- Anonymous RevenueCat customer ID (UUID, not personally identifiable)<br />
+- <strong>Note:</strong> Payment information is processed and stored securely by Apple's App Store - we do <strong>NOT</strong> receive or store your payment card details, billing address, or financial information</p>
+<h3>1.2 Automatically Collected Information</h3>
+<p><strong>Usage Analytics (Firebase Analytics - Production Only):</strong><br />
+- App launch and session duration<br />
+- Feature usage patterns (which screens viewed, features used)<br />
+- Button clicks and interactions<br />
+- Authentication events (sign up, login, logout)<br />
+- Goal creation, diary entry creation, quote views (counts only, not content)<br />
+- Settings changes (theme preference, etc.)<br />
+- CloudKit sync success/failure events<br />
+- App version and update adoption<br />
+- Language preference<br />
+- General geographic location (<strong>country/region level only</strong>, derived from App Store, NOT precise GPS location)</p>
+<p><strong>Technical Information:</strong><br />
+- Device model (e.g., iPhone 14 Pro)<br />
+- Device unique identifier (anonymous, for analytics)<br />
+- iOS version (e.g., iOS 17.0)<br />
+- App version (e.g., 1.0.0)<br />
+- Network connectivity status (Wi-Fi, cellular, offline)<br />
+- App crashes, errors, and performance data (Firebase Crashlytics - production builds only)<br />
+- Stack traces for debugging (containing no personal information)</p>
+<h3>1.3 Information We Do NOT Collect</h3>
+<p>We value your privacy and <strong>do NOT collect</strong> the following:</p>
+<ul>
+<li>✗ <strong>Precise GPS location</strong> (we only know country/region from App Store)</li>
+<li>✗ <strong>Contacts</strong> (we don't access your address book)</li>
+<li>✗ <strong>Calendar</strong> (beyond BlessSoul's own schedule data)</li>
+<li>✗ <strong>Photos</strong> (except profile picture you choose to upload)</li>
+<li>✗ <strong>Microphone or camera</strong> (no recording)</li>
+<li>✗ <strong>Data from other apps</strong></li>
+<li>✗ <strong>Advertising identifiers</strong> (IDFA)</li>
+<li>✗ <strong>Third-party ad trackers</strong></li>
+<li>✗ <strong>Biometric data</strong> (Face ID/Touch ID is handled locally by iOS and never leaves your device)</li>
+<li>✗ <strong>Health data</strong> (HealthKit)</li>
+<li>✗ <strong>Social media activity</strong> (even if you sign in with Google)</li>
+<li>✗ <strong>Browsing history</strong></li>
+<li>✗ <strong>Search history</strong> (outside the app)</li>
+</ul>
+<hr />
+<h2>2. How We Use Your Information</h2>
+<p>We use your information for the following purposes:</p>
+<h3>2.1 Core App Functionality</h3>
+<ul>
+<li><strong>Authenticate your account</strong> and maintain secure login sessions</li>
+<li><strong>Store and sync</strong> your goals, schedules, diary entries, manifestations, reminders, and other content</li>
+<li><strong>Enable iCloud sync</strong> across your Apple devices (if you enable it)</li>
+<li><strong>Provide personalized recommendations</strong> and insights based on your usage patterns</li>
+<li><strong>Send notifications and reminders</strong> you've configured</li>
+<li><strong>Display daily quotes</strong> (AI-generated by Claude AI - see Section 9)</li>
+<li><strong>Generate progress reports</strong> and statistics</li>
+<li><strong>Process subscription management</strong> (trial, active, expired status)</li>
+</ul>
+<h3>2.2 Service Improvement</h3>
+<ul>
+<li><strong>Analyze app usage</strong> to understand which features are most valuable and improve user experience</li>
+<li><strong>Identify and fix bugs</strong> and technical issues</li>
+<li><strong>Monitor app performance</strong> and stability</li>
+<li><strong>Understand user needs</strong> to prioritize new features</li>
+<li><strong>Test new features</strong> before wider release</li>
+<li><strong>Optimize loading times</strong> and responsiveness</li>
+</ul>
+<h3>2.3 Communication</h3>
+<ul>
+<li><strong>Send important emails</strong> about your subscription status (trial ending, expiration, renewal)</li>
+<li><strong>Respond to support requests</strong> and customer inquiries</li>
+<li><strong>Notify you of significant app changes</strong>, new features, or critical updates</li>
+<li><strong>Send password reset emails</strong> when requested</li>
+<li><strong>Send account security notifications</strong> (e.g., login from new device)</li>
+<li><strong>Send account deletion warnings</strong> during grace period</li>
+</ul>
+<p><strong>Email Frequency:</strong> We send transactional emails only (no marketing). You will receive:<br />
+- Welcome email upon signup<br />
+- Trial ending reminder (day 6 of trial)<br />
+- Subscription expiration notices (if applicable)<br />
+- Grace period reminders (if subscription expires)<br />
+- Password reset emails (when requested)<br />
+- Support responses (when you contact us)</p>
+<h3>2.4 Legal and Security</h3>
+<ul>
+<li>Comply with applicable laws, regulations, and legal obligations</li>
+<li>Respond to legal requests (court orders, subpoenas)</li>
+<li>Prevent fraud, abuse, and unauthorized access</li>
+<li>Enforce our Terms of Service</li>
+<li>Protect the rights, property, and safety of BlessSoul, users, and the public</li>
+<li>Investigate security incidents or Terms violations</li>
+</ul>
+<h3>2.5 Analytics and Research (Anonymous)</h3>
+<ul>
+<li>Understand demographic patterns (country, age range, device type)</li>
+<li>Measure user retention and engagement</li>
+<li>A/B test new features or designs</li>
+<li>Generate anonymous aggregate statistics for business purposes</li>
+</ul>
+<p><strong>Important:</strong> Analytics data is anonymized and cannot be linked back to you personally.</p>
+<hr />
+<h2>3. Legal Basis for Processing (GDPR)</h2>
+<h3>3.1 Why We Are Allowed to Process Your Data</h3>
+<p>Under the General Data Protection Regulation (GDPR), we must have a legal basis to process your personal data. We rely on the following legal grounds under GDPR Article 6(1):</p>
+<p><strong>1. Contract Performance (Article 6(1)(b)):</strong></p>
+<p>We process your data to fulfill our contract with you (Terms of Service) and provide the Service you subscribed to:<br />
+- Account creation and authentication<br />
+- Subscription management and billing<br />
+- Service delivery (goals, diary, schedules, manifestations, reminders)<br />
+- Data synchronization across your devices<br />
+- Customer support and issue resolution<br />
+- Email communications about your account</p>
+<p><strong>2. Consent (Article 6(1)(a)):</strong></p>
+<p>We process certain data only with your explicit consent, which you can withdraw at any time:<br />
+- Firebase Analytics (Settings → Privacy → Analytics)<br />
+- Optional Google Sign-In authentication<br />
+- Optional iCloud sync (iOS Settings → iCloud)<br />
+- Push notifications (iOS Settings → Notifications)<br />
+- Optional profile picture upload</p>
+<p><strong>3. Legitimate Interests (Article 6(1)(f)):</strong></p>
+<p>We process certain data based on our legitimate interests, which are balanced against your rights:<br />
+- <strong>Fraud prevention and security:</strong> Detecting suspicious account activity, preventing abuse<br />
+- <strong>Service improvement:</strong> Anonymous analytics to improve features and fix bugs<br />
+- <strong>Crash reporting:</strong> Firebase Crashlytics to identify and fix app crashes<br />
+- <strong>Business operations:</strong> Understanding usage patterns, retention analysis<br />
+- <strong>Legal compliance:</strong> Maintaining records required by law</p>
+<p><strong>Your Right to Object:</strong> You have the right to object to processing based on legitimate interests. Contact support@blesssoul.com with subject "GDPR - Object to Processing" to exercise this right.</p>
+<p><strong>4. Legal Obligation (Article 6(1)(c)):</strong></p>
+<p>We process certain data to comply with legal obligations:<br />
+- Subscription records for tax compliance (India tax law: 7 years retention)<br />
+- Response to court orders, subpoenas, or government requests<br />
+- Compliance with data protection laws (breach notifications, etc.)</p>
+<h3>3.2 Withdrawal of Consent</h3>
+<p>For processing based on your consent, you can withdraw consent at any time:</p>
+<p><strong>To Withdraw Consent:</strong><br />
+- <strong>Analytics:</strong> Settings → Privacy → Analytics (toggle off)<br />
+- <strong>Google Sign-In:</strong> Switch to email/password authentication in Settings<br />
+- <strong>iCloud Sync:</strong> iOS Settings → Apple ID → iCloud → BlessSoul (toggle off)<br />
+- <strong>Notifications:</strong> iOS Settings → Notifications → BlessSoul (disable)<br />
+- <strong>Profile Picture:</strong> Settings → Profile → Remove Profile Picture</p>
+<p><strong>Important:</strong> Withdrawal of consent does not affect the lawfulness of processing before withdrawal. Withdrawing consent for essential features (account management, sync) may make the Service unusable.</p>
+<hr />
+<h2>4. How We Store Your Information</h2>
+<h3>4.1 Data Storage Locations</h3>
+<p><strong>Supabase (Primary Cloud Database):</strong><br />
+- <strong>What's stored:</strong><br />
+  - Account information (email, name, profile picture, preferences)<br />
+  - Goals, milestones, and progress data<br />
+  - Schedules and time blocks<br />
+  - Reminders and tasks<br />
+  - Manifestation practices, affirmations, and gratitude entries<br />
+  - Quote interactions (favorites, views)<br />
+  - Subscription tracking (status, plan, dates)<br />
+- <strong>Location:</strong> United States (Google Cloud Platform infrastructure)<br />
+- <strong>Security:</strong> Row-level security, PostgreSQL database, HTTPS/TLS encryption<br />
+- <strong>Privacy Policy:</strong> https://supabase.com/privacy</p>
+<p><strong>Apple iCloud (CloudKit) - Optional:</strong><br />
+- <strong>What's stored:</strong><br />
+  - Synced copy of your goals, schedules, reminders, manifestations<br />
+  - Enables automatic backup and sync across your Apple devices (iPhone, iPad, Mac)<br />
+- <strong>Control:</strong> You control whether iCloud sync is enabled (Settings → Apple ID → iCloud)<br />
+- <strong>Location:</strong> Apple data centers (varies by your country)<br />
+- <strong>Security:</strong> Encrypted in transit and at rest by Apple<br />
+- <strong>Privacy Policy:</strong> https://www.apple.com/legal/privacy/</p>
+<p><strong>Local Device Storage (CoreData):</strong><br />
+- <strong>What's stored:</strong><br />
+  - <strong>Encrypted diary entries</strong> (AES-256-GCM encryption)<br />
+  - Cached data for offline access<br />
+  - User preferences and settings<br />
+  - Session tokens<br />
+  - Draft content<br />
+- <strong>Location:</strong> Your device only<br />
+- <strong>Security:</strong> iOS app sandbox, encrypted storage</p>
+<p><strong>iOS Keychain (Secure Enclave):</strong><br />
+- <strong>What's stored:</strong><br />
+  - Encryption keys for diary entries<br />
+  - Stored with <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code> (highest security)<br />
+- <strong>Location:</strong> Device-only, never synced<br />
+- <strong>Security:</strong> Hardware-backed encryption, protected by device passcode/biometrics</p>
+<h3>4.2 Data Security Measures</h3>
+<p>We implement industry-standard and best-practice security measures within the constraints of a solo developer operation:</p>
+<p><strong>Encryption in Transit:</strong><br />
+- All data transmitted between your device and our servers uses <strong>HTTPS/TLS 1.3 encryption</strong><br />
+- Certificate pinning prevents man-in-the-middle attacks<br />
+- Secure WebSocket connections for real-time sync</p>
+<p><strong>Encryption at Rest:</strong><br />
+- Diary entries: <strong>AES-256-GCM encryption</strong> (military-grade)<br />
+- Passwords: <strong>bcrypt hashing</strong> with salt (never stored in plain text)<br />
+- Database: Encrypted at rest by Supabase/Google Cloud</p>
+<p><strong>Access Controls:</strong><br />
+- <strong>Row-level security:</strong> Users can only access their own data in Supabase<br />
+- <strong>API authentication:</strong> All requests require valid authentication tokens<br />
+- <strong>Rate limiting:</strong> Prevents brute force attacks<br />
+- <strong>Session management:</strong> Automatic logout after inactivity</p>
+<p><strong>Biometric Protection (Optional):</strong><br />
+- Diary access can be protected with <strong>Face ID/Touch ID</strong><br />
+- Biometric data is processed <strong>locally by iOS</strong> and never sent to us or stored<br />
+- Requires device passcode as backup</p>
+<p><strong>Security Audits:</strong><br />
+- Regular security reviews and updates (within solo developer capacity)<br />
+- Monitoring for suspicious activity<br />
+- Prompt patching of vulnerabilities<br />
+- Third-party security assessments of critical services (Supabase, Firebase, etc.)</p>
+<p><strong>Solo Developer Access:</strong><br />
+- Developer has minimal access to production data<br />
+- No routine access to user content<br />
+- Database queries require authentication and are logged<br />
+- Developer cannot view encrypted diary entries (keys are device-only)</p>
+<p><strong>LIMITATION:</strong> As a solo developer, we cannot provide enterprise-level security infrastructure, dedicated security team, or 24/7 monitoring. We implement best practices within our resource constraints.</p>
+<hr />
+<h2>5. Third-Party Services</h2>
+<p>BlessSoul uses the following third-party services to provide functionality. Each service may collect and process data as described:</p>
+<h3>5.1 Supabase (Backend Infrastructure)</h3>
+<ul>
+<li><strong>Provider:</strong> Supabase Inc.</li>
+<li><strong>Purpose:</strong> User authentication, data storage, real-time synchronization, file storage</li>
+<li><strong>Data Shared:</strong> Account info, user-generated content (excluding encrypted diary entries), subscription tracking</li>
+<li><strong>Location:</strong> United States (Google Cloud Platform)</li>
+<li><strong>Data Processing:</strong> Database queries, authentication, file storage</li>
+<li><strong>Privacy Policy:</strong> https://supabase.com/privacy</li>
+<li><strong>Security:</strong> SOC 2 Type II compliant, GDPR compliant</li>
+</ul>
+<h3>5.2 Firebase (Google LLC)</h3>
+<ul>
+<li><strong>Purpose:</strong></li>
+<li><strong>Analytics:</strong> User behavior, feature usage, engagement metrics</li>
+<li><strong>Crashlytics:</strong> Crash reports, error logs, app stability monitoring</li>
+<li><strong>Data Shared:</strong></li>
+<li>Anonymous usage data</li>
+<li>Device information (model, OS version)</li>
+<li>Crash logs and stack traces (no personal data)</li>
+<li>General location (country/region only)</li>
+<li><strong>Location:</strong> United States</li>
+<li><strong>When Active:</strong> <strong>Crashlytics disabled in debug builds.</strong> Analytics can be disabled by users in Settings → Privacy → Analytics</li>
+<li><strong>Privacy Policy:</strong> https://firebase.google.com/support/privacy</li>
+<li><strong>Data Retention:</strong> Analytics data retained for 14 months, Crashlytics for 90 days</li>
+</ul>
+<h3>5.3 Google Sign-In (Optional Authentication)</h3>
+<ul>
+<li><strong>Provider:</strong> Google LLC</li>
+<li><strong>Purpose:</strong> Alternative authentication method (you can use email/password instead)</li>
+<li><strong>Data Shared (Only if you choose Google Sign-In):</strong></li>
+<li>Email address</li>
+<li>Name</li>
+<li>Profile picture</li>
+<li><strong>Data NOT Shared:</strong> Contacts, Gmail content, search history, location</li>
+<li><strong>Privacy Policy:</strong> https://policies.google.com/privacy</li>
+<li><strong>Your Control:</strong> Only used if you explicitly choose "Sign in with Google"</li>
+</ul>
+<h3>5.4 RevenueCat (Subscription Management)</h3>
+<ul>
+<li><strong>Provider:</strong> RevenueCat, Inc.</li>
+<li><strong>Purpose:</strong> Manage subscription status, payments, and cross-platform subscription access</li>
+<li><strong>Data Shared:</strong></li>
+<li>Anonymous user ID (UUID, not personally identifiable)</li>
+<li>Subscription status (trial, active, expired)</li>
+<li>Subscription plan and dates</li>
+<li>Apple receipt data (for validation)</li>
+<li><strong>Data NOT Shared:</strong> Payment card details (Apple handles that), email, name</li>
+<li><strong>Location:</strong> United States</li>
+<li><strong>Privacy Policy:</strong> https://www.revenuecat.com/privacy</li>
+<li><strong>Security:</strong> SOC 2 Type II compliant</li>
+</ul>
+<h3>5.5 Apple iCloud (CloudKit) - Optional</h3>
+<ul>
+<li><strong>Provider:</strong> Apple Inc.</li>
+<li><strong>Purpose:</strong> Backup and sync your data across Apple devices</li>
+<li><strong>Data Shared:</strong> Goals, schedules, reminders, manifestations (not encrypted diary entries)</li>
+<li><strong>Control:</strong> Controlled by your iCloud settings (Settings → Apple ID → iCloud)</li>
+<li><strong>Location:</strong> Apple data centers (varies by country)</li>
+<li><strong>Privacy Policy:</strong> https://www.apple.com/legal/privacy/</li>
+<li><strong>Your Control:</strong> Can be disabled independently of BlessSoul subscription</li>
+</ul>
+<h3>5.6 Resend (Email Delivery)</h3>
+<ul>
+<li><strong>Provider:</strong> Resend</li>
+<li><strong>Purpose:</strong> Send transactional emails (password reset, subscription notices, account notifications)</li>
+<li><strong>Data Shared:</strong> Email address only (plus email content like subscription reminders)</li>
+<li><strong>Data NOT Shared:</strong> Passwords, user content, goals, diary entries</li>
+<li><strong>Location:</strong> United States</li>
+<li><strong>Privacy Policy:</strong> https://resend.com/legal/privacy-policy</li>
+<li><strong>Email Types:</strong> Transactional only (no marketing emails)</li>
+</ul>
+<h3>5.7 Apple App Store (Payment Processing)</h3>
+<ul>
+<li><strong>Provider:</strong> Apple Inc.</li>
+<li><strong>Purpose:</strong> Process subscription payments, manage billing</li>
+<li><strong>Data Shared:</strong> Handled entirely by Apple - we do NOT receive payment details</li>
+<li><strong>What We Receive:</strong> Subscription status and receipt validation only</li>
+<li><strong>Privacy Policy:</strong> https://www.apple.com/legal/privacy/</li>
+</ul>
+<h3>5.8 Claude AI by Anthropic (AI Content Generation)</h3>
+<p><strong>NEW - CRITICAL DISCLOSURE:</strong></p>
+<ul>
+<li><strong>Provider:</strong> Anthropic, Inc.</li>
+<li><strong>Purpose:</strong> Generate daily quotes and inspirational content using Claude AI</li>
+<li><strong>Data Shared:</strong></li>
+<li><strong>NO personal data shared</strong> (your goals, diary entries, profile info are NOT sent to Anthropic)</li>
+<li>Only generic prompts sent (e.g., "Generate an inspirational quote about perseverance")</li>
+<li>No user-identifiable information</li>
+<li><strong>What We Receive:</strong> AI-generated text (quotes, affirmations)</li>
+<li><strong>Location:</strong> United States</li>
+<li><strong>Privacy Policy:</strong> https://www.anthropic.com/privacy</li>
+<li><strong>IMPORTANT DISCLAIMER:</strong></li>
+<li>Quotes are <strong>AI-generated</strong>, not curated from verified sources</li>
+<li>We make <strong>NO WARRANTY</strong> regarding copyright status, originality, or accuracy</li>
+<li>Anthropic may log API requests for abuse prevention (per their policy)</li>
+<li>By using BlessSoul, you accept that quotes may have copyright or accuracy issues</li>
+<li>See Terms of Service Section 6 for full AI content disclaimers</li>
+</ul>
+<p><strong>Important Notes:</strong><br />
+- We do <strong>NOT</strong> share your data with advertising networks, data brokers, or marketing companies<br />
+- We do <strong>NOT</strong> sell, rent, or trade your personal information<br />
+- Third-party services are carefully vetted for security and privacy compliance (within solo developer capacity)<br />
+- You can review each service's privacy policy via the links above</p>
+<hr />
+<h2>5. Data Sharing and Disclosure</h2>
+<h3>5.1 We Do NOT Sell Your Data</h3>
+<p>We <strong>never</strong> sell, rent, or trade your personal information to third parties for any purpose. Your data is not a commodity.</p>
+<h3>5.2 When We May Share Information</h3>
+<p>We only share your information in the following <strong>limited circumstances</strong>:</p>
+<p><strong>With Your Explicit Consent:</strong><br />
+- When you explicitly choose to share content (e.g., exporting data, saving quote images to your device)<br />
+- When you grant permission for specific data sharing</p>
+<p><strong>Service Providers (Section 4):</strong><br />
+- With the third-party services listed in Section 4, <strong>solely to provide app functionality</strong><br />
+- Under data processing agreements (where available)<br />
+- Service providers may not use data for their own purposes (per their policies)</p>
+<p><strong>Legal Requirements:</strong><br />
+- If required by law, regulation, court order, or government request<br />
+- To comply with legal processes (subpoenas, warrants)<br />
+- To protect our rights, safety, property, or that of our users<br />
+- To investigate, prevent, or take action regarding fraud, abuse, or Terms violations<br />
+- To prevent imminent harm to any person<br />
+- We will notify you of legal requests unless prohibited by law</p>
+<p><strong>Business Transfers:</strong><br />
+- In the event of a merger, acquisition, reorganization, bankruptcy, or sale of assets, your data may be transferred to the successor entity<br />
+- You will be notified via email and in-app notice (when possible)<br />
+- The successor must honor this Privacy Policy or obtain your consent for changes<br />
+- You will have the option to delete your account before the transfer (when possible)</p>
+<p><strong>Aggregated Anonymous Data:</strong><br />
+- We may share aggregated, anonymized, non-personally identifiable statistics<br />
+- Examples: "80% of users create goals in their first week"<br />
+- This data cannot be traced back to you</p>
+<h3>5.3 No Sharing for Marketing</h3>
+<p>We do <strong>NOT</strong> share your information with:<br />
+- Advertising networks or ad exchanges<br />
+- Marketing agencies or email list brokers<br />
+- Data aggregators or data brokers<br />
+- Social media platforms (unless you explicitly share)<br />
+- Other apps or services for cross-promotion</p>
+<hr />
+<h2>6. Your Privacy Rights</h2>
+<h3>6.1 Access and Control</h3>
+<p>You have the following rights regarding your data:</p>
+<p><strong>Access Your Data:</strong><br />
+- View all your data within the app: Settings → Data Management<br />
+- See what information we have about you</p>
+<p><strong>Export Your Data:</strong><br />
+- Download a complete copy of your data in JSON format: Settings → Data Management → Export Data<br />
+- Includes: goals, diary entries, manifestations, schedules, reminders, gratitude entries, profile info<br />
+- <strong>Data portability:</strong> Use your data with other services</p>
+<p><strong>Delete Your Data:</strong><br />
+- Permanently delete your account and all associated data: Settings → Data Management → Delete Account<br />
+- <strong>Immediate and irreversible</strong> deletion from all systems<br />
+- Cannot be recovered after deletion<br />
+- See Section 7.2 for full deletion details</p>
+<p><strong>Correct Your Data:</strong><br />
+- Update profile information anytime: Profile → Edit<br />
+- Edit goals, diary entries, schedules, etc. within their respective screens</p>
+<p><strong>Opt-Out of Analytics:</strong><br />
+- Disable Firebase Analytics: Settings → Privacy → Analytics (toggle off)<br />
+- Note: This does not affect core functionality</p>
+<p><strong>Manage Notifications:</strong><br />
+- Control notification types: Settings → Notifications<br />
+- Disable all notifications in iOS Settings → BlessSoul → Notifications</p>
+<p><strong>Control iCloud Sync:</strong><br />
+- Enable/disable iCloud sync: iOS Settings → Apple ID → iCloud → BlessSoul</p>
+<h3>6.2 GDPR Rights (European Economic Area Users)</h3>
+<p><strong>SOLO DEVELOPER NOTICE:</strong> As a one-person operation, privacy rights requests are handled by the sole developer. Response times may be at the maximum timeframes permitted by GDPR (30 days, extendable to 60 days for complex requests with notification).</p>
+<p>If you are located in the European Economic Area (EEA), United Kingdom (UK), or Switzerland, you have additional rights under the <strong>General Data Protection Regulation (GDPR)</strong>:</p>
+<p><strong>Right to Access:</strong><br />
+- Request a copy of all personal data we hold about you<br />
+- Receive information about how we process your data</p>
+<p><strong>Right to Rectification:</strong><br />
+- Correct inaccurate or incomplete personal data</p>
+<p><strong>Right to Erasure ("Right to be Forgotten"):</strong><br />
+- Request deletion of your personal data<br />
+- We will delete data unless we have a legal obligation to retain it</p>
+<p><strong>Right to Restriction of Processing:</strong><br />
+- Request that we limit how we use your data in certain circumstances</p>
+<p><strong>Right to Data Portability:</strong><br />
+- Receive your data in a structured, commonly used, machine-readable format (JSON)<br />
+- Transmit your data to another service provider</p>
+<p><strong>Right to Object:</strong><br />
+- Object to processing of your data for certain purposes (e.g., analytics)<br />
+- We will stop processing unless we have compelling legitimate grounds</p>
+<p><strong>Right to Withdraw Consent:</strong><br />
+- Withdraw consent for data processing at any time<br />
+- Does not affect the lawfulness of processing before withdrawal</p>
+<p><strong>Right to Lodge a Complaint:</strong><br />
+- File a complaint with your local data protection authority if you believe we've violated GDPR<br />
+- EU: https://edpb.europa.eu/about-edpb/board/members_en</p>
+<p><strong>How to Exercise GDPR Rights:</strong><br />
+- Email: support@blesssoul.com with subject line "GDPR Request"<br />
+- Include: Your registered email, specific request, and verification information<br />
+- <strong>Response time:</strong> Within <strong>30 days</strong> as required by GDPR Article 12(3)<br />
+- <strong>Extension:</strong> May be extended to <strong>60 days</strong> for complex requests; we will inform you of any extension within the first 30 days and explain the reasons for the delay<br />
+- <strong>Solo Developer Note:</strong> As a one-person operation, complex requests may require the full 60-day extension period</p>
+<h3>6.3 CCPA Rights (California Residents)</h3>
+<p><strong>SOLO DEVELOPER NOTICE:</strong> As a one-person operation, privacy rights requests are handled by the sole developer. Response times may be at the maximum timeframes permitted by CCPA (45 days, extendable to 90 days for complex requests with notification).</p>
+<p>If you are a <strong>California resident</strong>, you have rights under the <strong>California Consumer Privacy Act (CCPA)</strong>:</p>
+<p><strong>Right to Know:</strong><br />
+- What personal information we collect<br />
+- Categories of sources from which we collect information<br />
+- Business or commercial purpose for collecting information<br />
+- Categories of third parties with whom we share information</p>
+<p><strong>Right to Delete:</strong><br />
+- Request deletion of your personal information<br />
+- Exceptions: We may retain data if required by law or necessary for legal compliance</p>
+<p><strong>Right to Opt-Out of Sale:</strong><br />
+- We do <strong>NOT</strong> sell personal information (nothing to opt out of)</p>
+<p><strong>Right to Non-Discrimination:</strong><br />
+- We will not discriminate against you for exercising your CCPA rights<br />
+- Same service, quality, and pricing regardless of rights exercise</p>
+<p><strong>How to Exercise CCPA Rights:</strong><br />
+- Email: support@blesssoul.com with subject line "CCPA Request" or "California Privacy Request"<br />
+- Include: Your registered email, specific request, and verification information<br />
+- <strong>Verification required:</strong> We may ask for additional information to verify your identity<br />
+- <strong>Response time:</strong> Within <strong>45 days</strong> as required by CCPA<br />
+- <strong>Extension:</strong> May be extended to <strong>90 days</strong> for complex requests; we will inform you of any extension within the first 45 days and explain the reasons for the delay<br />
+- <strong>Solo Developer Note:</strong> As a one-person operation, complex requests may require the full 90-day extension period</p>
+<p><strong>Authorized Agent:</strong><br />
+- You may designate an authorized agent to make requests on your behalf<br />
+- We require written proof of authorization</p>
+<h3>6.4 Other Regional Rights</h3>
+<p><strong>Brazilian Users (LGPD):</strong><br />
+- Similar rights to GDPR users<br />
+- Contact: support@blesssoul.com with subject "LGPD Request"<br />
+- Response within 30-60 days (solo developer constraints)</p>
+<p><strong>Canadian Users (PIPEDA):</strong><br />
+- Right to access and correct personal information<br />
+- Contact: support@blesssoul.com<br />
+- Response within 30 days</p>
+<p><strong>Indian Users (Personal Data Protection Bill - when enacted):</strong><br />
+- We will comply with Indian data protection laws when enacted<br />
+- Contact: support@blesssoul.com with privacy requests<br />
+- As an Indian developer, we are committed to complying with Indian data protection regulations</p>
+<p><strong>All Users:</strong><br />
+- Regardless of location, we honor data privacy requests within the timeframes required by applicable law<br />
+- Contact support@blesssoul.com with any privacy concerns<br />
+- <strong>Solo Developer Note:</strong> As a one-person operation, we may require the full time permitted by law to process complex requests</p>
+<hr />
+<h2>7. Data Retention and Deletion</h2>
+<h3>7.1 Active Accounts</h3>
+<p>We retain your data <strong>as long as your account is active</strong> and you maintain a subscription or are within the grace period.</p>
+<p><strong>Data Lifecycle:</strong><br />
+- <strong>During trial (7 days):</strong> Full data retention<br />
+- <strong>Active subscription:</strong> Full data retention and sync<br />
+- <strong>Grace period (30 days post-expiration):</strong> Read-only data retention<br />
+- <strong>Day 30 post-expiration:</strong> Automatic deletion (see Section 7.3)</p>
+<h3>7.2 Manual Account Deletion (User-Initiated)</h3>
+<p>When you manually delete your account (Settings → Data Management → Delete Account):</p>
+<p><strong>Immediate Deletion (Within seconds):</strong><br />
+- Your profile is removed from Supabase database<br />
+- All user-generated content deleted:<br />
+  - Goals, milestones, progress data<br />
+  - Diary entries (encrypted)<br />
+  - Manifestations, affirmations, gratitude entries<br />
+  - Schedule blocks and time blocks<br />
+  - Reminders and tasks<br />
+  - Profile picture from storage<br />
+  - Quote favorites and interactions<br />
+  - Subscription tracking records<br />
+- Your authentication session is terminated<br />
+- CloudKit data is marked for deletion<br />
+- Local device storage is cleared:<br />
+  - CoreData database erased<br />
+  - Cached files removed<br />
+  - Encryption keys deleted from Keychain</p>
+<p><strong>Within 24-48 Hours:</strong><br />
+- CloudKit data fully removed from iCloud<br />
+- iCloud backups no longer contain your data</p>
+<p><strong>Within 30 Days:</strong><br />
+- Backups containing your data are purged<br />
+- Any residual logs are anonymized</p>
+<p><strong>Permanent and Irreversible:</strong><br />
+- Once deletion is initiated, it <strong>cannot be undone</strong><br />
+- Data <strong>cannot be recovered</strong> by you or by us<br />
+- Your email address is released and can be used for a new account</p>
+<p><strong>What May Be Retained (Legal Requirements):</strong><br />
+- Minimal information for legal compliance (e.g., fraud prevention, tax records): anonymized user ID, subscription dates (no personal content)<br />
+- Anonymous analytics data (cannot be linked back to you)<br />
+- Deletion logs (for audit purposes)<br />
+- Retention period: As required by Indian law (typically 5-7 years for financial records)</p>
+<p><strong>Confirmation:</strong><br />
+- You'll receive a confirmation email that account deletion is complete<br />
+- Email sent to your registered email address (last communication)</p>
+<h3>7.3 Automatic Account Deletion (Subscription Lapse)</h3>
+<p>If your subscription expires and is <strong>not renewed</strong>:</p>
+<p><strong>Timeline:</strong></p>
+<p><strong>Days 0-29 (Grace Period):</strong><br />
+- Your account remains <strong>active</strong> but in <strong>read-only mode</strong><br />
+- All data is <strong>retained</strong> and accessible<br />
+- You can view but not edit content<br />
+- Email reminders sent</p>
+<p><strong>Day 30 (Account Deletion):</strong><br />
+- Account is <strong>automatically and permanently deleted</strong><br />
+- Same deletion process as manual deletion (Section 7.2)<br />
+- Final "Account Deleted" email sent before deletion<br />
+- Data cannot be recovered</p>
+<p><strong>Resubscribe to Prevent Deletion:</strong><br />
+- Resubscribing at any time before day 30 immediately restores full access<br />
+- All your data is preserved<br />
+- No data loss</p>
+<h3>7.4 Subscription Cancellation (Different from Account Deletion)</h3>
+<p><strong>Important:</strong> Cancelling your subscription is NOT the same as deleting your account.</p>
+<p><strong>When you cancel your subscription through Apple:</strong><br />
+- Access continues until the end of your current billing period<br />
+- After the billing period ends, your account enters the grace period (Days 0-29)<br />
+- Your data is NOT immediately deleted<br />
+- You have 30 days total to resubscribe before automatic deletion</p>
+<p><strong>To avoid automatic deletion:</strong><br />
+- Resubscribe before day 30, OR<br />
+- Manually export your data (Settings → Data Management → Export Data)</p>
+<h3>7.5 Data Retention for Deleted Accounts</h3>
+<p><strong>Personal Data:</strong> Permanently deleted (see Section 7.2)</p>
+<p><strong>Anonymous Analytics:</strong> May be retained indefinitely (cannot be linked to you)</p>
+<p><strong>Legal Records:</strong> Minimal data retained as required by Indian law (anonymized where possible):<br />
+- Subscription billing history (for tax compliance): 7 years<br />
+- Fraud prevention records: 5 years<br />
+- Legal hold requests: Duration of legal matter</p>
+<p><strong>Backups:</strong> Purged within 30 days of account deletion</p>
+<hr />
+<h2>8. Children's Privacy</h2>
+<h3>8.1 Age Requirement</h3>
+<p>BlessSoul is intended for users aged <strong>13 and older</strong>. We do not knowingly collect personal information from children under 13 years of age.</p>
+<h3>8.2 COPPA Compliance</h3>
+<p>In compliance with the Children's Online Privacy Protection Act (COPPA):<br />
+- We do not knowingly collect, use, or disclose personal information from children under 13<br />
+- We do not market to children under 13<br />
+- We do not display advertising to any users (including those 13+)</p>
+<h3>8.3 Parental Notice</h3>
+<p>If you believe we have inadvertently collected information from a child under 13:<br />
+- <strong>Contact us immediately:</strong> support@blesssoul.com with subject line "Child Privacy Concern"<br />
+- <strong>Provide:</strong> The child's name, email (if known), and your relationship to the child<br />
+- <strong>We will promptly:</strong><br />
+  - Investigate the matter<br />
+  - Delete the child's account and all associated data<br />
+  - Implement additional safeguards to prevent future occurrences<br />
+  - Respond to you within <strong>48-72 hours</strong> (solo developer response time)</p>
+<h3>8.4 Age Verification</h3>
+<ul>
+<li>We require users to provide their date of birth during signup</li>
+<li>Accounts indicating age under 13 are automatically rejected</li>
+<li>We may request additional verification if age is in question</li>
+</ul>
+<h3>8.5 Parental Rights</h3>
+<p>Parents/guardians of users aged 13-17 may:<br />
+- Request access to their child's account information<br />
+- Request deletion of their child's account<br />
+- Contact: support@blesssoul.com with proof of guardianship<br />
+- Response within 5-10 business days (solo developer constraints)</p>
+<hr />
+<h2>9. Diary Content Analysis (Local NLP Processing)</h2>
+<h3>9.1 Soul Spark Quote Personalization</h3>
+<p><strong>IMPORTANT DISCLOSURE:</strong> BlessSoul uses LOCAL natural language processing (NLP) to analyze keywords in your diary entries for quote personalization in the "Soul Spark" feature.</p>
+<p><strong>What We Analyze:</strong><br />
+- <strong>Keywords and mood-related words</strong> in your diary text (e.g., "stressed," "happy," "anxious," "work," "love," "family")<br />
+- <strong>Emotional context</strong> to suggest relevant inspirational quotes<br />
+- <strong>Analysis happens ON YOUR DEVICE ONLY</strong> - your diary content is NEVER sent to servers<br />
+- <strong>No human ever reads your diary</strong> - processing is automated and local</p>
+<p><strong>Example:</strong><br />
+- You write in your diary: "Feeling anxious about work presentations"<br />
+- Local NLP detects keywords: "anxious," "work"<br />
+- App suggests quotes about: Calm, Confidence, Professional Success<br />
+- Your diary text is NOT transmitted anywhere</p>
+<h3>9.2 Privacy Protection</h3>
+<p><strong>How This Protects Your Privacy:</strong><br />
+- ✓ <strong>All NLP processing is LOCAL</strong> (happens on your iPhone/iPad only)<br />
+- ✓ <strong>Diary content NEVER leaves your device</strong><br />
+- ✓ <strong>No data sent to our servers, Claude AI, or any third party</strong><br />
+- ✓ <strong>Keywords are NOT stored</strong> - analysis is performed in real-time when you view Soul Spark<br />
+- ✓ <strong>You can disable</strong> by simply not using Soul Spark feature<br />
+- ✓ <strong>Encrypted diary entries</strong> remain encrypted (AES-256-GCM) - NLP only processes unencrypted entries</p>
+<p><strong>NLP Technology Used:</strong><br />
+- <strong>Basic keyword matching</strong> using iOS natural language framework<br />
+- <strong>NOT cloud-based AI</strong> - no GPT, Claude, or other cloud services involved<br />
+- <strong>No machine learning</strong> - simple pattern matching only<br />
+- <strong>No data collection</strong> - analysis results are not logged or stored</p>
+<p><strong>You Control This:</strong><br />
+- Don't use Soul Spark if you prefer no diary analysis<br />
+- Lock diary entries to exclude them from NLP (locked entries are encrypted and skipped)<br />
+- Delete diary entries anytime to remove them from analysis</p>
+<hr />
+<h2>10. AI-Generated Content and Privacy Implications</h2>
+<h3>20.1 Claude AI Integration</h3>
+<p><strong>IMPORTANT DISCLOSURE:</strong> BlessSoul uses Claude AI (developed by Anthropic, Inc.) to generate daily quotes and inspirational content.</p>
+<p><strong>Privacy Implications:</strong></p>
+<p><strong>What is NOT Shared with Anthropic/Claude AI:</strong><br />
+- ✗ Your personal information (name, email)<br />
+- ✗ Your user-generated content (goals, diary entries, schedules)<br />
+- ✗ Your subscription information<br />
+- ✗ Your device information<br />
+- ✗ Any personally identifiable information</p>
+<p><strong>What IS Shared with Anthropic/Claude AI:</strong><br />
+- ✓ Generic prompts only (e.g., "Generate an inspirational quote about perseverance")<br />
+- ✓ No user-specific or personalized data<br />
+- ✓ API requests may be logged by Anthropic for abuse prevention (per their privacy policy)</p>
+<p><strong>Data Processing:</strong><br />
+- Requests to Claude AI API are made from our backend server<br />
+- Requests do not include user identifiers<br />
+- Responses (quotes) are stored in our database for reuse (reduces API costs and improves performance)<br />
+- Stored quotes are not linked to individual users</p>
+<p><strong>Anthropic's Privacy Policy:</strong><br />
+- Subject to Anthropic's privacy policy: https://www.anthropic.com/privacy<br />
+- Anthropic may log API requests for security and abuse prevention<br />
+- Anthropic does not receive your personal data through our integration</p>
+<h3>16.2 Quote Storage and Sharing</h3>
+<p><strong>When you save or share a quote:</strong><br />
+- Quote is saved to your local device (your control)<br />
+- If you share to social media, subject to that platform's privacy policy<br />
+- We do not track quote sharing (no analytics on external shares)</p>
+<p><strong>Privacy Best Practice:</strong><br />
+- Do not include personal information when sharing quotes<br />
+- Be aware that shared content may be public (depending on platform)</p>
+<h3>16.3 AI Content Disclaimers</h3>
+<p><strong>Privacy-Related Disclaimers:</strong><br />
+- AI-generated quotes are <strong>not personalized</strong> to you (privacy-protective)<br />
+- We do <strong>not</strong> send your personal data to AI providers<br />
+- Quotes are generic and generated in batches (not linked to individual users)<br />
+- Your use of quotes does not reveal personal information about you</p>
+<p><strong>See Terms of Service Section 14 for full AI content disclaimers regarding copyright and accuracy.</strong></p>
+<hr />
+<h2>19. Mental Health Crisis Resources</h2>
+<h3>19.1 NOT A MENTAL HEALTH SERVICE</h3>
+<p><strong>CRITICAL REMINDER:</strong> BlessSoul's mood tracking and diary features are for personal reflection ONLY, not mental health treatment.</p>
+<p><strong>If experiencing mental health crisis, severe depression, anxiety, or suicidal thoughts:</strong></p>
+<p><strong>GLOBAL CRISIS RESOURCES:</strong></p>
+<p><strong>INDIA:</strong><br />
+- <strong>Emergency Services:</strong> 112 (Police/Medical/Fire)<br />
+- <strong>Mental Health Directory:</strong> https://www.nimhans.ac.in/<br />
+- <strong>Global Helpline Directory:</strong> https://findahelpline.com</p>
+<p><strong>UNITED STATES:</strong><br />
+- <strong>988 Suicide &amp; Crisis Lifeline:</strong> Call or text 988<br />
+- <strong>Crisis Text Line:</strong> Text HOME to 741741</p>
+<p><strong>UNITED KINGDOM:</strong><br />
+- <strong>Samaritans:</strong> 116 123 (free 24/7)<br />
+- <strong>Emergency Services:</strong> 999 or 112</p>
+<p><strong>GLOBAL:</strong><br />
+- <strong>Find Local Helplines:</strong> https://findahelpline.com<br />
+- <strong>International Crisis Resources:</strong> https://www.iasp.info/resources/Crisis_Centres/</p>
+<p><strong>IMPORTANT:</strong> Close the app and get professional help immediately if in crisis. This app cannot replace professional mental health care.</p>
+<hr />
+<h2>20. International Data Transfers</h2>
+<h3>20.1 Global Availability</h3>
+<p>BlessSoul is available globally (excluding certain regions in the initial release). Your data may be transferred to, stored in, and processed in <strong>countries outside your country of residence</strong>, including the <strong>United States</strong>, where our servers and third-party service providers are located.</p>
+<p><strong>Developer Location:</strong> The developer is based in <strong>Shivamogga, Karnataka, India</strong>, but backend infrastructure is located in the <strong>United States</strong>.</p>
+<h3>16.2 Data Transfer Mechanisms</h3>
+<p>We ensure appropriate safeguards are in place to protect your data during international transfers (within solo developer resource constraints):</p>
+<p><strong>For EEA/UK/Swiss Users:</strong><br />
+- Data transfers to the United States are conducted under:<br />
+  - <strong>Standard Contractual Clauses (SCCs)</strong> (where available from service providers)<br />
+  - <strong>Adequacy decisions</strong> where applicable<br />
+  - <strong>Additional safeguards:</strong> Encryption, access controls, data minimization<br />
+- <strong>Solo Developer Limitation:</strong> We rely on third-party service providers' compliance mechanisms (Supabase, Firebase, etc.) as we lack resources for independent legal frameworks</p>
+<p><strong>For All Users:</strong><br />
+- Data protection standards equivalent to this Privacy Policy<br />
+- Contractual obligations with service providers (where available)<br />
+- Regular review of service provider practices (within solo developer capacity)</p>
+<h3>16.3 Data Storage Locations</h3>
+<ul>
+<li><strong>Supabase:</strong> United States (Google Cloud Platform)</li>
+<li><strong>Firebase:</strong> United States (Google Cloud Platform)</li>
+<li><strong>RevenueCat:</strong> United States</li>
+<li><strong>Resend:</strong> United States</li>
+<li><strong>Anthropic (Claude AI):</strong> United States</li>
+<li><strong>Apple iCloud:</strong> Varies by your Apple ID country/region</li>
+</ul>
+<h3>14.4 Your Consent</h3>
+<p>By using BlessSoul, you consent to:<br />
+- Transfer of your information to the United States and other countries<br />
+- Processing of your data in countries that may have different data protection laws than your country of residence (including India)<br />
+- Application of this Privacy Policy and Indian law (see Terms of Service Section 14)</p>
+<p><strong>If you do not agree, please do not use BlessSoul.</strong></p>
+<h3>12.5 Indian Users</h3>
+<p><strong>For users in India:</strong><br />
+- Developer is based in India (Shivamogga, Karnataka)<br />
+- Data is transferred to US for backend processing (Supabase, Firebase)<br />
+- We comply with applicable Indian data protection laws<br />
+- When India's Personal Data Protection Bill becomes law, we will update our practices accordingly</p>
+<hr />
+<h2>19. Cookies and Tracking Technologies</h2>
+<h3>19.1 No Cookies for Advertising</h3>
+<p>BlessSoul does <strong>NOT</strong> use cookies or similar tracking technologies for advertising, marketing, or behavioral targeting purposes.</p>
+<h3>19.2 Local Storage (Not Cookies)</h3>
+<p>We use minimal local storage on your iOS device for essential functionality:</p>
+<p><strong>Session Management:</strong><br />
+- Authentication tokens (to keep you logged in)<br />
+- Session expiration management<br />
+- Stored securely in iOS Keychain</p>
+<p><strong>Caching:</strong><br />
+- Offline access to your data<br />
+- Faster loading times<br />
+- Reduced network usage</p>
+<p><strong>Preferences:</strong><br />
+- Theme settings (light/dark mode)<br />
+- Notification preferences<br />
+- Language settings<br />
+- Feature onboarding states (which tutorials you've seen)</p>
+<p><strong>Analytics (Firebase):</strong><br />
+- Anonymous device identifiers for analytics<br />
+- Can be disabled in Settings → Privacy → Analytics</p>
+<h3>13.3 Third-Party Tracking</h3>
+<ul>
+<li>We do <strong>NOT</strong> use third-party advertising trackers</li>
+<li>We do <strong>NOT</strong> use social media tracking pixels</li>
+<li>We do <strong>NOT</strong> participate in cross-site tracking</li>
+</ul>
+<h3>13.4 Your Control</h3>
+<p>You can clear local data by:<br />
+- Signing out of the app<br />
+- Deleting and reinstalling the app<br />
+- Deleting your account entirely</p>
+<hr />
+<h2>20. Security Incident Response</h2>
+<h3>20.1 Our Commitment</h3>
+<p>We take security incidents seriously and have procedures in place to respond promptly (within solo developer constraints).</p>
+<h3>16.2 In the Event of a Data Breach</h3>
+<p><strong>Our Response:</strong><br />
+- Immediate investigation and containment (as soon as developer is aware)<br />
+- Assessment of affected data and users<br />
+- Notification to affected users within <strong>72 hours</strong> as required by GDPR Article 33-34<br />
+- Notification to relevant authorities (as required by law)<br />
+- Remediation and prevention measures</p>
+<p><strong>What You'll Receive:</strong><br />
+- Email notification describing the incident<br />
+- Information about what data was affected<br />
+- Steps we're taking to address the breach<br />
+- Recommended actions you should take<br />
+- Contact information for questions</p>
+<p><strong>Solo Developer Limitation:</strong><br />
+- Response may be delayed if breach occurs during off-hours, weekends, or developer illness<br />
+- We will respond as quickly as possible given one-person operation<br />
+- We aim to meet the 72-hour notification requirement; in case of developer illness or emergency, notification may be delayed but will occur as soon as reasonably practicable</p>
+<h3>16.3 Your Role</h3>
+<p>If you suspect unauthorized access to your account:<br />
+- <strong>Change your password immediately</strong><br />
+- <strong>Enable additional security</strong> (if available)<br />
+- <strong>Contact us:</strong> support@blesssoul.com with subject "Security Concern"<br />
+- <strong>Review recent activity</strong> in your account</p>
+<h3>14.4 Security Best Practices</h3>
+<ul>
+<li>Use a strong, unique password</li>
+<li>Don't share your account credentials</li>
+<li>Keep your device and app updated</li>
+<li>Enable Face ID/Touch ID for diary entries</li>
+<li>Be cautious of phishing emails (we'll never ask for your password via email)</li>
+</ul>
+<hr />
+<h2>19. Changes to This Privacy Policy</h2>
+<h3>19.1 Updates and Revisions</h3>
+<p>We may update this Privacy Policy from time to time to reflect:<br />
+- Changes in our data practices<br />
+- New features or services<br />
+- Feedback from users<br />
+- Changes in applicable laws (GDPR, CCPA, Indian data protection laws, etc.)<br />
+- Security improvements<br />
+- Changes to third-party services</p>
+<h3>19.2 Notification of Changes</h3>
+<p><strong>We will notify you of material changes by:</strong><br />
+- Updating the "Last Updated" date at the top of this policy<br />
+- Displaying a prominent notice in the app upon your next login<br />
+- Sending an email to your registered email address<br />
+- Requiring acceptance of updated policy before continuing to use the app (for material changes)</p>
+<p><strong>Notification Timeline:</strong><br />
+- <strong>Minor changes</strong> (clarifications, formatting): Notice at time of change<br />
+- <strong>Material changes</strong> (new data collection, new third-party services): <strong>30 days' advance notice</strong> (when reasonably possible)</p>
+<h3>13.3 Your Acceptance</h3>
+<ul>
+<li>Continued use of BlessSoul after changes become effective constitutes acceptance of the updated Privacy Policy</li>
+<li>If you do not agree to the changes, you must stop using the App and may delete your account</li>
+<li>We'll provide an option to export your data before policy changes take effect (when possible)</li>
+</ul>
+<h3>13.4 Version History</h3>
+<p>We maintain a history of Privacy Policy changes:<br />
+- Request previous versions by emailing support@blesssoul.com<br />
+- Significant changes will be summarized in the app</p>
+<hr />
+<h2>20. Contact Us</h2>
+<h3>20.1 Privacy Questions and Requests</h3>
+<p>For questions, concerns, or requests regarding this Privacy Policy or your personal data:</p>
+<p><strong>Email:</strong> support@blesssoul.com</p>
+<p><strong>Subject Lines for Specific Requests:</strong><br />
+- General questions: "Privacy Question"<br />
+- GDPR requests: "GDPR Request"<br />
+- CCPA requests: "CCPA Request"<br />
+- Data deletion: "Delete My Data"<br />
+- Data export: "Export My Data"<br />
+- Security concerns: "Security Concern"<br />
+- Child privacy: "Child Privacy Concern"</p>
+<p><strong>Developer:</strong> Praveena Hosuru Dinesh Bhat<br />
+<strong>Location:</strong> Shivamogga, Karnataka, India<br />
+<strong>Support Hours:</strong> Monday - Friday, 9 AM - 5 PM India Standard Time (IST)<br />
+<strong>Response Time:</strong> We aim to respond within <strong>2-5 business days</strong> for general inquiries</p>
+<p><strong>For GDPR/CCPA requests:</strong><br />
+- GDPR: 30 days (extendable to 60 days for complex requests)<br />
+- CCPA: 45 days (extendable to 90 days for complex requests)<br />
+- Complex requests may require the full extension period due to solo developer constraints</p>
+<h3>16.2 Information to Include in Requests</h3>
+<p>To process your request efficiently, please include:<br />
+- Your registered email address<br />
+- Specific nature of your request<br />
+- Any relevant details or documentation<br />
+- For data access/deletion: Verification information (we may ask for additional verification)</p>
+<h3>16.3 Data Protection Officer (DPO)</h3>
+<p><strong>Solo Developer Note:</strong> As a one-person operation, we do not have a dedicated Data Protection Officer. All privacy inquiries are handled by the developer directly.</p>
+<ul>
+<li><strong>For GDPR-related inquiries:</strong> Email support@blesssoul.com with subject "GDPR - DPO"</li>
+<li>We will designate a DPO if required by law as our EEA user base grows</li>
+</ul>
+<hr />
+<h2>19. Dispute Resolution</h2>
+<h3>19.1 Informal Resolution</h3>
+<p>If you have a complaint about our privacy practices:</p>
+<p><strong>Step 1:</strong> Contact us first at support@blesssoul.com<br />
+- We will make good-faith efforts to resolve your concern<br />
+- Most issues can be resolved quickly through communication<br />
+- Timeframe: We'll respond within 2-5 business days and work toward resolution within 30 days</p>
+<h3>19.2 Regulatory Authorities</h3>
+<p>If your concern is not resolved to your satisfaction, you may file a complaint with your local data protection authority:</p>
+<p><strong>European Economic Area (EEA):</strong><br />
+- Contact your national Data Protection Authority<br />
+- Directory: https://edpb.europa.eu/about-edpb/board/members_en</p>
+<p><strong>California Residents:</strong><br />
+- California Attorney General<br />
+- Website: https://oag.ca.gov/contact<br />
+- Phone: (916) 210-6276</p>
+<p><strong>Indian Residents:</strong><br />
+- Once India's data protection authority is established, contact information will be provided<br />
+- Currently: Ministry of Electronics and Information Technology (MeitY)</p>
+<p><strong>Other Regions:</strong><br />
+- Contact your local consumer protection or data privacy authority</p>
+<h3>19.3 Arbitration</h3>
+<p>Privacy disputes may be subject to the arbitration and dispute resolution provisions in our Terms of Service (Section 14), including:<br />
+- Exclusive jurisdiction in Shivamogga, Karnataka, India<br />
+- Mandatory mediation before litigation<br />
+- Fee shifting (loser pays winner's legal costs)</p>
+<hr />
+<h2>20. Your Consent and Acknowledgment</h2>
+<h3>20.1 By Using BlessSoul, You Consent To:</h3>
+<ul>
+<li>✓ The collection and use of information as described in this Privacy Policy</li>
+<li>✓ The transfer of your data to the United States and other countries</li>
+<li>✓ The use of third-party services as listed in Section 4 (including Claude AI for quote generation)</li>
+<li>✓ Storage of your data on Supabase servers (United States)</li>
+<li>✓ Optional iCloud sync (if you enable it)</li>
+<li>✓ Receiving transactional emails related to your account</li>
+<li>✓ Processing of your data as required to provide the Service</li>
+<li>✓ Solo developer limitations on privacy practices and response times</li>
+<li>✓ GDPR/CCPA compliance with response times at maximum permitted by law</li>
+</ul>
+<h3>16.2 If You Do Not Agree</h3>
+<p>If you do not agree to this Privacy Policy:<br />
+- Do not create an account or use BlessSoul<br />
+- If you have an existing account, delete it via Settings → Data Management → Delete Account<br />
+- Contact us with questions before using the Service</p>
+<hr />
+<h2>19. Additional Information</h2>
+<h3>19.1 Do Not Track (DNT)</h3>
+<ul>
+<li>BlessSoul does not track users for advertising purposes</li>
+<li>We do not respond to "Do Not Track" browser signals (as BlessSoul is a native iOS app, not a website)</li>
+<li>You can disable analytics in Settings → Privacy → Analytics</li>
+</ul>
+<h3>19.2 Biometric Data Clarification</h3>
+<ul>
+<li>Face ID and Touch ID are processed <strong>entirely by iOS on your device</strong></li>
+<li>BlessSoul never receives or stores biometric data</li>
+<li>We only receive a success/failure result from iOS</li>
+<li>Your biometric data never leaves your device</li>
+</ul>
+<h3>19.3 Data Minimization</h3>
+<p>We practice <strong>data minimization</strong> (within resource constraints):<br />
+- We collect only data necessary to provide the Service<br />
+- We do not collect data "just in case" we might need it later<br />
+- Optional fields (date of birth, profile picture) are truly optional</p>
+<h3>19.4 Privacy by Design</h3>
+<p>Privacy is built into BlessSoul from the ground up:<br />
+- End-to-end encryption for diary entries<br />
+- Anonymous analytics (cannot be linked to you personally)<br />
+- Local-first data storage with optional cloud sync<br />
+- No advertising or tracking<br />
+- User control over data (export, delete)</p>
+<h3>19.5 Solo Developer Transparency</h3>
+<p><strong>We believe in transparency about our limitations:</strong><br />
+- This is a <strong>one-person operation</strong> with limited resources<br />
+- We cannot provide enterprise-level privacy infrastructure<br />
+- We comply with applicable privacy regulations within the requirements of the law<br />
+- We <strong>prioritize user privacy</strong> within our capabilities<br />
+- We appreciate your understanding and patience</p>
+<hr />
+<h2>20. Quick Reference Guide</h2>
+<p><strong>Key Privacy Facts At a Glance:</strong></p>
+<p><strong>Data Collection:</strong><br />
+- Account info, user-generated content, usage analytics<br />
+- NO precise location, contacts, photos (except profile), or biometric data</p>
+<p><strong>Data Storage:</strong><br />
+- Supabase (US), iCloud (optional), local device<br />
+- Encryption: AES-256-GCM for diary entries, HTTPS for all connections</p>
+<p><strong>Third-Party Services:</strong><br />
+- 8 total: Supabase, Firebase, Google Sign-In, RevenueCat, iCloud, Resend, App Store, Claude AI<br />
+- NO advertising networks or data brokers</p>
+<p><strong>Your Rights:</strong><br />
+- Access, export, delete, correct, opt-out<br />
+- GDPR compliant (EEA users)<br />
+- CCPA compliant (California users)</p>
+<p><strong>Data Selling:</strong><br />
+- NEVER - we don't sell your data</p>
+<p><strong>Advertising:</strong><br />
+- NONE - no ads, no ad trackers</p>
+<p><strong>Age Requirement:</strong><br />
+- 13+ years</p>
+<p><strong>Data Deletion:</strong><br />
+- Immediate and permanent<br />
+- Backups purged within 30 days</p>
+<p><strong>Auto-Deletion:</strong><br />
+- Day 30 after subscription expires</p>
+<p><strong>AI Content:</strong><br />
+- Quotes generated by Claude AI<br />
+- Your personal data NOT shared with AI provider</p>
+<p><strong>Solo Developer:</strong><br />
+- One-person operation<br />
+- General inquiries: 2-5 business days<br />
+- GDPR: 30 days (extendable to 60)<br />
+- CCPA: 45 days (extendable to 90)</p>
+<p><strong>Contact:</strong><br />
+- support@blesssoul.com<br />
+- Shivamogga, Karnataka, India</p>
+<hr />
+<p><strong>This Privacy Policy is effective as of January 1, 2025.</strong><br />
+<strong>Last Updated: November 1, 2025</strong></p>
+<p><strong>© 2025 Praveena Hosuru Dinesh Bhat. All rights reserved.</strong></p>
+<hr />
+<p><strong>END OF PRIVACY POLICY</strong></p>
     </main>
 
-    <footer class="footer">
+<footer class="footer">
         <div class="container">
             <div class="footer-bottom">
                 <p>&copy; 2025 BlessSoul. All rights reserved.</p>
                 <p>
-                    <a href="privacy.html">Privacy Policy</a> |
-                    <a href="terms.html">Terms of Service</a> |
+                    <a href="../privacy/">Privacy Policy</a> |
+                    <a href="../terms/">Terms of Service</a> |
                     <a href="mailto:support@blesssoul.com">Contact</a>
                 </p>
             </div>

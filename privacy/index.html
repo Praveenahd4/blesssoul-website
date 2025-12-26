@@ -157,7 +157,6 @@
 - <strong>Goals and milestones:</strong> Title, description, category, progress, target dates, completion status<br />
 - <strong>Schedule and time blocks:</strong> Time, title, category, duration, notes<br />
 - <strong>Reminders:</strong> Title, due date, priority, recurrence, linked goals<br />
-- <strong>Diary entries:</strong> Text content, mood, photos, tags (encrypted with AES-256-GCM encryption)<br />
 - <strong>Manifestation practices:</strong> Intentions, methods, affirmations, progress, divine signs<br />
 - <strong>Gratitude entries:</strong> Daily gratitude lists and reflections<br />
 - <strong>Personal notes and reflections:</strong> Associated with goals, manifestations, or entries<br />
@@ -174,7 +173,7 @@
 - Feature usage patterns (which screens viewed, features used)<br />
 - Button clicks and interactions<br />
 - Authentication events (sign up, login, logout)<br />
-- Goal creation, diary entry creation, quote views (counts only, not content)<br />
+- Goal creation, quote views (counts only, not content)<br />
 - Settings changes (theme preference, etc.)<br />
 - Data sync success/failure events<br />
 - App version and update adoption<br />
@@ -211,7 +210,7 @@
 <h3>2.1 Core App Functionality</h3>
 <ul>
 <li><strong>Authenticate your account</strong> and maintain secure login sessions</li>
-<li><strong>Store and sync</strong> your goals, schedules, diary entries, manifestations, reminders, and other content</li>
+<li><strong>Store and sync</strong> your goals, schedules, manifestations, reminders, and other content</li>
 <li><strong>Sync your data</strong> across your devices securely via Supabase</li>
 <li><strong>Provide personalized recommendations</strong> and insights based on your usage patterns</li>
 <li><strong>Send notifications and reminders</strong> you've configured</li>
@@ -269,7 +268,7 @@
 <p>We process your data to fulfill our contract with you (Terms of Service) and provide the Service you subscribed to:<br />
 - Account creation and authentication<br />
 - Subscription management and billing<br />
-- Service delivery (goals, diary, schedules, manifestations, reminders)<br />
+- Service delivery (goals, schedules, manifestations, reminders)<br />
 - Data synchronization across your devices<br />
 - Customer support and issue resolution<br />
 - Email communications about your account</p>
@@ -317,7 +316,6 @@
 - <strong>Privacy Policy:</strong> https://supabase.com/privacy</p>
 <p><strong>Local Device Storage (CoreData):</strong><br />
 - <strong>What's stored:</strong><br />
-  - <strong>Encrypted diary entries</strong> (AES-256-GCM encryption)<br />
   - Cached data for offline access<br />
   - User preferences and settings<br />
   - Session tokens<br />
@@ -326,7 +324,7 @@
 - <strong>Security:</strong> iOS app sandbox, encrypted storage</p>
 <p><strong>iOS Keychain (Secure Enclave):</strong><br />
 - <strong>What's stored:</strong><br />
-  - Encryption keys for diary entries<br />
+  - Encryption keys for secure data<br />
   - Stored with <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code> (highest security)<br />
 - <strong>Location:</strong> Device-only, never synced<br />
 - <strong>Security:</strong> Hardware-backed encryption, protected by device passcode/biometrics</p>
@@ -337,7 +335,6 @@
 - Certificate pinning prevents man-in-the-middle attacks<br />
 - Secure WebSocket connections for real-time sync</p>
 <p><strong>Encryption at Rest:</strong><br />
-- Diary entries: <strong>AES-256-GCM encryption</strong> (military-grade)<br />
 - Passwords: <strong>bcrypt hashing</strong> with salt (never stored in plain text)<br />
 - Database: Encrypted at rest by Supabase/Google Cloud</p>
 <p><strong>Access Controls:</strong><br />
@@ -346,7 +343,6 @@
 - <strong>Rate limiting:</strong> Prevents brute force attacks<br />
 - <strong>Session management:</strong> Automatic logout after inactivity</p>
 <p><strong>Biometric Protection (Optional):</strong><br />
-- Diary access can be protected with <strong>Face ID/Touch ID</strong><br />
 - Biometric data is processed <strong>locally by iOS</strong> and never sent to us or stored<br />
 - Requires device passcode as backup</p>
 <p><strong>Security Audits:</strong><br />
@@ -358,7 +354,7 @@
 - Developer has minimal access to production data<br />
 - No routine access to user content<br />
 - Database queries require authentication and are logged<br />
-- Developer cannot view encrypted diary entries (keys are device-only)</p>
+- Developer cannot view your private data</p>
 <p><strong>LIMITATION:</strong> As a solo developer, we cannot provide enterprise-level security infrastructure, dedicated security team, or 24/7 monitoring. We implement best practices within our resource constraints.</p>
 <hr />
 <h2>5. Third-Party Services</h2>
@@ -367,7 +363,7 @@
 <ul>
 <li><strong>Provider:</strong> Supabase Inc.</li>
 <li><strong>Purpose:</strong> User authentication, data storage, real-time synchronization, file storage</li>
-<li><strong>Data Shared:</strong> Account info, user-generated content (excluding encrypted diary entries), subscription tracking</li>
+<li><strong>Data Shared:</strong> Account info, user-generated content, subscription tracking</li>
 <li><strong>Location:</strong> United States (Google Cloud Platform)</li>
 <li><strong>Data Processing:</strong> Database queries, authentication, file storage</li>
 <li><strong>Privacy Policy:</strong> https://supabase.com/privacy</li>
@@ -419,7 +415,7 @@
 <li><strong>Provider:</strong> Resend</li>
 <li><strong>Purpose:</strong> Send transactional emails (password reset, subscription notices, account notifications)</li>
 <li><strong>Data Shared:</strong> Email address only (plus email content like subscription reminders)</li>
-<li><strong>Data NOT Shared:</strong> Passwords, user content, goals, diary entries</li>
+<li><strong>Data NOT Shared:</strong> Passwords, user content, goals</li>
 <li><strong>Location:</strong> United States</li>
 <li><strong>Privacy Policy:</strong> https://resend.com/legal/privacy-policy</li>
 <li><strong>Email Types:</strong> Transactional only (no marketing emails)</li>
@@ -438,7 +434,7 @@
 <li><strong>Provider:</strong> Anthropic, Inc.</li>
 <li><strong>Purpose:</strong> Generate daily quotes and inspirational content using Claude AI</li>
 <li><strong>Data Shared:</strong></li>
-<li><strong>NO personal data shared</strong> (your goals, diary entries, profile info are NOT sent to Anthropic)</li>
+<li><strong>NO personal data shared</strong> (your goals, profile info are NOT sent to Anthropic)</li>
 <li>Only generic prompts sent (e.g., "Generate an inspirational quote about perseverance")</li>
 <li>No user-identifiable information</li>
 <li><strong>What We Receive:</strong> AI-generated text (quotes, affirmations)</li>
@@ -501,7 +497,7 @@
 - See what information we have about you</p>
 <p><strong>Export Your Data:</strong><br />
 - Download a complete copy of your data in JSON format: Settings → Data Management → Export Data<br />
-- Includes: goals, diary entries, manifestations, schedules, reminders, gratitude entries, profile info<br />
+- Includes: goals, manifestations, schedules, reminders, gratitude entries, profile info<br />
 - <strong>Data portability:</strong> Use your data with other services</p>
 <p><strong>Delete Your Data:</strong><br />
 - Permanently delete your account and all associated data: Settings → Data Management → Delete Account<br />
@@ -510,7 +506,7 @@
 - See Section 7.2 for full deletion details</p>
 <p><strong>Correct Your Data:</strong><br />
 - Update profile information anytime: Profile → Edit<br />
-- Edit goals, diary entries, schedules, etc. within their respective screens</p>
+- Edit goals, schedules, etc. within their respective screens</p>
 <p><strong>Opt-Out of Analytics:</strong><br />
 - Disable Firebase Analytics: Settings → Privacy → Analytics (toggle off)<br />
 - Note: This does not affect core functionality</p>
@@ -606,7 +602,6 @@
 - Your profile is removed from Supabase database<br />
 - All user-generated content deleted:<br />
   - Goals, milestones, progress data<br />
-  - Diary entries (encrypted)<br />
   - Manifestations, affirmations, gratitude entries<br />
   - Schedule blocks and time blocks<br />
   - Reminders and tasks<br />
@@ -701,44 +696,13 @@
 - Contact: support@blesssoul.com with proof of guardianship<br />
 - Response within 5-10 business days (solo developer constraints)</p>
 <hr />
-<h2>9. Diary Content Analysis (Local NLP Processing)</h2>
-<h3>9.1 Soul Spark Quote Personalization</h3>
-<p><strong>IMPORTANT DISCLOSURE:</strong> BlessSoul uses LOCAL natural language processing (NLP) to analyze keywords in your diary entries for quote personalization in the "Soul Spark" feature.</p>
-<p><strong>What We Analyze:</strong><br />
-- <strong>Keywords and mood-related words</strong> in your diary text (e.g., "stressed," "happy," "anxious," "work," "love," "family")<br />
-- <strong>Emotional context</strong> to suggest relevant inspirational quotes<br />
-- <strong>Analysis happens ON YOUR DEVICE ONLY</strong> - your diary content is NEVER sent to servers<br />
-- <strong>No human ever reads your diary</strong> - processing is automated and local</p>
-<p><strong>Example:</strong><br />
-- You write in your diary: "Feeling anxious about work presentations"<br />
-- Local NLP detects keywords: "anxious," "work"<br />
-- App suggests quotes about: Calm, Confidence, Professional Success<br />
-- Your diary text is NOT transmitted anywhere</p>
-<h3>9.2 Privacy Protection</h3>
-<p><strong>How This Protects Your Privacy:</strong><br />
-- ✓ <strong>All NLP processing is LOCAL</strong> (happens on your iPhone/iPad only)<br />
-- ✓ <strong>Diary content NEVER leaves your device</strong><br />
-- ✓ <strong>No data sent to our servers, Claude AI, or any third party</strong><br />
-- ✓ <strong>Keywords are NOT stored</strong> - analysis is performed in real-time when you view Soul Spark<br />
-- ✓ <strong>You can disable</strong> by simply not using Soul Spark feature<br />
-- ✓ <strong>Encrypted diary entries</strong> remain encrypted (AES-256-GCM) - NLP only processes unencrypted entries</p>
-<p><strong>NLP Technology Used:</strong><br />
-- <strong>Basic keyword matching</strong> using iOS natural language framework<br />
-- <strong>NOT cloud-based AI</strong> - no GPT, Claude, or other cloud services involved<br />
-- <strong>No machine learning</strong> - simple pattern matching only<br />
-- <strong>No data collection</strong> - analysis results are not logged or stored</p>
-<p><strong>You Control This:</strong><br />
-- Don't use Soul Spark if you prefer no diary analysis<br />
-- Lock diary entries to exclude them from NLP (locked entries are encrypted and skipped)<br />
-- Delete diary entries anytime to remove them from analysis</p>
-<hr />
-<h2>10. AI-Generated Content and Privacy Implications</h2>
+<h2>9. AI-Generated Content and Privacy Implications</h2>
 <h3>20.1 Claude AI Integration</h3>
 <p><strong>IMPORTANT DISCLOSURE:</strong> BlessSoul uses Claude AI (developed by Anthropic, Inc.) to generate daily quotes and inspirational content.</p>
 <p><strong>Privacy Implications:</strong></p>
 <p><strong>What is NOT Shared with Anthropic/Claude AI:</strong><br />
 - ✗ Your personal information (name, email)<br />
-- ✗ Your user-generated content (goals, diary entries, schedules)<br />
+- ✗ Your user-generated content (goals, schedules, manifestations)<br />
 - ✗ Your subscription information<br />
 - ✗ Your device information<br />
 - ✗ Any personally identifiable information</p>
@@ -773,7 +737,7 @@
 <hr />
 <h2>19. Mental Health Crisis Resources</h2>
 <h3>19.1 NOT A MENTAL HEALTH SERVICE</h3>
-<p><strong>CRITICAL REMINDER:</strong> BlessSoul's mood tracking and diary features are for personal reflection ONLY, not mental health treatment.</p>
+<p><strong>CRITICAL REMINDER:</strong> BlessSoul's features are for personal reflection and goal tracking ONLY, not mental health treatment.</p>
 <p><strong>If experiencing mental health crisis, severe depression, anxiety, or suicidal thoughts:</strong></p>
 <p><strong>GLOBAL CRISIS RESOURCES:</strong></p>
 <p><strong>INDIA:</strong><br />
@@ -892,7 +856,7 @@
 <li>Use a strong, unique password</li>
 <li>Don't share your account credentials</li>
 <li>Keep your device and app updated</li>
-<li>Enable Face ID/Touch ID for diary entries</li>
+<li>Use strong device passcode</li>
 <li>Be cautious of phishing emails (we'll never ask for your password via email)</li>
 </ul>
 <hr />
@@ -1024,7 +988,7 @@
 - Optional fields (date of birth, profile picture) are truly optional</p>
 <h3>19.4 Privacy by Design</h3>
 <p>Privacy is built into BlessSoul from the ground up:<br />
-- End-to-end encryption for diary entries<br />
+- Secure data storage<br />
 - Anonymous analytics (cannot be linked to you personally)<br />
 - Local-first data storage with optional cloud sync<br />
 - No advertising or tracking<br />
@@ -1044,7 +1008,7 @@
 - NO precise location, contacts, photos (except profile), or biometric data</p>
 <p><strong>Data Storage:</strong><br />
 - Supabase (US), local device<br />
-- Encryption: AES-256-GCM for diary entries, HTTPS for all connections</p>
+- Encryption: HTTPS for all connections, secure local storage</p>
 <p><strong>Third-Party Services:</strong><br />
 - 7 total: Supabase, Firebase, Google Sign-In, RevenueCat, Resend, App Store, Claude AI<br />
 - NO advertising networks or data brokers</p>

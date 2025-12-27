@@ -128,7 +128,7 @@
 
     <main class="legal-page container">
         <h1>Privacy Policy for BlessSoul</h1>
-        <p class="updated">Effective Date: January 1, 2025 | Last Updated: December 26, 2025</p>
+        <p class="updated">Effective Date: January 1, 2025 | Last Updated: December 27, 2025</p>
 
 <h2>Introduction</h2>
 <p>BlessSoul ("we," "our," or "us") is developed and operated by <strong>Praveena H D</strong>, a sole proprietor and individual developer based in <strong>Shivamogga, Karnataka, India</strong>. We are committed to protecting your privacy and ensuring the security of your personal information within the constraints of a one-person operation. This Privacy Policy explains how we collect, use, store, protect, and share your data when you use the BlessSoul mobile application (the "App").</p>
@@ -152,18 +152,24 @@
 - <strong>Password</strong> (hashed using bcrypt and securely stored - we never store passwords in plain text)<br />
 - <strong>Display name</strong> (optional)<br />
 - <strong>Date of birth</strong> (optional, for personalization and age verification)<br />
-- <strong>Profile picture</strong> (optional, stored in Supabase Storage)</p>
+- <strong>Profile picture</strong> (optional, stored locally on your device only - NOT synced to cloud)</p>
 <p><strong>User-Generated Content:</strong><br />
 - <strong>Goals and milestones:</strong> Title, description, category, progress, target dates, completion status<br />
 - <strong>Schedule and time blocks:</strong> Time, title, category, duration, notes<br />
 - <strong>Reminders:</strong> Title, due date, priority, recurrence, linked goals<br />
-- <strong>Manifestation practices:</strong> Intentions, methods, affirmations, progress, divine signs<br />
-- <strong>Gratitude entries:</strong> Daily gratitude lists and reflections<br />
+- <strong>Manifestation practices:</strong> Intentions, methods, affirmations, progress tracking<br />
+- <strong>Divine signs:</strong> Type (repeating numbers, nature, dreams, songs, synchronicity, feathers/coins, other), description, date observed<br />
+- <strong>Soul Portal preferences:</strong> Notification settings for cosmic events (stored locally only)<br />
 - <strong>Personal notes and reflections:</strong> Associated with goals, manifestations, or entries<br />
 - <strong>Favorites and preferences:</strong> Liked quotes, theme settings, notification preferences</p>
+<p><strong>Onboarding Data (Collected During Setup):</strong><br />
+- <strong>Phase 1 (Required):</strong> Acquisition source, age range, gender, primary motivation, primary goal, manifestation belief, focus life area<br />
+- <strong>Phase 2 (Optional):</strong> Relationship status, religious preference, zodiac sign, consistency struggles, improvement areas, current mood, avoidance areas<br />
+- <strong>Phase 3 - Soul Spark (Optional):</strong> Quote style preference, quote interaction preference, mental health practices, followed topics (3-8 selected from 12 main categories)<br />
+- <strong>Purpose:</strong> Personalizing your experience, filtering content (religious/zodiac quotes), and improving recommendations</p>
 <p><strong>Subscription Information:</strong><br />
 - Subscription plan (monthly, quarterly, yearly)<br />
-- Subscription status (trial, active, expired, cancelled)<br />
+- Subscription status (active, expired, cancelled)<br />
 - Subscription start and end dates<br />
 - Anonymous RevenueCat customer ID (UUID, not personally identifiable)<br />
 - <strong>Note:</strong> Payment information is processed and stored securely by Apple's App Store - we do <strong>NOT</strong> receive or store your payment card details, billing address, or financial information</p>
@@ -216,7 +222,7 @@
 <li><strong>Send notifications and reminders</strong> you've configured</li>
 <li><strong>Provide AI-powered features</strong> (affirmations, suggestions - powered by OpenAI, see Section 9)</li>
 <li><strong>Generate progress reports</strong> and statistics</li>
-<li><strong>Process subscription management</strong> (trial, active, expired status)</li>
+<li><strong>Process subscription management</strong> (active, expired status)</li>
 </ul>
 <h3>2.2 Service Improvement</h3>
 <ul>
@@ -229,7 +235,7 @@
 </ul>
 <h3>2.3 Communication</h3>
 <ul>
-<li><strong>Send important emails</strong> about your subscription status (trial ending, expiration, renewal)</li>
+<li><strong>Send important emails</strong> about your subscription status (expiration, renewal)</li>
 <li><strong>Respond to support requests</strong> and customer inquiries</li>
 <li><strong>Notify you of significant app changes</strong>, new features, or critical updates</li>
 <li><strong>Send password reset emails</strong> when requested</li>
@@ -237,12 +243,13 @@
 <li><strong>Send account deletion warnings</strong> during grace period</li>
 </ul>
 <p><strong>Email Frequency:</strong> We send transactional emails only (no marketing). You will receive:<br />
-- Welcome email upon signup<br />
-- Trial ending reminder (day 6 of trial)<br />
-- Subscription expiration notices (if applicable)<br />
-- Grace period reminders (if subscription expires)<br />
-- Password reset emails (when requested)<br />
-- Support responses (when you contact us)</p>
+- <strong>Welcome email</strong> upon first subscription purchase<br />
+- <strong>Welcome back email</strong> if you resubscribe after cancellation<br />
+- <strong>Subscription expired email</strong> (Day 0 after expiration) - personalized based on your engagement level<br />
+- <strong>Final warning email</strong> (Day 23) - 7 days before automatic account deletion<br />
+- <strong>Account deleted confirmation</strong> (Day 30) - after automatic deletion<br />
+- <strong>Password reset emails</strong> (when requested)<br />
+- <strong>Support responses</strong> (when you contact us)</p>
 <h3>2.4 Legal and Security</h3>
 <ul>
 <li>Comply with applicable laws, regulations, and legal obligations</li>
@@ -274,7 +281,7 @@
 - Email communications about your account</p>
 <p><strong>2. Consent (Article 6(1)(a)):</strong></p>
 <p>We process certain data only with your explicit consent, which you can withdraw at any time:<br />
-- Firebase Analytics (Settings → Privacy → Analytics)<br />
+- Firebase Analytics (Settings → Data & Privacy → Usage Analytics)<br />
 - Optional Google Sign-In authentication<br />
 - Push notifications (iOS Settings → Notifications)<br />
 - Optional profile picture upload</p>
@@ -294,7 +301,7 @@
 <h3>3.2 Withdrawal of Consent</h3>
 <p>For processing based on your consent, you can withdraw consent at any time:</p>
 <p><strong>To Withdraw Consent:</strong><br />
-- <strong>Analytics:</strong> Settings → Privacy → Analytics (toggle off)<br />
+- <strong>Analytics:</strong> Settings → Data & Privacy → Usage Analytics (toggle off)<br />
 - <strong>Google Sign-In:</strong> Switch to email/password authentication in Settings<br />
 - <strong>Notifications:</strong> iOS Settings → Notifications → BlessSoul (disable)<br />
 - <strong>Profile Picture:</strong> Settings → Profile → Remove Profile Picture</p>
@@ -380,7 +387,7 @@
 <li>Crash logs and stack traces (no personal data)</li>
 <li>General location (country/region only)</li>
 <li><strong>Location:</strong> United States</li>
-<li><strong>When Active:</strong> <strong>Crashlytics disabled in debug builds.</strong> Analytics can be disabled by users in Settings → Privacy → Analytics</li>
+<li><strong>When Active:</strong> <strong>Crashlytics disabled in debug builds.</strong> Analytics can be disabled by users in Settings → Data & Privacy → Usage Analytics</li>
 <li><strong>Privacy Policy:</strong> https://firebase.google.com/support/privacy</li>
 <li><strong>Data Retention:</strong> Analytics data retained for 14 months, Crashlytics for 90 days</li>
 </ul>
@@ -402,7 +409,7 @@
 <li><strong>Purpose:</strong> Manage subscription status, payments, and cross-platform subscription access</li>
 <li><strong>Data Shared:</strong></li>
 <li>Anonymous user ID (UUID, not personally identifiable)</li>
-<li>Subscription status (trial, active, expired)</li>
+<li>Subscription status (active, expired, cancelled)</li>
 <li>Subscription plan and dates</li>
 <li>Apple receipt data (for validation)</li>
 <li><strong>Data NOT Shared:</strong> Payment card details (Apple handles that), email, name</li>
@@ -462,6 +469,63 @@
     <li>See Terms of Service Section 6 for full AI content disclaimers</li>
   </ul>
 </li>
+</ul>
+<h3>5.8 Soul Spark Quotes (AI-Generated Content)</h3>
+<p><strong>IMPORTANT DISCLOSURE:</strong> The inspirational quotes displayed in the Soul Spark feature were originally generated using artificial intelligence.</p>
+<ul>
+<li><strong>Quote Source:</strong> All 11,000+ quotes in our database were generated using AI technology and then curated and stored in our Supabase database</li>
+<li><strong>No Real-Time AI:</strong> Quotes are NOT generated in real-time - they are served from our pre-built database</li>
+<li><strong>No Personal Data Sent:</strong> Your personal information is NOT sent to any AI service when viewing quotes</li>
+<li><strong>Quote Interaction Tracking:</strong> We track your quote interactions (views, likes, shares, skips) to improve recommendations - synced to Supabase</li>
+<li><strong>Filtering Preferences:</strong> Your religious and zodiac preferences (from onboarding) filter which quotes you see</li>
+<li><strong>Local Caching:</strong> Quotes are cached locally on your device for offline access</li>
+</ul>
+<p><strong>See Terms of Service for full AI content disclaimers regarding copyright and accuracy.</strong></p>
+<h3>5.9 Soul Portal (Cosmic Event Calendar)</h3>
+<ul>
+<li><strong>Purpose:</strong> Display upcoming cosmic events (moon phases, eclipses, number portals, solstices, retrogrades, star gates) for manifestation timing</li>
+<li><strong>Data Stored Locally Only:</strong>
+  <ul>
+    <li>Notification preferences (enabled/disabled) per portal</li>
+    <li>Reminder times you set</li>
+    <li>Repeat mode for multi-day portals (first day only or every day)</li>
+  </ul>
+</li>
+<li><strong>NOT Synced to Cloud:</strong> Soul Portal preferences are stored only on your device (UserDefaults)</li>
+<li><strong>No Tracking:</strong> We do not track which portals you view or interact with</li>
+<li><strong>Portal Data:</strong> Event information (dates, descriptions, tips) is fetched from our Supabase database</li>
+</ul>
+<h3>5.10 Live Activities and Widgets</h3>
+<p><strong>LOCK SCREEN VISIBILITY DISCLOSURE:</strong></p>
+<ul>
+<li><strong>Purpose:</strong> Display your current schedule block on your Lock Screen and Dynamic Island (iOS 16.2+)</li>
+<li><strong>Data Displayed on Lock Screen:</strong>
+  <ul>
+    <li>Schedule block title (e.g., "Deep Work", "Email & Planning")</li>
+    <li>Category name and icon</li>
+    <li>Start and end times</li>
+    <li>Progress countdown</li>
+    <li>Next upcoming block information</li>
+  </ul>
+</li>
+<li><strong>Privacy Consideration:</strong> Anyone who can see your phone's Lock Screen can see your current schedule activity. You control this via iOS Settings → Face ID & Passcode → Allow Access When Locked</li>
+<li><strong>Data Sharing:</strong> Schedule data is shared between the main app and widget extension via App Groups (device-only, not transmitted externally)</li>
+<li><strong>No Cloud Transmission:</strong> Widget data stays on your device</li>
+<li><strong>Automatic Cleanup:</strong> Live Activities automatically end when your schedule block completes</li>
+</ul>
+<h3>5.11 Divine Signs Feature</h3>
+<ul>
+<li><strong>Purpose:</strong> Log spiritual signs and synchronicities you observe in your daily life</li>
+<li><strong>Data Collected:</strong>
+  <ul>
+    <li>Sign type (Repeating Numbers, Nature & Animals, Dreams, Songs & Words, Synchronicity, Feathers & Coins, Other)</li>
+    <li>Your description of the sign</li>
+    <li>Date observed</li>
+  </ul>
+</li>
+<li><strong>Storage:</strong> Divine signs are synced to Supabase (cloud) for cross-device access</li>
+<li><strong>Your Content:</strong> Divine sign descriptions are user-generated content that you own</li>
+<li><strong>Privacy:</strong> Divine signs are private to your account and not shared with other users</li>
 </ul>
 <p><strong>Important Notes:</strong><br />
 - We do <strong>NOT</strong> share your data with advertising networks, data brokers, or marketing companies<br />
@@ -524,7 +588,7 @@
 - Update profile information anytime: Profile → Edit<br />
 - Edit goals, schedules, etc. within their respective screens</p>
 <p><strong>Opt-Out of Analytics:</strong><br />
-- Disable Firebase Analytics: Settings → Privacy → Analytics (toggle off)<br />
+- Disable Firebase Analytics: Settings → Data & Privacy → Usage Analytics (toggle off)<br />
 - Note: This does not affect core functionality</p>
 <p><strong>Manage Notifications:</strong><br />
 - Control notification types: Settings → Notifications<br />
@@ -608,7 +672,6 @@
 <h3>7.1 Active Accounts</h3>
 <p>We retain your data <strong>as long as your account is active</strong> and you maintain a subscription or are within the grace period.</p>
 <p><strong>Data Lifecycle:</strong><br />
-- <strong>During trial (7 days):</strong> Full data retention<br />
 - <strong>Active subscription:</strong> Full data retention and sync<br />
 - <strong>Grace period (30 days post-expiration):</strong> Read-only data retention<br />
 - <strong>Day 30 post-expiration:</strong> Automatic deletion (see Section 7.3)</p>
@@ -713,8 +776,8 @@
 - Response within 5-10 business days (solo developer constraints)</p>
 <hr />
 <h2>9. AI-Generated Content and Privacy Implications</h2>
-<h3>9.1 OpenAI Integration</h3>
-<p><strong>IMPORTANT DISCLOSURE:</strong> BlessSoul uses OpenAI's GPT models to provide AI-powered features for manifestations and goal creation.</p>
+<h3>9.1 OpenAI Integration (Manifestation Features Only)</h3>
+<p><strong>IMPORTANT DISCLOSURE:</strong> BlessSoul uses OpenAI's GPT models to provide AI-powered features <strong>exclusively for the Soul Manifest (manifestation) feature</strong>. OpenAI is NOT used for Soul Spark quotes.</p>
 <p><strong>Privacy Implications:</strong></p>
 <p><strong>What is NOT Shared with OpenAI:</strong><br />
 - ✗ Your personal information (name, email)<br />
@@ -739,21 +802,24 @@
 - Subject to OpenAI's privacy policy: https://openai.com/privacy<br />
 - OpenAI's API data usage policy: https://openai.com/policies/api-data-usage-policies<br />
 - OpenAI does not receive your personal data through our integration</p>
-<h3>9.2 Quote Storage and Sharing</h3>
+<h3>9.2 Soul Spark Quotes (Pre-Generated AI Content)</h3>
+<p><strong>Important Distinction:</strong> Soul Spark quotes were generated using AI technology BEFORE being added to our database. They are NOT generated in real-time.</p>
+<p><strong>Quote Privacy:</strong><br />
+- <strong>No real-time AI calls:</strong> Quotes are served from our Supabase database, not OpenAI<br />
+- <strong>No personal data sent:</strong> Your information is never sent to AI when viewing quotes<br />
+- <strong>Pre-curated content:</strong> All 11,000+ quotes were generated, reviewed, and stored in our database<br />
+- <strong>Quote filtering:</strong> Religious and zodiac preferences filter which quotes you see (preferences stay in our system)</p>
 <p><strong>When you save or share a quote:</strong><br />
 - Quote is saved to your local device (your control)<br />
 - If you share to social media, subject to that platform's privacy policy<br />
-- We do not track quote sharing (no analytics on external shares)</p>
-<p><strong>Privacy Best Practice:</strong><br />
-- Do not include personal information when sharing quotes<br />
-- Be aware that shared content may be public (depending on platform)</p>
+- We track quote interactions (views, likes, shares, skips) for recommendation improvement</p>
 <h3>9.3 AI Content Disclaimers</h3>
 <p><strong>Privacy-Related Disclaimers:</strong><br />
-- AI-generated quotes are <strong>not personalized</strong> to you (privacy-protective)<br />
-- We do <strong>not</strong> send your personal data to AI providers<br />
-- Quotes are generic and generated in batches (not linked to individual users)<br />
-- Your use of quotes does not reveal personal information about you</p>
-<p><strong>See Terms of Service Section 14 for full AI content disclaimers regarding copyright and accuracy.</strong></p>
+- Soul Spark quotes are <strong>pre-generated</strong> and served from our database (no real-time AI)<br />
+- Manifestation affirmations are generated in real-time via OpenAI (intention text shared)<br />
+- Quotes are filtered based on your preferences but not personalized to your specific life details<br />
+- Your use of quotes does not reveal personal information about you to third parties</p>
+<p><strong>See Terms of Service for full AI content disclaimers regarding copyright and accuracy.</strong></p>
 <hr />
 <h2>10. Mental Health Crisis Resources</h2>
 <h3>10.1 NOT A MENTAL HEALTH SERVICE</h3>
@@ -832,7 +898,7 @@
 - Feature onboarding states (which tutorials you've seen)</p>
 <p><strong>Analytics (Firebase):</strong><br />
 - Anonymous device identifiers for analytics<br />
-- Can be disabled in Settings → Privacy → Analytics</p>
+- Can be disabled in Settings → Data & Privacy → Usage Analytics</p>
 <h3>12.3 Third-Party Tracking</h3>
 <ul>
 <li>We do <strong>NOT</strong> use third-party advertising trackers</li>
@@ -992,7 +1058,7 @@
 <ul>
 <li>BlessSoul does not track users for advertising purposes</li>
 <li>We do not respond to "Do Not Track" browser signals (as BlessSoul is a native iOS app, not a website)</li>
-<li>You can disable analytics in Settings → Privacy → Analytics</li>
+<li>You can disable analytics in Settings → Data & Privacy → Usage Analytics</li>
 </ul>
 <h3>18.2 Biometric Data Clarification</h3>
 <ul>
@@ -1030,7 +1096,7 @@
 - Supabase (US), local device<br />
 - Encryption: HTTPS for all connections, secure local storage</p>
 <p><strong>Third-Party Services:</strong><br />
-- 7 total: Supabase, Firebase, Google Sign-In, RevenueCat, Resend, App Store, OpenAI<br />
+- 7 total: Supabase, Firebase, Google Sign-In, RevenueCat, Resend, App Store, OpenAI (manifestations only)<br />
 - NO advertising networks or data brokers</p>
 <p><strong>Your Rights:</strong><br />
 - Access, export, delete, correct, opt-out<br />
@@ -1048,8 +1114,8 @@
 <p><strong>Auto-Deletion:</strong><br />
 - Day 30 after subscription expires</p>
 <p><strong>AI Content:</strong><br />
-- AI features powered by OpenAI (GPT-4o-mini)<br />
-- Intention text shared for affirmations/suggestions<br />
+- Manifestation AI: OpenAI GPT-4o-mini (intention text shared for affirmations/suggestions)<br />
+- Soul Spark quotes: Pre-generated by AI, served from database (NO real-time AI, NO data sent)<br />
 - NO personal identifiers sent to OpenAI</p>
 <p><strong>Solo Developer:</strong><br />
 - One-person operation<br />
@@ -1061,7 +1127,7 @@
 - Shivamogga, Karnataka, India</p>
 <hr />
 <p><strong>This Privacy Policy is effective as of January 1, 2025.</strong><br />
-<strong>Last Updated: December 26, 2025</strong></p>
+<strong>Last Updated: December 27, 2025</strong></p>
 <p><strong>© 2025 Praveena H D. All rights reserved.</strong></p>
 <hr />
 <p><strong>END OF PRIVACY POLICY</strong></p>

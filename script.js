@@ -30,19 +30,19 @@ function initStarField() {
 
             if (type === 'bright') {
                 // Bright twinkling stars
-                this.baseSize = 1.0 + Math.random() * 2.0;
-                this.brightness = 0.6 + Math.random() * 0.4;
+                this.baseSize = 1.5 + Math.random() * 2.5;
+                this.brightness = 0.8 + Math.random() * 0.2;
                 this.speed = 0.5 + Math.random() * 1.5;
             } else if (type === 'medium') {
                 // Medium stars with subtle twinkle
-                this.baseSize = 0.8 + Math.random() * 1.2;
-                this.brightness = 0.4 + Math.random() * 0.3;
+                this.baseSize = 1.0 + Math.random() * 1.5;
+                this.brightness = 0.5 + Math.random() * 0.3;
                 this.speed = 0.2 + Math.random() * 0.8;
             } else {
                 // Dim background stars
-                this.baseSize = 0.5 + Math.random() * 0.8;
-                this.brightness = 0.2 + Math.random() * 0.3;
-                this.speed = 0.1 + Math.random() * 0.4;
+                this.baseSize = 0.8 + Math.random() * 1.2;
+                this.brightness = 0.3 + Math.random() * 0.4;
+                this.speed = 0.1 + Math.random() * 0.5;
             }
 
             // Each star gets unique twinkle characteristics
@@ -51,21 +51,21 @@ function initStarField() {
         }
 
         draw(time) {
-            // Twinkle calculation
-            const twinkle = 0.3 + 0.7 * Math.sin(time * this.speed + this.phase);
-            const size = this.baseSize * twinkle;
+            // Twinkle calculation - more visible range
+            const twinkle = 0.5 + 0.5 * Math.sin(time * this.speed + this.phase);
+            const size = this.baseSize;
             const opacity = this.brightness * twinkle;
 
             // Add glow effect based on star type
             if (this.type === 'bright') {
-                ctx.shadowBlur = 6 + (twinkle * 10);
-                ctx.shadowColor = `rgba(255, 159, 90, ${opacity * 0.8})`;
+                ctx.shadowBlur = 8 + (twinkle * 12);
+                ctx.shadowColor = `rgba(255, 159, 90, ${opacity})`;
             } else if (this.type === 'medium') {
-                ctx.shadowBlur = 3 + (twinkle * 5);
-                ctx.shadowColor = `rgba(255, 200, 150, ${opacity * 0.5})`;
+                ctx.shadowBlur = 4 + (twinkle * 6);
+                ctx.shadowColor = `rgba(255, 200, 150, ${opacity * 0.7})`;
             } else {
-                ctx.shadowBlur = 2 + (twinkle * 3);
-                ctx.shadowColor = `rgba(255, 255, 255, ${opacity * 0.3})`;
+                ctx.shadowBlur = 2 + (twinkle * 4);
+                ctx.shadowColor = `rgba(255, 255, 255, ${opacity * 0.5})`;
             }
 
             ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
@@ -78,23 +78,23 @@ function initStarField() {
         }
     }
     
-    // Create stars for galaxy effect (increased count)
+    // Create stars for galaxy effect
     const brightStars = [];
     const mediumStars = [];
     const dimStars = [];
 
-    // 80 bright twinkling stars (prominent)
-    for (let i = 0; i < 80; i++) {
+    // 100 bright twinkling stars (very visible)
+    for (let i = 0; i < 100; i++) {
         brightStars.push(new Star('bright'));
     }
 
-    // 120 medium stars (moderate twinkle)
-    for (let i = 0; i < 120; i++) {
+    // 200 medium stars (visible galaxy layer)
+    for (let i = 0; i < 200; i++) {
         mediumStars.push(new Star('medium'));
     }
 
-    // 200 dim background stars (subtle glow)
-    for (let i = 0; i < 200; i++) {
+    // 300 dim background stars (dense galaxy background)
+    for (let i = 0; i < 300; i++) {
         dimStars.push(new Star('dim'));
     }
     

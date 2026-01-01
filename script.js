@@ -23,26 +23,50 @@ function initStarField() {
     
     // Star class
     class Star {
-        constructor() {
+        constructor(type = 'normal') {
             this.x = Math.random() * canvas.width;
             this.y = Math.random() * canvas.height;
-            this.baseSize = 0.5 + Math.random() * 1.5;
-            this.brightness = 0.3 + Math.random() * 0.7;
-            
+            this.type = type;
+
+            if (type === 'bright') {
+                // Bright twinkling stars
+                this.baseSize = 1.0 + Math.random() * 2.0;
+                this.brightness = 0.6 + Math.random() * 0.4;
+                this.speed = 0.5 + Math.random() * 1.5;
+            } else if (type === 'medium') {
+                // Medium stars with subtle twinkle
+                this.baseSize = 0.8 + Math.random() * 1.2;
+                this.brightness = 0.4 + Math.random() * 0.3;
+                this.speed = 0.2 + Math.random() * 0.8;
+            } else {
+                // Dim background stars
+                this.baseSize = 0.5 + Math.random() * 0.8;
+                this.brightness = 0.2 + Math.random() * 0.3;
+                this.speed = 0.1 + Math.random() * 0.4;
+            }
+
             // Each star gets unique twinkle characteristics
             this.phase = Math.random() * Math.PI * 2;
-            this.speed = 0.5 + Math.random() * 1.0;
+            this.glowIntensity = Math.random();
         }
-        
+
         draw(time) {
             // Twinkle calculation
-            const twinkle = 0.4 + 0.6 * Math.sin(time * this.speed + this.phase);
+            const twinkle = 0.3 + 0.7 * Math.sin(time * this.speed + this.phase);
             const size = this.baseSize * twinkle;
             const opacity = this.brightness * twinkle;
 
-            // Add glow effect
-            ctx.shadowBlur = 4 + (twinkle * 6);
-            ctx.shadowColor = `rgba(255, 159, 90, ${opacity * 0.6})`;
+            // Add glow effect based on star type
+            if (this.type === 'bright') {
+                ctx.shadowBlur = 6 + (twinkle * 10);
+                ctx.shadowColor = `rgba(255, 159, 90, ${opacity * 0.8})`;
+            } else if (this.type === 'medium') {
+                ctx.shadowBlur = 3 + (twinkle * 5);
+                ctx.shadowColor = `rgba(255, 200, 150, ${opacity * 0.5})`;
+            } else {
+                ctx.shadowBlur = 2 + (twinkle * 3);
+                ctx.shadowColor = `rgba(255, 255, 255, ${opacity * 0.3})`;
+            }
 
             ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
             ctx.beginPath();
@@ -54,22 +78,24 @@ function initStarField() {
         }
     }
     
-    // Create stars (270 total - matching app)
+    // Create stars for galaxy effect (increased count)
     const brightStars = [];
+    const mediumStars = [];
     const dimStars = [];
-    
-    // 120 bright twinkling stars
-    for (let i = 0; i < 120; i++) {
-        brightStars.push(new Star());
+
+    // 80 bright twinkling stars (prominent)
+    for (let i = 0; i < 80; i++) {
+        brightStars.push(new Star('bright'));
     }
-    
-    // 150 dim static stars with random glow
-    for (let i = 0; i < 150; i++) {
-        const star = new Star();
-        star.brightness = 0.1 + Math.random() * 0.2;
-        star.baseSize = 0.5 + Math.random() * 1.0;
-        star.speed = Math.random() * 0.3; // Subtle random glow effect
-        dimStars.push(star);
+
+    // 120 medium stars (moderate twinkle)
+    for (let i = 0; i < 120; i++) {
+        mediumStars.push(new Star('medium'));
+    }
+
+    // 200 dim background stars (subtle glow)
+    for (let i = 0; i < 200; i++) {
+        dimStars.push(new Star('dim'));
     }
     
     // Animation loop
@@ -80,12 +106,9 @@ function initStarField() {
         
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        // Draw dim stars (background) with subtle glow
-        dimStars.forEach(star => {
-            star.draw(currentTime);
-        });
-        
-        // Draw bright twinkling stars
+        // Draw stars in layers (back to front)
+        dimStars.forEach(star => star.draw(currentTime));
+        mediumStars.forEach(star => star.draw(currentTime));
         brightStars.forEach(star => star.draw(currentTime));
         
         requestAnimationFrame(animate);

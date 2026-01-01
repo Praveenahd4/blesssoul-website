@@ -161,11 +161,14 @@ body {
 
 .shooting-star {
     position: absolute;
-    width: 2px;
-    height: 2px;
+    width: 3px;
+    height: 3px;
     background: white;
     border-radius: 50%;
-    box-shadow: 0 0 4px var(--orange-primary);
+    box-shadow:
+        0 0 6px rgba(255, 255, 255, 0.8),
+        0 0 12px var(--orange-primary),
+        0 0 20px var(--orange-primary);
     animation: shoot 3s ease-out infinite;
     opacity: 0;
 }
@@ -195,11 +198,13 @@ body {
     content: '';
     position: absolute;
     top: 0;
-    left: 0;
-    width: 80px;
-    height: 1px;
-    background: linear-gradient(90deg, white, var(--orange-primary), transparent);
-    transform: translateX(-100%) rotate(45deg);
+    right: 0;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--orange-primary), white);
+    transform: translateX(100%) rotate(-45deg);
+    transform-origin: right center;
+    box-shadow: 0 0 8px var(--orange-primary);
 }
 
 @keyframes shoot {

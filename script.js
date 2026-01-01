@@ -39,11 +39,18 @@ function initStarField() {
             const twinkle = 0.4 + 0.6 * Math.sin(time * this.speed + this.phase);
             const size = this.baseSize * twinkle;
             const opacity = this.brightness * twinkle;
-            
+
+            // Add glow effect
+            ctx.shadowBlur = 4 + (twinkle * 6);
+            ctx.shadowColor = `rgba(255, 159, 90, ${opacity * 0.6})`;
+
             ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
             ctx.beginPath();
             ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
             ctx.fill();
+
+            // Reset shadow for next star
+            ctx.shadowBlur = 0;
         }
     }
     

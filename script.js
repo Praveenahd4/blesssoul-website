@@ -8,9 +8,13 @@
 // ===================================
 function initStarField() {
     const canvas = document.getElementById('starfield');
-    if (!canvas) return;
-    
+    if (!canvas) {
+        console.error('Starfield canvas not found!');
+        return;
+    }
+
     const ctx = canvas.getContext('2d');
+    console.log('Starfield initialized - Canvas size:', canvas.width, 'x', canvas.height);
     
     // Set canvas size
     function resizeCanvas() {
@@ -29,19 +33,19 @@ function initStarField() {
             this.type = type;
 
             if (type === 'bright') {
-                // Bright twinkling stars
-                this.baseSize = 1.5 + Math.random() * 2.5;
-                this.brightness = 0.8 + Math.random() * 0.2;
+                // Bright twinkling stars - VERY VISIBLE
+                this.baseSize = 2.0 + Math.random() * 2.0;
+                this.brightness = 0.9 + Math.random() * 0.1;
                 this.speed = 0.5 + Math.random() * 1.5;
             } else if (type === 'medium') {
-                // Medium stars with subtle twinkle
-                this.baseSize = 1.0 + Math.random() * 1.5;
-                this.brightness = 0.5 + Math.random() * 0.3;
+                // Medium stars - CLEARLY VISIBLE
+                this.baseSize = 1.5 + Math.random() * 1.0;
+                this.brightness = 0.7 + Math.random() * 0.2;
                 this.speed = 0.2 + Math.random() * 0.8;
             } else {
-                // Dim background stars
-                this.baseSize = 0.8 + Math.random() * 1.2;
-                this.brightness = 0.3 + Math.random() * 0.4;
+                // Dim background stars - STILL VISIBLE
+                this.baseSize = 1.0 + Math.random() * 0.5;
+                this.brightness = 0.5 + Math.random() * 0.3;
                 this.speed = 0.1 + Math.random() * 0.5;
             }
 
@@ -51,21 +55,21 @@ function initStarField() {
         }
 
         draw(time) {
-            // Twinkle calculation - more visible range
-            const twinkle = 0.5 + 0.5 * Math.sin(time * this.speed + this.phase);
+            // Twinkle calculation - always visible, never fully fades
+            const twinkle = 0.6 + 0.4 * Math.sin(time * this.speed + this.phase);
             const size = this.baseSize;
             const opacity = this.brightness * twinkle;
 
-            // Add glow effect based on star type
+            // Add strong glow effect based on star type
             if (this.type === 'bright') {
-                ctx.shadowBlur = 8 + (twinkle * 12);
+                ctx.shadowBlur = 10 + (twinkle * 15);
                 ctx.shadowColor = `rgba(255, 159, 90, ${opacity})`;
             } else if (this.type === 'medium') {
-                ctx.shadowBlur = 4 + (twinkle * 6);
-                ctx.shadowColor = `rgba(255, 200, 150, ${opacity * 0.7})`;
+                ctx.shadowBlur = 6 + (twinkle * 8);
+                ctx.shadowColor = `rgba(255, 200, 150, ${opacity * 0.8})`;
             } else {
-                ctx.shadowBlur = 2 + (twinkle * 4);
-                ctx.shadowColor = `rgba(255, 255, 255, ${opacity * 0.5})`;
+                ctx.shadowBlur = 3 + (twinkle * 5);
+                ctx.shadowColor = `rgba(255, 255, 255, ${opacity * 0.7})`;
             }
 
             ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
@@ -97,7 +101,14 @@ function initStarField() {
     for (let i = 0; i < 300; i++) {
         dimStars.push(new Star('dim'));
     }
-    
+
+    console.log('Stars created:', {
+        bright: brightStars.length,
+        medium: mediumStars.length,
+        dim: dimStars.length,
+        total: brightStars.length + mediumStars.length + dimStars.length
+    });
+
     // Animation loop
     let startTime = Date.now();
     

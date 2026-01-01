@@ -63,13 +63,13 @@ function initStarField() {
         brightStars.push(new Star());
     }
     
-    // 150 dim static stars
+    // 150 dim static stars with random glow
     for (let i = 0; i < 150; i++) {
         const star = new Star();
         star.brightness = 0.1 + Math.random() * 0.2;
         star.baseSize = 0.5 + Math.random() * 1.0;
-        star.speed = 0; // Static
-        dimStars.push(new Star());
+        star.speed = Math.random() * 0.3; // Subtle random glow effect
+        dimStars.push(star);
     }
     
     // Animation loop
@@ -80,12 +80,9 @@ function initStarField() {
         
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
-        // Draw dim stars (background)
+        // Draw dim stars (background) with subtle glow
         dimStars.forEach(star => {
-            ctx.fillStyle = `rgba(255, 255, 255, ${star.brightness})`;
-            ctx.beginPath();
-            ctx.arc(star.x, star.y, star.baseSize, 0, Math.PI * 2);
-            ctx.fill();
+            star.draw(currentTime);
         });
         
         // Draw bright twinkling stars

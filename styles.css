@@ -161,14 +161,9 @@ body {
 
 .shooting-star {
     position: absolute;
-    width: 3px;
-    height: 3px;
-    background: white;
-    border-radius: 50%;
-    box-shadow:
-        0 0 6px rgba(255, 255, 255, 0.8),
-        0 0 12px var(--orange-primary),
-        0 0 20px var(--orange-primary);
+    width: 0px;
+    height: 0px;
+    background: transparent;
     animation: shoot 3s ease-out infinite;
     opacity: 0;
 }
@@ -176,22 +171,22 @@ body {
 .shooting-star:nth-child(1) {
     top: 10%;
     right: 10%;
+    animation: shoot 2.5s ease-out infinite;
     animation-delay: 0s;
-    animation-duration: 2.5s;
 }
 
 .shooting-star:nth-child(2) {
     top: 40%;
     right: 30%;
+    animation: shoot-2 3s ease-out infinite;
     animation-delay: 4s;
-    animation-duration: 3s;
 }
 
 .shooting-star:nth-child(3) {
     top: 70%;
     right: 50%;
+    animation: shoot-3 2.8s ease-out infinite;
     animation-delay: 8s;
-    animation-duration: 2.8s;
 }
 
 .shooting-star::after {
@@ -221,6 +216,40 @@ body {
     100% {
         opacity: 0;
         transform: translate(-300px, 300px);
+    }
+}
+
+@keyframes shoot-2 {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-400px, 250px);
+    }
+}
+
+@keyframes shoot-3 {
+    0% {
+        opacity: 0;
+        transform: translate(0, 0);
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-350px, 350px);
     }
 }
 

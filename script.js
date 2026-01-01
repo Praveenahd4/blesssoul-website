@@ -1,214 +1,231 @@
 // ===================================
-// Supabase Configuration
+// BlessSoul Premium Website
+// JavaScript - Star Field & Interactions
 // ===================================
-// Using the same Supabase project as the iOS app
-const SUPABASE_URL = 'https://xykiguryflrumebgwzef.supabase.co';
-const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inh5a2lndXJ5ZmxydW1lYmd3emVmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTYwNzAyMjEsImV4cCI6MjA3MTY0NjIyMX0.i3j_5_ngl1RkRsIF5200FBpoVnkag6DH3dSCpmCdSFQ';
-
-// Initialize Supabase client
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // ===================================
-// Smooth Scrolling
+// STAR FIELD CANVAS ANIMATION
+// ===================================
+function initStarField() {
+    const canvas = document.getElementById('starfield');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    
+    // Set canvas size
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
+    
+    // Star class
+    class Star {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.baseSize = 0.5 + Math.random() * 1.5;
+            this.brightness = 0.3 + Math.random() * 0.7;
+            
+            // Each star gets unique twinkle characteristics
+            this.phase = Math.random() * Math.PI * 2;
+            this.speed = 0.5 + Math.random() * 1.0;
+        }
+        
+        draw(time) {
+            // Twinkle calculation
+            const twinkle = 0.4 + 0.6 * Math.sin(time * this.speed + this.phase);
+            const size = this.baseSize * twinkle;
+            const opacity = this.brightness * twinkle;
+            
+            ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+    }
+    
+    // Create stars (270 total - matching app)
+    const brightStars = [];
+    const dimStars = [];
+    
+    // 120 bright twinkling stars
+    for (let i = 0; i < 120; i++) {
+        brightStars.push(new Star());
+    }
+    
+    // 150 dim static stars
+    for (let i = 0; i < 150; i++) {
+        const star = new Star();
+        star.brightness = 0.1 + Math.random() * 0.2;
+        star.baseSize = 0.5 + Math.random() * 1.0;
+        star.speed = 0; // Static
+        dimStars.push(new Star());
+    }
+    
+    // Animation loop
+    let startTime = Date.now();
+    
+    function animate() {
+        const currentTime = (Date.now() - startTime) / 1000;
+        
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        
+        // Draw dim stars (background)
+        dimStars.forEach(star => {
+            ctx.fillStyle = `rgba(255, 255, 255, ${star.brightness})`;
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.baseSize, 0, Math.PI * 2);
+            ctx.fill();
+        });
+        
+        // Draw bright twinkling stars
+        brightStars.forEach(star => star.draw(currentTime));
+        
+        requestAnimationFrame(animate);
+    }
+    
+    animate();
+}
+
+// ===================================
+// SMOOTH SCROLL
 // ===================================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            const headerOffset = 80;
-            const elementPosition = target.getBoundingClientRect().top;
-            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-            window.scrollTo({
-                top: offsetPosition,
-                behavior: 'smooth'
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
             });
         }
     });
 });
 
 // ===================================
-// Header Scroll Effect
+// SCROLL ANIMATIONS
 // ===================================
-let lastScroll = 0;
-const header = document.querySelector('.header');
-
-window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 100) {
-        header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-    } else {
-        header.style.boxShadow = 'none';
-    }
-
-    lastScroll = currentScroll;
-});
-
-// ===================================
-// Waitlist Form Handling
-// ===================================
-const waitlistForm = document.getElementById('waitlistForm');
-const emailInput = document.getElementById('email');
-const submitButton = waitlistForm.querySelector('.submit-button');
-const successMessage = document.getElementById('successMessage');
-const errorMessage = document.getElementById('errorMessage');
-const errorText = document.getElementById('errorText');
-
-waitlistForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-
-    const email = emailInput.value.trim();
-
-    // Basic validation
-    if (!isValidEmail(email)) {
-        showError('Please enter a valid email address.');
-        return;
-    }
-
-    // Show loading state
-    submitButton.classList.add('loading');
-    submitButton.disabled = true;
-
-    try {
-        // Save email to Supabase
-        await saveEmailToSupabase(email);
-
-        // Show success message for new signup
-        showSuccess(false);
-
-        // Reset form
-        emailInput.value = '';
-
-    } catch (error) {
-        console.error('Submission error:', error);
-
-        // Handle specific error messages
-        if (error.message.includes('duplicate') || error.code === '23505') {
-            // Show success message for duplicate (they're already registered!)
-            showSuccess(true);
-            emailInput.value = '';
-        } else if (error.message.includes('not configured')) {
-            showError('Supabase is not configured yet. Please contact support@blesssoul.com');
-        } else {
-            showError('Something went wrong. Please try again or contact us at support@blesssoul.com');
-        }
-    } finally {
-        submitButton.classList.remove('loading');
-        submitButton.disabled = false;
-    }
-});
-
-// ===================================
-// Helper Functions
-// ===================================
-function isValidEmail(email) {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-}
-
-function showSuccess(isDuplicate = false) {
-    // Update success message based on whether it's a new signup or duplicate
-    const successTitle = document.querySelector('#successMessage h3');
-    const successText = document.querySelector('#successMessage p');
-
-    if (isDuplicate) {
-        successTitle.textContent = "You're Already on the List!";
-        successText.textContent = "Good news—you're already registered! Stay tuned, we'll notify you the moment BlessSoul launches on the App Store.";
-    } else {
-        successTitle.textContent = "You're on the List!";
-        successText.textContent = "We'll notify you the moment BlessSoul launches on the App Store. Get ready to manifest your best life!";
-    }
-
-    waitlistForm.style.display = 'none';
-    errorMessage.classList.remove('show');
-    successMessage.classList.add('show');
-}
-
-function showError(message) {
-    errorText.innerHTML = message;
-    errorMessage.classList.add('show');
-    successMessage.classList.remove('show');
-
-    // Auto-hide error after 5 seconds
-    setTimeout(() => {
-        errorMessage.classList.remove('show');
-    }, 5000);
-}
-
-// ===================================
-// Supabase Integration
-// ===================================
-async function saveEmailToSupabase(email) {
-    // Check if Supabase is configured
-    if (!supabase) {
-        throw new Error('Supabase is not configured. Please add your credentials to script.js');
-    }
-
-    // Get user agent and basic metadata
-    const userAgent = navigator.userAgent;
-    const metadata = {
-        referrer: document.referrer || 'direct',
-        language: navigator.language,
-        screen: `${window.screen.width}x${window.screen.height}`,
-        timestamp: new Date().toISOString()
-    };
-
-    // Insert email into waitlist table
-    const { data, error } = await supabase
-        .from('waitlist')
-        .insert([
-            {
-                email: email,
-                source: 'website',
-                user_agent: userAgent,
-                metadata: metadata
+function initScrollAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-up');
             }
-        ])
-        .select();
-
-    if (error) {
-        console.error('Supabase error:', error);
-        throw error;
-    }
-
-    console.log('✅ Email successfully added to waitlist:', data);
-    return data;
-}
-
-// ===================================
-// Intersection Observer for Animations
-// ===================================
-const observerOptions = {
-    threshold: 0.1,
-    rootMargin: '0px 0px -50px 0px'
-};
-
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-        }
+        });
+    }, {
+        threshold: 0.1
     });
-}, observerOptions);
-
-// Observe feature cards for fade-in animation
-document.addEventListener('DOMContentLoaded', () => {
-    const featureCards = document.querySelectorAll('.feature-card');
-
-    featureCards.forEach((card, index) => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(30px)';
-        card.style.transition = `all 0.6s ease ${index * 0.1}s`;
+    
+    // Observe feature cards
+    document.querySelectorAll('.feature-card').forEach(card => {
         observer.observe(card);
     });
+}
+
+// ===================================
+// APP STORE LINK (Ready for activation)
+// ===================================
+// When Apple approves, uncomment this and add your App Store URL:
+/*
+const APP_STORE_URL = 'https://apps.apple.com/app/blesssoul/YOUR_APP_ID';
+
+document.getElementById('downloadButton')?.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.open(APP_STORE_URL, '_blank');
+});
+
+// Update status badge
+const statusBadge = document.querySelector('.status-text');
+if (statusBadge) {
+    statusBadge.textContent = 'Now Available on App Store';
+}
+
+// Update coming soon text
+const comingSoon = document.querySelector('.coming-soon-text');
+if (comingSoon) {
+    comingSoon.style.display = 'none';
+}
+
+// Enable app store badge
+const appStoreBadge = document.querySelector('.app-store-badge');
+if (appStoreBadge) {
+    appStoreBadge.style.opacity = '1';
+    appStoreBadge.parentElement.href = APP_STORE_URL;
+}
+*/
+
+// ===================================
+// WAITLIST FORM (If you want to keep it)
+// ===================================
+const waitlistForm = document.getElementById('waitlistForm');
+if (waitlistForm) {
+    waitlistForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const email = document.getElementById('email').value;
+        const submitButton = waitlistForm.querySelector('button[type="submit"]');
+        const successMessage = document.getElementById('successMessage');
+        const errorMessage = document.getElementById('errorMessage');
+        
+        // Show loading state
+        submitButton.classList.add('loading');
+        submitButton.disabled = true;
+        
+        try {
+            // Replace with your Supabase function or API endpoint
+            const response = await fetch('YOUR_API_ENDPOINT', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email }),
+            });
+            
+            if (response.ok) {
+                waitlistForm.style.display = 'none';
+                successMessage.style.display = 'block';
+            } else {
+                throw new Error('Submission failed');
+            }
+        } catch (error) {
+            errorMessage.style.display = 'block';
+            console.error('Waitlist submission error:', error);
+        } finally {
+            submitButton.classList.remove('loading');
+            submitButton.disabled = false;
+        }
+    });
+}
+
+// ===================================
+// INITIALIZE ON PAGE LOAD
+// ===================================
+document.addEventListener('DOMContentLoaded', () => {
+    initStarField();
+    initScrollAnimations();
+    
+    // Add fade-in animation to hero
+    const heroText = document.querySelector('.hero-text');
+    if (heroText) {
+        setTimeout(() => {
+            heroText.classList.add('fade-in-up');
+        }, 100);
+    }
 });
 
 // ===================================
-// Console Easter Egg
+// PERFORMANCE OPTIMIZATION
 // ===================================
-console.log('%c✨ Welcome to BlessSoul ✨', 'color: #FF7A3D; font-size: 20px; font-weight: bold;');
-console.log('%cManifest your best life, one day at a time.', 'color: #FFB84D; font-size: 14px;');
-console.log('%c\nInterested in joining our team? Email us at support@blesssoul.com', 'color: #737373; font-size: 12px;');
+// Pause animations when tab is not visible
+document.addEventListener('visibilitychange', () => {
+    const canvas = document.getElementById('starfield');
+    if (document.hidden && canvas) {
+        canvas.style.opacity = '0.5';
+    } else if (canvas) {
+        canvas.style.opacity = '1';
+    }
+});

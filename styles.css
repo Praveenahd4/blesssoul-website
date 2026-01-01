@@ -1684,3 +1684,37 @@ a, button, .glass-card {
         transform: translateY(-8px);
     }
 }
+
+/* Discount Badge */
+.discount-badge {
+    position: absolute;
+    top: -12px;
+    right: 10px;
+    padding: var(--space-xs) var(--space-md);
+    background: linear-gradient(135deg, #FF3B30, #FF6B6B);
+    color: white;
+    border-radius: 100px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 12px rgba(255, 59, 48, 0.4);
+}
+
+/* Price Container */
+.price-container {
+    margin-bottom: var(--space-xs);
+}
+
+.original-price {
+    font-size: 1.2rem;
+    color: var(--text-tertiary);
+    text-decoration: line-through;
+    margin-bottom: var(--space-xs);
+    opacity: 0.6;
+}
+
+/* Update plan-price when there's an original price */
+.price-container .plan-price {
+    font-size: 3rem;
+}

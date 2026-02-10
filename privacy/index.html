@@ -128,7 +128,7 @@
 
     <main class="legal-page container">
         <h1>Privacy Policy for BlessSoul</h1>
-        <p class="updated">Effective Date: January 1, 2025 | Last Updated: December 27, 2025</p>
+        <p class="updated">Effective Date: January 1, 2025 | Last Updated: February 11, 2026</p>
 
 <h2>Introduction</h2>
 <p>BlessSoul ("we," "our," or "us") is developed and operated by <strong>Praveena H D</strong>, a sole proprietor and individual developer based in <strong>Shivamogga, Karnataka, India</strong>. We are committed to protecting your privacy and ensuring the security of your personal information within the constraints of a one-person operation. This Privacy Policy explains how we collect, use, store, protect, and share your data when you use the BlessSoul mobile application (the "App").</p>
@@ -204,7 +204,7 @@
 <li>✗ <strong>Data from other apps</strong></li>
 <li>✗ <strong>Advertising identifiers</strong> (IDFA)</li>
 <li>✗ <strong>Third-party ad trackers</strong></li>
-<li>✗ <strong>Biometric data</strong> (Face ID/Touch ID is handled locally by iOS and never leaves your device)</li>
+<li>✗ <strong>Biometric data</strong> (Face ID/Touch ID)</li>
 <li>✗ <strong>Health data</strong> (HealthKit)</li>
 <li>✗ <strong>Social media activity</strong> (even if you sign in with Google)</li>
 <li>✗ <strong>Browsing history</strong></li>
@@ -281,7 +281,6 @@
 - Email communications about your account</p>
 <p><strong>2. Consent (Article 6(1)(a)):</strong></p>
 <p>We process certain data only with your explicit consent, which you can withdraw at any time:<br />
-- Firebase Analytics (Settings → Data & Privacy → Usage Analytics)<br />
 - Optional Google Sign-In authentication<br />
 - Push notifications (iOS Settings → Notifications)<br />
 - Optional profile picture upload</p>
@@ -301,7 +300,6 @@
 <h3>3.2 Withdrawal of Consent</h3>
 <p>For processing based on your consent, you can withdraw consent at any time:</p>
 <p><strong>To Withdraw Consent:</strong><br />
-- <strong>Analytics:</strong> Settings → Data & Privacy → Usage Analytics (toggle off)<br />
 - <strong>Google Sign-In:</strong> Switch to email/password authentication in Settings<br />
 - <strong>Notifications:</strong> iOS Settings → Notifications → BlessSoul (disable)<br />
 - <strong>Profile Picture:</strong> Settings → Profile → Remove Profile Picture</p>
@@ -311,7 +309,7 @@
 <h3>4.1 Data Storage Locations</h3>
 <p><strong>Supabase (Primary Cloud Database):</strong><br />
 - <strong>What's stored:</strong><br />
-  - Account information (email, name, profile picture, preferences)<br />
+  - Account information (email, name, preferences)<br />
   - Goals, milestones, and progress data<br />
   - Schedules and time blocks<br />
   - Reminders and tasks<br />
@@ -331,7 +329,7 @@
 - <strong>Security:</strong> iOS app sandbox, encrypted storage</p>
 <p><strong>iOS Keychain (Secure Enclave):</strong><br />
 - <strong>What's stored:</strong><br />
-  - Encryption keys for secure data<br />
+  - Authentication tokens for secure sessions<br />
   - Stored with <code>kSecAttrAccessibleWhenUnlockedThisDeviceOnly</code> (highest security)<br />
 - <strong>Location:</strong> Device-only, never synced<br />
 - <strong>Security:</strong> Hardware-backed encryption, protected by device passcode/biometrics</p>
@@ -339,7 +337,6 @@
 <p>We implement industry-standard and best-practice security measures within the constraints of a solo developer operation:</p>
 <p><strong>Encryption in Transit:</strong><br />
 - All data transmitted between your device and our servers uses <strong>HTTPS/TLS 1.3 encryption</strong><br />
-- Certificate pinning prevents man-in-the-middle attacks<br />
 - Secure WebSocket connections for real-time sync</p>
 <p><strong>Encryption at Rest:</strong><br />
 - Passwords: <strong>bcrypt hashing</strong> with salt (never stored in plain text)<br />
@@ -347,11 +344,7 @@
 <p><strong>Access Controls:</strong><br />
 - <strong>Row-level security:</strong> Users can only access their own data in Supabase<br />
 - <strong>API authentication:</strong> All requests require valid authentication tokens<br />
-- <strong>Rate limiting:</strong> Prevents brute force attacks<br />
-- <strong>Session management:</strong> Automatic logout after inactivity</p>
-<p><strong>Biometric Protection (Optional):</strong><br />
-- Biometric data is processed <strong>locally by iOS</strong> and never sent to us or stored<br />
-- Requires device passcode as backup</p>
+- <strong>Rate limiting:</strong> Prevents brute force attacks</p>
 <p><strong>Security Audits:</strong><br />
 - Regular security reviews and updates (within solo developer capacity)<br />
 - Monitoring for suspicious activity<br />
@@ -361,7 +354,7 @@
 - Developer has minimal access to production data<br />
 - No routine access to user content<br />
 - Database queries require authentication and are logged<br />
-- Developer cannot view your private data</p>
+- Developer does not routinely access user content</p>
 <p><strong>LIMITATION:</strong> As a solo developer, we cannot provide enterprise-level security infrastructure, dedicated security team, or 24/7 monitoring. We implement best practices within our resource constraints.</p>
 <hr />
 <h2>5. Third-Party Services</h2>
@@ -387,7 +380,7 @@
 <li>Crash logs and stack traces (no personal data)</li>
 <li>General location (country/region only)</li>
 <li><strong>Location:</strong> United States</li>
-<li><strong>When Active:</strong> <strong>Crashlytics disabled in debug builds.</strong> Analytics can be disabled by users in Settings → Data & Privacy → Usage Analytics</li>
+<li><strong>When Active:</strong> <strong>Crashlytics disabled in debug builds.</strong> Analytics is enabled in production builds for aggregated usage analysis</li>
 <li><strong>Privacy Policy:</strong> https://firebase.google.com/support/privacy</li>
 <li><strong>Data Retention:</strong> Analytics data retained for 14 months, Crashlytics for 90 days</li>
 </ul>
@@ -441,23 +434,24 @@
 <li><strong>Provider:</strong> OpenAI, Inc.</li>
 <li><strong>Purpose:</strong> AI-powered features including:
   <ul>
-    <li>Personalized affirmation generation for manifestations</li>
-    <li>Manifestation method suggestions based on your intentions</li>
-    <li>Goal creation suggestions linked to manifestations</li>
-    <li>Category detection for manifestations</li>
-    <li>Celebration messages upon completion</li>
+    <li><strong>Soul Manifest:</strong> Personalized affirmation generation, manifestation method suggestions, goal creation suggestions, category detection, and celebration messages</li>
+    <li><strong>Soul Activation:</strong> Personalized cosmic guidance, daily rituals, and actionable tips based on your manifestations and cosmic events (Premium feature)</li>
+    <li><strong>Soul Awakening:</strong> 7-day personalized spiritual journey with daily cosmic guidance, rituals, and tips based on your manifestation (trial feature)</li>
   </ul>
 </li>
 <li><strong>Models Used:</strong> GPT-4o-mini (primary), GPT-3.5-turbo (fallback)</li>
 <li><strong>Data Shared:</strong>
   <ul>
-    <li><strong>Intention text</strong> you enter for manifestations (e.g., "I want to achieve financial freedom")</li>
+    <li><strong>Manifestation intention text</strong> you enter (e.g., "I want to achieve financial freedom")</li>
+    <li><strong>Manifestation titles</strong> of your active manifestations (for Soul Activation)</li>
     <li><strong>Category selection</strong> (career, health, relationships, etc.)</li>
     <li><strong>Goal titles</strong> when requesting goal suggestions</li>
+    <li><strong>Zodiac sign</strong> if provided (for Soul Activation and Soul Awakening)</li>
+    <li><strong>Cosmic event data</strong> (pre-verified portal descriptions, moon phases - not user-generated)</li>
     <li><strong>NO personal identifiers</strong> (name, email, user ID) are sent to OpenAI</li>
   </ul>
 </li>
-<li><strong>What We Receive:</strong> AI-generated text (affirmations, suggestions, method recommendations)</li>
+<li><strong>What We Receive:</strong> AI-generated text (affirmations, cosmic guidance, daily rituals, tips, suggestions, method recommendations)</li>
 <li><strong>Location:</strong> United States</li>
 <li><strong>Privacy Policy:</strong> https://openai.com/privacy</li>
 <li><strong>Data Retention by OpenAI:</strong> Per OpenAI's API data usage policy, API inputs are not used to train models and are retained for up to 30 days for abuse monitoring</li>
@@ -533,16 +527,16 @@
 - Third-party services are carefully vetted for security and privacy compliance (within solo developer capacity)<br />
 - You can review each service's privacy policy via the links above</p>
 <hr />
-<h2>6. Data Sharing and Disclosure</h2>
-<h3>6.1 We Do NOT Sell Your Data</h3>
+<h2>5.12 Data Sharing and Disclosure</h2>
+<h3>5.12.1 We Do NOT Sell Your Data</h3>
 <p>We <strong>never</strong> sell, rent, or trade your personal information to third parties for any purpose. Your data is not a commodity.</p>
-<h3>6.2 When We May Share Information</h3>
+<h3>5.12.2 When We May Share Information</h3>
 <p>We only share your information in the following <strong>limited circumstances</strong>:</p>
 <p><strong>With Your Explicit Consent:</strong><br />
 - When you explicitly choose to share content (e.g., exporting data, saving quote images to your device)<br />
 - When you grant permission for specific data sharing</p>
-<p><strong>Service Providers (Section 4):</strong><br />
-- With the third-party services listed in Section 4, <strong>solely to provide app functionality</strong><br />
+<p><strong>Service Providers (Section 5):</strong><br />
+- With the third-party services listed in Section 5, <strong>solely to provide app functionality</strong><br />
 - Under data processing agreements (where available)<br />
 - Service providers may not use data for their own purposes (per their policies)</p>
 <p><strong>Legal Requirements:</strong><br />
@@ -587,9 +581,9 @@
 <p><strong>Correct Your Data:</strong><br />
 - Update profile information anytime: Profile → Edit<br />
 - Edit goals, schedules, etc. within their respective screens</p>
-<p><strong>Opt-Out of Analytics:</strong><br />
-- Disable Firebase Analytics: Settings → Data & Privacy → Usage Analytics (toggle off)<br />
-- Note: This does not affect core functionality</p>
+<p><strong>Analytics:</strong><br />
+- Firebase Analytics is used for anonymous usage analysis and crash reporting<br />
+- Analytics data is aggregated and cannot identify individual users</p>
 <p><strong>Manage Notifications:</strong><br />
 - Control notification types: Settings → Notifications<br />
 - Disable all notifications in iOS Settings → BlessSoul → Notifications</p>
@@ -659,8 +653,8 @@
 - Right to access and correct personal information<br />
 - Contact: support@blesssoul.com<br />
 - Response within 30 days</p>
-<p><strong>Indian Users (Personal Data Protection Bill - when enacted):</strong><br />
-- We will comply with Indian data protection laws when enacted<br />
+<p><strong>Indian Users (Digital Personal Data Protection Act, 2023):</strong><br />
+- We comply with the DPDPA 2023 as applicable rules are notified<br />
 - Contact: support@blesssoul.com with privacy requests<br />
 - As an Indian developer, we are committed to complying with Indian data protection regulations</p>
 <p><strong>All Users:</strong><br />
@@ -673,7 +667,7 @@
 <p>We retain your data <strong>as long as your account is active</strong> and you maintain a subscription or are within the grace period.</p>
 <p><strong>Data Lifecycle:</strong><br />
 - <strong>Active subscription:</strong> Full data retention and sync<br />
-- <strong>Grace period (30 days post-expiration):</strong> Read-only data retention<br />
+- <strong>Grace period (30 days post-expiration):</strong> Account suspended, data retained on servers<br />
 - <strong>Day 30 post-expiration:</strong> Automatic deletion (see Section 7.3)</p>
 <h3>7.2 Manual Account Deletion (User-Initiated)</h3>
 <p>When you manually delete your account (Settings → Data Management → Delete Account):</p>
@@ -684,14 +678,14 @@
   - Manifestations, affirmations, gratitude entries<br />
   - Schedule blocks and time blocks<br />
   - Reminders and tasks<br />
-  - Profile picture from storage<br />
+  - Profile picture from local storage (if set)<br />
   - Quote favorites and interactions<br />
   - Subscription tracking records<br />
 - Your authentication session is terminated<br />
 - Local device storage is cleared:<br />
   - CoreData database erased<br />
   - Cached files removed<br />
-  - Encryption keys deleted from Keychain</p>
+  - Authentication tokens deleted from Keychain</p>
 <p><strong>Within 24-48 Hours:</strong><br />
 - Cloud backups no longer contain your data</p>
 <p><strong>Within 30 Days:</strong><br />
@@ -713,10 +707,10 @@
 <p>If your subscription expires and is <strong>not renewed</strong>:</p>
 <p><strong>Timeline:</strong></p>
 <p><strong>Days 0-29 (Grace Period):</strong><br />
-- Your account remains <strong>active</strong> but in <strong>read-only mode</strong><br />
-- All data is <strong>retained</strong> and accessible<br />
-- You can view but not edit content<br />
-- Email reminders sent</p>
+- Your account is <strong>suspended</strong> and you <strong>cannot access</strong> the app or your data<br />
+- All data is <strong>retained on our servers</strong> during this period<br />
+- Email reminders are sent to notify you of the upcoming deletion<br />
+- You must <strong>resubscribe</strong> to regain access</p>
 <p><strong>Day 30 (Account Deletion):</strong><br />
 - Account is <strong>automatically and permanently deleted</strong><br />
 - Same deletion process as manual deletion (Section 7.2)<br />
@@ -724,15 +718,15 @@
 - Data cannot be recovered</p>
 <p><strong>Resubscribe to Prevent Deletion:</strong><br />
 - Resubscribing at any time before day 30 immediately restores full access<br />
-- All your data is preserved<br />
-- No data loss</p>
+- All your data is preserved during the grace period<br />
+- No data loss if you resubscribe within 30 days</p>
 <h3>7.4 Subscription Cancellation (Different from Account Deletion)</h3>
 <p><strong>Important:</strong> Cancelling your subscription is NOT the same as deleting your account.</p>
 <p><strong>When you cancel your subscription through Apple:</strong><br />
 - Access continues until the end of your current billing period<br />
-- After the billing period ends, your account enters the grace period (Days 0-29)<br />
-- Your data is NOT immediately deleted<br />
-- You have 30 days total to resubscribe before automatic deletion</p>
+- After the billing period ends, your account is suspended (Days 0-29 grace period)<br />
+- Your data is NOT immediately deleted but you cannot access the app<br />
+- You have 30 days to resubscribe and restore full access before automatic deletion</p>
 <p><strong>To avoid automatic deletion:</strong><br />
 - Resubscribe before day 30, OR<br />
 - Manually export your data (Settings → Data Management → Export Data)</p>
@@ -776,8 +770,8 @@
 - Response within 5-10 business days (solo developer constraints)</p>
 <hr />
 <h2>9. AI-Generated Content and Privacy Implications</h2>
-<h3>9.1 OpenAI Integration (Manifestation Features Only)</h3>
-<p><strong>IMPORTANT DISCLOSURE:</strong> BlessSoul uses OpenAI's GPT models to provide AI-powered features <strong>exclusively for the Soul Manifest (manifestation) feature</strong>. OpenAI is NOT used for Soul Spark quotes.</p>
+<h3>9.1 OpenAI Integration (Soul Manifest, Soul Activation, Soul Awakening)</h3>
+<p><strong>IMPORTANT DISCLOSURE:</strong> BlessSoul uses OpenAI's GPT models to provide AI-powered features for <strong>Soul Manifest, Soul Activation, and Soul Awakening</strong>. OpenAI is NOT used for Soul Spark quotes or Soul Portal.</p>
 <p><strong>Privacy Implications:</strong></p>
 <p><strong>What is NOT Shared with OpenAI:</strong><br />
 - ✗ Your personal information (name, email)<br />
@@ -788,13 +782,17 @@
 - ✗ Any personally identifiable information</p>
 <p><strong>What IS Shared with OpenAI:</strong><br />
 - ✓ Manifestation intention text you enter (e.g., "I want to achieve financial freedom")<br />
+- ✓ Manifestation titles of your active manifestations (for Soul Activation)<br />
 - ✓ Selected categories (career, health, relationships, etc.)<br />
 - ✓ Goal titles when requesting AI suggestions<br />
 - ✓ Manifestation method selections<br />
+- ✓ Zodiac sign if provided (for Soul Activation and Soul Awakening)<br />
+- ✓ Cosmic event data (pre-verified portal descriptions, moon phases - not user-generated)<br />
 - ✓ These are sent as anonymous API requests without user identifiers</p>
 <p><strong>Data Processing:</strong><br />
 - Requests to OpenAI API are made directly from your device<br />
 - Requests do not include user identifiers or personal information<br />
+- Soul Activation and Soul Awakening content is generated once and stored locally on your device<br />
 - OpenAI does not use API data to train models (per their API data usage policy)<br />
 - OpenAI retains API data for up to 30 days for abuse monitoring<br />
 - AI responses are displayed directly and not stored on our servers</p>
@@ -816,7 +814,10 @@
 <h3>9.3 AI Content Disclaimers</h3>
 <p><strong>Privacy-Related Disclaimers:</strong><br />
 - Soul Spark quotes are <strong>pre-generated</strong> and served from our database (no real-time AI)<br />
-- Manifestation affirmations are generated in real-time via OpenAI (intention text shared)<br />
+- Soul Manifest affirmations are generated in real-time via OpenAI (intention text shared)<br />
+- Soul Activation guidance and rituals are generated in real-time via OpenAI (manifestation data and zodiac sign shared)<br />
+- Soul Awakening 7-day journey content is generated in real-time via OpenAI (manifestation data and zodiac sign shared)<br />
+- Soul Portal content is pre-stored and does NOT use AI<br />
 - Quotes are filtered based on your preferences but not personalized to your specific life details<br />
 - Your use of quotes does not reveal personal information about you to third parties</p>
 <p><strong>See Terms of Service for full AI content disclaimers regarding copyright and accuracy.</strong></p>
@@ -876,7 +877,7 @@
 - Developer is based in India (Shivamogga, Karnataka)<br />
 - Data is transferred to US for backend processing (Supabase, Firebase)<br />
 - We comply with applicable Indian data protection laws<br />
-- When India's Personal Data Protection Bill becomes law, we will update our practices accordingly</p>
+- We comply with the Digital Personal Data Protection Act, 2023 (DPDPA) as applicable rules are notified</p>
 <hr />
 <h2>12. Cookies and Tracking Technologies</h2>
 <h3>12.1 No Cookies for Advertising</h3>
@@ -898,7 +899,7 @@
 - Feature onboarding states (which tutorials you've seen)</p>
 <p><strong>Analytics (Firebase):</strong><br />
 - Anonymous device identifiers for analytics<br />
-- Can be disabled in Settings → Data & Privacy → Usage Analytics</p>
+- Used for aggregated usage analysis and improving the Service</p>
 <h3>12.3 Third-Party Tracking</h3>
 <ul>
 <li>We do <strong>NOT</strong> use third-party advertising trackers</li>
@@ -1058,28 +1059,21 @@
 <ul>
 <li>BlessSoul does not track users for advertising purposes</li>
 <li>We do not respond to "Do Not Track" browser signals (as BlessSoul is a native iOS app, not a website)</li>
-<li>You can disable analytics in Settings → Data & Privacy → Usage Analytics</li>
+<li>Firebase Analytics collects anonymous, aggregated data for service improvement</li>
 </ul>
-<h3>18.2 Biometric Data Clarification</h3>
-<ul>
-<li>Face ID and Touch ID are processed <strong>entirely by iOS on your device</strong></li>
-<li>BlessSoul never receives or stores biometric data</li>
-<li>We only receive a success/failure result from iOS</li>
-<li>Your biometric data never leaves your device</li>
-</ul>
-<h3>18.3 Data Minimization</h3>
+<h3>18.2 Data Minimization</h3>
 <p>We practice <strong>data minimization</strong> (within resource constraints):<br />
 - We collect only data necessary to provide the Service<br />
 - We do not collect data "just in case" we might need it later<br />
 - Optional fields (date of birth, profile picture) are truly optional</p>
-<h3>18.4 Privacy by Design</h3>
+<h3>18.3 Privacy by Design</h3>
 <p>Privacy is built into BlessSoul from the ground up:<br />
 - Secure data storage<br />
 - Anonymous analytics (cannot be linked to you personally)<br />
-- Local-first data storage with optional cloud sync<br />
+- Cloud data storage with local caching for offline access<br />
 - No advertising or tracking<br />
 - User control over data (export, delete)</p>
-<h3>18.5 Solo Developer Transparency</h3>
+<h3>18.4 Solo Developer Transparency</h3>
 <p><strong>We believe in transparency about our limitations:</strong><br />
 - This is a <strong>one-person operation</strong> with limited resources<br />
 - We cannot provide enterprise-level privacy infrastructure<br />
@@ -1096,7 +1090,7 @@
 - Supabase (US), local device<br />
 - Encryption: HTTPS for all connections, secure local storage</p>
 <p><strong>Third-Party Services:</strong><br />
-- 7 total: Supabase, Firebase, Google Sign-In, RevenueCat, Resend, App Store, OpenAI (manifestations only)<br />
+- 7 total: Supabase, Firebase, Google Sign-In, RevenueCat, Resend, App Store, OpenAI (manifestations, activations, awakenings)<br />
 - NO advertising networks or data brokers</p>
 <p><strong>Your Rights:</strong><br />
 - Access, export, delete, correct, opt-out<br />
@@ -1114,8 +1108,11 @@
 <p><strong>Auto-Deletion:</strong><br />
 - Day 30 after subscription expires</p>
 <p><strong>AI Content:</strong><br />
-- Manifestation AI: OpenAI GPT-4o-mini (intention text shared for affirmations/suggestions)<br />
+- Soul Manifest: OpenAI GPT-4o-mini (intention text shared for affirmations/suggestions)<br />
+- Soul Activation: OpenAI GPT-4o-mini (manifestation data + zodiac sign shared for cosmic guidance/rituals)<br />
+- Soul Awakening: OpenAI GPT-4o-mini (manifestation data + zodiac sign shared for 7-day journey)<br />
 - Soul Spark quotes: Pre-generated by AI, served from database (NO real-time AI, NO data sent)<br />
+- Soul Portal: Pre-stored content, NO AI used<br />
 - NO personal identifiers sent to OpenAI</p>
 <p><strong>Solo Developer:</strong><br />
 - One-person operation<br />
@@ -1127,8 +1124,8 @@
 - Shivamogga, Karnataka, India</p>
 <hr />
 <p><strong>This Privacy Policy is effective as of January 1, 2025.</strong><br />
-<strong>Last Updated: December 27, 2025</strong></p>
-<p><strong>© 2025 Praveena H D. All rights reserved.</strong></p>
+<strong>Last Updated: February 11, 2026</strong></p>
+<p><strong>© 2026 Praveena H D. All rights reserved.</strong></p>
 <hr />
 <p><strong>END OF PRIVACY POLICY</strong></p>
     </main>
@@ -1136,7 +1133,7 @@
 <footer class="footer">
         <div class="container">
             <div class="footer-bottom">
-                <p>&copy; 2025 BlessSoul. All rights reserved.</p>
+                <p>&copy; 2026 BlessSoul. All rights reserved.</p>
                 <p>
                     <a href="../privacy/">Privacy Policy</a> |
                     <a href="../terms/">Terms of Service</a> |

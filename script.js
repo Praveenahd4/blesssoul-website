@@ -224,6 +224,47 @@ function initTestimonialsCarousel() {
 }
 
 // ===================================
+// TYPEWRITER EFFECT
+// ===================================
+function initTypewriter() {
+    const el = document.querySelector('.typewriter-word');
+    if (!el) return;
+
+    const words = ['Best Life', 'Dreams', 'Purpose', 'Destiny'];
+    let wordIndex = 0;
+    let charIndex = words[0].length;
+    let deleting = false;
+    let pauseTimer = null;
+
+    function type() {
+        const word = words[wordIndex];
+
+        if (!deleting) {
+            charIndex++;
+            el.textContent = word.substring(0, charIndex);
+            if (charIndex === word.length) {
+                pauseTimer = setTimeout(() => { deleting = true; type(); }, 2000);
+                return;
+            }
+            setTimeout(type, 80);
+        } else {
+            charIndex--;
+            el.textContent = word.substring(0, charIndex);
+            if (charIndex === 0) {
+                deleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                setTimeout(type, 300);
+                return;
+            }
+            setTimeout(type, 40);
+        }
+    }
+
+    // Start after initial pause
+    setTimeout(() => { deleting = true; type(); }, 2500);
+}
+
+// ===================================
 // INITIALIZE ON PAGE LOAD
 // ===================================
 document.addEventListener('DOMContentLoaded', () => {
@@ -233,6 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initScrollAnimations();
     initTestimonialsCarousel();
+    initTypewriter();
 
     // Fade in hero text
     const heroText = document.querySelector('.hero-text');

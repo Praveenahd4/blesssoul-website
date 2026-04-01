@@ -14,9 +14,9 @@
     /* Brand Gradients */
     --orange-primary: #FF9F5A;
     --orange-secondary: #FFC55D;
-    --gradient-start: #FF9F5A;
-    --gradient-middle: #FFB347;
-    --gradient-end: #FFD700;
+    --gradient-start: #EA580C;
+    --gradient-middle: #F59E0B;
+    --gradient-end: #F59E0B;
 
     /* Purple Accent (Soul Awakening) */
     --purple-primary: #A855F7;
@@ -337,6 +337,18 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     display: inline-block;
+}
+
+/* Typewriter word — ensure cursor-like blinking at end */
+.typewriter-word {
+    border-right: 3px solid var(--gradient-start);
+    padding-right: 4px;
+    animation: blink-cursor 1s step-end infinite;
+}
+
+@keyframes blink-cursor {
+    0%, 100% { border-color: var(--gradient-start); }
+    50% { border-color: transparent; }
 }
 
 /* Gradient Text - Purple */
@@ -668,12 +680,41 @@ body {
     font-weight: 700;
     font-size: 1.1rem;
     transition: all var(--transition-normal);
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 0 20px rgba(234, 88, 12, 0.25), 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .cta-button-large:hover {
     transform: translateY(-4px) scale(1.02);
-    box-shadow: var(--shadow-glow);
+    box-shadow: 0 0 30px rgba(234, 88, 12, 0.4), 0 0 80px rgba(234, 88, 12, 0.15);
+}
+
+/* Android Coming Soon */
+.android-coming-soon {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: var(--radius-md);
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: default;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.android-coming-soon img {
+    opacity: 0.5;
+}
+
+/* Hero CTA layout */
+.hero-cta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
 }
 
 /* Hero Stats */
@@ -1150,6 +1191,12 @@ body {
     font-size: 3rem;
     margin-bottom: var(--space-lg);
     display: block;
+}
+
+.feature-svg-icon {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(0 0 10px rgba(234, 88, 12, 0.4));
 }
 
 .feature-title {

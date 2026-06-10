@@ -107,9 +107,14 @@ function initStarField() {
     const mediumStars = [];
     const dimStars = [];
 
-    for (let i = 0; i < 100; i++) brightStars.push(new Star('bright'));
-    for (let i = 0; i < 200; i++) mediumStars.push(new Star('medium'));
-    for (let i = 0; i < 300; i++) dimStars.push(new Star('dim'));
+    const isMobile = window.innerWidth <= 768;
+    const brightCount  = isMobile ? 30  : 100;
+    const mediumCount  = isMobile ? 60  : 200;
+    const dimCount     = isMobile ? 80  : 300;
+
+    for (let i = 0; i < brightCount; i++) brightStars.push(new Star('bright'));
+    for (let i = 0; i < mediumCount; i++) mediumStars.push(new Star('medium'));
+    for (let i = 0; i < dimCount;    i++) dimStars.push(new Star('dim'));
 
     let startTime = Date.now();
     let isAnimating = true;

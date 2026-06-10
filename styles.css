@@ -1950,6 +1950,48 @@ a, button {
 }
 
 /* ===================================
+   MOBILE — quieter background for readability
+   =================================== */
+@media (max-width: 768px) {
+    /* Hide shooting stars — too distracting on small screens */
+    .shooting-stars {
+        display: none;
+    }
+
+    /* Dim the nebula glows so they don't compete with text */
+    .nebula-top {
+        opacity: 0.45 !important;
+    }
+    .nebula-bottom-left,
+    .nebula-right,
+    .nebula-purple {
+        opacity: 0.3 !important;
+    }
+
+    /* Dark scrim behind hero and key content sections */
+    .hero-text,
+    .awakening-text,
+    .section-header,
+    .philosophy-content {
+        position: relative;
+        z-index: 1;
+    }
+    .hero-text::before,
+    .awakening-text::before,
+    .section-header::before,
+    .philosophy-content::before {
+        content: '';
+        position: absolute;
+        inset: -20px -16px;
+        background: rgba(5, 2, 1, 0.55);
+        border-radius: 16px;
+        z-index: -1;
+        backdrop-filter: blur(4px);
+        -webkit-backdrop-filter: blur(4px);
+    }
+}
+
+/* ===================================
    REDUCED MOTION — calm background
    =================================== */
 @media (prefers-reduced-motion: reduce) {

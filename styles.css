@@ -121,6 +121,7 @@ body {
         transparent 65%
     );
     opacity: 0.9;
+    animation: nebula-breathe-top 22s ease-in-out infinite alternate;
 }
 
 .nebula-bottom-left {
@@ -134,6 +135,7 @@ body {
         var(--bronze-glow) 0%,
         transparent 55%
     );
+    animation: nebula-drift 26s ease-in-out infinite alternate;
 }
 
 .nebula-right {
@@ -147,6 +149,7 @@ body {
         var(--amber-glow) 0%,
         transparent 55%
     );
+    animation: nebula-drift 30s ease-in-out infinite alternate-reverse;
 }
 
 .nebula-purple {
@@ -159,6 +162,58 @@ body {
         ellipse at center left,
         var(--purple-nebula) 0%,
         transparent 60%
+    );
+    animation: nebula-drift 34s ease-in-out infinite alternate;
+    animation-delay: -12s;
+}
+
+/* Slow, organic nebula movement — adds life to the galaxy
+   without distracting from content */
+@keyframes nebula-drift {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.85;
+    }
+    50% {
+        transform: translate(2.5vw, -2vh) scale(1.07);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-1.5vw, 1.5vh) scale(0.96);
+        opacity: 0.8;
+    }
+}
+
+/* nebula-top keeps its translateX(-50%) centering while breathing */
+@keyframes nebula-breathe-top {
+    0% {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.75;
+    }
+    50% {
+        transform: translateX(-48%) scale(1.06);
+        opacity: 0.95;
+    }
+    100% {
+        transform: translateX(-52%) scale(0.97);
+        opacity: 0.8;
+    }
+}
+
+/* Vignette — darkens edges so content glows at the center */
+.galaxy-background::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    background: radial-gradient(
+        ellipse at center 40%,
+        transparent 55%,
+        rgba(0, 0, 0, 0.35) 100%
     );
 }
 
@@ -1075,10 +1130,6 @@ body {
         justify-content: center;
     }
 
-    .awakening-image {
-        order: -1;
-    }
-
     .phone-mockup-sm {
         max-width: 250px;
         margin: 0 auto;
@@ -1895,5 +1946,18 @@ a, button {
 @media (max-width: 768px) {
     :root {
         --section-padding: 60px;
+    }
+}
+
+/* ===================================
+   REDUCED MOTION — calm background
+   =================================== */
+@media (prefers-reduced-motion: reduce) {
+    .nebula-top,
+    .nebula-bottom-left,
+    .nebula-right,
+    .nebula-purple,
+    .shooting-star {
+        animation: none;
     }
 }

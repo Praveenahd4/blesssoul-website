@@ -48,9 +48,22 @@ function initStarField() {
             this.pauseDuration = 0.3 + Math.random() * 0.7;   // 0.3-1s pause at dim
             this.totalDuration = this.cycleDuration + this.pauseDuration;
             this.phase = Math.random() * this.totalDuration;   // random start offset
+
+            // Parallax drift: brighter (closer) stars move faster.
+            // Direction matches the shooting stars (down-left, ~35°)
+            const speed = type === 'bright' ? 3.5 + Math.random() * 2
+                        : type === 'medium' ? 1.8 + Math.random() * 1.2
+                        : 0.8 + Math.random() * 0.6;          // px per second
+            this.vx = -speed * 0.82;   // cos(35°)
+            this.vy = speed * 0.57;    // sin(35°)
         }
 
         draw(time) {
+            // Drift position, wrapping around the canvas edges
+            const w = canvas.width;
+            const h = canvas.height;
+            const x = ((this.x + this.vx * time) % w + w) % w;
+            const y = ((this.y + this.vy * time) % h + h) % h;
             // Where are we in this star's cycle?
             const t = (time + this.phase) % this.totalDuration;
             let brightness;
@@ -71,21 +84,21 @@ function initStarField() {
             if (this.glowSize > 0) {
                 const glowRadius = this.glowSize * brightness;
                 const grad = ctx.createRadialGradient(
-                    this.x, this.y, 0,
-                    this.x, this.y, glowRadius
+                    x, y, 0,
+                    x, y, glowRadius
                 );
                 grad.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${opacity * 0.3})`);
                 grad.addColorStop(1, `rgba(${r}, ${g}, ${b}, 0)`);
                 ctx.fillStyle = grad;
                 ctx.beginPath();
-                ctx.arc(this.x, this.y, glowRadius, 0, Math.PI * 2);
+                ctx.arc(x, y, glowRadius, 0, Math.PI * 2);
                 ctx.fill();
             }
 
             // Draw sharp core point
             ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
             ctx.beginPath();
-            ctx.arc(this.x, this.y, this.coreSize, 0, Math.PI * 2);
+            ctx.arc(x, y, this.coreSize, 0, Math.PI * 2);
             ctx.fill();
         }
     }
@@ -114,13 +127,16 @@ function initStarField() {
         requestAnimationFrame(animate);
     }
 
-    // Pause when tab hidden
+    // Pause when tab hidden (preserve elapsed time so star
+    // positions don't jump when the tab becomes visible again)
+    let pausedAt = 0;
     document.addEventListener('visibilitychange', () => {
         if (document.hidden) {
             isAnimating = false;
+            pausedAt = Date.now();
         } else {
             isAnimating = true;
-            startTime = Date.now();
+            startTime += Date.now() - pausedAt;
             animate();
         }
     });

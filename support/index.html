@@ -31,10 +31,10 @@
             font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: var(--gray-900);
+            color: var(--text-primary);
         }
         .support-page .subtitle {
-            color: var(--gray-600);
+            color: var(--text-tertiary);
             margin-bottom: 2.5rem;
             font-size: 1.1rem;
             line-height: 1.6;
@@ -44,7 +44,7 @@
             margin-top: 3rem;
             margin-bottom: 1.5rem;
             font-size: 1.75rem;
-            color: var(--primary-orange);
+            color: var(--orange-primary);
             scroll-margin-top: 100px;
         }
         .support-page h3 {
@@ -53,12 +53,12 @@
             margin-bottom: 0.75rem;
             font-size: 1.25rem;
             font-weight: 600;
-            color: var(--gray-800);
+            color: var(--text-primary);
         }
         .support-page p {
             margin-bottom: 1rem;
             line-height: 1.8;
-            color: var(--gray-700);
+            color: var(--text-secondary);
         }
         .support-page ul {
             margin-bottom: 1rem;
@@ -67,14 +67,14 @@
         }
         .support-page li {
             margin-bottom: 0.5rem;
-            color: var(--gray-700);
+            color: var(--text-secondary);
         }
         .support-page strong {
             font-weight: 600;
-            color: var(--gray-800);
+            color: var(--text-primary);
         }
         .support-page a {
-            color: var(--primary-orange);
+            color: var(--orange-primary);
             text-decoration: none;
             font-weight: 500;
         }
@@ -91,24 +91,24 @@
         }
         .contact-box h3 {
             margin-top: 0;
-            color: var(--primary-orange);
+            color: var(--orange-primary);
             font-size: 1.5rem;
         }
         .contact-email {
             font-size: 1.25rem;
             font-weight: 600;
-            color: var(--primary-orange);
+            color: var(--orange-primary);
             margin: 1rem 0;
         }
         .response-time {
-            color: var(--gray-600);
+            color: var(--text-tertiary);
             font-size: 0.95rem;
             margin-top: 0.5rem;
         }
         .faq-item {
             margin-bottom: 2rem;
             padding-bottom: 2rem;
-            border-bottom: 1px solid var(--gray-200);
+            border-bottom: 1px solid var(--glass-border);
         }
         .faq-item:last-child {
             border-bottom: none;
@@ -117,19 +117,48 @@
             font-family: 'Inter', sans-serif;
             font-size: 1.15rem;
             font-weight: 600;
-            color: var(--gray-900);
+            color: var(--text-primary);
             margin-bottom: 0.75rem;
         }
         .faq-answer {
-            color: var(--gray-700);
+            color: var(--text-secondary);
             line-height: 1.8;
         }
         .info-box {
-            background: var(--gray-50);
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-left: 3px solid var(--orange-primary);
             padding: 1.5rem;
             border-radius: 8px;
             margin: 2rem 0;
-            border-left: 4px solid var(--primary-orange);
+        }
+        .danger-box {
+            background: rgba(239, 68, 68, 0.08);
+            border: 1px solid rgba(239, 68, 68, 0.28);
+            border-left: 3px solid #EF4444;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+        .danger-box p:last-child { margin-bottom: 0; }
+        .step-list { counter-reset: step; list-style: none; margin-left: 0; }
+        .step-list li {
+            counter-increment: step;
+            position: relative;
+            padding-left: 2.25rem;
+            margin-bottom: 0.9rem;
+        }
+        .step-list li::before {
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0.15rem;
+            width: 1.5rem; height: 1.5rem;
+            border-radius: 50%;
+            background: var(--orange-primary);
+            color: #1a0f08;
+            font-size: 0.8rem; font-weight: 700;
+            display: flex; align-items: center; justify-content: center;
         }
         .info-box p {
             margin-bottom: 0.5rem;
@@ -203,7 +232,14 @@
         <div class="faq-item">
             <div class="faq-question">🗑️ How do I delete my account?</div>
             <div class="faq-answer">
-                In the app, go to Settings → Data Management → Delete Account. You'll be asked to sign in again, then deletion is immediate and permanent. Please note that <strong>deleting your account does not cancel your Apple subscription</strong> &mdash; cancel that separately through iPhone Settings → [Your Name] → Subscriptions, or Apple will keep charging you.
+                You can delete it yourself from inside the app at any time &mdash; see <a href="#delete-account">Deleting Your Account</a> below for the full steps.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">🔑 I signed in with Apple or Google &mdash; what's my password?</div>
+            <div class="faq-answer">
+                You don't have one. If you created your account with <strong>Sign in with Apple</strong> or <strong>Google Sign-In</strong>, there's no BlessSoul password to reset &mdash; just tap the same button you used originally and Apple or Google will sign you in. "Forgot Password?" only applies to accounts created with an email address and password.
             </div>
         </div>
 
@@ -232,6 +268,90 @@
             <div class="faq-question">🔑 I forgot my password. How do I reset it?</div>
             <div class="faq-answer">
                 On the login screen, tap "Forgot Password?" and enter your email address. You'll receive a password reset link within a few minutes. Check your spam folder if you don't see it right away.
+            </div>
+        </div>
+
+        <!-- Account deletion — its own section, not buried in the FAQ. Reviewers and
+             users both scan for this, and the billing warning must not be missed. -->
+        <h2 id="delete-account">Deleting Your Account</h2>
+        <p>You can delete your BlessSoul account and all of its data yourself, from inside the app. You don't need to email us or ask permission.</p>
+
+        <h3>How to delete it</h3>
+        <ol class="step-list">
+            <li>Open BlessSoul and go to <strong>Settings</strong>.</li>
+            <li>Tap <strong>Data Management</strong>.</li>
+            <li>Under <strong>Danger Zone</strong>, tap <strong>Delete Account</strong>.</li>
+            <li>Sign in again to confirm it's really you.</li>
+            <li>Confirm. Deletion happens immediately.</li>
+        </ol>
+
+        <div class="danger-box">
+            <p><strong>Deleting your account does NOT cancel your subscription.</strong></p>
+            <p>Subscriptions are billed by Apple, and we cannot cancel them for you. If you have an active subscription, cancel it yourself via <strong>iPhone Settings → [Your Name] → Subscriptions → BlessSoul → Cancel Subscription</strong>, or Apple will keep charging you even though your account is gone.</p>
+        </div>
+
+        <h3>What gets deleted</h3>
+        <p>Everything tied to your account: your profile, goals, milestones and progress, habits, manifestations and practice entries, schedules and Soul Plans, your Soul Awakening journey and Soul Record, any voice notes, favourite quotes, and your sign-in credentials. Data on your device is cleared too. <strong>This is permanent and cannot be undone</strong> &mdash; we cannot recover a deleted account.</p>
+        <p>A small subscription record is kept with your identity removed, so we can meet tax obligations and prevent repeated abuse of free trials. It no longer identifies you. Full detail is in our <a href="../privacy/">Privacy Policy</a>.</p>
+
+        <div class="info-box">
+            <p><strong>Want a copy of your data first?</strong></p>
+            <p>Email <a href="mailto:support@blesssoul.com">support@blesssoul.com</a> from your registered address with the subject <strong>"Data Request"</strong> <em>before</em> you delete. Once the account is gone we can't retrieve anything.</p>
+        </div>
+
+        <h3>Automatic deletion after a lapsed subscription</h3>
+        <p>Separately from deleting it yourself: if you have <strong>previously paid</strong> for Premium and your subscription lapses without renewing, your account is automatically deleted <strong>30 days later</strong>. We email warnings during that period, including one about a week before. Resubscribing at any point before day 30 stops it.</p>
+        <p>This only applies to accounts that have previously been paid. If you've only ever used the free tier, your account is not deleted for inactivity.</p>
+
+        <!-- Troubleshooting -->
+        <h2>Troubleshooting</h2>
+
+        <div class="faq-item">
+            <div class="faq-question">🔄 My data isn't syncing between devices</div>
+            <div class="faq-answer">
+                Check you're signed into the <strong>same account</strong> on both devices &mdash; this is by far the most common cause, especially if one device used Sign in with Apple and the other used email. Then confirm you have a connection: changes made offline are queued on the device and only upload once you're back online, so a device that has been offline will look out of date on your other devices until it reconnects. Open the app on the offline device and give it a moment to catch up. If a specific item still won't appear after both devices have been online, email us with the item's name.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">🔔 My reminders and notifications stopped appearing</div>
+            <div class="faq-answer">
+                BlessSoul's reminders are scheduled on your device rather than pushed from a server, so the cause is almost always an iOS setting. Check <strong>iPhone Settings → Notifications → BlessSoul</strong> and make sure notifications are allowed. Then check whether a <strong>Focus</strong> or <strong>Do Not Disturb</strong> mode is filtering them, and that <strong>Scheduled Summary</strong> isn't holding them until later in the day. Inside the app, confirm the reminder is still switched on for that goal or block. If you have a very large number of reminders set, try turning off ones you no longer need &mdash; iOS limits how many any single app can have scheduled at once, and the oldest can be dropped.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">📊 My widget or Live Activity isn't updating</div>
+            <div class="faq-answer">
+                iOS decides when widgets refresh, based on your usage and the device's power budget &mdash; apps can request an update but cannot force one, so a widget may lag behind the app by a while. This is normal. Opening BlessSoul usually prompts a refresh. If a widget is stuck for a long time, remove it from your Home Screen and add it again, and check that <strong>Background App Refresh</strong> is enabled in iPhone Settings → General. Low Power Mode significantly reduces widget updates.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">✨ AI affirmations aren't generating</div>
+            <div class="faq-answer">
+                AI features need an internet connection, so check that first. If you've been generating a lot in quick succession, you may have hit our rate limit &mdash; it's <strong>20 requests per minute</strong> per account, to keep costs sustainable. Wait a minute and try again. Some AI features, such as regenerating an affirmation, are Premium-only and will show an upgrade prompt rather than an error. If it still fails after a minute on a good connection, email us and mention roughly when it happened so we can find it in the logs.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">📧 My password reset email hasn't arrived</div>
+            <div class="faq-answer">
+                Check your spam and promotions folders first &mdash; automated emails often land there. Make sure you entered the same address you registered with; if you enter an address that has no account, no email is sent. <strong>If you signed up with Apple or Google, there is no password to reset</strong> &mdash; use that same sign-in button instead. Note that Sign in with Apple may have created your account with a private relay address rather than your personal one. If nothing arrives after 15 minutes, email us from the address you're trying to recover.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">💳 I'm being charged but don't have Premium</div>
+            <div class="faq-answer">
+                Go to <strong>Profile → Restore Purchases</strong> (also available in <strong>Settings</strong>, and via <strong>Restore</strong> at the bottom of the plan screen). This re-links a subscription you already own &mdash; useful after reinstalling or switching devices. Restore only works with the <strong>same Apple ID</strong> that made the original purchase. If you're still charged without access after restoring, email us with the date of purchase and we'll look into it. Refunds are handled by Apple at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>, not by us.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">💥 The app crashes or won't open</div>
+            <div class="faq-answer">
+                Force-close BlessSoul and reopen it, then make sure you're on the latest version from the App Store &mdash; crashes are often already fixed in an update. Restarting your iPhone clears a surprising number of one-off issues. If it keeps crashing, reinstalling is safe for your content: your goals, manifestations and schedule are stored in the cloud and come back when you sign in. <strong>One exception</strong> &mdash; your profile picture is stored only on your device and won't return after a reinstall, so you'll need to set it again. When you email us, telling us what you were doing right before the crash helps enormously.
             </div>
         </div>
 

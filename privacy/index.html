@@ -87,14 +87,6 @@
         /* Callouts: subtle tint on the dark surface, emphasis carried by the left rule.
            Key terms (auto-renewal, the 30-day deletion) must stay visually prominent —
            conspicuousness matters for these clauses — so they are marked, not un-styled. */
-        .notice-box {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-left: 3px solid var(--orange-primary);
-            padding: 1.25rem;
-            margin: 1.5rem 0;
-            border-radius: 8px;
-        }
         .warning-box {
             background: rgba(239, 68, 68, 0.08);
             border: 1px solid rgba(239, 68, 68, 0.28);
@@ -103,7 +95,6 @@
             margin: 1.5rem 0;
             border-radius: 8px;
         }
-        .notice-box p:last-child,
         .warning-box p:last-child { margin-bottom: 0; }
 
         .toc-container {
@@ -147,7 +138,7 @@
             .legal-page, .legal-page p, .legal-page li,
             .legal-page h1, .legal-page h2, .legal-page h3,
             .legal-page strong, .legal-page th, .legal-page td { color: #000 !important; }
-            .notice-box, .warning-box, .toc-container {
+            .warning-box, .toc-container {
                 background: #fff !important;
                 border: 1px solid #000 !important;
             }
@@ -168,9 +159,7 @@
         <h1>Privacy Policy for BlessSoul</h1>
         <p class="updated">Effective Date: 19 July 2026 | Last Updated: 19 July 2026</p>
 
-<div class="notice-box">
 <p><strong>The short version.</strong> This summary is for convenience only; the full policy below governs. BlessSoul stores your account details and everything you create in the App, so it can sync across your devices. <strong>We do not sell your data, do not use it for advertising, and do not use your content to train AI models.</strong> Text you write in Soul Manifest is sent to OpenAI to generate affirmations — without your name, email or user ID attached. Voice notes are stored privately and are never transcribed or analysed. Nobody reads your private entries. If a paid subscription lapses and is not renewed, <strong>the account is deleted after 30 days.</strong></p>
-</div>
 
 <h2>Who We Are</h2>
 <p>BlessSoul is developed and operated by <strong>Praveena H D</strong>, a sole proprietor based in Shivamogga, Karnataka, India. For the purposes of the EU and UK General Data Protection Regulation, Praveena H D is the <strong>data controller</strong>. Under India's Digital Personal Data Protection Act, 2023, we act as the <strong>Data Fiduciary</strong>.</p>
@@ -223,9 +212,7 @@
 <h3>1.5 Analytics and Diagnostics</h3>
 <p>Collected only in <strong>public App Store builds</strong>. Analytics and crash reporting are disabled entirely in development builds.</p>
 <p>We record <strong>events, not content</strong> — for example: app opens and screen views; sign-up and sign-in method; that a goal was created (with its type and priority, <strong>not its title</strong>); that a quote was viewed, favourited or shared; that a schedule block was created (with its duration); Soul Awakening milestones (a day number, or a count of manifestations); onboarding progress (which question was reached, <strong>not the answer given</strong>); paywall and purchase events; settings and theme changes; and errors.</p>
-<div class="notice-box">
 <p><strong>Your written content never goes to analytics.</strong> No manifestation text, goal title, reflection, journal entry or voice recording is included in any analytics event. Your user identifier is truncated before being sent to analytics, and hashed before being sent to crash reporting.</p>
-</div>
 <p>We also record in-app events about the Soul Awakening journey in our own database — such as which day was opened or sealed, and how you answered a fixed-choice question. These records contain only predefined values, never text you wrote.</p>
 <h3>1.6 Technical Information</h3>
 <p>Device model, iOS version, app version, language, network connectivity status, an anonymous device identifier used by analytics, and crash logs and stack traces. General location is derived at <strong>country or region level only</strong> — we do not collect GPS or precise location.</p>
@@ -286,10 +273,8 @@
 </ul>
 <h3>3.2 What Is Sent — and What Is Not</h3>
 <p>When an AI request runs, the request is made by <strong>our server</strong>, not by your device. It includes the manifestation text you wrote, your chosen category, and where relevant the titles of your existing goals.</p>
-<div class="notice-box">
 <p><strong>No personal identifiers are sent to OpenAI.</strong> Your name, email address and user ID are not included in the request. Your identity is used by our own server only, to check your subscription and apply rate limits — it is not forwarded onward.</p>
 <p><strong>However, the text itself is personal.</strong> What you write about what you want in life is sent to OpenAI in order to generate a response. Please keep that in mind and avoid entering information you would not want processed by a third-party provider — such as health details, financial account details, or information identifying other people.</p>
-</div>
 <h3>3.3 OpenAI's Handling</h3>
 <p>OpenAI processes these requests as our service provider. Under its API terms, <strong>API inputs and outputs are not used to train its models</strong>, and are retained for a limited period (currently up to 30 days) for abuse monitoring before deletion. Processing takes place in the United States. See <a href="https://openai.com/policies/privacy-policy" target="_blank" rel="noopener">OpenAI's privacy policy</a>.</p>
 <h3>3.4 AI Content Is Not Human-Reviewed</h3>
@@ -322,10 +307,8 @@
 <p><strong>As the operator of the service, the developer holds administrative credentials to the database.</strong> That level of access exists above row-level security — it is what makes it possible to run, maintain, back up and repair the service at all, and every app you use has an equivalent. It means the technical <em>capability</em> to read stored content exists.</p>
 <p><strong>What we actually do with it</strong> is work with data in aggregate: counting how many people started a journey, where they stopped, whether a feature is used. Statistical questions about behaviour, not reading about individual lives.</p>
 <h3>5.3 We Analyse Behaviour, Never Content</h3>
-<div class="notice-box">
 <p><strong>No text you write ever reaches our analytics.</strong> Every analytics event records a fixed value — a screen name, a day number, a goal's type, a count, whether something succeeded. Your manifestation text, goal titles, reflections, vows, journal entries and voice recordings are <strong>excluded entirely and by design</strong>, both from third-party analytics and from our own in-app measurement.</p>
 <p>So when we look at how BlessSoul is used, we are looking at patterns of behaviour. We are not reading what you wrote.</p>
-</div>
 <h3>5.4 When We Might Look at Individual Content</h3>
 <p>We do not read individual entries as a matter of routine, and we have no interest in doing so. There are three narrow situations where it could happen:</p>
 <ul>
@@ -468,9 +451,7 @@ Email: <a href="mailto:support@blesssoul.com">support@blesssoul.com</a></p>
 <li><strong>"Grievance"</strong> — a complaint about how your data has been handled</li>
 </ul>
 <p>Typical response is 2–5 business days; formal requests are answered within the statutory period. Under the DPDP Act, Praveena H D is the point of contact for grievance redressal.</p>
-<div class="warning-box">
 <p><strong>This inbox is not for emergencies.</strong> It is one person's email, is not monitored continuously, and is not staffed by clinicians. If you are in crisis, contact local emergency services or a helpline at <a href="https://findahelpline.com" target="_blank" rel="noopener">findahelpline.com</a>.</p>
-</div>
 
 <hr />
 

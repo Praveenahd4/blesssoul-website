@@ -217,7 +217,7 @@
 <h3>1.6 Technical Information</h3>
 <p>Device model, iOS version, app version, language, network connectivity status, an anonymous device identifier used by analytics, and crash logs and stack traces. General location is derived at <strong>country or region level only</strong> — we do not collect GPS or precise location.</p>
 <h3>1.7 AI Usage Logs</h3>
-<p>When an AI feature runs, our server records the account it belonged to, which feature was used, the model, token counts, estimated cost, response time, and whether it succeeded. <strong>These logs do not contain the text of your prompt or of the AI's response.</strong> They exist for cost control, rate limiting and debugging.</p>
+<p>When an AI feature runs, our server records the account it belonged to, which feature was used, which AI model, how much text was processed, the estimated cost, how long it took, and whether it worked. <strong>These logs do not contain the text of your prompt or of the AI's response.</strong> They exist for cost control, rate limiting and debugging.</p>
 <h3>1.8 What We Do Not Collect</h3>
 <ul>
 <li>✗ Precise or GPS location</li>
@@ -241,7 +241,7 @@
 <table>
 <thead><tr><th>Purpose</th><th>Data</th><th>GDPR Legal Basis</th></tr></thead>
 <tbody>
-<tr><td>Create and authenticate your account</td><td>Email, password or provider token</td><td>Contract</td></tr>
+<tr><td>Create and authenticate your account</td><td>Email, password or Apple/Google sign-in</td><td>Contract</td></tr>
 <tr><td>Store and sync your content across devices</td><td>Content you create</td><td>Contract</td></tr>
 <tr><td>Generate AI affirmations and suggestions</td><td>Manifestation text, goal titles</td><td>Contract</td></tr>
 <tr><td>Deliver reminders you set up</td><td>Schedule and reminder settings</td><td>Contract</td></tr>
@@ -301,10 +301,10 @@
 <p>What you write in BlessSoul is personal, so we want to be exact about this rather than reassuring and vague.</p>
 <h3>5.1 Other Users and the Public Cannot See It — Ever</h3>
 <p>BlessSoul has no social, sharing, public or community features. Your content is never published, never shown to another user, and never made publicly accessible.</p>
-<p>This is enforced <strong>technically, not just by policy</strong>. Every table in our database uses row-level security: a request authenticated as your account can retrieve only rows belonging to your account, and cannot reach anyone else's. Voice recordings sit in a non-public storage area with access rules restricting each file to the account that created it. There is no configuration in which another user, or a member of the public, can read your entries.</p>
+<p>This is enforced <strong>technically, not just by policy</strong>. The database itself applies the restriction: when the app asks for information, it can only ever be handed records belonging to your account. It does not depend on the app remembering to be careful &mdash; the database will not return anyone else's records. Your voice recordings sit in a private storage area that is not reachable from the open internet, and each file is locked to the account that made it. There is no setting or configuration in which another user, or a member of the public, can read your entries.</p>
 <h3>5.2 What Administrative Access Exists</h3>
 <p>We would rather state this plainly than imply something we cannot guarantee.</p>
-<p><strong>As the operator of the service, the developer holds administrative credentials to the database.</strong> That level of access exists above row-level security — it is what makes it possible to run, maintain, back up and repair the service at all, and every app you use has an equivalent. It means the technical <em>capability</em> to read stored content exists.</p>
+<p><strong>As the operator of the service, the developer holds administrative credentials to the database.</strong> That level of access sits above the restrictions described above — it is what makes it possible to run, maintain, back up and repair the service at all, and every app you use has an equivalent. It means the technical <em>capability</em> to read stored content exists.</p>
 <p><strong>What we actually do with it</strong> is work with data in aggregate: counting how many people started a journey, where they stopped, whether a feature is used. Statistical questions about behaviour, not reading about individual lives.</p>
 <h3>5.3 We Analyse Behaviour, Never Content</h3>
 <p><strong>No text you write ever reaches our analytics.</strong> Every analytics event records a fixed value — a screen name, a day number, a goal's type, a count, whether something succeeded. Your manifestation text, goal titles, reflections, vows, journal entries and voice recordings are <strong>excluded entirely and by design</strong>, both from third-party analytics and from our own in-app measurement.</p>
@@ -331,7 +331,7 @@
 <h2>6. Who Processes Your Data</h2>
 <p>We use the following providers. Each processes data on our instructions or, where noted, as an independent controller under its own policy.</p>
 <h3>6.1 Supabase — database, authentication, file storage</h3>
-<p>Stores your account, your content and your voice recordings. Protected by row-level security so each account can reach only its own data. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Privacy policy</a></p>
+<p>Stores your account, your content and your voice recordings. The database is configured so that each account can reach only its own data. <a href="https://supabase.com/privacy" target="_blank" rel="noopener">Privacy policy</a></p>
 <h3>6.2 Apple — distribution, payments, Sign in with Apple</h3>
 <p>Processes all payments and subscription billing. We receive subscription status and receipt validation only. <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Privacy policy</a></p>
 <h3>6.3 RevenueCat — subscription management</h3>
@@ -352,8 +352,8 @@
 <ul>
 <li><strong>In transit:</strong> all traffic between the App and our servers uses HTTPS/TLS.</li>
 <li><strong>At rest:</strong> our database provider encrypts stored data. Passwords are hashed and salted by our authentication provider; we never see them.</li>
-<li><strong>Access control:</strong> row-level security means an authenticated account can retrieve only its own records. Voice recordings are in a non-public bucket restricted to the owning account.</li>
-<li><strong>On your device:</strong> authentication tokens are held in the iOS Keychain, restricted to this device and available only when the device is unlocked. Your profile picture is written with file protection applied. App data sits inside the iOS application sandbox.</li>
+<li><strong>Access control:</strong> the database returns only records belonging to the signed-in account. Voice recordings are kept in a private storage area, not reachable from the open internet, and locked to the account that made them.</li>
+<li><strong>On your device:</strong> the credentials that keep you signed in are stored in the iOS Keychain &mdash; Apple's secure store &mdash; locked to that device and readable only while it is unlocked. Your profile picture is written with file protection applied. App data sits inside the iOS application sandbox.</li>
 <li><strong>Secrets:</strong> AI provider keys are held only on our server and are never present in the App.</li>
 <li><strong>Rate limiting</strong> is applied to AI requests to limit abuse.</li>
 </ul>
@@ -399,7 +399,7 @@
 <li><strong>Access</strong> the personal data we hold about you</li>
 <li><strong>Correct</strong> inaccurate or incomplete data</li>
 <li><strong>Delete</strong> your data — available directly in the App at any time</li>
-<li><strong>Port</strong> your data — receive it in a machine-readable format</li>
+<li><strong>Port</strong> your data — receive a copy in a common file format you can open and reuse</li>
 <li><strong>Restrict</strong> or <strong>object to</strong> processing, including profiling based on legitimate interests</li>
 <li><strong>Withdraw consent</strong> where processing relies on it</li>
 <li><strong>Complain</strong> to a supervisory authority</li>
@@ -408,7 +408,7 @@
 <h3>9.1 Deleting Your Account</h3>
 <p>Go to <em>Settings → Data Management → Delete Account</em>. You will re-authenticate, then deletion is immediate and permanent. <strong>Deleting your account does not cancel your Apple subscription</strong> — cancel that separately through Apple or you will keep being charged.</p>
 <h3>9.2 Getting a Copy of Your Data</h3>
-<p><strong>The App does not currently offer a self-service export.</strong> To obtain a copy, email <a href="mailto:support@blesssoul.com">support@blesssoul.com</a> from your registered address with the subject <strong>"Data Request."</strong> We will verify your identity through your registered email and respond within 30 days, in a commonly used machine-readable format.</p>
+<p><strong>The App does not currently offer a self-service export.</strong> To obtain a copy, email <a href="mailto:support@blesssoul.com">support@blesssoul.com</a> from your registered address with the subject <strong>"Data Request."</strong> We will confirm your identity using your registered email address and reply within 30 days, sending your data in a common file format you can open and reuse.</p>
 <h3>9.3 Other Requests</h3>
 <p>Email us with the subject "Privacy Request" and describe what you want. We may need to verify your identity. We do not charge for these requests unless they are manifestly unfounded or excessive.</p>
 <h3>9.4 If You Are in the EU or UK</h3>

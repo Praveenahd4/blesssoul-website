@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Get BlessSoul</title>
+    <meta name="description" content="BlessSoul turns what you're manifesting into what you actually do — manifestation methods, goals and habits, a daily plan, cosmic timing, daily quotes and a 7-day Soul Awakening, in one calm app.">
+    <meta name="theme-color" content="#050201">
+    <link rel="icon" type="image/png" href="../assets/images/logo.png?v=2">
+
+    <!-- The preview card a shared link shows in Messages / WhatsApp. About the WHOLE app, because
+         every share in both apps uses this one link (a quote, a goal, a streak, the Awakening). -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://blesssoul.com/get/">
+    <meta property="og:title" content="BlessSoul — Manifest Your Best Life">
+    <meta property="og:description" content="Turn what you're manifesting into what you actually do. Manifestation methods, goals and habits, a daily plan, cosmic timing and daily inspiration — in one app.">
+    <meta property="og:image" content="https://blesssoul.com/assets/images/og-image.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="BlessSoul — Manifest Your Best Life">
+    <meta property="twitter:description" content="Turn what you're manifesting into what you actually do.">
+    <meta property="twitter:image" content="https://blesssoul.com/assets/images/og-image.png">
+
+    <!--
+      THE SMART LINK — blesssoul.com/get
+      Both apps share this one link, so it works whichever phone the FRIEND has:
+        iPhone / iPad → App Store
+        Android       → Play Store (once PLAY_LIVE is true) — until then, this page, with no
+                        broken store link
+        Computer      → this page
+      ?src=<where> names what was shared (awakening · spark · goal · streak · manifest). It is NOT
+      shown — the message the link came in already says what was shared. It is passed to the Play
+      Store as the install referrer (utm_source), so installs from each kind of share can be
+      counted. Apple only attributes with a provider token, so iOS gets a clean link.
+
+      Deliberately SHORT. This page is a doorway to a store, not the website: the full story lives
+      at blesssoul.com, one tap away.
+
+      WHEN THE ANDROID APP LAUNCHES: set PLAY_LIVE = true below. Every link already shared starts
+      sending Android users to the store — no app update needed.
+    -->
+    <script>
+        (function () {
+            var PLAY_LIVE = false;
+            var APP_STORE = "https://apps.apple.com/app/id6754575930";
+            var PLAY_STORE = "https://play.google.com/store/apps/details?id=praveenahd.blesssoul";
+
+            var src = new URLSearchParams(location.search).get("src") || "share";
+            var ua = navigator.userAgent || "";
+            // iPadOS reports itself as a Mac — tell it apart by touch.
+            var isIOS = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+            var isAndroid = /Android/i.test(ua);
+            var play = PLAY_STORE + "&referrer=" + encodeURIComponent("utm_source=" + src + "&utm_medium=share");
+
+            window.BLESSSOUL_LINKS = { appStore: APP_STORE, play: play, playLive: PLAY_LIVE, isAndroid: isAndroid };
+
+            // A phone goes STRAIGHT to its store — the page never paints, so there's no flash of
+            // it on the way. Only a computer (or Android before launch) ever sees this page.
+            var target = isIOS ? APP_STORE : (isAndroid && PLAY_LIVE ? play : null);
+            if (target) {
+                document.documentElement.style.visibility = "hidden";
+                location.replace(target);
+            }
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --void: #050201;
+            --ink: #ffffff;
+            --ink-2: rgba(255, 255, 255, 0.72);
+            --ink-3: rgba(255, 255, 255, 0.46);
+            --orange: #FF9F5A;
+            --amber: #FFC55D;
+            --edge: rgba(255, 255, 255, 0.10);
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--void); color: var(--ink);
+            min-height: 100vh; min-height: 100dvh;
+            display: flex; flex-direction: column;
+            overflow-x: hidden; -webkit-font-smoothing: antialiased;
+        }
+
+        /* The sky: stars + two slow, drifting glows */
+        .sky { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+        #stars { position: absolute; inset: 0; width: 100%; height: 100%; }
+        .orb { position: absolute; border-radius: 50%; filter: blur(90px); }
+        .orb.one {
+            width: 560px; height: 560px; top: -200px; right: -160px;
+            background: radial-gradient(circle, rgba(234, 88, 12, 0.5), transparent 65%);
+            animation: drift 18s ease-in-out infinite alternate;
+        }
+        .orb.two {
+            width: 600px; height: 600px; bottom: -280px; left: -220px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.32), transparent 65%);
+            animation: drift 22s ease-in-out infinite alternate-reverse;
+        }
+        @keyframes drift { to { transform: translate(60px, 40px) scale(1.08); } }
+
+        main {
+            position: relative; z-index: 1; flex: 1;
+            width: 100%; max-width: 620px; margin: 0 auto; padding: 48px 24px;
+            display: flex; flex-direction: column; justify-content: center; text-align: center;
+        }
+
+        .logo { display: block; width: 60px; height: 60px; margin: 0 auto 26px; }
+
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif; font-weight: 700;
+            font-size: clamp(2.6rem, 6vw, 4.2rem); line-height: 1.04; letter-spacing: -0.02em;
+            margin: 20px 0 16px;
+        }
+        h1 em {
+            display: block; font-style: italic; font-weight: 600;
+            background: linear-gradient(100deg, #EA580C 0%, #F59E0B 45%, #FFC55D 70%, #f0abfc 100%);
+            -webkit-background-clip: text; background-clip: text; color: transparent;
+        }
+        .lede { color: var(--ink-2); font-size: 1.08rem; line-height: 1.6; max-width: 28rem; margin: 0 auto; }
+
+        .ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 32px; }
+        .store {
+            display: inline-flex; align-items: center; gap: 12px; height: 58px; padding: 0 22px 0 18px;
+            border-radius: 16px; text-decoration: none; color: #fff;
+            transition: transform .2s, box-shadow .2s, background .2s;
+        }
+        .store svg { width: 26px; height: 26px; flex: none; }
+        .store small { display: block; font-size: 0.68rem; font-weight: 500; opacity: 0.8; }
+        .store b { display: block; font-size: 1.15rem; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; }
+        .store.apple {
+            background: linear-gradient(135deg, #f97316, #ea580c 55%, #c2410c);
+            box-shadow: 0 10px 30px -8px rgba(234, 88, 12, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+        .store.apple:hover { transform: translateY(-2px); box-shadow: 0 16px 40px -10px rgba(234, 88, 12, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.25); }
+        .store.play { background: var(--glass); border: 1px solid var(--edge); }
+        .store.play:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.09); }
+        .store.soon { background: var(--glass); border: 1px dashed rgba(255, 255, 255, 0.2); }
+        .store.soon b { color: var(--ink-2); }
+        .note { color: var(--ink-3); font-size: 0.85rem; line-height: 1.5; margin: 14px auto 0; max-width: 26rem; }
+
+
+        footer {
+            position: relative; z-index: 1; text-align: center;
+            padding: 0 24px calc(28px + env(safe-area-inset-bottom));
+        }
+        footer a {
+            color: var(--ink-2); text-decoration: none; font-size: 0.88rem; font-weight: 500;
+            padding: 9px 16px; border-radius: 999px; border: 1px solid var(--edge); background: var(--glass);
+            transition: background .2s, color .2s;
+        }
+        footer a:hover { color: var(--ink); background: rgba(255, 255, 255, 0.09); }
+
+        .hidden { display: none !important; }
+
+        .rise { opacity: 0; transform: translateY(16px); animation: rise .8s cubic-bezier(.2, .7, .2, 1) forwards; }
+        .d1 { animation-delay: .05s } .d2 { animation-delay: .15s } .d3 { animation-delay: .25s }
+        .d4 { animation-delay: .35s } .d5 { animation-delay: .5s }
+        @keyframes rise { to { opacity: 1; transform: none; } }
+
+        @media (max-width: 480px) {
+            .store { width: 100%; justify-content: center; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after { animation: none !important; transition: none !important; }
+            .rise { opacity: 1; transform: none; }
+        }
+    </style>
+</head>
+<body>
+    <div class="sky" aria-hidden="true">
+        <canvas id="stars"></canvas>
+        <div class="orb one"></div>
+        <div class="orb two"></div>
+    </div>
+
+    <main>
+        <div>
+            <img class="logo rise d1" src="../assets/images/logo.png?v=2" alt="BlessSoul">
+            <h1 class="rise d2">Manifest it.<em>Then live it.</em></h1>
+            <p class="lede rise d3">BlessSoul turns what you're manifesting into what you actually do — one calm app for your intentions, your goals and your days.</p>
+
+            <div class="ctas rise d4">
+                <a class="store apple" id="appstore" href="https://apps.apple.com/app/id6754575930" rel="noopener">
+                    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.25 1.84-3.33 1.92-3.38-1.05-1.53-2.68-1.74-3.26-1.76-1.39-.14-2.71.82-3.42.82-.71 0-1.79-.8-2.95-.78-1.52.02-2.92.88-3.7 2.24-1.58 2.74-.4 6.79 1.13 9.01.75 1.09 1.64 2.31 2.81 2.26 1.13-.05 1.55-.73 2.92-.73 1.36 0 1.75.73 2.94.71 1.21-.02 1.98-1.11 2.72-2.2.86-1.26 1.21-2.48 1.23-2.54-.03-.01-2.36-.91-2.34-3.6zM14.13 5.99c.62-.75 1.04-1.8.93-2.84-.9.04-1.98.6-2.62 1.35-.58.67-1.08 1.73-.94 2.76 1 .08 2.02-.51 2.63-1.27z"/></svg>
+                    <span><small>Download on the</small><b>App Store</b></span>
+                </a>
+                <a class="store play hidden" id="playstore" href="#" rel="noopener">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 2.3 13.4 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m16.8 8.6-3.4 3.4 3.4 3.4 3.9-2.2c.7-.4.7-1.4 0-1.8l-3.9-2.8z"/><path fill="#4285F4" d="M3.6 21.7 13.4 12l3.4 3.4-11.5 6.6c-.6.3-1.2.2-1.7-.3z"/><path fill="#EA4335" d="M3.6 2.3c.5-.5 1.1-.6 1.7-.3l11.5 6.6-3.4 3.4L3.6 2.3z"/></svg>
+                    <span><small>Get it on</small><b>Google Play</b></span>
+                </a>
+                <span class="store soon" id="androidsoon">
+                    <svg viewBox="0 0 24 24" aria-hidden="true" opacity=".75"><path fill="#34A853" d="M3.6 2.3 13.4 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m16.8 8.6-3.4 3.4 3.4 3.4 3.9-2.2c.7-.4.7-1.4 0-1.8l-3.9-2.8z"/><path fill="#4285F4" d="M3.6 21.7 13.4 12l3.4 3.4-11.5 6.6c-.6.3-1.2.2-1.7-.3z"/><path fill="#EA4335" d="M3.6 2.3c.5-.5 1.1-.6 1.7-.3l11.5 6.6-3.4 3.4L3.6 2.3z"/></svg>
+                    <span><small>Google Play</small><b>Coming soon</b></span>
+                </span>
+            </div>
+            <p class="note hidden" id="androidnote">Keep this link — on launch day it will open straight in Google Play.</p>
+        </div>
+
+    </main>
+
+    <footer><a href="/">Explore BlessSoul →</a></footer>
+
+    <script>
+        (function () {
+            var L = window.BLESSSOUL_LINKS || {};
+            if (L.playLive) {
+                var p = document.getElementById("playstore");
+                p.href = L.play;
+                p.classList.remove("hidden");
+                document.getElementById("androidsoon").classList.add("hidden");
+            } else if (L.isAndroid) {
+                document.getElementById("androidnote").classList.remove("hidden");
+            }
+
+            // The stars — a light twinkle on one canvas. Still for anyone who asked for less motion.
+            var c = document.getElementById("stars"), ctx = c.getContext("2d");
+            var still = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+            var stars = [], dpr = Math.min(window.devicePixelRatio || 1, 2);
+            function size() {
+                c.width = innerWidth * dpr; c.height = innerHeight * dpr;
+                var n = Math.round(innerWidth * innerHeight / 5200);
+                stars = [];
+                for (var i = 0; i < n; i++) stars.push({
+                    x: Math.random() * c.width, y: Math.random() * c.height,
+                    r: (Math.random() * 1.1 + 0.25) * dpr, p: Math.random() * 6.28, s: 0.6 + Math.random() * 1.6
+                });
+            }
+            function draw(t) {
+                ctx.clearRect(0, 0, c.width, c.height);
+                ctx.fillStyle = "#fff";
+                for (var i = 0; i < stars.length; i++) {
+                    var s = stars[i];
+                    ctx.globalAlpha = still ? 0.6 : 0.35 + 0.45 * (0.5 + 0.5 * Math.sin(s.p + t / 1000 * s.s));
+                    ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, 6.283); ctx.fill();
+                }
+                if (!still) requestAnimationFrame(draw);
+            }
+            size(); addEventListener("resize", size); requestAnimationFrame(draw);
+        })();
+    </script>
+</body>
+</html>

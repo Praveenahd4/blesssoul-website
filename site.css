@@ -597,3 +597,6 @@ img.is-new { opacity: .22; filter: grayscale(1); }
 
 /* second goal ring on the Goals screen (static) */
 .ring.g2 { width: 34px; height: 34px; background: conic-gradient(#4F7CFF var(--p, 0%), rgba(127,127,127,.18) 0); } .ring.g2::after { inset: 6px; }
+
+/* habit calendar: a done day is green, today too, with its orange ring kept */
+.cal i.today.on { background: #34C759; color: #fff; outline: 2px solid #FF8C42; outline-offset: 1px; }

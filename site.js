@@ -396,7 +396,8 @@
       [3800, () => tapAt(gd, $('.habit-open', gd))],
       [4200, () => push(gd, 'v-progress')],
       [5000, () => { ringBig.style.setProperty('--p', '60%'); count(pct, 60, '%'); count(en, 18); count(sr, 86, '%'); count(stk, 12); bars.forEach((b, i) => r.later(() => b.style.height = heights[i] + '%', i * 70)); }],
-      [6000, () => { const t = today.getDate(), all = days(); const done = []; for (let d = Math.max(1, t - 11); d <= t; d++) if (d !== t - 4) done.push(all[d - 1]); done.forEach((d, i) => r.later(() => d && d.classList.add('on'), i * 110)); }],
+      // the 12-day streak shown above: the last 12 days, today included (it was ticked on the Goals screen), all done
+      [4500, () => { const t = today.getDate(), all = days(); for (let d = Math.max(1, t - 11), i = 0; d <= t; d++, i++) { const el = all[d - 1]; r.later(() => el && el.classList.add('on'), i * 80); } }],
       [10200, () => tapAt(gd, $('.v-progress .back', gd))],
       [10600, () => pop(gd, 'v-goals')]
     ], 12500);

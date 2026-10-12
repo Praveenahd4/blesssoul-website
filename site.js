@@ -170,14 +170,14 @@
       { ic: '<span class="ic dove"><img src="assets/images/angel-dove.png" alt=""></span>', t: 'Angel Moment · 11:11', s: 'A dove arrives with its meaning' },
       { ic: moonIc(tonight.img), t: "Tonight's sleep affirmation", s: COPY.sleep },
       { ic: tint('rgba(79,124,255,.16)', '◴'), t: 'Walk, no phone', s: 'Soul Schedule · starts in 25 min' },
-      { ic: tint('rgba(255,140,66,.16)', '🎯'), t: 'Goal on track', s: '30 phone-free mornings · 60%' },
+      { ic: tint('rgba(255,140,66,.16)', '🎯'), t: 'Goal on track', s: 'No phone before breakfast for 30 days · 60%' },
       { ic: tint('rgba(155,114,214,.18)', '❝'), t: 'Soul Spark · Calm Down', s: '“Breathe. Nothing worth having needs to be rushed.”' },
       { ic: tint('rgba(79,124,255,.16)', '✎'), t: '5×55 · Day 1 complete', s: '55 of 55 written' },
       { ic: tint('rgba(255,92,138,.14)', '🔥'), t: '12-day streak', s: 'No phone before breakfast' },
       newIn !== null && { ic: moonIc('moon-very-thin-old'), t: newIn === 0 ? 'New Moon tonight' : `New Moon in ${newIn} day${newIn === 1 ? '' : 's'}`, s: 'A night to set an intention' },
       { ic: tint('rgba(217,130,10,.16)', '☀'), t: "Today's cosmic message", s: COPY.head },
       { ic: tint('rgba(245,158,11,.16)', '♡'), t: 'Gratitude', s: 'Three things for today, written' },
-      { ic: tint('rgba(219,61,219,.14)', '✦'), t: 'Your affirmation is ready', s: '“I am calm, clear, and phone-free.”' },
+      { ic: tint('rgba(219,61,219,.14)', '✦'), t: 'Your affirmation is ready', s: '“I begin every morning calm, clear and confident.”' },
       { ic: tint('rgba(176,79,214,.16)', '◈'), t: 'Soul Record saved', s: 'Day 3 · your offering is kept' },
       numPortal && numPortal !== next && { ic: tint('rgba(139,92,246,.18)', '✦'), t: numPortal.title, s: `${inDays(daysBetween(today, numPortal.date))} · Soul Portal` },
       { ic: tint('rgba(219,61,219,.14)', '🌙'), t: 'Evening 369 session', s: 'Write it 9 times tonight' }
@@ -336,7 +336,7 @@
   /* --- Soul Manifest: Daily Practice → 369 → write sheet → 5×55 timeline → write sheet → back --- */
   runners.practice = Runner($('#practiceDevice'), (r) => {
     const pr = r.device;
-    const AFF = 'I am calm, clear, and phone-free', AFF5 = 'My work is seen, valued, and rewarded';
+    const AFF = 'I begin every morning calm, clear and confident', AFF5 = 'My work is seen, valued, and rewarded';
     const wins = $$('.v-369 .win', pr), dotsM = wins.length ? $$('.dots i', wins[0]) : [];
     const reps3 = $$('.v-w369 .rep', pr), ring3 = $('.r369', pr), ring3n = $('.r369 .n', pr), foot3 = $('.f369', pr);
     const list = $('.replist', pr);
@@ -351,7 +351,8 @@
       reps5.forEach((x, i) => { x.classList.remove('active', 'filled'); x.lastElementChild.textContent = `Repetition ${i + 1}...`; }); if (inner) inner.style.transform = '';
       ring5.style.setProperty('--p', '0%'); ring5n.textContent = '0'; foot5.classList.remove('ready'); foot5.textContent = '○ Complete Day';
       td1.classList.add('on'); td1.classList.remove('done'); $('.lab', td1).textContent = 'Today'; $('.node i', td1).textContent = '🔥'; cnt1.textContent = '0'; qa5.classList.remove('pulse');
-      $$('.pc', pr).forEach(c => c.classList.remove('done')); $$('.pc .st', pr).forEach(s => s.textContent = '▶ Not Started'); $$('.pc-meta span:last-child', pr).forEach(s => s.textContent = '⚡ 0%');
+      $$('.pc', pr).forEach(c => c.classList.remove('done'));
+      { const c3 = $('.pc-369', pr), c5 = $('.pc-555', pr); $('.st', c3).textContent = '▶ In Progress'; $('.pc-meta span:last-child', c3).textContent = '⚡ 14%'; $('.st', c5).textContent = '▶ Not Started'; $('.pc-meta span:last-child', c5).textContent = '⚡ 0%'; }
     };
     const fill369 = (i) => { const x = reps3[i]; if (!x) return; x.classList.add('active'); typeInto(x.lastElementChild, AFF, 26, () => { x.classList.remove('active'); x.classList.add('filled'); ring3n.textContent = i + 1; ring3.style.setProperty('--p', Math.round((i + 1) / 3 * 100) + '%'); if (i === 2) { foot3.classList.add('ready'); foot3.textContent = '✓ Complete Session'; } }); };
     const fill555 = () => reps5.forEach((x, i) => r.later(() => { x.classList.remove('active'); x.classList.add('filled'); x.lastElementChild.textContent = AFF5; if (inner && reps5[1]) { const rowH = reps5[1].offsetTop - reps5[0].offsetTop, over = (i + 2) * rowH - list.clientHeight; inner.style.transform = `translateY(${-Math.max(0, over)}px)`; } if (reps5[i + 1]) reps5[i + 1].classList.add('active'); ring5n.textContent = i + 1; ring5.style.setProperty('--p', Math.round((i + 1) / 55 * 100) + '%'); if (i === 54) { foot5.classList.add('ready'); foot5.textContent = '✓ Complete Day'; } }, i * 62));
@@ -366,7 +367,7 @@
       [8500, () => tapAt(pr, foot3)],
       [8900, () => { pop(pr, 'v-369'); wins[0].classList.add('done'); dotsM.forEach((d, i) => r.later(() => d.classList.add('on', 'pop'), 200 + i * 160)); }],
       [10300, () => tapAt(pr, $('.v-369 .back', pr))],
-      [10700, () => { pop(pr, 'v-list'); const c = $('.pc-369', pr); c.classList.add('done'); $('.st', c).textContent = '✓ In Progress'; $('.pc-meta span:last-child', c).textContent = '⚡ 5%'; }],
+      [10700, () => { pop(pr, 'v-list'); const c = $('.pc-369', pr); c.classList.add('done'); $('.st', c).textContent = '✓ Morning done'; $('.pc-meta span:last-child', c).textContent = '⚡ 16%'; }],
       [12000, () => tapAt(pr, $('.pc-555 .pc-btn', pr))],
       [12400, () => push(pr, 'v-555')],
       [13100, () => qa5.classList.add('pulse')],

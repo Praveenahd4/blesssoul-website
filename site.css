@@ -589,3 +589,8 @@ img.is-new { opacity: .22; filter: grayscale(1); }
 .sacts .like.on i { color: #FF3B30; transform: scale(1.18); }
 .heart-fly { position: absolute; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 10; }
 .heart-fly svg { position: absolute; left: 0; top: 0; fill: #FF3B30; filter: drop-shadow(0 0 3px rgba(255, 59, 48, .5)); transform: translate(-50%, -50%); }
+
+/* the 369 card is on Day 4: three days kept, today open (filled once today's session is done) */
+.pc-369 .pc-rail i.k { background: #DB3DDB; }
+.pc-369 .pc-rail i.t { background: transparent; box-shadow: inset 0 0 0 1.5px #DB3DDB; }
+.pc-369.done .pc-rail i.t { background: #DB3DDB; }

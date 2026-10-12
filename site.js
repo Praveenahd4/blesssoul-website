@@ -385,7 +385,8 @@
   runners.goals = Runner($('#goalsDevice'), (r) => {
     const gd = r.device, bars = $$('.chart i', gd), chks = $$('.v-goals .chk', gd), ringList = $('.v-goals .ring.g', gd), ringBig = $('.v-progress .ring.g', gd);
     const pct = $('.pct', gd), en = $('.en', gd), sr = $('.sr', gd), stk = $('.stk', gd), hdone = $('.hdone', gd);
-    const heights = [40, 55, 30, 70, 65, 80, 45, 90, 75, 85, 60, 95, 88, 100];
+    // the last 14 days: one done, one missed, then the 12-day streak building day by day
+    const heights = [12, 0, 8, 17, 25, 33, 42, 50, 58, 67, 75, 83, 92, 100];
     const days = () => $$('.cal i:not(.pad)', gd);
     const reset = () => { chks.forEach(c => { c.classList.remove('on'); c.closest('.row').classList.remove('done'); }); ringList.style.setProperty('--p', '0%'); ringBig.style.setProperty('--p', '0%'); days().forEach(d => d.classList.remove('on')); bars.forEach(b => b.style.height = '0'); pct.textContent = '0%'; en.textContent = '0'; sr.textContent = '0%'; stk.textContent = '0'; hdone.textContent = '0 of 2 done'; };
     const count = (el, to, suffix = '') => { const steps = 20; for (let i = 1; i <= steps; i++) r.later(() => { el.textContent = Math.round(to * (1 - Math.pow(1 - i / steps, 3))) + suffix; }, i * 55); };
@@ -395,7 +396,8 @@
       [2300, () => { tapAt(gd, chks[1]); chks[1].classList.add('on'); chks[1].closest('.row').classList.add('done'); hdone.textContent = '2 of 2 done'; ringList.style.setProperty('--p', '40%'); }],
       [3800, () => tapAt(gd, $('.habit-open', gd))],
       [4200, () => push(gd, 'v-progress')],
-      [5000, () => { ringBig.style.setProperty('--p', '60%'); count(pct, 60, '%'); count(en, 18); count(sr, 86, '%'); count(stk, 12); bars.forEach((b, i) => r.later(() => b.style.height = heights[i] + '%', i * 70)); }],
+      // 12 of 30 days = 40% · 12 entries · 12 of the last 13 days = 92% · streak 12
+      [5000, () => { ringBig.style.setProperty('--p', '40%'); count(pct, 40, '%'); count(en, 12); count(sr, 92, '%'); count(stk, 12); bars.forEach((b, i) => r.later(() => b.style.height = heights[i] + '%', i * 70)); }],
       // the 12-day streak shown above: the last 12 days, today included (it was ticked on the Goals screen), all done
       [4500, () => { const t = today.getDate(), all = days(); for (let d = Math.max(1, t - 11), i = 0; d <= t; d++, i++) { const el = all[d - 1]; r.later(() => el && el.classList.add('on'), i * 80); } }],
       [10200, () => tapAt(gd, $('.v-progress .back', gd))],

@@ -170,7 +170,7 @@ button { font: inherit; color: inherit; }
 #heroDevice .splash b { margin-top: 10px; font-family: ui-rounded, "SF Pro Rounded", var(--sans); font-weight: 700; font-size: 31px; letter-spacing: -.01em; opacity: 0; }
 #heroDevice .splash span { margin-top: 4px; font-family: ui-rounded, "SF Pro Rounded", var(--sans); font-size: 12px; opacity: 0; color: rgba(0, 0, 0, .6); }
 :root[data-theme="dark"] #heroDevice .splash span { color: rgba(255, 255, 255, .7); }
-.booting #heroDevice .splash { display: flex; }
+.booting #heroDevice .splash, .boot-wait #heroDevice .splash { display: flex; }
 .booting #heroDevice .splash img { animation: splLogo .8s cubic-bezier(.34, 1.56, .64, 1) forwards; }
 .booting #heroDevice .splash b { animation: splFade .6s ease-out .4s forwards; }
 .booting #heroDevice .splash span { animation: splFade .6s ease-out .6s forwards; }
@@ -179,7 +179,7 @@ button { font: inherit; color: inherit; }
 @keyframes splFade { to { opacity: 1; } }
 @keyframes splOut { to { opacity: 0; visibility: hidden; } }
 /* Home arrives: greeting, then each card slides up in turn */
-.booting #heroDevice .scroller > *, .booting #heroDevice .tabbar { opacity: 0; transform: translateY(18px); }
+.booting #heroDevice .scroller > *, .booting #heroDevice .tabbar, .boot-wait #heroDevice .scroller > *, .boot-wait #heroDevice .tabbar { opacity: 0; transform: translateY(18px); }
 .home-in #heroDevice .scroller > *, .home-in #heroDevice .tabbar { opacity: 1; transform: none; transition: opacity .5s var(--ease-out), transform .6s var(--ease-out); }
 .home-in #heroDevice .scroller > :nth-child(2) { transition-delay: .04s; } .home-in #heroDevice .scroller > :nth-child(3) { transition-delay: .08s; }
 .home-in #heroDevice .scroller > :nth-child(4) { transition-delay: .18s; } .home-in #heroDevice .scroller > :nth-child(5) { transition-delay: .28s; }

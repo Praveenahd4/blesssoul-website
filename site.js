@@ -137,20 +137,34 @@
     new: { head: 'Plant One Clear Intention', msg: 'The sky is dark and quiet. Name one thing you want, in a single sentence, and write it down before the day gets loud.', act: 'Write your intention in one sentence and read it back once tonight.', sleep: 'Begin Small, Begin Tonight', smsg: 'Nothing is visible yet, and that is the point. Every cycle begins in the dark.', speak: 'I plant one clear intention tonight and trust it to grow at its own pace. I do not need to see it yet to know it has begun.', gentle: 'Say your intention once, quietly, then let it go and let sleep come.', tone: 'SACRED' }
   }[fam];
 
-  /* --- Hero phone boot: the app's splash, then Home, then the notifications begin. Once per page load,
-         only if the hero is on screen at load, never for reduced motion. --- */
-  const heroVis = $('.s-hero-vis');
-  const heroOnScreen = heroVis && heroVis.getBoundingClientRect().top < innerHeight && heroVis.getBoundingClientRect().bottom > 0;
-  let homeReady = reduce || !heroOnScreen;
+  /* --- Hero phone boot: the app's splash, then Home, then the notifications begin.
+         It waits until the phone itself is on screen (on phones the hero phone sits below the
+         headline, so playing it at load meant nobody saw it). Once per page load; skipped for
+         reduced motion or when the page opens already scrolled past the hero. --- */
+  const heroVis = $('.s-hero-vis'), heroPhone = $('#heroDevice');
+  const pastHero = heroVis && heroVis.getBoundingClientRect().bottom < 0;
+  let homeReady = reduce || !heroPhone || pastHero;
   if (!homeReady) {
-    root.classList.add('booting');
-    setTimeout(() => root.classList.add('splash-out'), 1600);
-    setTimeout(() => { root.classList.add('home-in'); }, 1750);
-    setTimeout(() => {
-      root.classList.remove('booting', 'splash-out');
-      setTimeout(() => root.classList.remove('home-in'), 900);
-      homeReady = true; document.dispatchEvent(new Event('bs:home-ready'));
-    }, 2050);
+    root.classList.add('boot-wait');
+    const boot = () => {
+      root.classList.remove('boot-wait'); root.classList.add('booting');
+      setTimeout(() => root.classList.add('splash-out'), 1600);
+      setTimeout(() => { root.classList.add('home-in'); }, 1750);
+      setTimeout(() => {
+        root.classList.remove('booting', 'splash-out');
+        setTimeout(() => root.classList.remove('home-in'), 900);
+        homeReady = true; document.dispatchEvent(new Event('bs:home-ready'));
+      }, 2050);
+    };
+    // start once at least about half of the phone is on screen: checked on load, on scroll and on resize
+    let started = false;
+    const check = () => {
+      if (started) return;
+      const r = heroPhone.getBoundingClientRect(), seen = Math.min(r.bottom, innerHeight) - Math.max(r.top, 0);
+      if (seen >= r.height * .5) { started = true; removeEventListener('scroll', check); removeEventListener('resize', check); boot(); }
+    };
+    addEventListener('scroll', check, { passive: true }); addEventListener('resize', check);
+    check();
   }
 
   /* --- Hero notifications: true app moments, one at a time per slot, never the same card twice on screen --- */

@@ -354,7 +354,7 @@
       $$('.pc', pr).forEach(c => c.classList.remove('done')); $$('.pc .st', pr).forEach(s => s.textContent = '▶ Not Started'); $$('.pc-meta span:last-child', pr).forEach(s => s.textContent = '⚡ 0%');
     };
     const fill369 = (i) => { const x = reps3[i]; if (!x) return; x.classList.add('active'); typeInto(x.lastElementChild, AFF, 26, () => { x.classList.remove('active'); x.classList.add('filled'); ring3n.textContent = i + 1; ring3.style.setProperty('--p', Math.round((i + 1) / 3 * 100) + '%'); if (i === 2) { foot3.classList.add('ready'); foot3.textContent = '✓ Complete Session'; } }); };
-    const fill555 = () => reps5.forEach((x, i) => r.later(() => { x.classList.remove('active'); x.classList.add('filled'); x.lastElementChild.textContent = AFF5; if (i >= 2 && inner) inner.style.transform = `translateY(${-(i - 2) * 43}px)`; if (reps5[i + 1]) reps5[i + 1].classList.add('active'); ring5n.textContent = i + 1; ring5.style.setProperty('--p', Math.round((i + 1) / 55 * 100) + '%'); if (i === 54) { foot5.classList.add('ready'); foot5.textContent = '✓ Complete Day'; } }, i * 62));
+    const fill555 = () => reps5.forEach((x, i) => r.later(() => { x.classList.remove('active'); x.classList.add('filled'); x.lastElementChild.textContent = AFF5; if (inner && reps5[1]) { const rowH = reps5[1].offsetTop - reps5[0].offsetTop, over = (i + 2) * rowH - list.clientHeight; inner.style.transform = `translateY(${-Math.max(0, over)}px)`; } if (reps5[i + 1]) reps5[i + 1].classList.add('active'); ring5n.textContent = i + 1; ring5.style.setProperty('--p', Math.round((i + 1) / 55 * 100) + '%'); if (i === 54) { foot5.classList.add('ready'); foot5.textContent = '✓ Complete Day'; } }, i * 62));
     const T5 = 14700 + 55 * 62;
     return sequence(r, [
       [0, () => { reset(); pop(pr, 'v-list'); }],
@@ -450,16 +450,33 @@
 
   /* --- Soul Spark + widget: quotes arrive, the wash follows the topic, the heart lands --- */
   runners.spark = Runner($('#sparkDevice'), (r) => {
-    const sd = r.device, sw = $('.spark-widget'), qs = $$('.qtext q', sd), like = $('.sacts .like', sd), sb = $('.sacts .burst', sd), scr = $('.spark-screen', sd);
-    if (sb && !sb.children.length) for (let i = 0; i < 10; i++) { const p = document.createElement('i'); const a = (i / 10) * 6.283; p.style.setProperty('--dx', Math.cos(a) * 26 + 'px'); p.style.setProperty('--dy', Math.sin(a) * 26 - 10 + 'px'); p.style.background = i % 2 ? '#FF5C8A' : '#FFB84D'; sb.appendChild(p); }
+    const sd = r.device, sw = $('.spark-widget'), qs = $$('.qtext q', sd), like = $('.sacts .like', sd), icon = like && $('i', like), scr = $('.spark-screen', sd);
     const wt = sw && $('.topic', sw), wq = sw && $('.wq', sw), wh = sw && $('.wheart', sw);
+    const HEART = '<svg viewBox="0 0 24 24"><path d="M12 21.4l-1.5-1.3C5.4 15.4 2 12.3 2 8.5 2 5.4 4.4 3 7.5 3c1.7 0 3.4.8 4.5 2.1C13.1 3.8 14.8 3 16.5 3 19.6 3 22 5.4 22 8.5c0 3.8-3.4 6.9-8.5 11.5L12 21.4z"/></svg>';
+    // HeartBurstView: 22 hearts in a narrow upward fan, 1.4s ease-out, rotate, shrink from 0.8, fade (scaled to the phone)
+    const burst = () => {
+      if (!like) return;
+      const box = document.createElement('span'); box.className = 'heart-fly';
+      box.style.left = (icon.offsetLeft + icon.offsetWidth / 2) + 'px'; box.style.top = (icon.offsetTop + icon.offsetHeight / 2) + 'px';
+      like.appendChild(box);
+      for (let n = 0; n < 22; n++) {
+        const t = n / 21, ang = (-160 + 140 * t) * Math.PI / 180 + (Math.random() * .4 - .2), dist = 70 + Math.random() * 40;
+        const size = [10, 12, 14, 16][Math.floor(Math.random() * 4)], rot = Math.random() * 80 - 40, delay = Math.random() * 120;
+        const h = document.createElement('span'); h.innerHTML = HEART; const svg = h.firstChild; svg.style.width = svg.style.height = size + 'px'; box.appendChild(svg);
+        if (svg.animate) svg.animate([
+          { transform: 'translate(-50%, -50%) scale(.3) rotate(0deg)', opacity: 1 },
+          { transform: `translate(calc(-50% + ${Math.cos(ang) * dist}px), calc(-50% + ${Math.sin(ang) * dist}px)) scale(.8) rotate(${rot}deg)`, opacity: 0 }
+        ], { duration: 1400, delay, easing: 'cubic-bezier(.16, 1, .3, 1)', fill: 'both' });
+      }
+      r.later(() => box.remove(), 1700);
+    };
     let qi = 0;
     const show = (i) => { const q = qs[i]; scr.style.setProperty('--tc', q.dataset.c); if (sw) { sw.style.setProperty('--tc', q.dataset.c); wt.textContent = q.dataset.t; wq.textContent = '“' + q.textContent + '”'; } };
     show(0);
     return sequence(r, [
-      [0, () => { const prev = qi; qs.forEach(q => q.classList.remove('out')); qs[prev].classList.remove('on'); qs[prev].classList.add('out'); qi = (qi + 1) % qs.length; r.later(() => qs[prev].classList.remove('out'), 600); qs[qi].classList.add('on'); show(qi); like.classList.remove('on'); if (wh) wh.classList.remove('on'); }],
-      [2600, () => { tapAt(sd, $('i', like)); like.classList.add('on'); if (sb) { sb.classList.remove('go'); void sb.offsetWidth; sb.classList.add('go'); } if (wh) wh.classList.add('on'); }]
-    ], 4800);
+      [0, () => { const prev = qi; qs.forEach(q => q.classList.remove('out')); qs[prev].classList.remove('on'); qs[prev].classList.add('out'); qi = (qi + 1) % qs.length; r.later(() => qs[prev].classList.remove('out'), 600); qs[qi].classList.add('on'); show(qi); like.classList.remove('on'); if (icon) icon.textContent = '♡'; if (wh) wh.classList.remove('on'); }],
+      [2400, () => { tapAt(sd, icon); like.classList.add('on'); if (icon) icon.textContent = '♥'; burst(); if (wh) wh.classList.add('on'); }]
+    ], 5200);
   });
 
   // Play each phone only while it can be seen; replay from the start when it comes back.

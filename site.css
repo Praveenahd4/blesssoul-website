@@ -583,3 +583,9 @@ img.is-new { opacity: .22; filter: grayscale(1); }
   .rv { opacity: 1; transform: none; filter: none; }
   .s-h1 .ln > span { transform: none; }
 }
+
+/* Soul Spark like: the app's HeartBurstView — the heart fills red and a fan of red hearts flies up from it */
+.sacts .like i { transition: color .25s, transform .35s cubic-bezier(.34, 1.56, .64, 1); }
+.sacts .like.on i { color: #FF3B30; transform: scale(1.18); }
+.heart-fly { position: absolute; left: 0; top: 0; width: 0; height: 0; pointer-events: none; z-index: 10; }
+.heart-fly svg { position: absolute; left: 0; top: 0; fill: #FF3B30; filter: drop-shadow(0 0 3px rgba(255, 59, 48, .5)); transform: translate(-50%, -50%); }

@@ -565,6 +565,8 @@ h2 { font-family: var(--serif); font-weight: 600; letter-spacing: -.02em; font-s
 .foot5.f369 { background: linear-gradient(90deg, #C73BD6, #E35BE0); }
 .foot5 { margin-top: auto; }
 .replist { height: 172px; overflow: hidden; }
+/* 5x55 sheet: the list fills the space down to Complete Day, and only scrolls once it is full */
+.v-w555 .replist { flex: 1; height: auto; min-height: 0; }
 .replist > div { transition: transform .35s var(--ease); }
 .v-w555 .ring5, .v-w555 .foot5, .qa5, .daypills span.on { background-image: linear-gradient(90deg, #22C3E6, #2F6BFF); }
 .v-w555 .ring5 { background: conic-gradient(#22C3E6 var(--p, 0%), rgba(0, 0, 0, .1) 0); }

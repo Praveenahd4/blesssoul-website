@@ -4,7 +4,7 @@
    everything in this file wins over them without !important. Page classes are
    prefixed s- so they never collide with the phone styles.
    ========================================================================== */
-@import url("phones.css?v=11") layer(phones);
+@import url("phones.css?v=12") layer(phones);
 
 :root {
   --serif: ui-serif, "New York", "Newsreader", Georgia, serif; /* the app's own serif on Apple devices, Newsreader elsewhere */

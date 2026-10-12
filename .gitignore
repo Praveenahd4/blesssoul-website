@@ -20,3 +20,11 @@
 
 # Node modules (if you add build tools later)
 node_modules/
+
+# Never publish: backups, internal notes, database scripts, local secrets
+backups/
+*.sql
+.env
+.env.*
+*.pem
+*.key

@@ -1,0 +1,4 @@
+# GitHub Pages: publish the site files only, never the repo's notes
+exclude:
+  - README.md
+  - .gitignore

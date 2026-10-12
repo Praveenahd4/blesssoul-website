@@ -600,3 +600,7 @@ img.is-new { opacity: .22; filter: grayscale(1); }
 
 /* habit calendar: a done day is green, today too, with its orange ring kept */
 .cal i.today.on { background: #34C759; color: #fff; outline: 2px solid #FF8C42; outline-offset: 1px; }
+
+/* final card: the belief line, in the serif, above the practical one */
+.s-final-copy .s-final-line { margin: 0 0 14px; font-family: var(--serif); font-style: italic; font-size: 1.45rem; line-height: 1.35; color: #FFD7A8; max-width: 520px; text-wrap: balance; }
+@media (max-width: 980px) { .s-final-copy .s-final-line { margin-left: auto; margin-right: auto; font-size: 1.25rem; } }

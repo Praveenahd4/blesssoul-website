@@ -169,8 +169,8 @@
       { ic: '<span class="ic" style="--tint:rgba(232,184,0,.18)"><img src="assets/images/chakra/chakra3.png" alt=""></span>', t: 'Day 3 is open', s: 'Soul Awakening · The Solar Plexus' },
       { ic: '<span class="ic dove"><img src="assets/images/angel-dove.png" alt=""></span>', t: 'Angel Moment · 11:11', s: 'A dove arrives with its meaning' },
       { ic: moonIc(tonight.img), t: "Tonight's sleep affirmation", s: COPY.sleep },
-      { ic: tint('rgba(79,124,255,.16)', '◴'), t: 'Walk, no phone', s: 'Soul Schedule · starts in 25 min' },
-      { ic: tint('rgba(255,140,66,.16)', '🎯'), t: 'Goal on track', s: 'No phone before breakfast for 30 days · 60%' },
+      { ic: tint('rgba(79,124,255,.16)', '◴'), t: 'Meditate', s: 'Soul Schedule · starts in 15 min' },
+      { ic: tint('rgba(255,140,66,.16)', '🎯'), t: 'Goal on track', s: 'Finish my design portfolio · 40%' },
       { ic: tint('rgba(155,114,214,.18)', '❝'), t: 'Soul Spark · Calm Down', s: '“Breathe. Nothing worth having needs to be rushed.”' },
       { ic: tint('rgba(79,124,255,.16)', '✎'), t: '5×55 · Day 1 complete', s: '55 of 55 written' },
       { ic: tint('rgba(255,92,138,.14)', '🔥'), t: '12-day streak', s: 'No phone before breakfast' },
@@ -251,7 +251,7 @@
       const f = $$('.pm-foot span', c); if (f[0]) f[0].textContent = '▦ ' + fmt(next.date, { month: 'short', day: 'numeric' }); if (f[1]) f[1].textContent = stars(next.stars);
     });
     // Goals: target date a month out, calendar is this month
-    $$('.goal-card small').forEach(s => { const d = new Date(+today + 30 * DAY); s.innerHTML = `Personal · ${fmt(d, { day: 'numeric', month: 'short' })} &nbsp;<i class="tag">✓ On track</i>`; });
+    $$('.js-gdate').forEach(s => { const d = new Date(+today + (+s.dataset.days || 30) * DAY); s.innerHTML = `Work · ${fmt(d, { day: 'numeric', month: 'short' })} &nbsp;<i class="tag">✓ On track</i>`; });
     $$('.pbox-h small').forEach(s => s.textContent = fmt(today, { month: 'long', year: 'numeric' }));
     $$('.cal').forEach(cal => {
       cal.innerHTML = ''; const first = new Date(today.getFullYear(), today.getMonth(), 1), n = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
@@ -393,7 +393,7 @@
       [0, () => { reset(); pop(gd, 'v-goals'); }],
       [1200, () => { tapAt(gd, chks[0]); chks[0].classList.add('on'); chks[0].closest('.row').classList.add('done'); hdone.textContent = '1 of 2 done'; }],
       [2300, () => { tapAt(gd, chks[1]); chks[1].classList.add('on'); chks[1].closest('.row').classList.add('done'); hdone.textContent = '2 of 2 done'; ringList.style.setProperty('--p', '40%'); }],
-      [3800, () => tapAt(gd, $('.goal-card', gd))],
+      [3800, () => tapAt(gd, $('.habit-open', gd))],
       [4200, () => push(gd, 'v-progress')],
       [5000, () => { ringBig.style.setProperty('--p', '60%'); count(pct, 60, '%'); count(en, 18); count(sr, 86, '%'); count(stk, 12); bars.forEach((b, i) => r.later(() => b.style.height = heights[i] + '%', i * 70)); }],
       [6000, () => { const t = today.getDate(), all = days(); const done = []; for (let d = Math.max(1, t - 11); d <= t; d++) if (d !== t - 4) done.push(all[d - 1]); done.forEach((d, i) => r.later(() => d && d.classList.add('on'), i * 110)); }],
@@ -406,13 +406,13 @@
   runners.sched = Runner($('#schedDevice'), (r) => {
     const s = r.device, blks = $$('.blk', s), pbi = $('.pb i', s), pp = $('.pp', s), chk1 = $('.blk .bchk', s);
     const dn = $('.done-n', s), rn = $('.rem-n', s), pn = $('.pct-n', s), upn = $('.upn', s), dcount = $('.dn', s), now = $('.now', s);
-    const reset = () => { blks.forEach(b => b.classList.remove('in', 'done')); pbi.style.width = '0'; pp.textContent = '0%'; dn.textContent = '0'; rn.textContent = '3'; pn.textContent = '0%'; upn.textContent = '(3)'; dcount.textContent = '(0)'; now.textContent = '07:05'; };
+    const reset = () => { blks.forEach(b => b.classList.remove('in', 'done')); pbi.style.width = '0'; pp.textContent = '0%'; dn.textContent = '0'; rn.textContent = '4'; pn.textContent = '0%'; upn.textContent = '(4)'; dcount.textContent = '(0)'; now.textContent = '07:05'; };
     return sequence(r, [
       [0, reset],
       [600, () => blks.forEach((b, i) => r.later(() => b.classList.add('in'), i * 220))],
       [1800, () => { for (let k = 1; k <= 25; k++) r.later(() => { const v = k * 4; pbi.style.width = v + '%'; pp.textContent = v + '%'; now.textContent = '07:' + String(5 + Math.round(v * .15)).padStart(2, '0'); }, k * 110); }],
       [5400, () => tapAt(s, chk1)],
-      [5800, () => { blks[0].classList.add('done'); dn.textContent = '1'; rn.textContent = '2'; pn.textContent = '33%'; upn.textContent = '(2)'; dcount.textContent = '(1)'; }]
+      [5800, () => { blks[0].classList.add('done'); dn.textContent = '1'; rn.textContent = '3'; pn.textContent = '25%'; upn.textContent = '(3)'; dcount.textContent = '(1)'; }]
     ], 9800);
   });
 

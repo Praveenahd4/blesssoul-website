@@ -594,3 +594,6 @@ img.is-new { opacity: .22; filter: grayscale(1); }
 .pc-369 .pc-rail i.k { background: #DB3DDB; }
 .pc-369 .pc-rail i.t { background: transparent; box-shadow: inset 0 0 0 1.5px #DB3DDB; }
 .pc-369.done .pc-rail i.t { background: #DB3DDB; }
+
+/* second goal ring on the Goals screen (static) */
+.ring.g2 { width: 34px; height: 34px; background: conic-gradient(#4F7CFF var(--p, 0%), rgba(127,127,127,.18) 0); } .ring.g2::after { inset: 6px; }

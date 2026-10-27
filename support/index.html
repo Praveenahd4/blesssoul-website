@@ -2,284 +2,99 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - BlessSoul</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Support — BlessSoul</title>
     <meta name="description" content="Get help with BlessSoul. Contact our support team, find answers to common questions, and report bugs or request features.">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-iBgn89jXC62i5cS2xVR0PvinGAkHcbtsg9JANnQLfNU='; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'; upgrade-insecure-requests">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <link rel="canonical" href="https://www.blesssoul.com/support/">
+    <meta name="theme-color" content="#FBF6EE" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0C0910" media="(prefers-color-scheme: dark)">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="BlessSoul">
+    <meta property="og:url" content="https://www.blesssoul.com/support/">
+    <meta property="og:title" content="Support — BlessSoul">
+    <meta property="og:description" content="Get help with BlessSoul. Contact our support team, find answers to common questions, and report bugs or request features.">
+    <meta property="og:image" content="https://www.blesssoul.com/assets/images/og-preview.jpg">
+    <meta name="apple-itunes-app" content="app-id=6754575930">
     <link rel="icon" type="image/png" href="../assets/images/logo.png?v=2">
+    <link rel="apple-touch-icon" href="../assets/images/logo.png?v=2">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
-    <style>
-        .support-page {
-            padding: calc(80px + 3rem) 1.5rem 3rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        @media (max-width: 768px) {
-            .support-page {
-                padding: calc(80px + 2rem) 1.25rem 2rem;
-            }
-            .support-page h1 {
-                font-size: 2rem;
-            }
-            .support-page h2 {
-                font-size: 1.5rem;
-            }
-        }
-        .support-page h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--text-primary);
-        }
-        .support-page .subtitle {
-            color: var(--text-tertiary);
-            margin-bottom: 2.5rem;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-        .support-page h2 {
-            font-family: 'Playfair Display', serif;
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            font-size: 1.75rem;
-            color: var(--orange-primary);
-            scroll-margin-top: 100px;
-        }
-        .support-page h3 {
-            font-family: 'Inter', sans-serif;
-            margin-top: 1.5rem;
-            margin-bottom: 0.75rem;
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        .support-page p {
-            margin-bottom: 1rem;
-            line-height: 1.8;
-            color: var(--text-secondary);
-        }
-        .support-page ul {
-            margin-bottom: 1rem;
-            margin-left: 1.5rem;
-            line-height: 1.8;
-        }
-        .support-page li {
-            margin-bottom: 0.5rem;
-            color: var(--text-secondary);
-        }
-        .support-page strong {
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-        .support-page a {
-            color: var(--orange-primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .support-page a:hover {
-            text-decoration: underline;
-        }
-        .contact-box {
-            background: linear-gradient(135deg, rgba(255, 122, 61, 0.05) 0%, rgba(255, 184, 77, 0.05) 100%);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
-            border: 1px solid rgba(255, 122, 61, 0.2);
-            text-align: center;
-        }
-        .contact-box h3 {
-            margin-top: 0;
-            color: var(--orange-primary);
-            font-size: 1.5rem;
-        }
-        .contact-email {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--orange-primary);
-            margin: 1rem 0;
-        }
-        .response-time {
-            color: var(--text-tertiary);
-            font-size: 0.95rem;
-            margin-top: 0.5rem;
-        }
-        .faq-item {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--glass-border);
-        }
-        .faq-item:last-child {
-            border-bottom: none;
-        }
-        .faq-question {
-            font-family: 'Inter', sans-serif;
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-        }
-        .faq-answer {
-            color: var(--text-secondary);
-            line-height: 1.8;
-        }
-        .info-box {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            border-left: 3px solid var(--orange-primary);
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        .danger-box {
-            background: rgba(239, 68, 68, 0.08);
-            border: 1px solid rgba(239, 68, 68, 0.28);
-            border-left: 3px solid #EF4444;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-        }
-        .danger-box p:last-child { margin-bottom: 0; }
-        .step-list { counter-reset: step; list-style: none; margin-left: 0; }
-        .step-list li {
-            counter-increment: step;
-            position: relative;
-            padding-left: 2.25rem;
-            margin-bottom: 0.9rem;
-        }
-        .step-list li::before {
-            content: counter(step);
-            position: absolute;
-            left: 0;
-            top: 0.15rem;
-            width: 1.5rem; height: 1.5rem;
-            border-radius: 50%;
-            background: var(--orange-primary);
-            color: #1a0f08;
-            font-size: 0.8rem; font-weight: 700;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .info-box p {
-            margin-bottom: 0.5rem;
-        }
-        .info-box p:last-child {
-            margin-bottom: 0;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../page.css?v=1">
+    <script>/* theme before first paint */(function(){try{var t=localStorage.getItem('bs-theme');if(t!=='dark'&&t!=='light'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
 </head>
 <body>
-    <!-- Header -->
-    <header class="header">
-        <nav class="nav">
-            <a href="../" class="logo-container" style="text-decoration: none;">
-                <img src="../assets/images/logo.png?v=2" alt="BlessSoul Logo" class="logo">
-                <span class="brand-name">BlessSoul</span>
-            </a>
-        </nav>
-    </header>
 
-    <!-- Support Content -->
-    <main class="support-page">
-        <h1>Support Center</h1>
-        <p class="subtitle">We're here to help! Find answers to common questions or get in touch with our support team.</p>
+<div class="s-bg" aria-hidden="true"><i class="b1"></i><i class="b2"></i><i class="b3"></i></div>
+<div class="s-grain" aria-hidden="true"></div>
 
-        <!-- Contact Information -->
-        <div class="contact-box">
-            <h3>📧 Get in Touch</h3>
-            <div class="contact-email">
-                <a href="mailto:support@blesssoul.com">support@blesssoul.com</a>
-            </div>
-            <p class="response-time">We typically respond within 2-5 business days</p>
+<header class="s-nav" id="nav">
+    <div class="s-nav-in">
+        <a href="../" class="s-brand" aria-label="BlessSoul home"><img src="../assets/images/logo.png?v=2" alt="">BlessSoul</a>
+        <nav class="s-links" aria-label="Main"><a href="../">Home</a><a href="../support/" class="on" aria-current="page">Support</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a></nav>
+        <div class="s-nav-r">
+            <button class="s-theme" type="button" aria-label="Switch light or dark mode">
+                <svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                <svg class="moon" viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+            </button>
+            <a href="https://apps.apple.com/app/id6754575930" target="_blank" rel="noopener" class="s-btn s-btn-sm">Get the app</a>
+            <button class="s-burger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
         </div>
+    </div>
+    <div class="s-menu" id="menu">
+        <a href="../">Home</a><a href="../support/" class="on" aria-current="page">Support</a><a href="../privacy/">Privacy</a><a href="../terms/">Terms</a><a href="https://apps.apple.com/app/id6754575930" target="_blank" rel="noopener" class="s-btn">Get the app</a>
+    </div>
+</header>
+
+<main class="s-wrap">
+    <section class="d-hero">
+        <span class="s-kicker">Support</span>
+        <h1>How can we help?</h1>
+        <p class="d-lead">Find answers to common questions, or email us.</p>
+    </section>
+    <div class="d-layout">
+        <aside class="d-toc" aria-label="On this page"><h4>On this page</h4></aside>
+        <article class="d-doc">
+<div class="d-contact">
+    <div>
+        <span class="s-kicker">Get in touch</span>
+        <h2 class="no-toc">support@blesssoul.com</h2>
+        <p>Replies usually take 2–5 business days (Monday–Friday, India time) and sometimes longer.</p>
+    </div>
+    <a class="s-btn" href="mailto:support@blesssoul.com">Email us</a>
+</div>
 
         <div class="info-box">
             <p><strong>Need to report a bug or request a feature?</strong></p>
-            <p>Send us an email at <a href="mailto:support@blesssoul.com">support@blesssoul.com</a> with details, and we'll get back to you as soon as possible.</p>
+            <p>Send us an email at <a href="mailto:support@blesssoul.com">support@blesssoul.com</a> with details, and we'll get back to you.</p>
         </div>
-
-        <!-- FAQs -->
         <h2>Frequently Asked Questions</h2>
 
-        <div class="faq-item">
-            <div class="faq-question">❓ How do I get started with BlessSoul?</div>
-            <div class="faq-answer">
-                Download BlessSoul from the App Store and create an account &mdash; that's it. BlessSoul is free to use, with a free tier that includes a manifestation, goals, habits, Soul Spark quotes and daily scheduling. Premium is optional: it lifts the free limits and unlocks features such as the Soul Awakening journey, the Soul Portal calendar, sleep affirmations and schedule templates. You can see current plans and prices in the app before you buy.
-            </div>
-        </div>
+        <div class="d-qa">
+<details id="how-do-i-get-started-with-blesssoul"><summary>How do I get started with BlessSoul?</summary><div class="a"><p>Download BlessSoul from the App Store and create an account &mdash; that's it. BlessSoul is free to use, with a free tier that includes a manifestation, goals, habits, Soul Spark quotes and daily scheduling. Premium is optional: it lifts the free limits and unlocks features such as the Soul Awakening journey, the Soul Portal calendar, sleep affirmations and schedule templates. You can see current plans and prices in the app before you buy.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">💫 What's the difference between free and Premium?</div>
-            <div class="faq-answer">
-                The free tier is genuinely usable: 1 active manifestation, 2 goals, 3 habits, 5 followed quote topics, 5 schedule blocks a day and the 369 and 5x55 methods. Free also includes AI help: 3 manifestations created with AI suggestions and 5 affirmation suggestions per manifestation and method. Premium removes the limits and adds all eight methods, Soul Awakening, habit progress history, quote history and topic exploration, the Soul Portal calendar, sleep affirmations, ready-made Soul Plans and a bigger AI allowance. If Premium ends, nothing you made is deleted &mdash; anything over a free limit simply becomes read-only until you resubscribe.
-            </div>
-        </div>
+        <details id="what-s-the-difference-between-free-and-premium"><summary>What's the difference between free and Premium?</summary><div class="a"><p>The free tier is genuinely usable: 1 active manifestation, 2 goals, 3 habits, 5 followed quote topics, 5 schedule blocks a day and the 369 and 5x55 methods. Free also includes AI help: 3 manifestations created with AI suggestions and 5 affirmation suggestions per manifestation and method. Premium removes the limits and adds all eight methods, Soul Awakening, habit progress history, quote history and topic exploration, the Soul Portal calendar, sleep affirmations, ready-made Soul Plans and a bigger AI allowance. If Premium ends, nothing you made is deleted &mdash; anything over a free limit simply becomes read-only until you resubscribe.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">⚠️ What happens if my subscription expires?</div>
-            <div class="faq-answer">
-                You keep your account and everything you created, and carry on using BlessSoul on the free tier. <strong>Nothing is deleted because a subscription ends</strong> &mdash; anything above the free limits is locked, not removed, and comes back if you resubscribe. See our <a href="../terms/">Terms of Service</a> for details.
-            </div>
-        </div>
+        <details id="what-happens-if-my-subscription-expires"><summary>What happens if my subscription expires?</summary><div class="a"><p>You keep your account and everything you created, and carry on using BlessSoul on the free tier. <strong>Nothing is deleted because a subscription ends</strong> &mdash; anything above the free limits is locked, not removed, and comes back if you resubscribe. See our <a href="../terms/">Terms of Service</a> for details.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">📱 Does Premium work on both iPhone and Android?</div>
-            <div class="faq-answer">
-                Yes. Premium belongs to your BlessSoul account, so sign in to the same account on either phone and it's there. A guest account stays on the device where it was created &mdash; create an account first if you want to use another device. Billing always stays with the store you bought through: manage, cancel or get a refund for an iPhone subscription through Apple, and for an Android one through Google Play.
-            </div>
-        </div>
+        <details id="does-premium-work-on-both-iphone-and-android"><summary>Does Premium work on both iPhone and Android?</summary><div class="a"><p>Yes. Premium belongs to your BlessSoul account, so sign in to the same account on either phone and it's there. A guest account stays on the device where it was created &mdash; create an account first if you want to use another device. Billing always stays with the store you bought through: manage, cancel or get a refund for an iPhone subscription through Apple, and for an Android one through Google Play.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">📦 How do I get a copy of my data?</div>
-            <div class="faq-answer">
-                Email <a href="mailto:support@blesssoul.com">support@blesssoul.com</a> from your registered email address with the subject "Data Request", and we'll send you a copy of your data in a common file format you can open and reuse, normally within 30 days.
-            </div>
-        </div>
+        <details id="how-do-i-get-a-copy-of-my-data"><summary>How do I get a copy of my data?</summary><div class="a"><p>Email <a href="mailto:support@blesssoul.com">support@blesssoul.com</a> from your registered email address with the subject "Data Request", and we'll send you a copy of your data in a common file format you can open and reuse, normally within 30 days.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">🗑️ How do I delete my account?</div>
-            <div class="faq-answer">
-                You can delete it yourself from inside the app at any time &mdash; or, if you can't open the app, ask us by email. See <a href="#delete-account">Deleting Your Account</a> below for both.
-            </div>
-        </div>
+        <details id="how-do-i-delete-my-account"><summary>How do I delete my account?</summary><div class="a"><p>You can delete it yourself from inside the app at any time &mdash; or, if you can't open the app, ask us by email. See <a href="#delete-account">Deleting Your Account</a> below for both.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">🔑 I signed in with Apple or Google &mdash; what's my password?</div>
-            <div class="faq-answer">
-                You don't have one. If you created your account with <strong>Sign in with Apple</strong> or <strong>Google Sign-In</strong>, there's no BlessSoul password to reset &mdash; just tap the same button you used originally and Apple or Google will sign you in. "Forgot Password?" only applies to accounts created with an email address and password.
-            </div>
-        </div>
+        <details id="i-signed-in-with-apple-or-google-what-s-my-password"><summary>I signed in with Apple or Google &mdash; what's my password?</summary><div class="a"><p>You don't have one. If you created your account with <strong>Sign in with Apple</strong> or <strong>Google Sign-In</strong>, there's no BlessSoul password to reset &mdash; just tap the same button you used originally and Apple or Google will sign you in. "Forgot Password?" only applies to accounts created with an email address and password.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">❌ How do I cancel my subscription?</div>
-            <div class="faq-answer">
-                In the app, go to Settings → Manage Subscription. Or, on iPhone: Settings → [Your Name] → Subscriptions → BlessSoul → Cancel Subscription; on Android: Google Play → profile icon → Payments &amp; subscriptions → Subscriptions → BlessSoul → Cancel subscription. You can cancel anytime, and you'll still have access to premium features until your current billing period ends.
-            </div>
-        </div>
+        <details id="how-do-i-cancel-my-subscription"><summary>How do I cancel my subscription?</summary><div class="a"><p>In the app, go to Settings → Manage Subscription. Or, on iPhone: Settings → [Your Name] → Subscriptions → BlessSoul → Cancel Subscription; on Android: Google Play → profile icon → Payments &amp; subscriptions → Subscriptions → BlessSoul → Cancel subscription. You can cancel anytime, and you'll still have access to premium features until your current billing period ends.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">🔒 Is my data secure?</div>
-            <div class="faq-answer">
-                Yes! Your data is transmitted securely over HTTPS and stored on trusted cloud infrastructure. We never sell your personal information. Your manifestations, goals, and personal information are securely stored and protected.
-            </div>
-        </div>
+        <details id="is-my-data-secure"><summary>Is my data secure?</summary><div class="a"><p>Yes! Your data is transmitted securely over HTTPS and stored on trusted cloud infrastructure. We never sell your personal information. Your manifestations, goals, and personal information are securely stored and protected.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">📱 Does BlessSoul work offline?</div>
-            <div class="faq-answer">
-                Yes! You can use most features offline, including viewing and creating goals, tracking manifestations, and browsing quotes. Your data will automatically sync to the cloud when you're back online.
-            </div>
-        </div>
+        <details id="does-blesssoul-work-offline"><summary>Does BlessSoul work offline?</summary><div class="a"><p>Yes! You can use most features offline, including viewing and creating goals, tracking manifestations, and browsing quotes. Your data will automatically sync to the cloud when you're back online.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">🔑 I forgot my password. How do I reset it?</div>
-            <div class="faq-answer">
-                On the login screen, tap "Forgot Password?" and enter your email address. You'll receive a password reset link within a few minutes. Check your spam folder if you don't see it right away.
-            </div>
-        </div>
-
-        <!-- Account deletion — its own section, not buried in the FAQ. Reviewers and
-             users both scan for this, and the billing warning must not be missed. -->
+        <details id="i-forgot-my-password-how-do-i-reset-it"><summary>I forgot my password. How do I reset it?</summary><div class="a"><p>On the login screen, tap "Forgot Password?" and enter your email address. You'll receive a password reset link within a few minutes. Check your spam folder if you don't see it right away.</p></div></details>
+</div>
         <h2 id="delete-account">Deleting Your Account</h2>
         <p>You can delete your BlessSoul account and all of its data yourself, from inside the app on iPhone or Android. You don't need to email us or ask permission.</p>
 
@@ -310,60 +125,23 @@
         <h3>Can't open the app?</h3>
         <p>If you no longer have the app or can't sign in, email <a href="mailto:support@blesssoul.com">support@blesssoul.com</a> from the email address on your account with the subject <strong>"Delete my account"</strong>. We'll delete the account and everything listed above, and confirm by email within 30 days. A guest account has no email address attached, so it can only be deleted from inside the app.</p>
         <p>We never delete an account on our own because a subscription ends &mdash; only when you ask.</p>
-
-        <!-- Troubleshooting -->
         <h2>Troubleshooting</h2>
 
-        <div class="faq-item">
-            <div class="faq-question">🔄 My data isn't syncing between devices</div>
-            <div class="faq-answer">
-                Check you're signed into the <strong>same account</strong> on both devices &mdash; this is by far the most common cause, especially if one device used Sign in with Apple and the other used email. Then confirm you have a connection: changes made offline are queued on the device and only upload once you're back online, so a device that has been offline will look out of date on your other devices until it reconnects. Open the app on the offline device and give it a moment to catch up. If a specific item still won't appear after both devices have been online, email us with the item's name.
-            </div>
-        </div>
+        <div class="d-qa">
+<details id="my-data-isn-t-syncing-between-devices"><summary>My data isn't syncing between devices</summary><div class="a"><p>Check you're signed into the <strong>same account</strong> on both devices &mdash; this is by far the most common cause, especially if one device used Sign in with Apple and the other used email. Then confirm you have a connection: changes made offline are queued on the device and only upload once you're back online, so a device that has been offline will look out of date on your other devices until it reconnects. Open the app on the offline device and give it a moment to catch up. If a specific item still won't appear after both devices have been online, email us with the item's name.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">🔔 My reminders and notifications stopped appearing</div>
-            <div class="faq-answer">
-                BlessSoul's reminders are scheduled on your device rather than pushed from a server, so the cause is almost always a phone setting. Check <strong>iPhone Settings → Notifications → BlessSoul</strong> (on Android, <strong>Settings → Apps → BlessSoul → Notifications</strong>, and allow <strong>Alarms &amp; reminders</strong> so they arrive on time) and make sure notifications are allowed. Then check whether a <strong>Focus</strong> or <strong>Do Not Disturb</strong> mode is filtering them, and that <strong>Scheduled Summary</strong> isn't holding them until later in the day. Inside the app, confirm the reminder is still switched on for that goal or block. On Android, battery optimisation can also delay reminders &mdash; set BlessSoul to <strong>Unrestricted</strong> under Settings → Apps → BlessSoul → Battery. If you have a very large number of reminders set, try turning off ones you no longer need &mdash; iOS limits how many any single app can have scheduled at once, and the oldest can be dropped.
-            </div>
-        </div>
+        <details id="my-reminders-and-notifications-stopped-appearing"><summary>My reminders and notifications stopped appearing</summary><div class="a"><p>BlessSoul's reminders are scheduled on your device rather than pushed from a server, so the cause is almost always a phone setting. Check <strong>iPhone Settings → Notifications → BlessSoul</strong> (on Android, <strong>Settings → Apps → BlessSoul → Notifications</strong>, and allow <strong>Alarms &amp; reminders</strong> so they arrive on time) and make sure notifications are allowed. Then check whether a <strong>Focus</strong> or <strong>Do Not Disturb</strong> mode is filtering them, and that <strong>Scheduled Summary</strong> isn't holding them until later in the day. Inside the app, confirm the reminder is still switched on for that goal or block. On Android, battery optimisation can also delay reminders &mdash; set BlessSoul to <strong>Unrestricted</strong> under Settings → Apps → BlessSoul → Battery. If you have a very large number of reminders set, try turning off ones you no longer need &mdash; iOS limits how many any single app can have scheduled at once, and the oldest can be dropped.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">📊 My widget or Live Activity isn't updating</div>
-            <div class="faq-answer">
-                Your phone decides when widgets refresh, based on your usage and the device's power budget &mdash; apps can request an update but cannot force one, so a widget may lag behind the app by a while. This is normal. Opening BlessSoul usually prompts a refresh. If a widget is stuck for a long time, remove it from your Home Screen and add it again, and check that <strong>Background App Refresh</strong> is enabled in iPhone Settings → General (on Android, that BlessSoul's battery use isn't restricted). Low Power Mode and Battery Saver significantly reduce widget updates.
-            </div>
-        </div>
+        <details id="my-widget-or-live-activity-isn-t-updating"><summary>My widget or Live Activity isn't updating</summary><div class="a"><p>Your phone decides when widgets refresh, based on your usage and the device's power budget &mdash; apps can request an update but cannot force one, so a widget may lag behind the app by a while. This is normal. Opening BlessSoul usually prompts a refresh. If a widget is stuck for a long time, remove it from your Home Screen and add it again, and check that <strong>Background App Refresh</strong> is enabled in iPhone Settings → General (on Android, that BlessSoul's battery use isn't restricted). Low Power Mode and Battery Saver significantly reduce widget updates.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">✨ AI affirmations aren't generating</div>
-            <div class="faq-answer">
-                AI features need an internet connection, so check that first. If you've been generating a lot in quick succession, you may have hit our rate limit &mdash; it's <strong>20 requests per minute</strong> per account, to keep costs sustainable. Wait a minute and try again. Some AI features, such as regenerating an affirmation, are Premium-only and will show an upgrade prompt rather than an error. If it still fails after a minute on a good connection, email us and mention roughly when it happened so we can find it in the logs.
-            </div>
-        </div>
+        <details id="ai-affirmations-aren-t-generating"><summary>AI affirmations aren't generating</summary><div class="a"><p>AI features need an internet connection, so check that first. If you've been generating a lot in quick succession, you may have hit our rate limit &mdash; it's <strong>20 requests per minute</strong> per account, to keep costs sustainable. Wait a minute and try again. Some AI features, such as regenerating an affirmation, are Premium-only and will show an upgrade prompt rather than an error. If it still fails after a minute on a good connection, email us and mention roughly when it happened so we can find it in the logs.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">📧 My password reset email hasn't arrived</div>
-            <div class="faq-answer">
-                Check your spam and promotions folders first &mdash; automated emails often land there. Make sure you entered the same address you registered with; if you enter an address that has no account, no email is sent. <strong>If you signed up with Apple or Google, there is no password to reset</strong> &mdash; use that same sign-in button instead. Note that Sign in with Apple may have created your account with a private relay address rather than your personal one. If nothing arrives after 15 minutes, email us from the address you're trying to recover.
-            </div>
-        </div>
+        <details id="my-password-reset-email-hasn-t-arrived"><summary>My password reset email hasn't arrived</summary><div class="a"><p>Check your spam and promotions folders first &mdash; automated emails often land there. Make sure you entered the same address you registered with; if you enter an address that has no account, no email is sent. <strong>If you signed up with Apple or Google, there is no password to reset</strong> &mdash; use that same sign-in button instead. Note that Sign in with Apple may have created your account with a private relay address rather than your personal one. If nothing arrives after 15 minutes, email us from the address you're trying to recover.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">💳 I'm being charged but don't have Premium</div>
-            <div class="faq-answer">
-                Go to <strong>Profile → Restore Purchases</strong> (also available in <strong>Settings</strong>, and via <strong>Restore</strong> at the bottom of the plan screen). This re-links a subscription you already own &mdash; useful after reinstalling or switching devices. Restore only works with the <strong>same Apple ID</strong> (on Android, the <strong>same Google account</strong>) that made the original purchase. If you're still charged without access after restoring, email us with the date of purchase and we'll look into it. iPhone refunds are handled by Apple at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>; Android refunds go through Google Play, or email us with your order number.
-            </div>
-        </div>
+        <details id="i-m-being-charged-but-don-t-have-premium"><summary>I'm being charged but don't have Premium</summary><div class="a"><p>Go to <strong>Profile → Restore Purchases</strong> (also available in <strong>Settings</strong>, and via <strong>Restore</strong> at the bottom of the plan screen). This re-links a subscription you already own &mdash; useful after reinstalling or switching devices. Restore only works with the <strong>same Apple ID</strong> (on Android, the <strong>same Google account</strong>) that made the original purchase. If you're still charged without access after restoring, email us with the date of purchase and we'll look into it. iPhone refunds are handled by Apple at <a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>; Android refunds go through Google Play, or email us with your order number.</p></div></details>
 
-        <div class="faq-item">
-            <div class="faq-question">💥 The app crashes or won't open</div>
-            <div class="faq-answer">
-                Force-close BlessSoul and reopen it, then make sure you're on the latest version from the App Store or Google Play &mdash; crashes are often already fixed in an update. Restarting your phone clears a surprising number of one-off issues. If it keeps crashing, reinstalling is safe for your content: your goals, manifestations and schedule are stored in the cloud and come back when you sign in. <strong>One exception</strong> &mdash; your profile picture is stored only on your device and won't return after a reinstall, so you'll need to set it again. When you email us, telling us what you were doing right before the crash helps enormously.
-            </div>
-        </div>
-
-        <!-- Additional Resources -->
+        <details id="the-app-crashes-or-won-t-open"><summary>The app crashes or won't open</summary><div class="a"><p>Force-close BlessSoul and reopen it, then make sure you're on the latest version from the App Store or Google Play &mdash; crashes are often already fixed in an update. Restarting your phone clears a surprising number of one-off issues. If it keeps crashing, reinstalling is safe for your content: your goals, manifestations and schedule are stored in the cloud and come back when you sign in. <strong>One exception</strong> &mdash; your profile picture is stored only on your device and won't return after a reinstall, so you'll need to set it again. When you email us, telling us what you were doing right before the crash helps enormously.</p></div></details>
+</div>
         <h2>Additional Resources</h2>
         <ul>
             <li><a href="../privacy/">Privacy Policy</a> - Learn how we protect your data</li>
@@ -379,80 +157,34 @@
             <li>A description of the issue you're experiencing</li>
             <li>Screenshots if applicable</li>
         </ul>
-        <p>We'll do our best to help you as quickly as possible! 🙏</p>
-    </main>
+        <p>We'll do our best to help.</p>
+    
+        </article>
+    </div>
+</main>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <img src="../assets/images/logo.png?v=2" alt="BlessSoul Logo" class="footer-logo">
-                    <p class="footer-tagline">Manifest your best life, one day at a time.</p>
-
-                    <!-- Social Media Links -->
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/blesssoulapp" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-link">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
-                            </svg>
-                        </a>
-
-                        <a href="https://www.instagram.com/blesssoulapp" target="_blank" rel="noopener noreferrer" aria-label="Instagram" class="social-link">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                            </svg>
-                        </a>
-
-                        <a href="https://x.com/blesssoulapp" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" class="social-link">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                            </svg>
-                        </a>
-
-                        <a href="https://www.tiktok.com/@blesssoulapp" target="_blank" rel="noopener noreferrer" aria-label="TikTok" class="social-link">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
-                            </svg>
-                        </a>
-
-                        <a href="https://www.threads.net/@blesssoulapp" target="_blank" rel="noopener noreferrer" aria-label="Threads" class="social-link">
-                            <svg width="24" height="24" viewBox="0 0 192 192" fill="currentColor">
-                                <path d="M141.537 88.9883C140.71 88.5919 139.87 88.2104 139.019 87.8451C137.537 60.5382 122.616 44.905 97.5619 44.745C97.4484 44.7443 97.3355 44.7443 97.222 44.7443C82.2364 44.7443 69.7731 51.1409 62.102 62.7807L75.881 72.2328C81.6116 63.5383 90.6052 61.6848 97.2286 61.6848C97.3051 61.6848 97.3819 61.6848 97.4576 61.6855C105.707 61.7381 111.932 64.1366 115.961 68.814C118.893 72.2193 120.854 76.925 121.825 82.8638C114.511 81.6207 106.601 81.2385 98.145 81.7233C74.3247 83.0954 59.0111 96.9879 60.0396 116.292C60.5615 126.084 65.4397 134.508 73.775 140.011C80.8224 144.663 89.899 146.938 99.3323 146.423C111.79 145.74 121.563 140.987 128.381 132.296C133.559 125.696 136.834 117.143 138.28 106.366C144.217 109.949 148.617 114.664 151.047 120.332C155.179 129.967 155.42 145.8 142.501 158.708C131.182 170.016 117.576 174.908 97.0135 175.059C74.2042 174.89 56.9538 167.575 45.7381 153.317C35.2355 139.966 29.8077 120.682 29.6052 96C29.8077 71.3178 35.2355 52.0336 45.7381 38.6827C56.9538 24.4249 74.2039 17.11 97.0132 16.9405C119.988 17.1113 137.539 24.4614 149.184 38.788C154.894 45.8136 159.199 54.6488 162.037 64.9503L178.184 60.6422C174.744 47.9622 169.331 37.0357 161.965 27.974C147.036 9.60668 125.202 0.195148 97.0695 0H96.9569C68.8816 0.19447 47.2921 9.6418 32.7883 28.0793C19.8819 44.4864 13.2244 67.3157 13.0007 95.9325L13 96L13.0007 96.0675C13.2244 124.684 19.8819 147.514 32.7883 163.921C47.2921 182.358 68.8816 191.806 96.9569 192H97.0695C122.03 191.827 139.624 185.292 154.118 170.811C173.081 151.866 172.51 128.119 166.26 113.541C161.776 103.087 153.227 94.5962 141.537 88.9883ZM98.4405 129.507C88.0005 130.095 77.1544 125.409 76.6196 115.372C76.2232 107.93 81.9158 99.626 99.0812 98.6368C101.047 98.5234 102.976 98.468 104.871 98.468C111.106 98.468 116.939 99.0737 122.242 100.233C120.264 124.935 108.662 128.946 98.4405 129.507Z"/>
-                            </svg>
-                        </a>
-
-                        <a href="https://www.youtube.com/@blesssoulapp" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-link">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer-links">
-                    <div class="footer-section">
-                        <h4>Connect</h4>
-                        <ul>
-                            <li><a href="mailto:support@blesssoul.com">Support</a></li>
-                            <li><a href="../#download">Download</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="footer-section">
-                        <h4>Legal</h4>
-                        <ul>
-                            <li><a href="../privacy/">Privacy Policy</a></li>
-                            <li><a href="../terms/">Terms of Service</a></li>
-                        </ul>
-                    </div>
+<footer class="s-foot">
+    <div class="s-wrap">
+        <div class="s-foot-grid">
+            <div>
+                <a href="../" class="s-brand"><img src="../assets/images/logo.png?v=2" alt="">BlessSoul</a>
+                <p>Manifest it. Then actually do it.</p>
+                <div class="socials">
+                    <a href="https://www.instagram.com/blesssoulapp" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                    <a href="https://www.tiktok.com/@blesssoulapp" target="_blank" rel="noopener" aria-label="TikTok"><svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg></a>
+                    <a href="https://www.youtube.com/@blesssoulapp" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+                    <a href="https://x.com/blesssoulapp" target="_blank" rel="noopener" aria-label="X"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+                    <a href="https://www.threads.net/@blesssoulapp" target="_blank" rel="noopener" aria-label="Threads"><svg viewBox="0 0 192 192"><path d="M141.537 88.988C140.71 88.592 139.87 88.21 139.019 87.845C137.537 60.538 122.616 44.905 97.562 44.745C97.448 44.744 97.336 44.744 97.222 44.744C82.236 44.744 69.773 51.141 62.102 62.781L75.881 72.233C81.612 63.538 90.605 61.685 97.229 61.685C97.305 61.685 97.382 61.685 97.458 61.686C105.707 61.738 111.932 64.137 115.961 68.814C118.893 72.219 120.854 76.925 121.825 82.864C114.511 81.621 106.601 81.239 98.145 81.723C74.325 83.095 59.011 96.988 60.04 116.292C60.562 126.084 65.44 134.508 73.775 140.011C80.822 144.663 89.899 146.938 99.332 146.423C111.79 145.74 121.563 140.987 128.381 132.296C133.559 125.696 136.834 117.143 138.28 106.366C144.217 109.949 148.617 114.664 151.047 120.332C155.179 129.967 155.42 145.8 142.501 158.708C131.182 170.016 117.576 174.908 97.014 175.059C74.204 174.89 56.954 167.575 45.738 153.317C35.236 139.966 29.808 120.682 29.605 96C29.808 71.318 35.236 52.034 45.738 38.683C56.954 24.425 74.204 17.11 97.013 16.941C119.988 17.111 137.539 24.461 149.184 38.788C154.894 45.814 159.199 54.649 162.037 64.95L178.184 60.642C174.744 47.962 169.331 37.036 161.965 27.974C147.036 9.607 125.202 0.195 97.07 0H96.957C68.882 0.194 47.292 9.642 32.788 28.079C19.882 44.486 13.224 67.316 13.001 95.933L13 96L13.001 96.068C13.224 124.684 19.882 147.514 32.788 163.921C47.292 182.358 68.882 191.806 96.957 192H97.07C122.03 191.827 139.624 185.292 154.118 170.811C173.081 151.866 172.51 128.119 166.26 113.541C161.776 103.087 153.227 94.596 141.537 88.988ZM98.441 129.507C88.001 130.095 77.154 125.409 76.62 115.372C76.223 107.93 81.916 99.626 99.081 98.637C101.047 98.523 102.976 98.468 104.871 98.468C111.106 98.468 116.939 99.074 122.242 100.233C120.264 124.935 108.662 128.946 98.441 129.507Z"/></svg></a>
+                    <a href="https://www.facebook.com/blesssoulapp" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
                 </div>
             </div>
-
-            <div class="footer-bottom">
-                <p>&copy; 2026 BlessSoul. All rights reserved.</p>
-            </div>
+            <div><h4>App</h4><a href="https://apps.apple.com/app/id6754575930" target="_blank" rel="noopener">Download for iPhone</a><a href="../get/">Share link</a><a href="../support/">Support</a></div>
+            <div><h4>Legal</h4><a href="../privacy/">Privacy Policy</a><a href="../terms/">Terms of Service</a><a href="mailto:support@blesssoul.com">support@blesssoul.com</a></div>
         </div>
-    </footer>
+        <div class="s-foot-bottom"><span>© <span id="year">2026</span> BlessSoul. All rights reserved.</span><span>Apple, the Apple logo and App Store are trademarks of Apple Inc.</span></div>
+    </div>
+</footer>
+
+<script src="../page.js?v=1" defer></script>
 </body>
 </html>

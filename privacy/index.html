@@ -53,7 +53,7 @@
         <span class="s-kicker">Legal</span>
         <h1>Privacy Policy</h1>
         <p class="d-lead">What we collect, why, where it goes, how long we keep it, and the rights you have.</p>
-        <div class="d-meta"><span>Effective 19 July 2026</span><span>Last updated 1 November 2026</span></div>
+        <div class="d-meta"><span>Effective 19 July 2026</span><span>Last updated 4 November 2026</span></div>
     </section>
     <div class="d-layout">
         <aside class="d-toc" aria-label="On this page"><h4>On this page</h4></aside>
@@ -118,7 +118,7 @@
 <h3>1.6 Technical Information</h3>
 <p>Device model, operating system (iOS or Android) version, app version, language, network connectivity status, an anonymous device identifier used by analytics, and crash logs and stack traces. General location is derived at <strong>country or region level only</strong> — we do not collect GPS or precise location.</p>
 <h3>1.7 AI Usage Logs</h3>
-<p>When an AI feature runs, our server records the account it belonged to, which feature was used, which AI model, how much text was processed, the estimated cost, how long it took, and whether it worked. <strong>These logs do not contain the text of your prompt or of the AI's response.</strong> They exist for cost control, rate limiting and debugging.</p>
+<p>When an AI feature runs, our server records the account it belonged to, which feature was used, which AI model, how much text was processed, the estimated cost, how long it took, and whether it worked. <strong>These logs do not contain the text of your prompt or of the AI's response.</strong> They exist for cost control, rate limiting and debugging. To let us confirm a reported answer is genuine (section 3.6), they also keep a one-way fingerprint of the request and the reply. The text can't be read back from it.</p>
 <h3>1.8 Apple Health and Health Connect</h3>
 <p>If you switch on <strong>"Fill from Apple Health"</strong> (iPhone) or <strong>"Fill from Health Connect"</strong> (Android) for a habit, BlessSoul reads the matching measure — steps, water, exercise, sleep or weight (on iPhone also mindful minutes, stand hours or time in daylight) — to fill in that habit's last seven days or a weight goal's readings. Water you log, and on iPhone mindful sessions from the habit timer, are saved back to Health. What BlessSoul saves there becomes part of your Health data: it stays in Health if you delete your BlessSoul account, and you can remove it in the Health app or Health Connect.</p>
 <p><strong>Your Health records stay on your phone.</strong> The habit's daily total that was filled in is saved to your BlessSoul account like any day you log yourself, so it appears on your other devices, and it is deleted when you delete the habit or your account.</p>
@@ -188,6 +188,8 @@
 <p>AI-generated content is shown to you without human review and without an automated safety filter. It may be inaccurate or inappropriate. See section 12 of our <a href="../terms/">Terms of Service</a>.</p>
 <h3>3.5 We Do Not Train on Your Data</h3>
 <p><strong>We do not use your content to train, fine-tune or improve any AI model, ours or anyone else's.</strong></p>
+<h3>3.6 Reporting an AI Answer</h3>
+<p>You can report any AI answer in the App. Nothing is shared until you press Send. Your report includes the reason you chose, any note you add, the AI's reply and what you entered to get it, along with your account, plan, app version and device system version. A person at BlessSoul reads it, and we receive it by email as well. We use reports to investigate problems, improve our prompts and keep a record of the complaint.</p>
 
 <hr />
 
@@ -216,10 +218,11 @@
 <p><strong>No text you write ever reaches our analytics.</strong> Every analytics event records a fixed value — a screen name, a day number, a goal's type, a count, whether something succeeded. Your manifestation text, goal titles, reflections, vows, journal entries and voice recordings are <strong>excluded entirely and by design</strong>, both from third-party analytics and from our own in-app measurement.</p>
 <p>So when we look at how BlessSoul is used, we are looking at patterns of behaviour. We are not reading what you wrote.</p>
 <h3>5.4 When We Might Look at Individual Content</h3>
-<p>We do not read individual entries as a matter of routine, and we have no interest in doing so. There are three narrow situations where it could happen:</p>
+<p>We do not read individual entries as a matter of routine, and we have no interest in doing so. There are four narrow situations where it could happen:</p>
 <ul>
 <li><strong>Technical support you asked for</strong> — if you report a problem with a specific item and we need to inspect that record to fix it.</li>
 <li><strong>A serious technical fault</strong> — investigating data corruption, a failed sync or a bug affecting stored records.</li>
+<li><strong>An AI answer you reported</strong> — if you press Report and then Send, we read what you sent so we can look into it (section 3.6).</li>
 <li><strong>Legal compulsion</strong> — where a valid legal order requires it. Where we are permitted to tell you, we will.</li>
 </ul>
 <p>Outside these, your entries are not opened.</p>
@@ -281,6 +284,7 @@
 <ul>
 <li><strong>Analytics:</strong> retained by Firebase for up to 14 months; crash data around 90 days.</li>
 <li><strong>AI usage logs:</strong> retained for cost and abuse monitoring. They contain no prompt or response text.</li>
+<li><strong>AI reports:</strong> kept for 2 years, then deleted.</li>
 <li><strong>Transaction records:</strong> retained as required by Indian tax law, currently up to 7 years.</li>
 <li><strong>Backups:</strong> purged on our providers' ordinary cycle, within approximately 30 days.</li>
 </ul>
@@ -290,6 +294,7 @@
 <ul>
 <li><strong>A subscription record</strong> with your email address and name removed and its status marked as deleted. It keeps the plan, the dates and the customer ID our subscription provider uses (the internal ID your account had), but none of your content, and it is no longer linked to an account. It is kept to prevent repeated abuse of free trials and promotional offers and to satisfy tax and accounting obligations.</li>
 <li><strong>Records required by law</strong>, such as transaction records.</li>
+<li><strong>AI reports you sent</strong>, until the 2 years in section 8.3 end. They are no longer linked to your account, but they still contain the text you sent.</li>
 <li><strong>Aggregated or anonymised analytics</strong> that cannot be traced back to you. Note that analytics already sent to Firebase is not individually recalled on deletion.</li>
 <li><strong>Backups</strong>, until purged on the ordinary cycle.</li>
 <li><strong>Voice recordings in the circumstances described in section 4</strong>.</li>

@@ -78,23 +78,95 @@
   const setMoonImg = (el, m) => { el.src = moonSrc(m.img); el.classList.toggle('is-new', m.img === 'new'); el.alt = el.alt ? `${m.name}` : ''; };
 
   // Upcoming events: principal moons from the table (with their sign when we know it), recurring number
-  // portals, and the 2026 sky events the app ships. Each row is a local calendar date.
-  const SIGNS = { '2026-10-18|1': 'Capricorn', '2026-10-26|2': 'Taurus', '2026-11-2|3': 'Leo', '2026-11-9|0': 'Scorpio', '2026-11-17|1': 'Aquarius', '2026-11-24|2': 'Gemini', '2026-12-1|3': 'Virgo' };
+  // portals, and the 2026 and 2027 sky events the app ships. Each row is a local calendar date.
+  const SIGNS = {
+    '2026-10-18|1': 'Capricorn', '2026-10-26|2': 'Taurus', '2026-11-1|3': 'Leo', '2026-11-9|0': 'Scorpio', '2026-11-17|1': 'Aquarius', '2026-11-24|2': 'Gemini',
+    '2026-12-1|3': 'Virgo', '2026-12-9|0': 'Sagittarius', '2026-12-17|1': 'Pisces', '2026-12-24|2': 'Cancer', '2026-12-30|3': 'Libra', '2027-1-7|0': 'Capricorn',
+    '2027-1-15|1': 'Aries', '2027-1-22|2': 'Leo', '2027-1-29|3': 'Scorpio', '2027-2-14|1': 'Taurus', '2027-2-28|3': 'Sagittarius', '2027-3-8|0': 'Pisces',
+    '2027-3-15|1': 'Gemini', '2027-3-22|2': 'Libra', '2027-3-30|3': 'Capricorn', '2027-4-6|0': 'Aries', '2027-4-13|1': 'Cancer', '2027-4-20|2': 'Scorpio',
+    '2027-4-28|3': 'Aquarius', '2027-5-6|0': 'Taurus', '2027-5-13|1': 'Leo', '2027-5-20|2': 'Scorpio', '2027-5-28|3': 'Pisces', '2027-6-4|0': 'Gemini',
+    '2027-6-11|1': 'Virgo', '2027-6-19|2': 'Sagittarius', '2027-6-27|3': 'Aries', '2027-7-4|0': 'Cancer', '2027-7-10|1': 'Libra', '2027-7-26|3': 'Taurus',
+    '2027-8-9|1': 'Scorpio', '2027-8-25|3': 'Gemini', '2027-8-31|0': 'Virgo', '2027-9-7|1': 'Sagittarius', '2027-9-15|2': 'Pisces', '2027-9-23|3': 'Cancer',
+    '2027-9-30|0': 'Libra', '2027-10-7|1': 'Capricorn', '2027-10-15|2': 'Aries', '2027-10-22|3': 'Cancer', '2027-10-29|0': 'Scorpio', '2027-11-6|1': 'Aquarius',
+    '2027-11-14|2': 'Taurus', '2027-11-21|3': 'Leo', '2027-11-28|0': 'Sagittarius', '2027-12-6|1': 'Pisces', '2027-12-13|2': 'Gemini', '2027-12-20|3': 'Virgo',
+    '2027-12-27|0': 'Capricorn'
+  };
+  const ECLIPSES = {
+    '2027-2-6|0': 'New Moon & Annular Solar Eclipse in Aquarius',
+    '2027-2-20|2': 'Full Snow Moon & Penumbral Lunar Eclipse in Virgo',
+    '2027-7-18|2': 'Micro Full Moon & Penumbral Lunar Eclipse in Capricorn',
+    '2027-8-2|0': 'Super New Moon & Total Solar Eclipse in Leo',
+    '2027-8-17|2': 'Micro Full Moon & Penumbral Lunar Eclipse in Aquarius'
+  };
   const STATIC = [
     ['2026-10-16', 'Pluto Stations Direct in Aquarius', '◌', '#6B4FD6', 3], ['2026-10-22', 'Orionid Meteor Shower', '✦', '#4FB3C8', 3],
     ['2026-10-23', 'Sun Enters Scorpio', '☀', '#E8336B', 3], ['2026-10-24', 'Mercury Stations Retrograde in Scorpio', '◌', '#7C5CFF', 4],
     ['2026-10-25', 'Venus Re-enters Libra', '★', '#E08BC8', 2], ['2026-11-13', 'Mercury Stations Direct in Scorpio', '◌', '#3D8BE2', 4],
     ['2026-11-14', 'Venus Stations Direct in Libra', '◌', '#D46BD4', 4], ['2026-11-16', 'Mars Conjunct Jupiter', '★', '#FF6B2C', 3],
     ['2026-11-17', 'Leonid Meteor Shower', '✦', '#E0A64A', 3], ['2026-11-22', 'Sun Enters Sagittarius', '☀', '#E0A64A', 3],
-    ['2026-11-26', 'Mars Enters Virgo', '★', '#9ACD32', 2], ['2026-11-29', 'Uranus Trine Pluto', '★', '#2E8BFF', 3], ['2026-12-04', 'Venus Enters Scorpio', '★', '#D46BD4', 2]
+    ['2026-11-26', 'Mars Enters Virgo', '★', '#9ACD32', 2], ['2026-11-29', 'Uranus Trine Pluto', '★', '#2E8BFF', 3], ['2026-12-04', 'Venus Enters Scorpio', '★', '#D46BD4', 2],
+    ['2026-12-06', 'Mercury Enters Sagittarius', '★', '#D46BD4', 2], ['2026-12-10', 'Saturn Stations Direct in Aries', '◌', '#7C5CFF', 3],
+    ['2026-12-12', 'Neptune Direct · Jupiter Retrograde', '◌', '#7C5CFF', 3], ['2026-12-14', 'Geminid Meteor Shower', '✦', '#4FB3C8', 4],
+    ['2026-12-21', 'Winter Solstice', '☀', '#E0A64A', 5], ['2026-12-25', 'Mercury Enters Capricorn', '★', '#D46BD4', 2],
+    ['2027-01-01', '1/1 Portal', '✦', '#8B5CF6', 3], ['2027-01-03', 'Jupiter Trine Chiron', '★', '#D46BD4', 3],
+    ['2027-01-03', 'Venus at Greatest Elongation West', '★', '#D46BD4', 3], ['2027-01-04', 'Quadrantid Meteor Shower', '✦', '#4FB3C8', 4],
+    ['2027-01-06', 'Chiron Stations Direct in Aries', '◌', '#7C5CFF', 3], ['2027-01-10', 'Mars Stations Retrograde in Virgo', '◌', '#7C5CFF', 4],
+    ['2027-01-11', '1/11 Portal', '✦', '#8B5CF6', 4], ['2027-01-15', 'Uranus Sextile Neptune', '★', '#D46BD4', 4],
+    ['2027-01-20', 'Sun Enters Aquarius', '☀', '#E0A64A', 3], ['2027-01-25', 'Sun Conjunct Pluto', '★', '#D46BD4', 2],
+    ['2027-02-02', '2/2 Portal', '✦', '#8B5CF6', 2], ['2027-02-08', 'Uranus Stations Direct in Gemini', '◌', '#7C5CFF', 3],
+    ['2027-02-09', 'Mercury Stations Retrograde in Pisces', '◌', '#7C5CFF', 4], ['2027-02-11', 'Jupiter at Opposition', '★', '#D46BD4', 4],
+    ['2027-02-18', 'Mercury Cazimi in Aquarius', '★', '#D46BD4', 4], ['2027-02-18', 'Sun Enters Pisces', '☀', '#E0A64A', 3],
+    ['2027-02-19', 'Mars at Opposition', '★', '#D46BD4', 3], ['2027-02-21', 'Mars Re-enters Leo', '★', '#D46BD4', 2],
+    ['2027-02-22', '2/22 Portal', '✦', '#8B5CF6', 3], ['2027-03-03', '3/3 Portal', '✦', '#8B5CF6', 2],
+    ['2027-03-03', 'Mercury Stations Direct in Aquarius', '◌', '#7C5CFF', 3], ['2027-03-06', 'Venus Conjunct Pluto', '★', '#D46BD4', 2],
+    ['2027-03-17', 'Mercury at Greatest Elongation West', '★', '#D46BD4', 2], ['2027-03-20', 'Spring Equinox — Sun Enters Aries', '☀', '#E0A64A', 5],
+    ['2027-03-24', 'Sun Conjunct Neptune', '★', '#D46BD4', 2], ['2027-03-31', 'Mars and Jupiter Close Approach', '★', '#D46BD4', 3],
+    ['2027-04-01', 'Mars Stations Direct in Leo', '◌', '#7C5CFF', 4], ['2027-04-03', 'Jupiter Trine Saturn', '★', '#D46BD4', 4],
+    ['2027-04-04', '4/4 Portal', '✦', '#8B5CF6', 2], ['2027-04-07', 'Sun Conjunct Saturn', '★', '#D46BD4', 2],
+    ['2027-04-13', 'Jupiter Stations Direct in Leo', '◌', '#7C5CFF', 3], ['2027-04-14', 'Chiron Enters Taurus', '★', '#D46BD4', 4],
+    ['2027-04-20', 'Sun Enters Taurus', '☀', '#E0A64A', 3], ['2027-04-23', 'Lyrid Meteor Shower', '✦', '#4FB3C8', 2],
+    ['2027-05-05', '5/5 Portal', '✦', '#8B5CF6', 2], ['2027-05-06', 'Eta Aquariid Meteor Shower', '✦', '#4FB3C8', 4],
+    ['2027-05-07', 'Venus Conjunct Saturn', '★', '#D46BD4', 2], ['2027-05-08', 'Pluto Stations Retrograde in Aquarius', '◌', '#7C5CFF', 3],
+    ['2027-05-14', 'Mars Returns to Virgo', '★', '#D46BD4', 2], ['2027-05-21', 'Sun Enters Gemini', '☀', '#E0A64A', 3],
+    ['2027-05-27', 'Sun Conjunct Uranus', '★', '#D46BD4', 2], ['2027-06-06', '6/6 Portal', '✦', '#8B5CF6', 2],
+    ['2027-06-06', 'Uranus Sextile Neptune', '★', '#D46BD4', 4], ['2027-06-10', 'Mercury Stations Retrograde in Cancer', '◌', '#7C5CFF', 4],
+    ['2027-06-14', 'Venus Conjunct Uranus', '★', '#D46BD4', 2], ['2027-06-15', 'Uranus Trine Pluto', '★', '#D46BD4', 5],
+    ['2027-06-21', 'Summer Solstice — Sun Enters Cancer', '☀', '#E0A64A', 5], ['2027-06-23', 'Mercury Cazimi in Cancer', '★', '#D46BD4', 4],
+    ['2027-06-28', 'Neptune Sextile Pluto', '★', '#D46BD4', 4], ['2027-07-04', 'Mercury Stations Direct in Gemini', '◌', '#7C5CFF', 3],
+    ['2027-07-07', '7/7 Portal', '✦', '#8B5CF6', 2], ['2027-07-09', 'Neptune Stations Retrograde in Aries', '◌', '#7C5CFF', 3],
+    ['2027-07-11', 'Jupiter Trine Saturn', '★', '#D46BD4', 4], ['2027-07-15', 'Mars Enters Libra', '★', '#D46BD4', 2],
+    ['2027-07-23', 'Sun Enters Leo', '☀', '#E0A64A', 3], ['2027-07-26', 'Jupiter Enters Virgo', '★', '#D46BD4', 4],
+    ['2027-07-29', 'Sun Opposite Pluto', '★', '#D46BD4', 2], ['2027-07-30', 'Southern Delta Aquariid Meteor Shower', '✦', '#4FB3C8', 3],
+    ['2027-08-08', 'Chiron Stations Retrograde in Taurus', '◌', '#7C5CFF', 3], ['2027-08-09', 'Saturn Stations Retrograde in Aries', '◌', '#7C5CFF', 3],
+    ['2027-08-12', 'Venus Cazimi in Leo', '★', '#D46BD4', 4], ['2027-08-13', 'Perseid Meteor Shower', '✦', '#4FB3C8', 3],
+    ['2027-08-17', 'Jupiter Trine Chiron', '★', '#D46BD4', 3], ['2027-08-23', 'Sun Enters Virgo', '☀', '#E0A64A', 3],
+    ['2027-08-26', 'Venus Conjunct Jupiter', '★', '#D46BD4', 3], ['2027-08-29', 'Mars Opposite Saturn', '★', '#D46BD4', 3],
+    ['2027-08-31', 'Sun Conjunct Jupiter', '★', '#D46BD4', 3], ['2027-09-01', 'Aurigid Meteor Shower', '✦', '#4FB3C8', 2],
+    ['2027-09-02', 'Mars Enters Scorpio', '★', '#D46BD4', 2], ['2027-09-09', '9/9 Portal', '✦', '#8B5CF6', 3],
+    ['2027-09-09', 'Mars Square Pluto', '★', '#D46BD4', 3], ['2027-09-10', 'Jupiter Square Uranus', '★', '#D46BD4', 3],
+    ['2027-09-15', 'Uranus Stations Retrograde in Gemini', '◌', '#7C5CFF', 3], ['2027-09-23', 'Autumn Equinox — Sun Enters Libra', '☀', '#E0A64A', 5],
+    ['2027-09-24', 'Mercury at Greatest Elongation East', '★', '#D46BD4', 2], ['2027-09-28', 'Neptune at Opposition', '★', '#D46BD4', 2],
+    ['2027-10-07', 'Mercury Stations Retrograde in Scorpio', '◌', '#7C5CFF', 4], ['2027-10-09', 'Draconid Meteor Shower', '✦', '#4FB3C8', 2],
+    ['2027-10-10', '10/10 Portal', '✦', '#8B5CF6', 2], ['2027-10-15', 'Mars Enters Sagittarius', '★', '#D46BD4', 2],
+    ['2027-10-16', 'Neptune Sextile Pluto', '★', '#D46BD4', 4], ['2027-10-18', 'Pluto Stations Direct in Aquarius', '◌', '#7C5CFF', 3],
+    ['2027-10-18', 'Saturn at Opposition', '★', '#D46BD4', 3], ['2027-10-19', 'Mercury Cazimi in Libra', '★', '#D46BD4', 4],
+    ['2027-10-22', 'Orionid Meteor Shower', '✦', '#4FB3C8', 2], ['2027-10-23', 'Sun Enters Scorpio', '☀', '#E0A64A', 3],
+    ['2027-10-28', 'Mercury Stations Direct in Libra', '◌', '#7C5CFF', 3], ['2027-11-16', 'Pluto Conjunct North Node', '★', '#D46BD4', 4],
+    ['2027-11-18', 'Leonid Meteor Shower', '✦', '#4FB3C8', 2], ['2027-11-22', 'Sun Enters Sagittarius', '☀', '#E0A64A', 3],
+    ['2027-11-25', 'Mars Enters Capricorn', '★', '#D46BD4', 2], ['2027-11-25', 'Venus Conjunct Mars', '★', '#D46BD4', 4],
+    ['2027-11-30', 'Moon Occults Venus', '★', '#D46BD4', 3], ['2027-11-30', 'Uranus at Opposition', '★', '#D46BD4', 2],
+    ['2027-12-14', 'Geminid Meteor Shower', '✦', '#4FB3C8', 3], ['2027-12-15', 'Neptune Stations Direct in Aries', '◌', '#7C5CFF', 3],
+    ['2027-12-22', 'Winter Solstice — Sun Enters Capricorn', '☀', '#E0A64A', 5], ['2027-12-23', 'Mars Square Saturn', '★', '#D46BD4', 3],
+    ['2027-12-23', 'Ursid Meteor Shower', '✦', '#4FB3C8', 2], ['2027-12-24', 'Saturn Stations Direct in Aries', '◌', '#7C5CFF', 3],
+    ['2027-12-24', 'Venus Conjunct Pluto', '★', '#D46BD4', 2]
   ];
   const parseD = (s) => { const [Y, M, D] = s.split('-').map(Number); return new Date(Y, M - 1, D); };
   function upcoming(limit, horizonDays = 75) {
     const end = new Date(+today + horizonDays * DAY), ev = [];
     TABLE.forEach(e => {
       const d = startOfDay(e.date); if (d < today || d > end) return;
-      const key = `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}|${e.kind}`;
-      const name = ['New Moon', 'First Quarter Moon', 'Full Moon', 'Last Quarter Moon'][e.kind] + (SIGNS[key] ? ` in ${SIGNS[key]}` : '');
+      const key = `${e.date.getUTCFullYear()}-${e.date.getUTCMonth() + 1}-${e.date.getUTCDate()}|${e.kind}`;
+      const name = ECLIPSES[key] || ['New Moon', 'First Quarter Moon', 'Full Moon', 'Last Quarter Moon'][e.kind] + (SIGNS[key] ? ` in ${SIGNS[key]}` : '');
       ev.push({ date: d, title: name, moon: PRINCIPAL[e.kind][0], color: e.kind === 2 ? '#8B5CF6' : '#FF8C42', stars: e.kind % 2 === 0 ? 5 : 2, kind: e.kind });
     });
     for (let yr = today.getFullYear(); yr <= today.getFullYear() + 1; yr++) {

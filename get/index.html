@@ -56,12 +56,26 @@
 
             window.BLESSSOUL_LINKS = { appStore: APP_STORE, play: play, playLive: PLAY_LIVE, isAndroid: isAndroid };
 
-            // A phone goes STRAIGHT to its store — the page never paints, so there's no flash of
-            // it on the way. Only a computer (or Android before launch) ever sees this page.
-            var target = isIOS ? APP_STORE : (isAndroid && PLAY_LIVE ? play : null);
+            // A phone goes STRAIGHT to its store, with the page hidden so it doesn't flash. Android
+            // uses an app link so the Play Store app opens, not Play's website inside the browser;
+            // a phone without the Play Store gets the website instead.
+            var playApp = "intent://details?id=praveenahd.blesssoul&referrer=" + encodeURIComponent("utm_source=" + src + "&utm_medium=share") +
+                "#Intent;scheme=market;package=com.android.vending;S.browser_fallback_url=" + encodeURIComponent(play) + ";end";
+            var target = isIOS ? APP_STORE : (isAndroid && PLAY_LIVE ? playApp : null);
             if (target) {
+                var show = function () { document.documentElement.style.visibility = ""; };
                 document.documentElement.style.visibility = "hidden";
-                location.replace(target);
+                // If the jump doesn't happen, or they come back, show the page with both buttons.
+                window.addEventListener("pageshow", function (e) { if (e.persisted) show(); });
+                if (isIOS) {
+                    location.replace(target);
+                } else {
+                    // Android stops building the page once an app link starts, so build it first.
+                    document.addEventListener("DOMContentLoaded", function () {
+                        setTimeout(show, 1500);
+                        location.replace(target);
+                    });
+                }
             }
         })();
     </script>

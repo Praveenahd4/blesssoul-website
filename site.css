@@ -358,11 +358,18 @@ img.is-new { opacity: .22; filter: grayscale(1); }
 .w-rem span { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-weight: 700; font-size: .85rem; color: #F97316; font-variant-numeric: tabular-nums; }
 .w-bar { height: 4px; border-radius: 4px; margin-top: 7px; background: rgba(127, 127, 127, .18); overflow: hidden; }
 .w-bar i { display: block; height: 100%; width: 0; background: linear-gradient(90deg, #DB3DDB, #9B72D6); border-radius: 4px; transition: width 1s linear; }
-.w-md { grid-column: span 2; background: #1A1033; color: #fff; padding: 18px 20px; display: flex; flex-direction: column; justify-content: space-between; }
-.w-md .tp { align-self: flex-start; font-size: .66rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: #9B72D6; }
-.w-md p { margin: 0; font-family: var(--serif); font-size: 1.15rem; line-height: 1.3; color: #fff; }
-.w-md .ft { display: flex; justify-content: space-between; font-size: .72rem; color: rgba(255, 255, 255, .6); }
-.w-md .ft i { font-style: normal; color: #FF5C8A; }
+.w-md { grid-column: span 2; position: relative; overflow: visible; background: #1A1033; color: #fff; padding: 16px 20px 10px; display: flex; flex-direction: column; justify-content: space-between; }
+.w-sp-top { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.w-md .tp { font-size: .66rem; font-weight: 700; padding: 4px 10px; border-radius: 999px; background: #9B72D6; }
+.w-md .sp { font-size: .72rem; color: rgba(255, 255, 255, .6); }
+.w-md p { margin: 0; text-align: center; font-family: var(--serif); font-size: 1.15rem; line-height: 1.3; color: #fff; }
+.w-md .hrt { position: relative; align-self: center; width: 34px; height: 34px; display: grid; place-items: center; cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.w-md .hrt > svg { width: 20px; height: 20px; fill: none; stroke: #B794F0; stroke-width: 2; transition: fill .2s, stroke .2s; }
+.w-md .hrt.on > svg { fill: #FF2D55; stroke: #FF2D55; }
+.w-md .hrt.pop > svg { animation: hrt-pop .45s var(--ease); }
+@keyframes hrt-pop { 0% { transform: scale(1); } 35% { transform: scale(1.35); } 100% { transform: scale(1); } }
+.hrt-burst { position: absolute; left: 50%; top: 50%; width: 0; height: 0; pointer-events: none; z-index: 5; }
+.w-md .hrt-burst svg { position: absolute; fill: #FF2D55; filter: drop-shadow(0 0 4px rgba(255, 45, 85, .5)); transform: translate(-50%, -50%); }
 
 /* dynamic island */
 .island { align-self: center; display: flex; align-items: center; gap: 14px; width: min(100%, 380px); padding: 14px 20px 14px 14px; border-radius: 999px; background: #000; color: #fff; box-shadow: 0 24px 50px -20px rgba(0, 0, 0, .7); animation: island 6s var(--ease) infinite; }

@@ -767,6 +767,40 @@
     addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
   })();
 
+  /* --- Soul Spark widget: tap the heart to like the quote, hearts burst up like in the app --- */
+  (function sparkHeart() {
+    const h = $('.js-spark-heart'); if (!h) return;
+    const PATH = $('path', h).getAttribute('d');
+    const burst = () => {
+      const layer = document.createElement('span'); layer.className = 'hrt-burst'; h.appendChild(layer);
+      const n = 22;
+      for (let i = 0; i < n; i++) {
+        const a = (-160 + 140 * i / (n - 1)) * Math.PI / 180 + (Math.random() - .5) * .4;
+        const d = 90 + Math.random() * 70, sz = [14, 17, 20, 24][Math.floor(Math.random() * 4)];
+        const el = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        el.setAttribute('viewBox', '0 0 24 24'); el.style.width = el.style.height = sz + 'px';
+        el.innerHTML = `<path d="${PATH}"/>`; layer.appendChild(el);
+        const r = (Math.random() - .5) * 80;
+        el.animate([
+          { transform: 'translate(-50%,-50%) scale(.3) rotate(0deg)', opacity: 1 },
+          { transform: `translate(calc(-50% + ${Math.cos(a) * d * .7}px), calc(-50% + ${Math.sin(a) * d * .7}px)) scale(.75) rotate(${r * .7}deg)`, opacity: 1, offset: .55 },
+          { transform: `translate(calc(-50% + ${Math.cos(a) * d}px), calc(-50% + ${Math.sin(a) * d}px)) scale(.8) rotate(${r}deg)`, opacity: 0 }
+        ], { duration: 1400, delay: Math.random() * 120, easing: 'cubic-bezier(.2,.7,.3,1)', fill: 'both' });
+      }
+      setTimeout(() => layer.remove(), 1700);
+    };
+    const like = () => {
+      const on = h.classList.toggle('on');
+      if (!on) return; // unliking is quiet, like the app
+      h.classList.remove('pop'); void h.offsetWidth; h.classList.add('pop');
+      if (!reduce) burst();
+    };
+    h.addEventListener('click', like);
+    // show it once when the card comes into view
+    const io = new IntersectionObserver(([e]) => { if (!e.isIntersecting) return; io.disconnect(); setTimeout(() => { if (!h.classList.contains('on')) like(); }, 900); }, { threshold: .9 });
+    io.observe(h.closest('.w-md'));
+  })();
+
   // Smooth in-page anchors under the floating nav
   $$('a[href^="#"]').forEach(a => a.addEventListener('click', (e) => { const id = a.getAttribute('href'); if (id.length < 2) return; const t = $(id); if (!t) return; e.preventDefault(); scrollTo({ top: id === '#top' ? 0 : t.getBoundingClientRect().top + scrollY - 80, behavior: reduce ? 'auto' : 'smooth' }); }));
 })();

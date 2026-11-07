@@ -65,17 +65,15 @@
             if (target) {
                 var show = function () { document.documentElement.style.visibility = ""; };
                 document.documentElement.style.visibility = "hidden";
-                // If the jump doesn't happen, or they come back, show the page with both buttons.
+                // If the jump doesn't happen, or they come back from the store, show the page with
+                // both buttons rather than a blank screen.
                 window.addEventListener("pageshow", function (e) { if (e.persisted) show(); });
-                if (isIOS) {
+                document.addEventListener("visibilitychange", function () { if (document.visibilityState === "visible") show(); });
+                // A browser may stop building the page once the store starts opening, so build it first.
+                document.addEventListener("DOMContentLoaded", function () {
+                    setTimeout(show, 1500);
                     location.replace(target);
-                } else {
-                    // Android stops building the page once an app link starts, so build it first.
-                    document.addEventListener("DOMContentLoaded", function () {
-                        setTimeout(show, 1500);
-                        location.replace(target);
-                    });
-                }
+                });
             }
         })();
     </script>

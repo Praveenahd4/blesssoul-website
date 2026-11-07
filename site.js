@@ -323,7 +323,7 @@
   /* --- dates inside the phones are today's, never a frozen demo day --- */
   (function datePhones() {
     const hr = new Date().getHours();
-    $$('.greet').forEach(g => g.textContent = (hr < 12 ? 'Good Morning' : hr < 18 ? 'Good Afternoon' : 'Good Evening') + ', Avery!');
+    $$('.greet').forEach(g => g.textContent = (hr < 12 ? 'Good Morning' : hr < 18 ? 'Good Afternoon' : 'Good Evening') + ', Sara!');
     $$('.date').forEach(d => d.textContent = fmt(today, { weekday: 'long', day: 'numeric', month: 'long' }));
     // Home: the sleep card and the portal mini-card
     $$('.nightcard').forEach(c => { $$('img', c).forEach(i => i.src = moonSrc(tonight.img)); const sh = $('.sh', c); if (sh) sh.textContent = COPY.sleep; const sm = $('.sm', c); if (sm) sm.innerHTML = `<img src="${moonSrc(tonight.img)}" alt=""> ${tonight.name} · <i>✦ ${COPY.tone.toLowerCase()}</i>`; });

@@ -134,13 +134,14 @@
         .store svg { width: 26px; height: 26px; flex: none; }
         .store small { display: block; font-size: 0.68rem; font-weight: 500; opacity: 0.8; }
         .store b { display: block; font-size: 1.15rem; font-weight: 600; line-height: 1.1; letter-spacing: -0.01em; }
-        .store.apple {
+        /* Both stores look the same; the one you point at or tap turns orange. */
+        .store.apple, .store.play { background: var(--glass); border: 1px solid var(--edge); }
+        .store.apple:hover, .store.play:hover, .store.apple:active, .store.play:active,
+        .store.apple:focus-visible, .store.play:focus-visible {
+            transform: translateY(-2px); border-color: transparent;
             background: linear-gradient(135deg, #f97316, #ea580c 55%, #c2410c);
-            box-shadow: 0 10px 30px -8px rgba(234, 88, 12, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+            box-shadow: 0 16px 40px -10px rgba(234, 88, 12, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.25);
         }
-        .store.apple:hover { transform: translateY(-2px); box-shadow: 0 16px 40px -10px rgba(234, 88, 12, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.25); }
-        .store.play { background: var(--glass); border: 1px solid var(--edge); }
-        .store.play:hover { transform: translateY(-2px); background: rgba(255, 255, 255, 0.09); }
         .store.soon { background: var(--glass); border: 1px dashed rgba(255, 255, 255, 0.2); }
         .store.soon b { color: var(--ink-2); }
         .note { color: var(--ink-3); font-size: 0.85rem; line-height: 1.5; margin: 14px auto 0; max-width: 26rem; }

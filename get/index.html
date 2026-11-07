@@ -192,16 +192,12 @@
                     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.37 12.6c-.02-2.25 1.84-3.33 1.92-3.38-1.05-1.53-2.68-1.74-3.26-1.76-1.39-.14-2.71.82-3.42.82-.71 0-1.79-.8-2.95-.78-1.52.02-2.92.88-3.7 2.24-1.58 2.74-.4 6.79 1.13 9.01.75 1.09 1.64 2.31 2.81 2.26 1.13-.05 1.55-.73 2.92-.73 1.36 0 1.75.73 2.94.71 1.21-.02 1.98-1.11 2.72-2.2.86-1.26 1.21-2.48 1.23-2.54-.03-.01-2.36-.91-2.34-3.6zM14.13 5.99c.62-.75 1.04-1.8.93-2.84-.9.04-1.98.6-2.62 1.35-.58.67-1.08 1.73-.94 2.76 1 .08 2.02-.51 2.63-1.27z"/></svg>
                     <span><small>Download on the</small><b>App Store</b></span>
                 </a>
-                <a class="store play hidden" id="playstore" href="#" rel="noopener">
+                <a class="store play" id="playstore" href="https://play.google.com/store/apps/details?id=praveenahd.blesssoul" rel="noopener">
                     <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#34A853" d="M3.6 2.3 13.4 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m16.8 8.6-3.4 3.4 3.4 3.4 3.9-2.2c.7-.4.7-1.4 0-1.8l-3.9-2.8z"/><path fill="#4285F4" d="M3.6 21.7 13.4 12l3.4 3.4-11.5 6.6c-.6.3-1.2.2-1.7-.3z"/><path fill="#EA4335" d="M3.6 2.3c.5-.5 1.1-.6 1.7-.3l11.5 6.6-3.4 3.4L3.6 2.3z"/></svg>
                     <span><small>Get it on</small><b>Google Play</b></span>
                 </a>
-                <span class="store soon" id="androidsoon">
-                    <svg viewBox="0 0 24 24" aria-hidden="true" opacity=".75"><path fill="#34A853" d="M3.6 2.3 13.4 12 3.6 21.7c-.4-.2-.6-.6-.6-1.1V3.4c0-.5.2-.9.6-1.1z"/><path fill="#FBBC04" d="m16.8 8.6-3.4 3.4 3.4 3.4 3.9-2.2c.7-.4.7-1.4 0-1.8l-3.9-2.8z"/><path fill="#4285F4" d="M3.6 21.7 13.4 12l3.4 3.4-11.5 6.6c-.6.3-1.2.2-1.7-.3z"/><path fill="#EA4335" d="M3.6 2.3c.5-.5 1.1-.6 1.7-.3l11.5 6.6-3.4 3.4L3.6 2.3z"/></svg>
-                    <span><small>Google Play</small><b>Coming soon</b></span>
                 </span>
             </div>
-            <p class="note hidden" id="androidnote">Keep this link — on launch day it will open straight in Google Play.</p>
         </div>
 
     </main>
@@ -211,14 +207,7 @@
     <script>
         (function () {
             var L = window.BLESSSOUL_LINKS || {};
-            if (L.playLive) {
-                var p = document.getElementById("playstore");
-                p.href = L.play;
-                p.classList.remove("hidden");
-                document.getElementById("androidsoon").classList.add("hidden");
-            } else if (L.isAndroid) {
-                document.getElementById("androidnote").classList.remove("hidden");
-            }
+            if (L.play) document.getElementById("playstore").href = L.play;
 
             // The stars — a light twinkle on one canvas. Still for anyone who asked for less motion.
             var c = document.getElementById("stars"), ctx = c.getContext("2d");

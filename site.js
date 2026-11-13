@@ -615,7 +615,7 @@
   const desktop = matchMedia('(min-width: 981px)');
   // which phone each step shows: a step with two phones (Action, Rhythm) changes only when its pill
   // or its rail sub-point is pressed, and remembers the choice
-  const pick = steps.map(() => 0);
+  const pick = steps.map(() => 0), zone = steps.map(() => -1);
   let active = -1, stageVisible = false;
 
   function place() {
@@ -649,16 +649,26 @@
     if (!desktop.matches) return;
     const mid = innerHeight * .5; let best = 0;
     steps.forEach((s, k) => { if (s.getBoundingClientRect().top < mid) best = k; });
+    // in a two-phone step the first half of its scroll shows the first phone, the second half the second
+    if (STEP_SCENES[best].length > 1) {
+      const r = steps[best].getBoundingClientRect(), n = (mid - r.top) / r.height >= .5 ? 1 : 0;
+      if (best !== active || n !== zone[best]) { zone[best] = n; pick[best] = n; if (best === active) showScene(best); }
+    }
     activate(best);
   }
-  const toStep = (k) => { const s = steps[k]; scrollTo({ top: s.getBoundingClientRect().top + scrollY - innerHeight * .3, behavior: reduce ? 'auto' : 'smooth' }); };
-  steps.forEach((st, i) => $$('.s-subtabs button', st).forEach((b, n) => b.addEventListener('click', () => choose(i, n))));
+  // scroll to a step; in a two-phone step, to the half that shows phone n
+  const toStep = (k, n = 0) => {
+    const s = steps[k], r = s.getBoundingClientRect(), two = desktop.matches && STEP_SCENES[k].length > 1;
+    const y = two ? r.top + scrollY - innerHeight * .5 + r.height * (n ? .62 : .12) : r.top + scrollY - innerHeight * .3;
+    scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
+  };
+  steps.forEach((st, i) => $$('.s-subtabs button', st).forEach((b, n) => b.addEventListener('click', () => { choose(i, n); if (desktop.matches) toStep(i, n); })));
   if (stage) {
     new IntersectionObserver(([e]) => { stageVisible = e.isIntersecting; if (!desktop.matches) return; if (stageVisible) { const k = active; active = -1; activate(Math.max(0, k)); } else SCENE_RUN.forEach(r => r.stop()); }, { threshold: 0 }).observe($('.s-how-grid'));
     addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
     railItems.forEach((li, k) => {
       li.addEventListener('click', () => toStep(k));
-      $$('.s-rail-sub li', li).forEach((sub, n) => sub.addEventListener('click', (e) => { e.stopPropagation(); choose(k, n); if (k !== active) toStep(k); }));
+      $$('.s-rail-sub li', li).forEach((sub, n) => sub.addEventListener('click', (e) => { e.stopPropagation(); choose(k, n); toStep(k, n); }));
     });
     desktop.addEventListener('change', place);
     place();

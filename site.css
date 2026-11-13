@@ -261,8 +261,8 @@ body.qr-open { overflow: hidden; }
 .s-subtabs button:hover { color: var(--ink-2); border-color: color-mix(in srgb, var(--gold) 30%, var(--hair)); }
 .s-subtabs button.on { color: var(--ink); background: var(--surface-2); border-color: color-mix(in srgb, var(--gold) 55%, transparent); }
 .s-subtabs button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
-.s-step > h3 { font-family: var(--serif); font-weight: 500; font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: 1.12; letter-spacing: -.01em; margin: 16px 0 18px; text-wrap: balance; }
-.s-step > p { margin: 0; color: var(--ink-2); font-size: 1.08rem; max-width: 470px; text-wrap: pretty; }
+.s-step > h3, .s-step-in > h3 { font-family: var(--serif); font-weight: 500; font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: 1.12; letter-spacing: -.01em; margin: 16px 0 18px; text-wrap: balance; }
+.s-step > p, .s-step-in > p { margin: 0; color: var(--ink-2); font-size: 1.08rem; max-width: 470px; text-wrap: pretty; }
 .s-tags { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
 .s-tags li { font-size: .82rem; font-weight: 500; padding: 7px 13px; border-radius: 999px; background: var(--surface); border: 1px solid var(--hair); color: var(--ink-2); box-shadow: var(--rim); }
 .s-slot { display: none; }
@@ -516,7 +516,7 @@ img.is-new { opacity: .22; filter: grayscale(1); }
   .s-how-grid { grid-template-columns: 1fr; }
   .s-stage-col { display: none; }
   .s-step { min-height: 0; opacity: 1; padding: 50px 0 30px; text-align: center; align-items: center; border-top: 1px solid var(--hair); }
-  .s-step > p { margin: 0 auto; }
+  .s-step > p, .s-step-in > p { margin: 0 auto; }
   .s-slot { text-align: left; }
   .s-tags { justify-content: center; }
   .s-subtabs { display: none; }
@@ -691,3 +691,14 @@ img.is-new { opacity: .22; filter: grayscale(1); }
 .s-rail .s-rail-sub li:hover { color: var(--ink-2); }
 .s-rail > li.on .s-rail-sub li.on { color: var(--ink); opacity: 1; }
 .s-rail > li.on .s-rail-sub li.on::before { width: 8px; background: var(--gold); opacity: 1; }
+
+/* Action and Rhythm hold two phones: on desktop the step is taller and its text stays pinned while
+   scrolling moves from the first phone to the second (the pills switch them too) */
+.s-step-in { display: flex; flex-direction: column; }
+@media (min-width: 981px) {
+  .s-step.two { min-height: 170vh; justify-content: flex-start; }
+  .s-step.two > .s-step-in { position: sticky; top: calc(50vh - 190px); }
+}
+@media (max-width: 980px) {
+  .s-step-in { align-items: center; width: 100%; }
+}

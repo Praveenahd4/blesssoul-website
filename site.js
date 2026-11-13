@@ -317,7 +317,7 @@
       for (let i = 0; i < 9; i++) s += `<i class="mote" style="--x:${rnd(4, 96).toFixed(1)}%;--y:${rnd(0, 100).toFixed(1)}%;--sz:${rnd(4, 9).toFixed(1)}px;--dur:${rnd(16, 28).toFixed(1)}s;--delay:${(-rnd(0, 28)).toFixed(1)}s"></i>`;
       for (let i = 0; i < 34; i++) s += `<i class="star" style="--x:${rnd(2, 98).toFixed(1)}%;--y:${rnd(2, 98).toFixed(1)}%;--sz:${rnd(.8, 2.2).toFixed(1)}px;--dur:${rnd(1.2, 3.2).toFixed(1)}s;--delay:${(-rnd(0, 3)).toFixed(1)}s"></i>`;
       s += `<i class="shoot" style="--y:${rnd(4, 30).toFixed(0)}%;--delay:${(-rnd(0, 14)).toFixed(1)}s"></i>`; f.innerHTML = s; return f; };
-    $$('.device .screen').forEach(screen => { if (screen.closest('.device.journey')) return; const hosts = $$('.view', screen).filter(v => !v.classList.contains('v-sleep')); (hosts.length ? hosts : [screen]).forEach(h => h.prepend(layer())); });
+    $$('.device .screen').forEach(screen => { if (screen.closest('.device.journey, #sleepDevice')) return; const hosts = $$('.view', screen).filter(v => !v.classList.contains('v-sleep')); (hosts.length ? hosts : [screen]).forEach(h => h.prepend(layer())); });
   })();
 
   /* --- dates inside the phones are today's, never a frozen demo day --- */
@@ -371,15 +371,6 @@
     const chips = $$('.gchips span', pd); const moons = events.filter(e => e.moon).length, nums = events.filter(e => /Portal/.test(e.title)).length;
     if (chips[1]) chips[1].textContent = `☾ Moon Phase (${moons})`; if (chips[2]) chips[2].textContent = `✦ Number Portal (${nums})`;
     const pc = $('.plan-h[style*="FF8C42"] span', pd); if (pc) pc.textContent = `${today.getFullYear()} PORTALS`;
-    // Soul Sleep screen
-    $$('.v-sleep img', pd).forEach(i => i.src = moonSrc(tonight.img));
-    const badge = $('.sl-badge', pd); if (badge) badge.innerHTML = `<img src="${moonSrc(tonight.img)}" alt="">${tonight.name}`;
-    const sh = $('.sl-head', pd); if (sh) sh.textContent = COPY.sleep;
-    const sm = $('.sl-msg', pd); if (sm) sm.textContent = COPY.smsg;
-    const rd = $('.sl-box.decl .read', pd); if (rd) rd.textContent = COPY.speak;
-    const ga = $('.sl-box.ga p', pd); if (ga) ga.textContent = COPY.gentle;
-    const ft = $('.sl-foot', pd); if (ft) ft.innerHTML = `<i>☀</i> Today's cosmic theme: ${COPY.head}`;
-    const it = $('.sl-int', pd); if (it) it.innerHTML = `✦ &nbsp;${COPY.tone}&nbsp; ✦`;
     // Home Screen widget mock in the details grid
     $$('.js-pw-head').forEach(el => el.textContent = COPY.head);
     if (next) {
@@ -505,25 +496,66 @@
     ], 9800);
   });
 
-  /* --- Portal: today's energy → scroll to tonight's card → open Soul Sleep → read along → back --- */
+  /* --- Portal: today's energy → down the year's portals → back up to tonight's sleep card --- */
   runners.portal = Runner($('#portalDevice'), (r) => {
-    const pd = r.device, card = $('.nightcard[data-tap="sleep"]', pd), read = $('.read', pd), ps = $('.pscroll', pd), clip = $('.pclip', pd);
-    if (read) read.innerHTML = read.textContent.trim().split(/\s+/).map(w => `<span>${w}</span>`).join(' ');
-    const words = $$('.read span', pd), W = words.length;
+    const pd = r.device, card = $('.nightcard[data-tap="sleep"]', pd), ps = $('.pscroll', pd), clip = $('.pclip', pd);
     const scrollTo = (y) => { if (!ps || !clip) return; const max = Math.max(0, ps.scrollHeight - clip.clientHeight); ps.style.transform = `translateY(${-Math.min(max, Math.max(0, y))}px)`; };
-    const toCard = () => card && scrollTo(card.offsetTop - 110);
-    const T = 6200 + W * 240;
     return sequence(r, [
-      [0, () => { pop(pd, 'v-portal'); scrollTo(0); words.forEach(w => w.classList.remove('lit', 'read-done')); }],
-      [2600, toCard],
-      [4600, () => tapAt(pd, card)],
-      [5000, () => push(pd, 'v-sleep')],
-      [6200, () => words.forEach((w, i) => r.later(() => { w.classList.add('lit'); if (i > 0) { words[i - 1].classList.remove('lit'); words[i - 1].classList.add('read-done'); } }, i * 240))],
-      [T + 500, () => words.forEach(w => w.classList.add('lit'))],
-      [T + 2600, () => tapAt(pd, $('.v-sleep .back', pd))],
-      [T + 3000, () => pop(pd, 'v-portal')],
-      [T + 4200, () => scrollTo(1e6)]
-    ], T + 10200);
+      [0, () => scrollTo(0)],
+      [2400, () => scrollTo(1e6)],
+      [5600, () => card && scrollTo(card.offsetTop - 110)],
+      [9200, () => scrollTo(0)]
+    ], 11600);
+  });
+
+  /* --- Soul Sleep · Listen: press Listen → the player slides up → she reads and the words light in
+         order → "Speak to the Universe" one sentence at a time with room to say it back → the gentle
+         action → the closing repeat → the piano ends → close. A real night (13 Nov 2026) and the real
+         section timings of its clip, played at about a third of the time. --- */
+  runners.sleep = Runner($('#sleepDevice'), (r) => {
+    const d = r.device, v = d && $('.lsn', d); if (!v) return { loop() {} };
+    const sky = $('.lsn-sky', v);
+    if (sky && !sky.children.length) { let h = ''; for (let i = 0; i < 46; i++) h += `<i style="--x:${(Math.random() * 98 + 1).toFixed(1)}%;--y:${(Math.random() * 96 + 2).toFixed(1)}%;--sz:${(Math.random() * 1.4 + .7).toFixed(1)}px;--dur:${(Math.random() * 2.4 + 1.6).toFixed(1)}s;--delay:${(-Math.random() * 3).toFixed(1)}s"></i>`; sky.innerHTML = h; }
+    const clip = $('.lsn-clip', v), scr = $('.lsn-scroll', v), btn = $('.lsn-btn', v), panel = $('.lsn-in', v), status = $('.lsn-status', v);
+    const track = $('.lsn-track', v), now = $('.lsn-now', v), decl = $('.decl', v), sens = $$('.sen', v), parts = $$('[data-part]', v);
+    // daily_sleep_audio, night 2026-11-13, version 3: where each part starts (seconds)
+    const DUR = 85.66, SECTIONS = [['headline', 0], ['message', 3.52], ['cue', 19.94], ['affirmation#0', 26.75], ['affirmation#1', 43.06], ['affirmation#2', 48.88], ['action', 55.62], ['repeat_cue', 66.86], ['repeat#0', 69.35]];
+    const SPEED = 360, START = 2700, END = START + DUR * SPEED; // ms of animation per second of audio
+    const clock = (t) => `${Math.floor(t / 60)}:${String(Math.floor(t % 60)).padStart(2, '0')}`;
+    const setBar = (t) => { if (track) track.style.setProperty('--p', (t / DUR * 100).toFixed(2) + '%'); if (now) now.textContent = clock(t); };
+    const setState = (st, text) => { panel.classList.remove('loading', 'playing', 'finished'); panel.classList.add(st); status.textContent = text; };
+    const scrollTo = (el) => { if (!clip || !scr) return; const max = Math.max(0, scr.scrollHeight - clip.clientHeight), y = el ? el.offsetTop + el.offsetHeight / 2 - clip.clientHeight / 2 : 0; scr.style.transform = `translateY(${-Math.min(max, Math.max(0, y))}px)`; };
+    // SleepAudioClip.block(of:): from the hand-over to the closing repeat it is the listener's own words
+    const block = (pos) => { const p = pos.split('#')[0]; return ['cue', 'affirmation', 'repeat_cue', 'repeat'].includes(p) ? 'affirmation' : p; };
+    const setPart = (pos) => {
+      const b = block(pos), si = pos.includes('#') ? +pos.split('#')[1] : -1;
+      parts.forEach(el => el.classList.toggle('cur', el.dataset.part === b));
+      decl.classList.toggle('turn', b === 'affirmation'); decl.classList.toggle('one', b === 'affirmation' && si >= 0);
+      sens.forEach((s, i) => s.classList.toggle('lit', i === si));
+      scrollTo(parts.find(el => el.dataset.part === b));
+    };
+    const reset = () => {
+      v.classList.remove('listening', 'reading', 'fade'); btn.classList.remove('press');
+      parts.forEach(el => el.classList.remove('cur')); decl.classList.remove('turn', 'one'); sens.forEach(s => s.classList.remove('lit'));
+      setState('loading', 'Starting…'); setBar(0); scrollTo(null);
+    };
+    // Reduced motion: one still frame — the player up and the second line of the affirmation lit.
+    if (reduce) return { loop() { reset(); v.classList.add('listening', 'reading'); setState('playing', 'The piano ends gently soon after the reading'); setBar(43.06); setPart('affirmation#1'); } };
+    let t0 = 0;
+    const tick = () => { const t = Math.min(DUR, (performance.now() - t0) / SPEED); setBar(t); if (t < DUR) r.later(tick, 250); };
+    return sequence(r, [
+      [0, reset],
+      [1500, () => { tapAt(d, btn); btn.classList.add('press'); }],
+      [1800, () => { v.classList.add('listening'); setState('loading', 'Starting…'); }],
+      [START, () => { setState('playing', 'The piano ends gently soon after the reading'); v.classList.add('reading'); t0 = performance.now(); tick(); }],
+      ...SECTIONS.map(([pos, at]) => [START + at * SPEED, () => setPart(pos)]),
+      // the voice track ends: every part back to full, and the piano comes to its own close
+      [END, () => { v.classList.remove('reading'); decl.classList.remove('turn', 'one'); sens.forEach(s => s.classList.remove('lit')); setBar(DUR); status.textContent = 'The piano ends gently in under a minute'; }],
+      [END + 2600, () => { setState('finished', 'Sweet dreams.'); scrollTo(null); }],
+      [END + 4600, () => tapAt(d, $('.lsn-x', v))],
+      [END + 4900, () => v.classList.remove('listening')],
+      [END + 6600, () => v.classList.add('fade')]
+    ], END + 7300);
   });
 
   /* --- Soul Awakening: Day 3 is open; it seals and Day 4 opens --- */
@@ -576,36 +608,42 @@
   /* =========================================================================
      4. How it works: sticky stage on desktop, phones inline on phones
      ========================================================================= */
-  const steps = $$('.s-step'), scenes = $$('.scene'), stage = $('#stage'), railItems = $$('.s-rail li'), rail = $('.s-rail');
-  const SCENE_RUN = [runners.practice, runners.goals, runners.sched, runners.portal, runners.journey, runners.spark];
-  const GLOW = ['rgba(255,170,90,.45)', 'rgba(110,210,150,.38)', 'rgba(120,140,255,.34)', 'rgba(160,120,255,.42)', 'rgba(255,140,170,.38)', 'rgba(190,140,255,.4)'];
-  // how long each phone plays before a step with two phones hands over to the next one
-  const HOLD = [0, 12000, 9600, 0, 0, 0];
+  const steps = $$('.s-step'), scenes = $$('.scene'), stage = $('#stage'), railItems = $$('.s-rail > li'), rail = $('.s-rail');
+  const SCENE_RUN = [runners.practice, runners.goals, runners.sched, runners.portal, runners.sleep, runners.journey, runners.spark];
+  const GLOW = ['rgba(255,170,90,.45)', 'rgba(110,210,150,.38)', 'rgba(120,140,255,.34)', 'rgba(160,120,255,.42)', 'rgba(120,110,255,.42)', 'rgba(255,140,170,.38)', 'rgba(190,140,255,.4)'];
   const STEP_SCENES = steps.map(s => (s.dataset.scenes || '').split(',').map(Number));
   const desktop = matchMedia('(min-width: 981px)');
-  let active = -1, stageVisible = false, rotate = 0;
+  // which phone each step shows: a step with two phones (Action, Rhythm) changes only when its pill
+  // or its rail sub-point is pressed, and remembers the choice
+  const pick = steps.map(() => 0);
+  let active = -1, stageVisible = false;
 
   function place() {
     if (desktop.matches) scenes.forEach(s => stage.appendChild(s));
     else steps.forEach((st, i) => { const slots = $$('.s-slot', st); STEP_SCENES[i].forEach((k, n) => { if (slots[n] && scenes[k]) { slots[n].appendChild(scenes[k]); scenes[k].style.setProperty('--sg', GLOW[k]); } }); });
-    active = -1; clearTimeout(rotate); SCENE_RUN.forEach(r => r.stop()); sync();
+    active = -1; SCENE_RUN.forEach(r => r.stop()); sync();
   }
-  function showScene(i, n) {
-    const list = STEP_SCENES[i], k = list[n % list.length];
+  function showScene(i) {
+    const list = STEP_SCENES[i], n = pick[i] % list.length, k = list[n];
     scenes.forEach((s, x) => { s.classList.toggle('on', x === k); s.classList.toggle('past', x < k); });
-    $$('.s-subtabs span', steps[i]).forEach((t, x) => { t.style.setProperty('--hold', (HOLD[list[x]] || 10000) / 1000 + 's'); t.classList.remove('on'); if (x === n % list.length) { void t.offsetWidth; t.classList.add('on'); } });
+    $$('.s-subtabs button', steps[i]).forEach((t, x) => { t.classList.toggle('on', x === n); t.setAttribute('aria-pressed', x === n); });
+    $$('.s-rail-sub li', railItems[i]).forEach((li, x) => li.classList.toggle('on', x === n));
     if (stage) stage.style.setProperty('--sg', GLOW[k]);
     SCENE_RUN.forEach((r, x) => { if (x === k && stageVisible) r.start(); else r.stop(); });
-    clearTimeout(rotate);
-    if (list.length > 1 && stageVisible) rotate = setTimeout(() => showScene(i, n + 1), HOLD[k] || 10000);
+  }
+  function choose(i, n) {
+    pick[i] = n;
+    if (desktop.matches && i === active) showScene(i);
   }
   function activate(i) {
     if (i === active) return;
     active = i;
     steps.forEach((s, k) => s.classList.toggle('on', k === i));
     railItems.forEach((li, k) => li.classList.toggle('on', k === i));
-    if (rail) rail.style.setProperty('--rp', ((i + 1) / steps.length * 100) + '%');
-    showScene(i, 0);
+    // the progress line runs down to the active step's dot
+    const li = railItems[i], dot = li && $('i', li);
+    if (rail && dot) rail.style.setProperty('--rp', i === steps.length - 1 ? '100%' : (li.offsetTop + dot.offsetTop + dot.offsetHeight / 2) + 'px');
+    showScene(i);
   }
   function sync() {
     if (!desktop.matches) return;
@@ -613,10 +651,15 @@
     steps.forEach((s, k) => { if (s.getBoundingClientRect().top < mid) best = k; });
     activate(best);
   }
+  const toStep = (k) => { const s = steps[k]; scrollTo({ top: s.getBoundingClientRect().top + scrollY - innerHeight * .3, behavior: reduce ? 'auto' : 'smooth' }); };
+  steps.forEach((st, i) => $$('.s-subtabs button', st).forEach((b, n) => b.addEventListener('click', () => choose(i, n))));
   if (stage) {
-    new IntersectionObserver(([e]) => { stageVisible = e.isIntersecting; if (!desktop.matches) return; if (stageVisible) { const k = active; active = -1; activate(Math.max(0, k)); } else { clearTimeout(rotate); SCENE_RUN.forEach(r => r.stop()); } }, { threshold: 0 }).observe($('.s-how-grid'));
+    new IntersectionObserver(([e]) => { stageVisible = e.isIntersecting; if (!desktop.matches) return; if (stageVisible) { const k = active; active = -1; activate(Math.max(0, k)); } else SCENE_RUN.forEach(r => r.stop()); }, { threshold: 0 }).observe($('.s-how-grid'));
     addEventListener('scroll', () => requestAnimationFrame(sync), { passive: true });
-    railItems.forEach((li, k) => li.addEventListener('click', () => { const s = steps[k]; scrollTo({ top: s.getBoundingClientRect().top + scrollY - innerHeight * .3, behavior: reduce ? 'auto' : 'smooth' }); }));
+    railItems.forEach((li, k) => {
+      li.addEventListener('click', () => toStep(k));
+      $$('.s-rail-sub li', li).forEach((sub, n) => sub.addEventListener('click', (e) => { e.stopPropagation(); choose(k, n); if (k !== active) toStep(k); }));
+    });
     desktop.addEventListener('change', place);
     place();
     // on phones every scene plays while it is on screen

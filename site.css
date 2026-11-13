@@ -244,10 +244,10 @@ body.qr-open { overflow: hidden; }
    ========================================================================== */
 .s-how { padding: 150px 0 60px; position: relative; }
 .s-how-grid { display: grid; grid-template-columns: 120px 1fr 1fr; gap: 0 40px; position: relative; }
-.s-rail { position: sticky; top: calc(50vh - 130px); align-self: start; list-style: none; margin: 0; padding: 0 0 0 18px; height: 260px; display: flex; flex-direction: column; justify-content: space-between; border-left: 1px solid var(--hair); }
+.s-rail { position: sticky; top: calc(50vh - 170px); align-self: start; list-style: none; margin: 0; padding: 0 0 0 18px; display: flex; flex-direction: column; gap: 30px; border-left: 1px solid var(--hair); }
 .s-rail::before { content: ""; position: absolute; left: -1px; top: 0; width: 1px; height: var(--rp, 0%); background: linear-gradient(var(--gold), var(--lav)); transition: height .6s var(--ease); }
 .s-rail li { position: relative; font-size: .8rem; font-weight: 500; letter-spacing: .04em; color: var(--ink-3); transition: color .4s; cursor: pointer; }
-.s-rail li i { position: absolute; left: -23px; top: 50%; width: 9px; height: 9px; margin-top: -4.5px; border-radius: 50%; background: var(--bg); border: 1px solid var(--ink-3); transition: background .4s, border-color .4s, transform .4s var(--ease); }
+.s-rail li i { position: absolute; left: -23px; top: .8em; width: 9px; height: 9px; margin-top: -4.5px; border-radius: 50%; background: var(--bg); border: 1px solid var(--ink-3); transition: background .4s, border-color .4s, transform .4s var(--ease); }
 .s-rail li.on { color: var(--ink); }
 .s-rail li.on i { background: var(--gold); border-color: var(--gold); transform: scale(1.3); box-shadow: 0 0 0 5px color-mix(in srgb, var(--gold) 18%, transparent); }
 .s-steps { margin: 0; }
@@ -256,10 +256,11 @@ body.qr-open { overflow: hidden; }
 .s-num { font-size: .78rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); }
 .s-num em { font-family: var(--serif); font-style: italic; font-weight: 400; text-transform: none; letter-spacing: 0; font-size: 1rem; color: var(--ink-3); margin-left: 6px; }
 .s-subtabs { display: flex; gap: 6px; margin-top: 22px; }
-.s-subtabs span { position: relative; overflow: hidden; font-size: .84rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; color: var(--ink-3); border: 1px solid var(--hair); transition: color .4s, background .4s, border-color .4s; }
-.s-subtabs span.on { color: var(--ink); background: var(--surface-2); border-color: color-mix(in srgb, var(--gold) 40%, transparent); }
-.s-subtabs span.on::after { content: ""; position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--gold); transform-origin: left; animation: subFill var(--hold, 11s) linear forwards; }
-@keyframes subFill { from { transform: scaleX(0); } }
+/* the two phones of a step change only when a pill is pressed */
+.s-subtabs button { font: inherit; font-size: .84rem; font-weight: 600; padding: 8px 14px; border-radius: 999px; color: var(--ink-3); background: none; border: 1px solid var(--hair); cursor: pointer; transition: color .4s, background .4s, border-color .4s; }
+.s-subtabs button:hover { color: var(--ink-2); border-color: color-mix(in srgb, var(--gold) 30%, var(--hair)); }
+.s-subtabs button.on { color: var(--ink); background: var(--surface-2); border-color: color-mix(in srgb, var(--gold) 55%, transparent); }
+.s-subtabs button:focus-visible { outline: 2px solid var(--gold); outline-offset: 2px; }
 .s-step > h3 { font-family: var(--serif); font-weight: 500; font-size: clamp(1.9rem, 3vw, 2.6rem); line-height: 1.12; letter-spacing: -.01em; margin: 16px 0 18px; text-wrap: balance; }
 .s-step > p { margin: 0; color: var(--ink-2); font-size: 1.08rem; max-width: 470px; text-wrap: pretty; }
 .s-tags { list-style: none; padding: 0; margin: 26px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
@@ -613,3 +614,80 @@ img.is-new { opacity: .22; filter: grayscale(1); }
 /* final card: the belief line, in the serif, above the practical one */
 .s-final-copy .s-final-line { margin: 0 0 14px; font-family: var(--serif); font-style: italic; font-size: 1.45rem; line-height: 1.35; color: #FFD7A8; max-width: 520px; text-wrap: balance; }
 @media (max-width: 980px) { .s-final-copy .s-final-line { margin-left: auto; margin-right: auto; font-size: 1.25rem; } }
+
+/* ---- Soul Sleep · Listen phone (SoulSleepScreen + SoulSleepPlayerPanel, iOS 1.2.23) ----
+   The player docks at the bottom of the same screen; while she reads, the part being read is
+   bright and the rest rests at 35%. In "Speak to the Universe" one sentence is lit at a time. */
+#sleepDevice .screen { background: #08081A; }
+#sleepDevice .v-sleep { transition: opacity .6s ease; }
+#sleepDevice .v-sleep.fade { opacity: 0; }
+#sleepDevice .scr { display: flex; flex-direction: column; min-height: 0; padding: 6px 12px 0; overflow: hidden; zoom: 1; }
+.lsn-sky { position: absolute; inset: 0; pointer-events: none; }
+.lsn-sky i { position: absolute; left: var(--x); top: var(--y); width: var(--sz); height: var(--sz); border-radius: 50%; background: #fff; opacity: .5; animation: lsnTwinkle var(--dur) ease-in-out infinite alternate; animation-delay: var(--delay); }
+@keyframes lsnTwinkle { from { opacity: .12; } to { opacity: .85; } }
+.lsn-cloud { position: absolute; border-radius: 50%; filter: blur(9px); pointer-events: none; }
+.lsn-cloud.c1 { right: -8%; top: 20.5%; width: 120px; height: 24px; background: rgba(89, 66, 133, .5); }
+.lsn-cloud.c2 { right: 18%; top: 22%; width: 86px; height: 16px; background: rgba(82, 61, 122, .45); }
+#sleepDevice .nav-row.sl { position: relative; z-index: 2; }
+.lsn-back { font-size: 11px; font-weight: 500; color: #C4B5FC; }
+.lsn-clip { flex: 1; min-height: 0; overflow: hidden; position: relative; margin: 0 -12px; padding: 0 14px; -webkit-mask-image: linear-gradient(180deg, transparent, #000 12px, #000 calc(100% - 16px), transparent); mask-image: linear-gradient(180deg, transparent, #000 12px, #000 calc(100% - 16px), transparent); }
+.lsn-scroll { position: relative; display: flex; flex-direction: column; padding-bottom: 16px; transition: transform .8s ease-in-out; }
+#sleepDevice .sl-badge { align-self: flex-start; margin: 30px 0 16px; }
+#sleepDevice .sl-head { font-size: 18px; margin: 0 0 12px; }
+#sleepDevice .sl-msg { font-size: 10.5px; line-height: 1.7; margin: 0 2px 14px; }
+#sleepDevice .sl-box { margin-bottom: 12px; }
+#sleepDevice .sl-box.decl { background: rgba(129, 140, 248, .08); border-color: rgba(129, 140, 248, .2); }
+#sleepDevice .sl-box.decl.turn { background: rgba(129, 140, 248, .16); border-color: rgba(129, 140, 248, .5); }
+#sleepDevice .read { font-size: 11px; font-weight: 500; line-height: 1.7; color: #F5F2FF; margin: 0; }
+#sleepDevice .sl-box.ga > i { display: grid; width: 16px; }
+#sleepDevice .sl-box.ga > i svg { width: 16px; height: 16px; fill: none; stroke: #C4B5FC; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+#sleepDevice .sl-int { color: #818CF8; letter-spacing: .06em; }
+.lsn-btnwrap { display: flex; justify-content: center; max-height: 44px; margin: 0 0 14px; overflow: hidden; transition: max-height .35s ease, opacity .35s ease, margin .35s ease; }
+.lsn-btn { display: inline-flex; align-items: center; gap: 6px; padding: 8px 17px; border-radius: 999px; background: rgba(130, 140, 247, .28); border: 1px solid rgba(196, 181, 252, .35); color: #F5F2FF; font-size: 11.5px; font-weight: 600; transition: transform .2s ease; }
+.lsn-btn svg { width: 13px; height: 13px; fill: currentColor; stroke: currentColor; stroke-width: 2.2; }
+.lsn-btn.press { transform: scale(.94); }
+.lsn.listening .lsn-btnwrap { max-height: 0; opacity: 0; margin: 0; }
+.lsn-turn { max-height: 0; opacity: 0; overflow: hidden; color: #828CF7; font-size: 9.5px; font-weight: 500; transition: max-height .6s ease, opacity .6s ease, margin .6s ease; }
+.decl.turn .lsn-turn { max-height: 30px; opacity: 1; margin-bottom: 7px; }
+.lsn [data-part] { transition: opacity .7s ease, background .6s ease, border-color .6s ease; }
+.lsn.reading [data-part]:not(.cur) { opacity: .35; }
+.lsn .sen { transition: opacity .5s ease; }
+.lsn.reading .decl.one .sen:not(.lit) { opacity: .4; }
+/* the player */
+.lsn-dock { display: grid; grid-template-rows: 0fr; margin: 0 -12px; position: relative; z-index: 2; transition: grid-template-rows .45s ease; }
+.lsn.listening .lsn-dock { grid-template-rows: 1fr; }
+.lsn-panel { min-height: 0; overflow: hidden; }
+.lsn-in { display: flex; flex-direction: column; gap: 8px; padding: 10px 14px 16px; border-radius: 20px 20px 0 0; background: rgba(18, 15, 43, .94); border: 1px solid rgba(255, 255, 255, .08); border-bottom: 0; box-shadow: 0 -4px 20px rgba(0, 0, 0, .4); transform: translateY(100%); opacity: 0; transition: transform .45s ease, opacity .45s ease; }
+.lsn.listening .lsn-in { transform: none; opacity: 1; }
+.lsn-top { display: grid; grid-template-columns: 22px 1fr 22px; align-items: start; gap: 4px; }
+.lsn-status { text-align: center; font-size: 10px; line-height: 1.4; color: #C4B5FC; min-height: 22px; display: grid; place-items: center; font-variant-numeric: tabular-nums; transition: opacity .3s ease; }
+.lsn-x { width: 22px; height: 22px; border-radius: 50%; background: rgba(255, 255, 255, .06); display: grid; place-items: center; }
+.lsn-x svg { width: 10px; height: 10px; fill: none; stroke: #C4B5FC; stroke-width: 3; stroke-linecap: round; }
+.lsn-ctrls { display: flex; justify-content: center; align-items: center; gap: 16px; }
+.lsn-side { width: 54px; display: flex; flex-direction: column; align-items: center; gap: 4px; font-size: 8px; font-weight: 500; color: #C4B5FC; }
+.lsn-side i { width: 32px; height: 32px; border-radius: 50%; background: rgba(255, 255, 255, .06); display: grid; place-items: center; }
+.lsn-side svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.lsn-side:last-child svg { fill: currentColor; stroke: none; }
+.lsn-play { width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; color: #140F2E; background: linear-gradient(135deg, #F0C27A, #B894F0); }
+.lsn-play > * { grid-area: 1 / 1; display: none; }
+.lsn-play svg { width: 20px; height: 20px; fill: currentColor; }
+.lsn-play .ic-again { fill: none; stroke: currentColor; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.lsn-play .spin { width: 20px; height: 20px; border-radius: 50%; border: 2.5px solid rgba(20, 15, 46, .22); border-top-color: #140F2E; animation: lsnSpin .8s linear infinite; }
+@keyframes lsnSpin { to { transform: rotate(360deg); } }
+.lsn-in.loading .spin, .lsn-in.playing .ic-pause, .lsn-in.finished .ic-again { display: block; }
+.lsn-bar { padding: 0 4px; }
+.lsn-track { position: relative; height: 16px; --p: 0%; }
+.lsn-track::before, .lsn-fill { content: ""; position: absolute; left: 0; top: 6.5px; height: 3px; border-radius: 2px; }
+.lsn-track::before { right: 0; background: rgba(255, 255, 255, .14); }
+.lsn-fill { width: var(--p); background: #828CF7; }
+.lsn-knob { position: absolute; top: 3px; left: var(--p); width: 10px; height: 10px; margin-left: -5px; border-radius: 50%; background: #fff; box-shadow: 0 0 3px rgba(0, 0, 0, .3); }
+.lsn-times { display: flex; justify-content: space-between; font-size: 8px; font-weight: 500; color: rgba(196, 181, 252, .6); font-variant-numeric: tabular-nums; }
+.lsn-ai { text-align: center; font-size: 8px; color: rgba(196, 181, 252, .55); }
+
+/* rail: the two phones of Action and Rhythm as sub-points */
+.s-rail-sub { list-style: none; margin: 10px 0 0; padding: 0 0 0 12px; display: grid; gap: 7px; }
+.s-rail .s-rail-sub li { font-size: .74rem; letter-spacing: .02em; color: var(--ink-3); opacity: .8; }
+.s-rail .s-rail-sub li::before { content: ""; position: absolute; left: -12px; top: 50%; width: 6px; height: 1px; background: currentColor; opacity: .5; transition: background .4s, width .4s; }
+.s-rail .s-rail-sub li:hover { color: var(--ink-2); }
+.s-rail > li.on .s-rail-sub li.on { color: var(--ink); opacity: 1; }
+.s-rail > li.on .s-rail-sub li.on::before { width: 8px; background: var(--gold); opacity: 1; }

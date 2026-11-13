@@ -29,7 +29,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400..700;1,6..72,400..600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="site.css?v=11">
+    <link rel="stylesheet" href="site.css?v=12">
     <script>/* theme before first paint */(function(){try{var t=localStorage.getItem('bs-theme');if(t!=='dark'&&t!=='light'){t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
     <script type="application/ld+json">
     {
@@ -179,7 +179,10 @@
 
     <div class="s-wrap s-how-grid">
         <ol class="s-rail" aria-hidden="true">
-            <li><i></i>Intention</li><li><i></i>Action</li><li><i></i>Rhythm</li><li><i></i>Depth</li><li><i></i>Encouragement</li>
+            <li><i></i>Intention</li>
+            <li><i></i>Action<ul class="s-rail-sub"><li>Goals &amp; Habits</li><li>Soul Schedule</li></ul></li>
+            <li><i></i>Rhythm<ul class="s-rail-sub"><li>Soul Portal</li><li>Soul Sleep</li></ul></li>
+            <li><i></i>Depth</li><li><i></i>Encouragement</li>
         </ol>
 
         <div class="s-steps">
@@ -194,24 +197,24 @@
                 <span class="s-num">02 · Action <em>the work</em></span>
                 <h3>Then give it a habit, a goal and a place in your day.</h3>
                 <p>For each intention, BlessSoul suggests one daily habit and one measurable goal. Block time for them in your schedule, and keep the block you are in at a glance, even with the app closed. Done simply means you showed up.</p>
-                <div class="s-subtabs" aria-hidden="true"><span>Goals &amp; Habits</span><span>Soul Schedule</span></div>
+                <div class="s-subtabs"><button type="button" aria-pressed="true">Goals &amp; Habits</button><button type="button" aria-pressed="false">Soul Schedule</button></div>
                 <div class="s-slot"></div><div class="s-slot"></div>
             </article>
-            <article class="s-step" data-scenes="3">
+            <article class="s-step" data-scenes="3,4">
                 <span class="s-num">03 · Rhythm <em>the timing</em></span>
                 <h3>Let the moon set the pace.</h3>
-                <p>Moon phases, eclipses, retrogrades and number portals in one calendar. A message to start each morning, and a sleep ritual to close each night.</p>
-                <ul class="s-tags"><li>Soul Portal</li><li>Soul Sleep</li><li>Moon phase calendar</li></ul>
-                <div class="s-slot"></div>
+                <p>Moon phases, eclipses, retrogrades and number portals in one calendar. A message to start each morning, and a sleep ritual to close each night, which a calm AI voice can read to you over soft piano.</p>
+                <div class="s-subtabs"><button type="button" aria-pressed="true">Soul Portal</button><button type="button" aria-pressed="false">Soul Sleep</button></div>
+                <div class="s-slot"></div><div class="s-slot"></div>
             </article>
-            <article class="s-step" data-scenes="4">
+            <article class="s-step" data-scenes="5">
                 <span class="s-num">04 · Depth <em>the inner work</em></span>
                 <h3>Go deeper, one chakra a day.</h3>
                 <p>Soul Awakening is a seven-day journey from Root to Crown, with breathwork, honest questions and an offering in your own words. One day opens each day, and everything you write is kept in your Soul Record.</p>
                 <ul class="s-tags"><li>Soul Awakening</li><li>Guided audio</li><li>Your Soul Record</li></ul>
                 <div class="s-slot"></div>
             </article>
-            <article class="s-step" data-scenes="5">
+            <article class="s-step" data-scenes="6">
                 <span class="s-num">05 · Encouragement <em>the voice</em></span>
                 <h3>Words that keep you going.</h3>
                 <p>Soul Spark brings encouraging quotes from 100+ topics, from Calm Down to Hard Times, shaped by what you follow. In the app when you open it, and on your Home Screen when you don't.</p>
@@ -418,26 +421,53 @@
                         </div>
                         <div class="tabbar"><span class=""><svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/></svg>Home</span><span class=""><svg viewBox="0 0 24 24"><path d="M4 20l12-12M14 4l2 2M18 8l2 2M12 2v2M20 12h2"/></svg>Manifest</span><span class="on"><svg viewBox="0 0 24 24"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Portal</span><span class=""><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/></svg>Goals</span><span class=""><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 10h18M8 2v4M16 2v4"/></svg>Schedule</span></div>
                     </div>
-                    <div class="view v-sleep">
-                        <canvas class="slstars" aria-hidden="true"></canvas>
-                        <div class="slmoon" aria-hidden="true"><img src="assets/images/moon/moon-waxing-crescent.png" alt=""></div>
+                    <div class="tap"></div>
+                </div>
+            </div>
+                </div>
+                <div class="scene" data-scene="4">
+            <!-- Soul Sleep · Listen (SoulSleepScreen + SoulSleepPlayerPanel). A real night: 13 Nov 2026, with the
+                 section timings of its audio clip (daily_sleep_audio v3, 85.66 s), played faster. -->
+            <div class="device float" id="sleepDevice" aria-hidden="true">
+                <div class="screen">
+                    <div class="view v-sleep lsn on">
+                        <div class="lsn-sky"></div>
+                        <div class="slmoon"><img src="assets/images/moon/moon-waxing-crescent.png" alt=""></div>
+                        <div class="lsn-cloud c1"></div><div class="lsn-cloud c2"></div>
                         <div class="sb"><span>21:31</span><span class="r">●●● <i></i></span></div>
                         <div class="scr">
-                            <div class="nav-row sl"><span class="back">‹ Back</span><span class="slt">SOUL SLEEP</span><span class="gear">⚙</span></div>
-                            <div class="sl-badge"><img src="assets/images/moon/moon-waxing-crescent.png" alt="">Waxing Crescent</div>
-                            <div class="sl-head">You Already Have Some of It</div>
-                            <p class="sl-msg">Venus is retrograde until mid-November, turning attention back toward what you already chose. Tonight that is a kindness: there is less to reach for than you think.</p>
-                            <div class="sl-box decl"><div class="sl-lab"><i>✦</i>SPEAK TO THE UNIVERSE</div><p class="read">I see my life as a room I already furnished, full of things I once wanted and stopped noticing. Tonight I stop counting what is missing and rest inside what is already here. It is enough to sleep on.</p></div>
-                            <div class="sl-box ga"><i>✋</i><div><div class="sl-lab">GENTLE ACTION</div><p>Bring to mind one thing you already have that you once wished for. Rest a hand on your heart, thank it, and let your eyes close.</p></div></div>
-                            <div class="sl-foot"><i>☀</i> Today's cosmic theme: What You Already Chose</div>
-                            <div class="sl-int">✦ &nbsp;CALM&nbsp; ✦</div>
+                            <div class="nav-row sl"><span class="lsn-back">‹ Back</span><span class="slt">SOUL SLEEP</span><span class="gear">⚙</span></div>
+                            <div class="lsn-clip"><div class="lsn-scroll">
+                                <div class="sl-badge"><img src="assets/images/moon/moon-waxing-crescent.png" alt="">Waxing Crescent</div>
+                                <div class="sl-head" data-part="headline">Mercury Turns Forward</div>
+                                <div class="lsn-btnwrap"><span class="lsn-btn"><svg viewBox="0 0 24 24"><path d="M4 15v-3a8 8 0 0 1 16 0v3" fill="none"/><rect x="3" y="13.5" width="5" height="7.5" rx="2"/><rect x="16" y="13.5" width="5" height="7.5" rx="2"/></svg>Listen</span></div>
+                                <p class="sl-msg" data-part="message">Mercury ended its three-week retrograde today at 5° Scorpio. Tradition treats a station as a hinge rather than a switch — the shift is usually felt over the following week rather than tonight.</p>
+                                <div class="sl-box decl" data-part="affirmation">
+                                    <div class="sl-lab"><i>✦</i>SPEAK TO THE UNIVERSE</div>
+                                    <div class="lsn-turn">Say each line after her, aloud or in your heart</div>
+                                    <p class="read"><span class="sen">I see the small planet finish its long backward drift and begin, almost imperceptibly, to move forward again.</span> <span class="sen">What I reconsidered these three weeks is ready.</span> <span class="sen">I rest tonight and act on it in daylight.</span></p>
+                                </div>
+                                <div class="sl-box ga" data-part="action"><i><svg viewBox="0 0 24 24"><path d="M8 13.5V7a1.5 1.5 0 0 1 3 0v5M11 7V5.5a1.5 1.5 0 0 1 3 0V12M14 7a1.5 1.5 0 0 1 3 0v7a7 7 0 0 1-7 7h-.4a6 6 0 0 1-5-2.7l-1.4-2.2a1.6 1.6 0 0 1 2.6-1.8L8 15.5"/><path d="M19.5 2.5v3M18 4h3" stroke-width="1.4"/></svg></i><div><div class="sl-lab">GENTLE ACTION</div><p>Let one thing you reconsidered these three weeks settle into place.</p></div></div>
+                                <div class="sl-foot"><i>☀</i> Today's cosmic theme: Forward Again</div>
+                                <div class="sl-int">✦ &nbsp;calm&nbsp; ✦</div>
+                            </div></div>
+                            <div class="lsn-dock"><div class="lsn-panel"><div class="lsn-in">
+                                <div class="lsn-top"><span></span><span class="lsn-status">Starting…</span><span class="lsn-x"><svg viewBox="0 0 24 24"><path d="M7 7l10 10M17 7L7 17"/></svg></span></div>
+                                <div class="lsn-ctrls">
+                                    <span class="lsn-side"><i><svg viewBox="0 0 24 24"><path d="M19 14.6A7.6 7.6 0 1 1 9.4 5a6 6 0 0 0 9.6 9.6z"/><path d="M14.5 3.5h3.6l-3.6 4h3.6" stroke-width="1.5"/></svg></i>Timer off</span>
+                                    <span class="lsn-play"><b class="spin"></b><svg class="ic-pause" viewBox="0 0 24 24"><rect x="6.5" y="5" width="3.6" height="14" rx="1"/><rect x="13.9" y="5" width="3.6" height="14" rx="1"/></svg><svg class="ic-again" viewBox="0 0 24 24"><path d="M5 12a7 7 0 1 0 2.2-5.1M5 4.5v4h4" fill="none"/></svg></span>
+                                    <span class="lsn-side"><i><svg viewBox="0 0 24 24"><rect x="5" y="5" width="2.6" height="14" rx="1"/><path d="M19 6.2v11.6a1 1 0 0 1-1.6.8l-8.2-5.8a1 1 0 0 1 0-1.6l8.2-5.8a1 1 0 0 1 1.6.8z"/></svg></i>Start over</span>
+                                </div>
+                                <div class="lsn-bar"><div class="lsn-track"><i class="lsn-fill"></i><b class="lsn-knob"></b></div><div class="lsn-times"><span class="lsn-now">0:00</span><span>1:26</span></div></div>
+                                <div class="lsn-ai">Read by an AI voice</div>
+                            </div></div></div>
                         </div>
                     </div>
                     <div class="tap"></div>
                 </div>
             </div>
                 </div>
-                <div class="scene" data-scene="4">
+                <div class="scene" data-scene="5">
             <div class="device journey float" id="journeyDevice" aria-hidden="true">
                 <div class="screen">
                     <div class="sb"><span>9:41</span><span class="r">●●● <i></i></span></div>
@@ -451,7 +481,7 @@
                 </div>
             </div>
                 </div>
-                <div class="scene" data-scene="5">
+                <div class="scene" data-scene="6">
             <div class="device float" id="sparkDevice" aria-hidden="true">
                 <div class="screen spark-screen">
                     <div class="wash"></div>
@@ -662,6 +692,6 @@
 </div>
 
 <script src="assets/js/moon-table.js?v=1"></script>
-<script src="site.js?v=11" defer></script>
+<script src="site.js?v=12" defer></script>
 </body>
 </html>
